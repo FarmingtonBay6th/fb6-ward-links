@@ -2,7 +2,7 @@
 // Network-first for the page; every non-navigation request (icons, images,
 // manifest, cross-origin links) goes straight to the network so iOS can always
 // fetch the home-screen icon.
-const CACHE = "fb6-christus-v1";
+const CACHE = "fb6-christus-v2";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(["./"])).then(() => self.skipWaiting()));
