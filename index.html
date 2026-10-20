@@ -60,8 +60,14 @@
   .install-icon img { display:block; width:120px; height:120px; margin:0 auto 8px; border-radius:27px;
     box-shadow:0 6px 18px rgba(0,0,0,.22), 0 1px 3px rgba(0,0,0,.18); }
   .install-icon figcaption { font-size:15px; line-height:1.3; color:var(--soft); }
-  .install p { margin:0 auto; max-width:22em; font-size:20px; line-height:1.45; color:var(--ink); }
-  .install p b { color:var(--accent); }
+  .install .tip-h { font-weight:800; font-size:21px; color:var(--accent2); margin:0 0 2px; }
+  .install .tip-sub { font-size:15px; color:var(--soft); margin:0 0 10px; }
+  .install .steps { margin:0 auto; max-width:24em; padding-left:24px; text-align:left; font-size:18px; line-height:1.45; color:var(--ink); }
+  .install .steps li { margin:7px 0; }
+  .install .steps strong { color:var(--accent2); }
+  .install .share { display:inline-block; width:22px; height:22px; vertical-align:-4px; margin:0 -2px 0 2px; }
+  .install .steps-wrap[hidden] { display:none; }
+  @media (prefers-color-scheme: dark) { .install .tip-h, .install .steps strong { color:var(--accent); } }
   .install button { position:absolute; top:10px; right:10px; width:44px; height:44px; border:0; border-radius:12px; background:#e3eef4; color:var(--accent2);
     font:600 28px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; cursor:pointer; }
   @media (prefers-color-scheme: dark) { .install button { background:#33291f; color:#f3ece4; } }
@@ -76,10 +82,25 @@
 <main>
   <div class="install" id="install-tip" role="note" hidden>
     <figure class="install-icon">
-      <img src="icons/christus-180.png?v=christus2" width="120" height="120" alt="The Ward app icon">
+      <img src="icons/christus-180.png?v=christus2" width="120" height="120" alt="The Farmington Bay 6th Ward Links app icon">
       <figcaption>This is what you&rsquo;ll see on your phone.</figcaption>
     </figure>
-    <p id="install-text"></p>
+    <div class="tip-h">Put this app on your home screen</div>
+    <div class="tip-sub">One-time setup, about 20 seconds. These are steps to follow, not buttons.</div>
+    <div class="steps-wrap" id="tipIos" hidden><ol class="steps">
+      <li>Tap the <strong>Share</strong> button <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg> in Safari&rsquo;s bar at the <strong>bottom</strong> of your screen (on iPad, top right). Don&rsquo;t see it? Tap <strong>&bull;&bull;&bull;</strong> first.</li>
+      <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+      <li>Tap <strong>Add</strong> in the top right corner.</li>
+      <li>Close Safari. From now on, just tap the app icon shown above.</li></ol></div>
+    <div class="steps-wrap" id="tipIosOther" hidden><ol class="steps">
+      <li>This only works in <strong>Safari</strong>. Open the Messages text and <strong>press and hold</strong> the link.</li>
+      <li>Tap <strong>Open in Safari</strong> (or copy the link and paste it into Safari).</li>
+      <li>In Safari, tap <strong>Share</strong> <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg>, then <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li></ol></div>
+    <div class="steps-wrap" id="tipAndroid" hidden><ol class="steps">
+      <li>In <strong>Chrome</strong>, tap the <strong>&#8942;</strong> menu (three dots) at the <strong>top right</strong> of your screen.</li>
+      <li>Tap <strong>Add to Home screen</strong> (on some phones it says <strong>Install app</strong>).</li>
+      <li>Tap <strong>Install</strong> or <strong>Add</strong> to confirm.</li>
+      <li>From now on, just tap the app icon shown above on your home screen.</li></ol></div>
     <button type="button" id="install-close" aria-label="Close this tip">&times;</button>
   </div>
     <a class="card" id="bishop-sms" href="sms:/open?addresses=+18019921414,+18012052600&amp;body=Hi%20Adam%20and%20Spencer%2C%20I%27d%20like%20to%20schedule%20a%20meeting%20with%20the%20Bishop%20or%20one%20of%20his%20counselors.%0AI%20need%20about%20xx%20minutes.%20%28Temple%20recommend%20interviews%20are%2015%20minutes.%29%0APreferred%20time%20%28pick%20one%29%3A%20Sunday%20before%20church%20%2F%20Sunday%20after%20church%20%2F%20Tuesday%20evening%0A%0ANo%20need%20to%20share%20the%20topic%20with%20us.%20Anything%20discussed%20is%20confidential%20between%20you%20and%20the%20Bishop%20or%20counselor.%20You%20can%20include%20the%20topic%20only%20if%20it%20is%20not%20personal%20%28for%20example%2C%20a%20temple%20recommend%20interview%29." rel="noopener">
@@ -166,11 +187,12 @@
     var ua = navigator.userAgent || "";
     var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     var android = /Android/i.test(ua);
-    var msg;
-    if (ios) msg = "<b>Add the Ward app to your home screen:</b> tap Share, then Add to Home Screen.";
-    else if (android) msg = "<b>Add the Ward app to your home screen:</b> tap \u22ee, then Add to Home screen.";
+    var iosSafari = ios && /Safari/.test(ua) && /Version\//.test(ua) && !/CriOS|FxiOS|EdgiOS|OPiOS|GSA\/|FBAN|FBAV|Instagram|Line\//.test(ua);
+    var pane;
+    if (ios) pane = iosSafari ? "tipIos" : "tipIosOther";
+    else if (android) pane = "tipAndroid";
     else return;
-    document.getElementById("install-text").innerHTML = msg;
+    document.getElementById(pane).hidden = false;
     box.hidden = false;
     document.getElementById("install-close").addEventListener("click", function () {
       box.hidden = true;
