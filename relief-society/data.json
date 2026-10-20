@@ -1,0 +1,19 @@
+{
+  "_note": "EXAMPLE DATA ONLY. Replace every value before this page goes live. See README.md.",
+  "newsletter": { "month": "EXAMPLE Month", "url": "#PLACEHOLDER-newsletter-link", "placeholder": true, "date": "2026-10-18" },
+  "events": [
+    { "title": "EXAMPLE: Relief Society Activity", "date": "2026-11-05", "start": "19:00", "end": "20:30", "place": "EXAMPLE: Church building, Relief Society room", "details": "Example event. Not a real activity.", "posted": "2026-10-17" },
+    { "title": "EXAMPLE: Service Project", "date": "2026-11-14", "start": "10:00", "end": "11:30", "place": "EXAMPLE: Location TBD", "details": "Example event. Not a real activity.", "posted": "2026-10-01" }
+  ],
+  "lesson": { "date": "2026-10-25", "topic": "EXAMPLE lesson topic", "teacher": "Name", "url": "#PLACEHOLDER-read-ahead-link", "posted": "2026-10-18" },
+  "signups": [
+    { "label": "Meal Sign-Up", "note": "PLACEHOLDER link", "url": "#PLACEHOLDER-meals", "posted": "2026-10-16" },
+    { "label": "Service Sign-Up", "note": "PLACEHOLDER link", "url": "#PLACEHOLDER-service", "posted": "2026-09-20" }
+  ],
+  "contacts": [
+    { "calling": "Relief Society President", "name": "Name", "phone": "" },
+    { "calling": "First Counselor", "name": "Name", "phone": "" },
+    { "calling": "Second Counselor", "name": "Name", "phone": "" },
+    { "calling": "Secretary", "name": "Name", "phone": "" }
+  ]
+}
