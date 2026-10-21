@@ -4,80 +4,182 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#005175">
 <title>Relief Society · Farmington Bay 6th Ward (Draft)</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/rs-180.png">
+<meta name="apple-mobile-web-app-title" content="Relief Society">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <style>
-  :root { --ink:#2b2420; --soft:#6d625a; --bg:#faf6f0; --card:#fff; --line:#e8dfd3; --accent:#005175; --accent2:#005175; }
+  :root { --ink:#2b2420; --soft:#5f554d; --bg:#faf6f0; --card:#fff; --line:#e3d9cc; --accent:#005175; --accent2:#005175; --chip:#e3eef4; }
   * { box-sizing:border-box; }
-  html,body { margin:0; background:var(--bg); color:var(--ink);
-    font:16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  html { font-size:19px; -webkit-text-size-adjust:100%; }
+  html.bigger { font-size:23px; }
+  html,body { margin:0; background:var(--bg); color:var(--ink); }
+  body { font:1rem/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  a { color:var(--accent2); }
+  :focus-visible { outline:3px solid #d9a400; outline-offset:2px; }
   .ribbon { position:fixed; top:26px; right:-40px; transform:rotate(45deg); background:#b3261e; color:#fff; font:700 11px/1 sans-serif;
-    letter-spacing:.08em; text-transform:uppercase; padding:6px 44px; z-index:9; box-shadow:0 1px 3px rgba(0,0,0,.3); }
-  header { background:linear-gradient(160deg,#005175,#003a55); color:#fff; padding:28px 20px 30px; text-align:center; }
-  header .emblem { display:block; width:min(52vw,200px); height:auto; margin:0 auto 14px; border-radius:50%; box-shadow:0 4px 16px rgba(0,0,0,.35); }
-  header .ward { font:600 13px/1 Georgia, "Times New Roman", serif; letter-spacing:.14em; text-transform:uppercase; opacity:.85; }
-  header h1 { font:italic 400 28px/1.15 Georgia, "Times New Roman", serif; margin:10px 0 12px; }
-  header p { margin:0 auto; max-width:30em; font:italic 15px/1.45 Georgia, serif; opacity:.92; }
-  header cite { display:block; font-style:normal; font-size:12px; opacity:.75; margin-top:6px; }
-  main { max-width:560px; margin:0 auto; padding:18px 14px 30px; }
-  section { margin-top:22px; } section:first-child { margin-top:0; }
-  h2 { font:italic 400 21px/1.2 Georgia, serif; margin:0 0 8px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:10px 0;
-    box-shadow:0 1px 2px rgba(59,47,42,.06); }
-  .card b { font-size:17px; } .meta { color:var(--soft); font-size:14px; margin-top:3px; }
-  .btn { display:inline-block; padding:10px 14px; border-radius:12px; background:var(--accent2); color:#fff; text-decoration:none;
-    font-weight:600; font-size:15px; border:0; cursor:pointer; font-family:inherit; }
-  .btn.alt { background:#e3eef4; color:var(--accent2); }
-  .btn.big { display:block; text-align:center; font-size:19px; padding:18px; border-radius:16px; }
-  .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-  .ph { display:inline-block; background:#fff4d6; color:#7a5300; border:1px dashed #d9a400; border-radius:6px; font-size:11.5px;
+    letter-spacing:.08em; text-transform:uppercase; padding:6px 44px; z-index:9; box-shadow:0 1px 3px rgba(0,0,0,.3); pointer-events:none; }
+  .draftbar { background:#fff4d6; color:#5c3f00; border-bottom:2px dashed #d9a400; padding:10px 16px; text-align:center; font-size:.85rem; font-weight:600; }
+  header { background:linear-gradient(160deg,#005175,#003a55); color:#fff; padding:20px 18px 22px; text-align:center; }
+  header .emblem { display:block; width:110px; height:110px; margin:0 auto 10px; border-radius:50%; box-shadow:0 4px 16px rgba(0,0,0,.35); }
+  header .ward { font:600 .7rem/1 Georgia, "Times New Roman", serif; letter-spacing:.14em; text-transform:uppercase; opacity:.9; }
+  header h1 { font:italic 400 1.6rem/1.15 Georgia, "Times New Roman", serif; margin:8px 0 6px; }
+  header p { margin:0 auto; max-width:30em; font:italic .85rem/1.45 Georgia, serif; opacity:.92; }
+  header cite { font-style:normal; opacity:.8; }
+  .sizer { margin-top:12px; }
+  .sizer button { background:rgba(255,255,255,.16); color:#fff; border:1px solid rgba(255,255,255,.5); border-radius:999px; padding:8px 16px;
+    font:600 .8rem/1 inherit; font-family:inherit; cursor:pointer; min-height:44px; }
+  main { max-width:600px; margin:0 auto; padding:16px 14px 30px; }
+  section { margin-top:28px; } section:first-child { margin-top:0; }
+  h2 { font:italic 400 1.25rem/1.2 Georgia, serif; margin:0 0 8px; color:var(--ink); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin:10px 0; box-shadow:0 1px 2px rgba(59,47,42,.06); }
+  .card b, .card .t { font-size:1.05rem; font-weight:700; display:block; }
+  .meta { color:var(--soft); font-size:.9rem; margin-top:4px; }
+  .when { font-weight:600; color:var(--ink); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:52px; padding:12px 18px; border-radius:14px;
+    background:var(--accent2); color:#fff; text-decoration:none; font-weight:700; font-size:.95rem; border:0; cursor:pointer; font-family:inherit; }
+  .btn.alt { background:var(--chip); color:var(--accent2); }
+  .btn.big { display:flex; width:100%; font-size:1.05rem; min-height:64px; border-radius:16px; }
+  .btn.off { background:#ece6dd; color:#6f655c; cursor:default; flex-direction:column; gap:2px; text-align:center; }
+  .btn.off .ph { margin-left:0; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+  .row .btn { flex:1 1 auto; }
+  .quick { display:grid; gap:10px; }
+  .quick .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .ph { display:inline-block; background:#fff4d6; color:#7a5300; border:1px dashed #d9a400; border-radius:6px; font-size:.6rem;
     font-weight:700; padding:1px 6px; margin-left:4px; vertical-align:middle; text-transform:uppercase; letter-spacing:.04em; }
-  .new { display:inline-block; background:#b3261e; color:#fff; border-radius:6px; font-size:11px; font-weight:700; padding:2px 6px;
-    margin-left:6px; vertical-align:middle; text-transform:uppercase; }
-  .who { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-  .who .btn[aria-disabled=true] { opacity:.5; pointer-events:none; }
-  footer { text-align:center; color:var(--soft); font-size:13px; padding:8px 20px 36px; }
-  footer .q { font:italic 15px/1.4 Georgia, serif; color:var(--ink); }
+  .new { display:inline-block; background:#b3261e; color:#fff; border-radius:6px; font-size:.6rem; font-weight:700; padding:2px 6px; margin-left:6px; vertical-align:middle; text-transform:uppercase; }
+  .empty { color:var(--soft); font-style:italic; }
+  .who { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .who .row { margin-top:0; }
+  .list { list-style:none; margin:0; padding:0; }
+  .list li { border-top:1px solid var(--line); padding:12px 0; } .list li:first-child { border-top:0; }
+  .thisweek { border-top:5px solid var(--accent); }
+  .install { background:var(--card); border:1px solid var(--line); border-top:5px solid var(--accent); border-radius:18px; padding:20px 18px; text-align:center; }
+  .install img { display:block; width:96px; height:96px; margin:0 auto 8px; border-radius:22px; box-shadow:0 6px 18px rgba(0,0,0,.22); }
+  .install .tip-h { font-weight:800; font-size:1.1rem; color:var(--accent2); margin:6px 0 2px; }
+  .install .tip-sub { font-size:.8rem; color:var(--soft); margin:0 0 10px; }
+  .install .steps { margin:0 auto; max-width:24em; padding-left:24px; text-align:left; font-size:.95rem; line-height:1.45; }
+  .install .steps li { margin:7px 0; } .install .steps strong { color:var(--accent2); }
+  .install .share { display:inline-block; width:22px; height:22px; vertical-align:-4px; }
+  .install h3 { font-size:.9rem; margin:14px 0 0; text-align:left; max-width:24em; margin-left:auto; margin-right:auto; }
+  [hidden] { display:none !important; }
+  .status { text-align:center; font-size:.75rem; color:var(--soft); margin-top:22px; }
+  footer { text-align:center; color:var(--soft); font-size:.75rem; padding:8px 20px 36px; }
+  footer .q { font:italic .85rem/1.4 Georgia, serif; color:var(--ink); }
   @media (prefers-color-scheme: dark) {
-    :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; --accent2:#005175; }
-    .btn.alt { background:#33291f; color:#f3ece4; }
+    :root { --ink:#f3ece4; --soft:#c9bdb1; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; --accent2:#005175; --chip:#33291f; }
+    a { color:#8cc8e6; } .btn.alt { color:#f3ece4; } .btn.off { background:#2f2823; color:#8a7f75; }
+    .install .tip-h, .install .steps strong { color:var(--accent); }
   }
 </style>
 </head>
 <body>
-<div class="ribbon">Draft preview</div>
+<div class="draftbar" role="note">DRAFT PREVIEW: everything on this page is an EXAMPLE. Nothing here is real yet.</div>
 <header>
-  <img class="emblem" src="rs-emblem.png" width="180" height="180" alt="Relief Society emblem: Charity Never Faileth">
+  <img class="emblem" src="rs-emblem.png" width="110" height="110" alt="Relief Society emblem: Charity Never Faileth">
   <div class="ward">Farmington Bay 6th Ward</div>
   <h1>Relief Society</h1>
-  <p>“Charity never faileth.”<cite>1 Corinthians 13:8</cite></p>
+  <p>“Charity never faileth.” <cite>1 Corinthians 13:8</cite></p>
+  <div class="sizer"><button type="button" id="sizer" aria-pressed="false">A<span style="font-size:1.25em">A</span>&nbsp; Bigger text</button></div>
 </header>
 <main>
-  <section id="newsletter"><h2>This Month’s Newsletter</h2><div id="nl"></div></section>
-  <section><h2>Upcoming Events</h2><div id="events"></div></section>
-  <section><h2>This Sunday’s Lesson</h2><div id="lesson"></div></section>
-  <section><h2>Service &amp; Meals</h2>
-    <p class="meta" style="margin:0">“Inasmuch as ye have done it unto one of the least of these… ye have done it unto me.” (Matthew 25:40)</p>
-    <div id="signups"></div></section>
-  <section><h2>Who to Call</h2><p class="meta" style="margin:0">Your Relief Society Presidency loves you and is glad to help.</p><div id="contacts"></div></section>
+  <section aria-label="Quick help">
+    <div class="quick">
+      <div id="textAll"></div>
+      <div class="two" id="helpBtns"></div>
+      <div class="meta" style="text-align:center;margin:0">What you send goes only to the Relief Society Presidency.</div>
+    </div>
+  </section>
+  <section id="week"><h2>This Week</h2><div class="card thisweek" id="weekBody" aria-live="polite"><span class="empty">Loading…</span></div></section>
+  <section id="ann"><h2>Announcements</h2><div id="annBody"></div></section>
+  <section id="ev"><h2>Coming Up</h2><div id="evBody"></div></section>
+  <section id="les"><h2>Sunday Lessons</h2><div id="lesBody"></div></section>
+  <section id="sig"><h2>Meals &amp; Service Sign-Ups</h2>
+    <p class="meta" style="margin:0">“Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.” (Matthew 25:40)</p>
+    <div id="sigBody"></div></section>
+  <section id="nl"><h2>Newsletter</h2><div id="nlBody"></div></section>
+  <section id="who"><h2>Your Relief Society Presidency</h2><p class="meta" style="margin:0">They love you and are glad to help. Tap to text or call.</p><div id="whoBody"></div></section>
+  <section id="home">
+    <div class="install">
+      <img src="icons/rs-180.png" width="96" height="96" alt="The Relief Society icon you'll see on your phone">
+      <div class="tip-h">Put this page on your home screen</div>
+      <div class="tip-sub">One-time setup, about 20 seconds. These are steps to follow, not buttons.</div>
+      <div id="tipIos" hidden><ol class="steps">
+        <li>Tap the <strong>Share</strong> button <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg> in Safari’s bar at the <strong>bottom</strong> of your screen (on iPad, top right). Don’t see it? Tap <strong>&bull;&bull;&bull;</strong> first.</li>
+        <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+        <li>Tap <strong>Add</strong> in the top right corner.</li>
+        <li>Close Safari. From now on, just tap the blue <strong>Relief Society</strong> icon.</li></ol></div>
+      <div id="tipIosOther" hidden><ol class="steps">
+        <li>This only works in <strong>Safari</strong>. Open the Messages text and <strong>press and hold</strong> the link.</li>
+        <li>Tap <strong>Open in Safari</strong> (or copy the link and paste it into Safari).</li>
+        <li>In Safari, tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li></ol></div>
+      <div id="tipAndroid" hidden><ol class="steps">
+        <li>In <strong>Chrome</strong>, tap the <strong>&#8942;</strong> menu (three dots) at the <strong>top right</strong> of your screen.</li>
+        <li>Tap <strong>Add to Home screen</strong> (on some phones it says <strong>Install app</strong>).</li>
+        <li>Tap <strong>Install</strong> or <strong>Add</strong> to confirm.</li>
+        <li>From now on, just tap the blue <strong>Relief Society</strong> icon.</li></ol></div>
+      <div id="tipDone" hidden><p class="meta">You’re all set. You opened this from your home screen.</p></div>
+    </div>
+  </section>
+  <div class="status" id="status"></div>
 </main>
-<footer><div class="q">Come unto Christ, and be perfected in Him.</div>
+<footer><div class="q">“Come unto Christ, and be perfected in him.” (Moroni 10:32)</div>
   <div style="margin-top:10px">Draft preview. All content shown is example or placeholder.</div>
-  <div style="margin-top:8px;font-size:11.5px">This is not an official website of The Church of Jesus Christ of Latter-day Saints.</div></footer>
+  <div style="margin-top:8px">This is not an official website of The Church of Jesus Christ of Latter-day Saints.</div></footer>
 <script>
-// Set to a published Google Sheet CSV URL to switch data sources (see README.md). Empty = use data.json.
-const SHEET_CSV_URL = "";
+// ---------------------------------------------------------------------------
+// Content source. Paste the link from the Sheet's File > Share > Publish to web
+// (Entire document, Comma-separated values). Empty = use data.json (examples).
+const SHEET_PUBLISHED_URL = "";
+// Tab ids (gid) in "DRAFT – FB6 Relief Society Page Content". Don't change unless tabs are recreated.
+const TABS = { feed: 1558512388, contacts: 1589072440, help: 42639676 };
+// ---------------------------------------------------------------------------
 
+const TZ = "America/Denver";
+const CACHE_KEY = "fb6-rs-sheet-v1";
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const isPh = (s) => /EXAMPLE|PLACEHOLDER|^Name$|^#/i.test(String(s || ""));
-const ph = (on, t) => on ? `<span class="ph">${t || "Placeholder"}</span>` : "";
-const d8 = (s) => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
-function isNew(posted) { if (!posted) return false; const age = (Date.now() - d8(posted)) / 864e5; return age >= 0 && age < 7; }
-const newTag = (p) => isNew(p) ? '<span class="new">New</span>' : "";
-const fmtDate = (s) => d8(s).toLocaleDateString("en-US", { weekday:"long", month:"long", day:"numeric" });
-function fmtTime(t) { if (!t) return ""; let [h,m] = t.split(":").map(Number); const ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return `${h}:${String(m).padStart(2,"0")} ${ap}`; }
+const isEx = (s) => /\bEXAMPLE\b|PLACEHOLDER/i.test(String(s || ""));
+const okLink = (u) => /^(https?:|mailto:|tel:|sms:)/i.test(String(u || "").trim());
+const phLink = (u) => /PLACEHOLDER|^\s*#|^\s*EXAMPLE/i.test(String(u || ""));
+const exTag = (on, t) => on ? `<span class="ph">${t || "Example"}</span>` : "";
+const ua = navigator.userAgent || "";
+const IOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const ANDROID = /Android/i.test(ua);
 
-// --- CSV support (Google Sheet "Publish to web" → CSV) ---
+// ---- dates (all local, America/Denver is the box/ward zone) ----
+const MONTHS = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+function iso(d) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; }
+function pDate(v) {
+  const s = String(v || "").trim(); if (!s) return "";
+  let m;
+  if ((m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) return iso(new Date(+m[1], m[2]-1, +m[3]));
+  if ((m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/))) { const y = +m[3] < 100 ? 2000 + +m[3] : +m[3]; return iso(new Date(y, m[1]-1, +m[2])); }
+  if ((m = s.match(/([A-Za-z]{3,})\.?\s+(\d{1,2}),?\s+(\d{4})/))) { const i = MONTHS.indexOf(m[1].slice(0,3).toLowerCase()); if (i >= 0) return iso(new Date(+m[3], i, +m[2])); }
+  if (/^\d{5}(\.\d+)?$/.test(s)) { const d = new Date(Date.UTC(1899, 11, 30) + Math.floor(+s) * 864e5); return iso(new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); }
+  return "";
+}
+function pTime(v) {
+  const s = String(v || "").trim(); if (!s) return "";
+  let m;
+  if ((m = s.match(/(\d{1,2})(?::(\d{2}))?(?::\d{2})?\s*([ap])\.?m?\.?/i))) { let h = +m[1] % 12; if (/p/i.test(m[3])) h += 12; return `${String(h).padStart(2,"0")}:${m[2] || "00"}`; }
+  if ((m = s.match(/^(\d{1,2}):(\d{2})/))) return `${m[1].padStart(2,"0")}:${m[2]}`;
+  if (/^0?\.\d+$/.test(s)) { const mins = Math.round(parseFloat(s) * 1440); return `${String(Math.floor(mins/60)).padStart(2,"0")}:${String(mins%60).padStart(2,"0")}`; }
+  return "";
+}
+const d8 = (s) => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
+const todayISO = () => iso(new Date());
+const addDays = (s, n) => { const d = d8(s); d.setDate(d.getDate() + n); return iso(d); };
+const fmtDate = (s) => d8(s).toLocaleDateString("en-US", { weekday:"long", month:"long", day:"numeric" });
+const fmtShort = (s) => d8(s).toLocaleDateString("en-US", { weekday:"short", month:"short", day:"numeric" });
+function fmtTime(t) { if (!t) return ""; let [h,m] = t.split(":").map(Number); const ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return `${h}:${String(m).padStart(2,"0")} ${ap}`; }
+function isNew(posted) { if (!posted) return false; const p = pDate(posted); if (!p) return false; const age = (d8(todayISO()) - d8(p)) / 864e5; return age >= 0 && age < 7; }
+const newTag = (p) => isNew(p) ? '<span class="new">New</span>' : "";
+
+// ---- CSV ----
 function parseCSV(text) {
   const rows = []; let row = [], f = "", q = false;
   for (let i = 0; i < text.length; i++) { const c = text[i];
@@ -86,70 +188,204 @@ function parseCSV(text) {
     else if (c === "\n" || c === "\r") { if (c === "\r" && text[i+1] === "\n") i++; row.push(f); rows.push(row); row = []; f = ""; }
     else f += c; }
   if (f || row.length) { row.push(f); rows.push(row); }
-  const head = rows.shift().map((h) => h.trim().toLowerCase());
-  return rows.filter((r) => r.some((x) => x.trim())).map((r) => Object.fromEntries(head.map((h, i) => [h, (r[i] || "").trim()])));
+  return rows;
 }
-function fromRows(rows) {
-  const d = { newsletter: null, events: [], lesson: null, signups: [], contacts: [] };
-  for (const r of rows) switch ((r.type || "").toLowerCase()) {
-    case "newsletter": d.newsletter = { month: r.title, url: r.url, date: r.date, posted: r.posted }; break;
-    case "event": d.events.push({ title: r.title, date: r.date, start: r.start, end: r.end, place: r.place, details: r.details, posted: r.posted }); break;
-    case "lesson": d.lesson = { date: r.date, topic: r.title, teacher: r.name, url: r.url, posted: r.posted }; break;
-    case "signup": d.signups.push({ label: r.title, note: r.details, url: r.url, posted: r.posted }); break;
-    case "contact": d.contacts.push({ calling: r.title, name: r.name, phone: r.phone }); break;
+// Drop the header row, helper rows (starting with 👉) and blank rows. Columns are read by position.
+const dataRows = (rows) => rows.slice(1).map((r) => r.map((x) => (x || "").trim()))
+  .filter((r) => r.some((x) => x) && !r.some((x) => x.startsWith("👉")));
+const yes = (v) => /^\s*(yes|y|x|true|hide|hidden)\s*$/i.test(v || "");
+
+// Page Feed columns: A Posted, B What kind?, C Title, D Date, E Start, F End, G Place, H Details, I Link, J Show until, K Hide?
+function fromFeed(rows) {
+  const d = { events: [], announcements: [], signups: [], lessons: [], newsletters: [] };
+  for (const r of dataRows(rows)) {
+    const [posted, kind, title, date, start, end, place, details, url, until, hide] = r.concat(Array(11).fill("")).slice(0, 11);
+    if (!title || yes(hide)) continue;
+    const it = { posted, title, date: pDate(date), start: pTime(start), end: pTime(end), place, details, url, until: pDate(until) };
+    const k = kind.toLowerCase().replace(/[^a-z]/g, "");
+    if (k.startsWith("event")) d.events.push(it);
+    else if (k.startsWith("announce")) d.announcements.push(it);
+    else if (k.startsWith("sign")) d.signups.push(it);
+    else if (k.startsWith("lesson")) d.lessons.push(it);
+    else if (k.startsWith("news")) d.newsletters.push(it);
+    else d.announcements.push(it);
   }
   return d;
 }
-async function load() {
-  if (SHEET_CSV_URL) { try { const t = await (await fetch(SHEET_CSV_URL, { cache: "no-store" })).text(); return fromRows(parseCSV(t)); } catch (e) {} }
-  return (await fetch("data.json", { cache: "no-store" })).json();
+const fromContacts = (rows) => dataRows(rows).filter((r) => (r[1] || r[0]) && !/^no$/i.test(r[3] || "")).map((r) => ({ calling: r[0], name: r[1], phone: r[2] || "" }));
+const fromHelp = (rows) => dataRows(rows).filter((r) => r[0] && !/^no$/i.test(r[2] || "")).map((r) => ({ label: r[0], url: r[1] || "" }));
+
+// data.json uses the same shape, with ISO dates and 24h times.
+function normalizeJson(j) {
+  const fix = (a) => (a || []).map((x) => ({ ...x, date: pDate(x.date), until: pDate(x.until), start: pTime(x.start), end: pTime(x.end) }));
+  return { events: fix(j.events), announcements: fix(j.announcements), signups: fix(j.signups), lessons: fix(j.lessons), newsletters: fix(j.newsletters),
+    contacts: j.contacts || [], help: j.help || [] };
 }
 
-// --- .ics generation ---
+function sheetCsvUrl(gid) {
+  const m = SHEET_PUBLISHED_URL.match(/^(https:\/\/docs\.google\.com\/spreadsheets\/d\/e\/[^/]+)/);
+  return m ? `${m[1]}/pub?gid=${gid}&single=true&output=csv&t=${Date.now()}` : "";
+}
+async function getText(url) { const r = await fetch(url, { cache: "no-store" }); if (!r.ok) throw new Error(r.status); const t = await r.text(); if (/^\s*</.test(t)) throw new Error("html"); return t; }
+
+async function load() {
+  let cached = null; try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null"); } catch (e) {}
+  if (sheetCsvUrl(0)) {
+    const [feed, contacts, help] = await Promise.allSettled([TABS.feed, TABS.contacts, TABS.help].map((g) => getText(sheetCsvUrl(g))));
+    if (feed.status === "fulfilled") {
+      const d = fromFeed(parseCSV(feed.value));
+      d.contacts = contacts.status === "fulfilled" ? fromContacts(parseCSV(contacts.value)) : (cached?.data?.contacts || []);
+      d.help = help.status === "fulfilled" ? fromHelp(parseCSV(help.value)) : (cached?.data?.help || []);
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), data: d })); } catch (e) {}
+      return { data: d, source: "sheet" };
+    }
+    if (cached?.data) return { data: cached.data, source: "saved", at: cached.at };
+  }
+  const j = await (await fetch("data.json", { cache: "no-cache" })).json();
+  return { data: normalizeJson(j), source: "sample" };
+}
+
+// ---- calendar ----
 function ics(ev) {
   const dt = (date, t) => date.replace(/-/g, "") + "T" + (t || "00:00").replace(":", "") + "00";
   const x = (s) => String(s || "").replace(/[\\;,]/g, (c) => "\\" + c).replace(/\n/g, "\\n");
   const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
-  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//FB6 Relief Society//EN","BEGIN:VEVENT",
-    `UID:${dt(ev.date, ev.start)}-${encodeURIComponent(ev.title).slice(0,40)}@fb6-rs`, `DTSTAMP:${stamp}`,
-    `DTSTART;TZID=America/Denver:${dt(ev.date, ev.start)}`, `DTEND;TZID=America/Denver:${dt(ev.date, ev.end || ev.start)}`,
+  const allDay = !ev.start;
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//FB6 Relief Society//EN","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+    `UID:${ev.date}-${(ev.title || "").replace(/[^\w]+/g, "").slice(0,30)}@fb6-rs`, `DTSTAMP:${stamp}`,
+    allDay ? `DTSTART;VALUE=DATE:${ev.date.replace(/-/g, "")}` : `DTSTART;TZID=${TZ}:${dt(ev.date, ev.start)}`,
+    allDay ? `DTEND;VALUE=DATE:${addDays(ev.date, 1).replace(/-/g, "")}` : `DTEND;TZID=${TZ}:${dt(ev.date, ev.end || addHour(ev.start))}`,
     `SUMMARY:${x(ev.title)}`, `LOCATION:${x(ev.place)}`, `DESCRIPTION:${x(ev.details)}`, "END:VEVENT","END:VCALENDAR"].join("\r\n");
 }
+function addHour(t) { const [h,m] = t.split(":").map(Number); return `${String(Math.min(h+1,23)).padStart(2,"0")}:${String(m).padStart(2,"0")}`; }
+function googleCalUrl(ev) {
+  const d = ev.date.replace(/-/g, "");
+  const dates = ev.start ? `${d}T${ev.start.replace(":", "")}00/${d}T${(ev.end || addHour(ev.start)).replace(":", "")}00` : `${d}/${addDays(ev.date, 1).replace(/-/g, "")}`;
+  const p = new URLSearchParams({ action: "TEMPLATE", text: ev.title || "", dates, ctz: TZ, location: ev.place || "", details: ev.details || "" });
+  return "https://calendar.google.com/calendar/render?" + p.toString();
+}
 function addToCal(ev) {
-  const blob = new Blob([ics(ev)], { type: "text/calendar" });
-  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
-  a.download = (ev.title || "event").replace(/[^\w]+/g, "-") + ".ics"; document.body.appendChild(a); a.click();
-  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  if (ANDROID) { window.open(googleCalUrl(ev), "_blank", "noopener"); return; }
+  const blob = new Blob([ics(ev)], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  if (IOS) { window.location.href = url; }   // iOS Safari opens the "Add to Calendar" sheet
+  else { const a = document.createElement("a"); a.href = url; a.download = (ev.title || "event").replace(/[^\w]+/g, "-") + ".ics"; document.body.appendChild(a); a.click(); a.remove(); }
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
-function render(d) {
-  const n = d.newsletter || {};
-  $("nl").innerHTML = `<a class="btn big" href="${esc(n.url)}" target="_blank" rel="noopener">📰 Open the ${esc(n.month)} Newsletter${newTag(n.posted)}</a>
-    <div class="meta" style="text-align:center">A one-sheet prepared each month by Kelsey Kerr ${ph(isPh(n.url), "Placeholder link")}</div>`;
-
-  const today = new Date(); today.setHours(0,0,0,0);
-  const evs = (d.events || []).filter((e) => d8(e.date) >= today).sort((a, b) => a.date.localeCompare(b.date) || (a.start||"").localeCompare(b.start||""));
-  $("events").innerHTML = evs.length ? evs.map((e, i) => `<div class="card"><b>${esc(e.title)}</b>${newTag(e.posted)}${ph(isPh(e.title), "Example")}
-      <div class="meta">📅 ${fmtDate(e.date)}<br>🕖 ${fmtTime(e.start)}${e.end ? " – " + fmtTime(e.end) : ""}<br>📍 ${esc(e.place)}</div>
-      ${e.details ? `<div class="meta">${esc(e.details)}</div>` : ""}
-      <div class="row"><button class="btn alt" data-ev="${i}">＋ Add to calendar</button></div></div>`).join("")
-    : `<div class="card meta">No upcoming events right now. Check back soon.</div>`;
-  document.querySelectorAll("[data-ev]").forEach((b) => b.onclick = () => addToCal(evs[b.dataset.ev]));
-
-  const l = d.lesson || {};
-  $("lesson").innerHTML = `<div class="card"><b>${esc(l.topic)}</b>${newTag(l.posted)}${ph(isPh(l.topic), "Example")}
-    <div class="meta">${l.date ? fmtDate(l.date) + " · " : ""}Taught by ${esc(l.teacher)}${ph(isPh(l.teacher))}</div>
-    <div class="row"><a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">Read ahead</a>${ph(isPh(l.url), "Placeholder link")}</div></div>`;
-
-  $("signups").innerHTML = `<div class="card"><div class="row" style="margin-top:0">` + (d.signups || []).map((s) =>
-    `<a class="btn" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}${newTag(s.posted)}</a>`).join("") +
-    `</div>${(d.signups || []).some((s) => isPh(s.url)) ? `<div class="meta">${ph(true, "Placeholder links")}</div>` : ""}</div>`;
-
-  $("contacts").innerHTML = (d.contacts || []).map((c) => { const p = String(c.phone || "").replace(/[^\d+]/g, "");
-    return `<div class="card who"><div><b>${esc(c.name)}</b>${ph(isPh(c.name))}<div class="meta">${esc(c.calling)}</div></div>
-      <a class="btn" href="${p ? "sms:" + p : "#"}" ${p ? "" : 'aria-disabled="true" title="Number not added yet"'}>💬 Text</a></div>`; }).join("");
+// ---- render helpers ----
+const linkBtn = (url, label, cls = "btn") => okLink(url) && !phLink(url)
+  ? `<a class="${cls}" href="${esc(url.trim())}" target="_blank" rel="noopener">${label}</a>`
+  : `<span class="${cls} off" aria-disabled="true">${label} ${exTag(true, "Link coming")}</span>`;
+const when = (e) => `${e.date ? fmtDate(e.date) : ""}${e.start ? " · " + fmtTime(e.start) + (e.end ? " – " + fmtTime(e.end) : "") : ""}`;
+let CAL = [];
+function eventCard(e, plain) {
+  const i = CAL.push(e) - 1;
+  return `<div class="${plain ? "" : "card"}"><span class="t">${esc(e.title)}${newTag(e.posted)}${exTag(isEx(e.title))}</span>
+    <div class="meta"><span class="when">📅 ${when(e)}</span>${e.place ? `<br>📍 ${esc(e.place)}` : ""}</div>
+    ${e.details ? `<div class="meta">${esc(e.details)}</div>` : ""}
+    <div class="row"><button type="button" class="btn alt" data-cal="${i}">＋ Add to my calendar</button>${okLink(e.url) && !phLink(e.url) ? linkBtn(e.url, "More info") : ""}</div></div>`;
 }
-load().then(render).catch(() => { $("nl").innerHTML = '<div class="card meta">Couldn’t load content. Please try again.</div>'; });
+const smsHref = (nums, body) => {
+  const list = nums.join(",");
+  const b = body ? encodeURIComponent(body) : "";
+  return IOS ? `sms:/open?addresses=${list}${b ? "&body=" + b : ""}` : `sms:${list}${b ? "?body=" + b : ""}`;
+};
+const digits = (p) => { const d = String(p || "").replace(/[^\d]/g, ""); return d.length === 10 ? "+1" + d : d.length === 11 && d[0] === "1" ? "+" + d : d ? "+" + d : ""; };
+
+function render({ data: d, source, at }) {
+  CAL = [];
+  const t = todayISO(), weekEnd = addDays(t, 7);
+  const live = (x) => (!x.until || x.until >= t);
+  const byDate = (a, b) => (a.date || "9").localeCompare(b.date || "9") || (a.start || "").localeCompare(b.start || "");
+  const events = d.events.filter((e) => e.date && e.date >= t && live(e)).sort(byDate);
+  const lessons = d.lessons.filter((l) => l.date && l.date >= t).sort(byDate);
+  // Auto-expire: anything past its "Show until"; dated announcements/sign-ups also go after their date.
+  const fresh = (x) => live(x) && (!x.date || x.until || x.date >= t);
+  const anns = d.announcements.filter(fresh);
+  const signups = d.signups.filter(fresh);
+  // Newsletters never expire (archive). Newest first by date, else last-entered first.
+  const news = d.newsletters.some((n) => n.date) ? d.newsletters.slice().sort((a, b) => (b.date || "").localeCompare(a.date || "")) : d.newsletters.slice().reverse();
+
+  // Quick buttons
+  const nums = d.contacts.map((c) => digits(c.phone)).filter(Boolean);
+  $("textAll").innerHTML = nums.length
+    ? `<a class="btn big" href="${smsHref(nums, "Hi! This is ")}">💬 Text the Relief Society Presidency</a>`
+    : `<span class="btn big off" aria-disabled="true">💬 Text the Relief Society Presidency ${exTag(true, "Numbers coming")}</span>`;
+  const help = d.help.length ? d.help : [{ label: "I need help", url: "" }, { label: "I can help", url: "" }];
+  $("helpBtns").innerHTML = help.slice(0, 4).map((h) => linkBtn(h.url, (/need/i.test(h.label) ? "🙋 " : /can/i.test(h.label) ? "🤝 " : "") + esc(h.label), "btn big alt")).join("");
+
+  // This Week
+  const wk = events.filter((e) => e.date <= weekEnd);
+  const wkL = lessons.filter((l) => l.date <= weekEnd);
+  const items = [...wk.map((e) => ({ ...e, _k: "e" })), ...wkL.map((l) => ({ ...l, _k: "l" }))].sort(byDate);
+  $("weekBody").innerHTML = items.length ? `<ul class="list">${items.map((x) => `<li>${x._k === "e" ? eventCard(x, true)
+      : `<span class="t">📖 Sunday lesson: ${esc(x.title)}${exTag(isEx(x.title))}</span><div class="meta"><span class="when">${fmtDate(x.date)}</span>${x.details ? " · " + esc(x.details) : ""}</div>${okLink(x.url) || phLink(x.url) ? `<div class="row">${linkBtn(x.url, "Read ahead", "btn alt")}</div>` : ""}`}</li>`).join("")}</ul>`
+    : `<span class="empty">Nothing on the calendar this week. Check “Coming Up” below.</span>`;
+
+  // Announcements
+  $("annBody").innerHTML = anns.length ? anns.map((a) => `<div class="card"><span class="t">${esc(a.title)}${newTag(a.posted)}${exTag(isEx(a.title))}</span>
+      ${a.details ? `<div class="meta" style="color:var(--ink)">${esc(a.details)}</div>` : ""}
+      ${a.date ? `<div class="meta">📅 ${when(a)}</div>` : ""}${okLink(a.url) || phLink(a.url) ? `<div class="row">${linkBtn(a.url, "Learn more", "btn alt")}</div>` : ""}</div>`).join("")
+    : `<div class="card empty">No announcements right now.</div>`;
+
+  // Coming up (after this week)
+  const later = events.filter((e) => e.date > weekEnd);
+  $("evBody").innerHTML = later.length ? later.map((e) => eventCard(e)).join("") : `<div class="card empty">Nothing else scheduled yet. Check back soon.</div>`;
+
+  // Lessons
+  $("lesBody").innerHTML = lessons.length ? `<div class="card"><ul class="list">${lessons.slice(0, 4).map((l, i) => `<li>
+      <span class="t">${esc(l.title)}${newTag(l.posted)}${exTag(isEx(l.title))}</span>
+      <div class="meta"><span class="when">${fmtDate(l.date)}</span>${l.details ? " · " + esc(l.details) : ""}</div>
+      ${okLink(l.url) || phLink(l.url) ? `<div class="row">${linkBtn(l.url, "📖 Read ahead", i ? "btn alt" : "btn")}</div>` : ""}</li>`).join("")}</ul></div>`
+    : `<div class="card empty">The lesson schedule will be posted soon.</div>`;
+
+  // Sign-ups
+  $("sigBody").innerHTML = signups.length ? signups.map((s) => `<div class="card"><span class="t">${esc(s.title)}${newTag(s.posted)}${exTag(isEx(s.title))}</span>
+      ${s.details ? `<div class="meta">${esc(s.details)}</div>` : ""}${s.until ? `<div class="meta">Open until ${fmtShort(s.until)}</div>` : ""}
+      <div class="row">${linkBtn(s.url, "✍️ Sign up")}</div></div>`).join("")
+    : `<div class="card empty">No sign-ups open right now. Thank you for all you do.</div>`;
+
+  // Newsletter + archive
+  const [cur, ...past] = news;
+  $("nlBody").innerHTML = cur ? `${linkBtn(cur.url, `📰 Open the ${esc(cur.title.replace(/\s*newsletter\s*$/i, ""))} Newsletter${newTag(cur.posted)}`, "btn big")}
+      <div class="meta" style="text-align:center">A one-sheet prepared each month by Kelsey Kerr</div>
+      ${past.length ? `<div class="card"><b>Past newsletters</b><ul class="list">${past.slice(0, 12).map((n) => `<li>${okLink(n.url) && !phLink(n.url) ? `<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>` : `${esc(n.title)} ${exTag(true, "Link coming")}`}</li>`).join("")}</ul></div>` : ""}`
+    : `<div class="card empty">This month’s newsletter is coming soon.</div>`;
+
+  // Presidency
+  $("whoBody").innerHTML = d.contacts.length ? d.contacts.map((c) => { const p = digits(c.phone);
+    return `<div class="card who"><div><b>${esc(c.name)}${exTag(isEx(c.name))}</b><div class="meta">${esc(c.calling)}</div></div>
+      <div class="row">${p ? `<a class="btn" href="${smsHref([p])}">💬 Text</a><a class="btn alt" href="tel:${p}">📞 Call</a>` : `<span class="btn off" aria-disabled="true">💬 Text</span>`}</div></div>`; }).join("")
+    : `<div class="card empty">Contact information coming soon.</div>`;
+
+  document.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => addToCal(CAL[b.dataset.cal]));
+  $("status").textContent = source === "sheet" ? "Updated from the Relief Society sheet."
+    : source === "saved" ? `You’re offline. Showing the copy saved ${new Date(at).toLocaleString("en-US", { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" })}.`
+    : "Showing sample content.";
+}
+
+// Bigger text toggle (remembered on this phone)
+(function () {
+  const b = $("sizer"), root = document.documentElement;
+  const set = (on) => { root.classList.toggle("bigger", on); b.setAttribute("aria-pressed", on); b.lastChild.textContent = on ? " Smaller text" : " Bigger text"; };
+  try { set(localStorage.getItem("fb6-rs-bigger") === "1"); } catch (e) {}
+  b.onclick = () => { const on = !root.classList.contains("bigger"); set(on); try { localStorage.setItem("fb6-rs-bigger", on ? "1" : "0"); } catch (e) {} };
+})();
+
+// Home-screen steps for this device
+(function () {
+  const standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  const iosSafari = IOS && /Safari/.test(ua) && /Version\//.test(ua) && !/CriOS|FxiOS|EdgiOS|OPiOS|GSA\/|FBAN|FBAV|Instagram|Line\//.test(ua);
+  if (standalone) $("tipDone").hidden = false;
+  else if (IOS) $(iosSafari ? "tipIos" : "tipIosOther").hidden = false;
+  else if (ANDROID) $("tipAndroid").hidden = false;
+  else { $("tipIos").hidden = false; $("tipAndroid").hidden = false;
+    $("tipIos").insertAdjacentHTML("afterbegin", "<h3>On an iPhone</h3>"); $("tipAndroid").insertAdjacentHTML("afterbegin", "<h3>On an Android phone</h3>"); }
+})();
+
+load().then(render).catch(() => { $("weekBody").innerHTML = '<span class="empty">Couldn’t load right now. Please check your connection and try again.</span>'; });
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 </script>
 </body>
 </html>

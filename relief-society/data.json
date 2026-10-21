@@ -1,19 +1,151 @@
 {
-  "_note": "EXAMPLE DATA ONLY. Replace every value before this page goes live. See README.md.",
-  "newsletter": { "month": "EXAMPLE Month", "url": "#PLACEHOLDER-newsletter-link", "placeholder": true, "date": "2026-10-18" },
-  "events": [
-    { "title": "EXAMPLE: Relief Society Activity", "date": "2026-11-05", "start": "19:00", "end": "20:30", "place": "EXAMPLE: Church building, Relief Society room", "details": "Example event. Not a real activity.", "posted": "2026-10-17" },
-    { "title": "EXAMPLE: Service Project", "date": "2026-11-14", "start": "10:00", "end": "11:30", "place": "EXAMPLE: Location TBD", "details": "Example event. Not a real activity.", "posted": "2026-10-01" }
-  ],
-  "lesson": { "date": "2026-10-25", "topic": "EXAMPLE lesson topic", "teacher": "Name", "url": "#PLACEHOLDER-read-ahead-link", "posted": "2026-10-18" },
-  "signups": [
-    { "label": "Meal Sign-Up", "note": "PLACEHOLDER link", "url": "#PLACEHOLDER-meals", "posted": "2026-10-16" },
-    { "label": "Service Sign-Up", "note": "PLACEHOLDER link", "url": "#PLACEHOLDER-service", "posted": "2026-09-20" }
-  ],
-  "contacts": [
-    { "calling": "Relief Society President", "name": "Name", "phone": "" },
-    { "calling": "First Counselor", "name": "Name", "phone": "" },
-    { "calling": "Second Counselor", "name": "Name", "phone": "" },
-    { "calling": "Secretary", "name": "Name", "phone": "" }
-  ]
+ "_note": "EXAMPLE DATA ONLY. Used only when the Google Sheet isn't connected or can't be reached. Same fields as the sheet's Page Feed: title, date (YYYY-MM-DD), start/end (HH:MM), place, details, url, until. Replace every value before this page goes live.",
+ "events": [
+  {
+   "date": "2026-10-24",
+   "start": "09:00",
+   "end": "11:00",
+   "title": "EXAMPLE: Fall Yard Cleanup",
+   "place": "EXAMPLE: Meet at the church parking lot",
+   "details": "EXAMPLE: Bring gloves and a rake if you have one.",
+   "type": "Service",
+   "url": ""
+  },
+  {
+   "date": "2026-11-05",
+   "start": "19:00",
+   "end": "20:30",
+   "title": "EXAMPLE: Relief Society Activity",
+   "place": "EXAMPLE: Relief Society Room",
+   "details": "EXAMPLE: Not a real activity.",
+   "type": "Activity",
+   "url": ""
+  },
+  {
+   "date": "2026-11-12",
+   "start": "18:30",
+   "end": "20:00",
+   "title": "EXAMPLE: Ward Temple Night",
+   "place": "EXAMPLE: Temple to be announced",
+   "details": "EXAMPLE: Come for one session or just to be there together.",
+   "type": "Temple",
+   "url": ""
+  },
+  {
+   "date": "2026-11-14",
+   "start": "10:00",
+   "end": "11:30",
+   "title": "EXAMPLE: Service Project",
+   "place": "EXAMPLE: Location TBD",
+   "details": "EXAMPLE: Not a real activity.",
+   "type": "Service",
+   "url": ""
+  }
+ ],
+ "announcements": [
+  {
+   "title": "EXAMPLE: Welcome to our new sisters!",
+   "url": "",
+   "until": "2026-11-30",
+   "details": "EXAMPLE: (Only with their OK.) Please say hello on Sunday and invite them to the activity."
+  },
+  {
+   "title": "EXAMPLE: Bring a friend in November",
+   "url": "",
+   "until": "2026-11-30",
+   "details": "EXAMPLE: Every sister is welcome at our activities, including friends and neighbors."
+  },
+  {
+   "title": "EXAMPLE: Ward mission and FSY news",
+   "url": "",
+   "until": "",
+   "details": "EXAMPLE: A spot for ward mission, FSY, or stake items the Presidency wants to pass along."
+  }
+ ],
+ "signups": [
+  {
+   "url": "PLACEHOLDER",
+   "until": "2026-11-09",
+   "title": "EXAMPLE: Meals for a family",
+   "details": "EXAMPLE: Dinners Nov 2–9. Details are on the sign-up."
+  },
+  {
+   "url": "PLACEHOLDER",
+   "until": "2026-11-05",
+   "title": "EXAMPLE: Help set up the November activity",
+   "details": "EXAMPLE: About 30 minutes before it starts."
+  }
+ ],
+ "lessons": [
+  {
+   "date": "2026-10-25",
+   "url": "PLACEHOLDER",
+   "title": "EXAMPLE lesson topic",
+   "details": "Taught by EXAMPLE: Teacher's name"
+  },
+  {
+   "date": "2026-11-08",
+   "url": "PLACEHOLDER",
+   "title": "EXAMPLE lesson topic",
+   "details": "Taught by EXAMPLE: Teacher's name"
+  },
+  {
+   "date": "2026-11-22",
+   "url": "PLACEHOLDER",
+   "title": "EXAMPLE lesson topic",
+   "details": "Taught by EXAMPLE: Teacher's name"
+  }
+ ],
+ "newsletters": [
+  {
+   "url": "PLACEHOLDER",
+   "title": "EXAMPLE September 2026 Newsletter",
+   "details": "EXAMPLE: Kelsey Kerr's monthly one-sheet",
+   "date": "2026-09-01"
+  },
+  {
+   "url": "PLACEHOLDER",
+   "title": "EXAMPLE October 2026 Newsletter",
+   "details": "EXAMPLE: Kelsey Kerr's monthly one-sheet",
+   "date": "2026-10-01"
+  },
+  {
+   "url": "PLACEHOLDER",
+   "title": "EXAMPLE November 2026 Newsletter",
+   "details": "EXAMPLE: Kelsey Kerr's monthly one-sheet",
+   "date": "2026-11-01"
+  }
+ ],
+ "contacts": [
+  {
+   "calling": "Relief Society President",
+   "name": "EXAMPLE: Name",
+   "phone": ""
+  },
+  {
+   "calling": "First Counselor",
+   "name": "EXAMPLE: Name",
+   "phone": ""
+  },
+  {
+   "calling": "Second Counselor",
+   "name": "EXAMPLE: Name",
+   "phone": ""
+  },
+  {
+   "calling": "Relief Society Secretary",
+   "name": "EXAMPLE: Name",
+   "phone": ""
+  }
+ ],
+ "help": [
+  {
+   "label": "I need help",
+   "url": "PLACEHOLDER"
+  },
+  {
+   "label": "I can help",
+   "url": "PLACEHOLDER"
+  }
+ ]
 }
