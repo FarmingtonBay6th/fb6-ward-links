@@ -65,6 +65,13 @@
   .install .steps li { margin:7px 0; } .install .steps strong { color:var(--accent2); }
   .install .share { display:inline-block; width:22px; height:22px; vertical-align:-4px; }
   .install h3 { font-size:.9rem; margin:14px 0 0; text-align:left; max-width:24em; margin-left:auto; margin-right:auto; }
+  .nlbtn { display:flex; width:100%; align-items:center; justify-content:center; min-height:76px; padding:16px; border-radius:18px; background:#002b40; color:#fff !important;
+    font-size:1.25rem; font-weight:800; text-decoration:none; border:3px solid #ffd54a; text-align:center; flex-direction:column; gap:4px; }
+  .nlbtn.off { background:#ece6dd; color:#4a4038 !important; border-color:#d9a400; cursor:default; }
+  .pres { background:var(--card); border:2px solid var(--accent); border-radius:18px; padding:18px; }
+  .bigsteps { font-size:1.2rem; line-height:1.5; padding-left:30px; margin:8px 0 12px; } .bigsteps li { margin:8px 0; font-weight:700; }
+  .uplbtn { display:flex; width:100%; align-items:center; justify-content:center; min-height:76px; border-radius:18px; background:#1b5e20; color:#fff !important;
+    font-size:1.3rem; font-weight:800; text-decoration:none; border:3px solid #0b3d0e; text-align:center; flex-direction:column; gap:4px; }
   [hidden] { display:none !important; }
   .status { text-align:center; font-size:.75rem; color:var(--soft); margin-top:22px; }
   footer { text-align:center; color:var(--soft); font-size:.75rem; padding:8px 20px 36px; }
@@ -100,7 +107,19 @@
   <section id="sig"><h2>Meals &amp; Service Sign-Ups</h2>
     <p class="meta" style="margin:0">“Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.” (Matthew 25:40)</p>
     <div id="sigBody"></div></section>
-  <section id="nl"><h2>Newsletter</h2><div id="nlBody"></div></section>
+  <section id="nl"><h2>Newsletter</h2><div id="nlRead"></div><div id="nlBody"></div></section>
+  <section id="presidency" aria-labelledby="presH"><h2 id="presH">For the Presidency: Upload the Newsletter</h2>
+    <div class="pres">
+      <ol class="bigsteps">
+        <li>Tap ‘Add file’.</li>
+        <li>Pick your newsletter.</li>
+        <li>Tap ‘Submit’.</li>
+      </ol>
+      <p style="font-size:1.05rem;margin:0 0 10px">A PDF works best. Word (.doc, .docx), Google Docs, and pictures (.jpg, .png) also work.</p>
+      <p style="font-size:1.05rem;margin:0 0 14px">Google may ask you to sign in with your Google account first. That’s normal.</p>
+      <a class="uplbtn" id="uplLink" href="#" aria-disabled="true">⬆️ Upload Newsletter <span class="ph">Placeholder: form not made yet</span></a>
+      <p style="font-size:1.05rem;margin:14px 0 0">Can’t upload? Just email it to <b>[Newsletter helper]</b> <span class="ph">Placeholder</span> and she’ll post it.</p>
+    </div></section>
   <section id="who"><h2>Your Relief Society Presidency</h2><p class="meta" style="margin:0">They love you and are glad to help. Tap to text or call.</p><div id="whoBody"></div></section>
   <section id="home">
     <div class="install">
@@ -135,6 +154,8 @@
 // (Entire document, Comma-separated values). Empty = use data.json (examples).
 const SHEET_PUBLISHED_URL = "";
 // Tab ids (gid) in "DRAFT – FB6 Relief Society Page Content". Don't change unless tabs are recreated.
+// "Upload Newsletter" Google Form link (from START HERE in the sheet). PLACEHOLDER until the form exists.
+const UPLOAD_FORM_URL = "PLACEHOLDER";
 const TABS = { feed: 1558512388, contacts: 1589072440, help: 42639676 };
 // ---------------------------------------------------------------------------
 
@@ -219,7 +240,7 @@ const fromHelp = (rows) => dataRows(rows).filter((r) => r[0] && !/^no$/i.test(r[
 function normalizeJson(j) {
   const fix = (a) => (a || []).map((x) => ({ ...x, date: pDate(x.date), until: pDate(x.until), start: pTime(x.start), end: pTime(x.end) }));
   return { events: fix(j.events), announcements: fix(j.announcements), signups: fix(j.signups), lessons: fix(j.lessons), newsletters: fix(j.newsletters),
-    contacts: j.contacts || [], help: j.help || [] };
+    contacts: j.contacts || [], help: j.help || [], newsletterUrl: j.newsletterUrl || "", newsletterTitle: j.newsletterTitle || "" };
 }
 
 function sheetCsvUrl(gid) {
@@ -348,8 +369,14 @@ function render({ data: d, source, at }) {
 
   // Newsletter + archive
   const [cur, ...past] = news;
-  $("nlBody").innerHTML = cur ? `${linkBtn(cur.url, `📰 Open the ${esc(cur.title.replace(/\s*newsletter\s*$/i, ""))} Newsletter${newTag(cur.posted)}`, "btn big")}
-      <div class="meta" style="text-align:center">A one-sheet prepared each month by Kelsey Kerr</div>
+  // Big "Read This Month's Newsletter" button: newsletterUrl if set, else newest Newsletter row.
+  const nlUrl = (d.newsletterUrl || (cur && cur.url) || "").trim();
+  const nlName = d.newsletterTitle || (cur && cur.title) || "";
+  const nlEx = isEx(nlName) || isEx(nlUrl) || source === "sample";
+  $("nlRead").innerHTML = okLink(nlUrl) && !phLink(nlUrl)
+    ? `<a class="nlbtn" href="${esc(nlUrl)}" target="_blank" rel="noopener">📰 Read This Month’s Newsletter${nlName ? `<small style="font-weight:600;font-size:.85rem">${esc(nlName)}</small>` : ""}${exTag(nlEx, "EXAMPLE")}</a>`
+    : `<span class="nlbtn off" aria-disabled="true">📰 Read This Month’s Newsletter ${exTag(true, nlUrl ? "EXAMPLE: link coming" : "Coming soon")}</span>`;
+  $("nlBody").innerHTML = cur ? `<div class="meta" style="text-align:center">A one-sheet prepared each month by Kelsey Kerr</div>
       ${past.length ? `<div class="card"><b>Past newsletters</b><ul class="list">${past.slice(0, 12).map((n) => `<li>${okLink(n.url) && !phLink(n.url) ? `<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>` : `${esc(n.title)} ${exTag(true, "Link coming")}`}</li>`).join("")}</ul></div>` : ""}`
     : `<div class="card empty">This month’s newsletter is coming soon.</div>`;
 
@@ -359,6 +386,9 @@ function render({ data: d, source, at }) {
       <div class="row">${p ? `<a class="btn" href="${smsHref([p])}">💬 Text</a><a class="btn alt" href="tel:${p}">📞 Call</a>` : `<span class="btn off" aria-disabled="true">💬 Text</span>`}</div></div>`; }).join("")
     : `<div class="card empty">Contact information coming soon.</div>`;
 
+  const up = $("uplLink");
+  if (okLink(UPLOAD_FORM_URL) && !phLink(UPLOAD_FORM_URL)) { up.href = UPLOAD_FORM_URL; up.target = "_blank"; up.rel = "noopener"; up.removeAttribute("aria-disabled"); up.innerHTML = "⬆️ Upload Newsletter"; }
+  else up.onclick = (ev) => ev.preventDefault();
   document.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => addToCal(CAL[b.dataset.cal]));
   $("status").textContent = source === "sheet" ? "Updated from the Relief Society sheet."
     : source === "saved" ? `You’re offline. Showing the copy saved ${new Date(at).toLocaleString("en-US", { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" })}.`

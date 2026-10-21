@@ -1,7 +1,7 @@
 // FB6 Relief Society page (DRAFT): offline copy of this page only.
 // Page and data.json are network-first with a cached fallback. The Google Sheet
 // CSVs are not touched here; the page keeps its own last-good copy in localStorage.
-const CACHE = "fb6-rs-v1";
+const CACHE = "fb6-rs-v2";
 const SHELL = ["./", "data.json", "rs-emblem.png", "manifest.webmanifest", "icons/rs-180.png"];
 
 self.addEventListener("install", (e) => {

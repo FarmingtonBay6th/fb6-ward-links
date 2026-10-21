@@ -69,3 +69,43 @@ function createPostToReliefSocietyForm() {
   Logger.log('Post form: ' + form.getPublishedUrl());
   Logger.log('Edit form: ' + form.getEditUrl());
 }
+
+/**
+ * Newsletter upload (DRAFT). Creates a short "Upload Newsletter" form.
+ *
+ * IMPORTANT: Apps Script's FormApp has NO way to create a File upload question
+ * (there is no addFileUploadItem; file-upload items can only be read, not made).
+ * So this script makes the form, its instructions, and links it to the sheet;
+ * then the Presidency/Adam adds the File upload question by hand (5 clicks, see README):
+ *   1. Open the form's edit link (START HERE row 30).
+ *   2. Click the (+) "Add question" button on the right.
+ *   3. Click the question-type menu (says "Multiple choice") and pick "File upload". Click "Continue".
+ *   4. Title it "Your newsletter". Turn on "Allow only specific file types" and check
+ *      Document, PDF, Image. Set "Maximum number of files" = 1, "Maximum file size" = 10 MB. Turn on Required.
+ *   5. Nothing to save; Google saves it. Uploads go to the form's own Drive folder
+ *      ("Upload Newsletter (File responses)") in Adam's Drive.
+ * Note: Google requires people to sign in with a Google account to upload a file.
+ * Run createUploadNewsletterForm once. It does not share the form with anyone.
+ */
+function createUploadNewsletterForm() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var form = FormApp.create('Upload Newsletter');
+  form.setDescription(
+    'Farmington Bay 6th Ward Relief Society (DRAFT).\n\n' +
+    '1. Tap \u2018Add file\u2019.\n2. Pick your newsletter.\n3. Tap \u2018Submit\u2019.\n\n' +
+    'A PDF works best. Word (.doc, .docx), Google Docs, and pictures (.jpg, .png) also work.\n\n' +
+    'Google may ask you to sign in with your Google account first. That\u2019s normal.\n\n' +
+    'Can\u2019t upload? Just email it to [Newsletter helper] and she\u2019ll post it.');
+  form.setConfirmationMessage('Thank you! Your newsletter was sent. It will be posted soon.');
+  form.setCollectEmail(false);
+  form.addTextItem().setTitle('Which month? (optional)').setHelpText('Like "November 2026".');
+  // File upload question: must be added by hand in the Form editor (see steps above).
+  form.setDestination(FormApp.DestinationType.SPREADSHEET, ss.getId());
+  var start = ss.getSheetByName('START HERE');
+  if (start) {
+    start.getRange('A29').setValue('Upload Newsletter form link (for the Presidency): ' + form.getPublishedUrl());
+    start.getRange('A30').setValue('Upload Newsletter form editing link (Adam only; add the File upload question here): ' + form.getEditUrl());
+  }
+  Logger.log('Upload form: ' + form.getPublishedUrl());
+  Logger.log('Edit upload form: ' + form.getEditUrl());
+}

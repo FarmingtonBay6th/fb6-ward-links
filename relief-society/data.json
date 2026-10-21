@@ -1,5 +1,8 @@
 {
  "_note": "EXAMPLE DATA ONLY. Used only when the Google Sheet isn't connected or can't be reached. Same fields as the sheet's Page Feed: title, date (YYYY-MM-DD), start/end (HH:MM), place, details, url, until. Replace every value before this page goes live.",
+ "_newsletter_note": "EXAMPLE: newsletterUrl (if set) is what the big 'Read This Month's Newsletter' button opens; otherwise the newest 'newsletters' row (a Page Feed row with What kind? = Newsletter). The URL below is an EXAMPLE placeholder.",
+ "newsletterTitle": "EXAMPLE November 2026 Newsletter",
+ "newsletterUrl": "PLACEHOLDER",
  "events": [
   {
    "date": "2026-10-24",

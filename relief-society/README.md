@@ -45,6 +45,29 @@ Posts from the form in the last 7 days get a "New" tag.
 Until step 2, the page shows `data.json` (examples). After it, the page reads the sheet; if the sheet
 can't be reached it shows the last copy saved on that phone, then `data.json`.
 
+## Newsletter (DRAFT)
+- **Readers:** a big dark-blue/yellow-edged **Read This Month’s Newsletter** button at the top of the Newsletter
+  section. It opens `newsletterUrl` (data.json) if set, otherwise the newest row with What kind? = **Newsletter**
+  (Posts / Form Responses 1). Example data: `"newsletterUrl": "PLACEHOLDER"`, so the button shows *EXAMPLE: link coming*.
+- **Presidency:** a "For the Presidency" box with a big green **Upload Newsletter** link. Its URL is
+  `UPLOAD_FORM_URL` in `index.html` (now `PLACEHOLDER`). Text shown above it (also used as the form description):
+
+  > 1. Tap ‘Add file’.  2. Pick your newsletter.  3. Tap ‘Submit’.
+  > A PDF works best. Word (.doc, .docx), Google Docs, and pictures (.jpg, .png) also work.
+  > Google may ask you to sign in with your Google account first. That’s normal.
+  > Can’t upload? Just email it to [Newsletter helper] and she’ll post it.   *(placeholder name)*
+
+**Apps Script can’t make file-upload questions** (FormApp has no file-upload creator). So:
+1. In Apps Script, Run `createUploadNewsletterForm` (from `form-setup.gs`). Links land in START HERE rows 29–30.
+2. Open the edit link. Click **(+) Add question**.
+3. Click the type menu (“Multiple choice”) → **File upload** → **Continue**.
+4. Title “Your newsletter”; turn on **Allow only specific file types** → check **Document, PDF, Image**;
+   **Maximum number of files: 1**; **Maximum file size: 10 MB**; turn on **Required**.
+5. Done (it saves itself). Uploads save to the form’s Drive folder *Upload Newsletter (File responses)*.
+   Paste the form’s link into `UPLOAD_FORM_URL` in `index.html`. Don’t share the folder.
+After an upload, post the file’s link as a Newsletter row (or put it in `newsletterUrl`) so the Read button opens it.
+Uploaders must sign in to Google (Google’s rule for file uploads).
+
 ## Going live later (not done)
 Remove the DRAFT bar, `noindex`, and EXAMPLE rows; then add a Relief Society button to the main page,
 e.g. after the "Submit an Announcement" card in `../index.html`:
@@ -57,5 +80,5 @@ e.g. after the "Submit an Announcement" card in `../index.html`:
 ```
 and bump `CACHE` in `../sw.js`.
 
-Files: `index.html` (whole page), `data.json` (fallback), `sw.js` (offline copy of this page only),
+Files: `index.html` (whole page), `data.json` (fallback), `sw.js` (offline copy of this page only; cache `fb6-rs-v2`),
 `manifest.webmanifest` + `icons/` (home-screen icon, label "Relief Society"), `form-setup.gs`.
