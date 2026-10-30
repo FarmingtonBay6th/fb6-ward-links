@@ -1,4 +1,4 @@
-"""Weekly printable coloring page (letter size) for the Ward Links 'Print & Color' page.
+"""Crayons & Covenants (feature name chosen by Adam 2026-10-29): weekly printable coloring page (letter size) for the Ward Links 'Print & Color' page.
 Usage: make_coloring_page.py DATE DATA_JSON ART_IMAGE [--title T] [--ref R]
 ART_IMAGE = one black-and-white line-art scene for that week's Come, Follow Me lesson / Scripture Hero (generated line art is OK
 for this extra page). Title/ref default to data kids_coloring_page {title, ref}, then kids_hero {name, ref}.
@@ -28,7 +28,7 @@ png = OUT / f"coloring-{a.date}.png"; pdf = OUT / f"coloring-{a.date}.pdf"
 pg.save(png, dpi=(300, 300)); pg.convert("RGB").save(pdf, "PDF", resolution=300)
 thumb = pg.copy(); thumb.thumbnail((900, 1200)); thumb.save(OUT / f"coloring-{a.date}-preview.png")
 html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow"><title>Print &amp; Color · Farmington Bay 6th Ward</title><meta name="theme-color" content="#005175">
+<meta name="robots" content="noindex, nofollow"><title>Crayons &amp; Covenants · Farmington Bay 6th Ward</title><meta name="theme-color" content="#005175">
 <style>:root{{--ink:#2b2420;--soft:#6d625a;--bg:#faf6f0;--card:#fff;--line:#e8dfd3;--accent:#005175;--gold:#c9a24a}}*{{box-sizing:border-box}}
 html,body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}}
 header{{position:relative;background:linear-gradient(160deg,#005175,#003a55);color:#fff;padding:20px 20px 24px;text-align:center;border-bottom-left-radius:22px;border-bottom-right-radius:22px;border-bottom:4px solid var(--gold)}}
@@ -37,7 +37,7 @@ main{{max-width:560px;margin:0 auto;padding:16px 14px 30px;text-align:center}} .
 .big{{display:block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:19px;padding:16px 18px;border-radius:16px;margin:10px 0;border:2px solid var(--gold)}}
 .alt{{display:block;background:#e3eef4;color:var(--accent);text-decoration:none;font-weight:600;padding:12px;border-radius:14px}} .soft{{color:var(--soft);font-size:14px}}
 footer{{text-align:center;color:var(--soft);font-size:12px;padding:8px 20px 30px}}</style></head><body>
-<header><a class="back" href="../">‹ Ward Links</a><h1>Print &amp; Color</h1><p>A new coloring page each week to go with what we are learning about Jesus Christ.</p></header>
+<header><a class="back" href="../">‹ Ward Links</a><h1>Crayons &amp; Covenants</h1><p>A new coloring page each week to go with what we are learning about Jesus Christ.</p></header>
 <main><h2 style="font:italic 400 22px Georgia,serif;margin:6px 0 2px;color:var(--accent)">{title}</h2><div class="soft">{ref}</div>
 <img class="sheet" src="coloring-{a.date}-preview.png" alt="Coloring page: {title}">
 <a class="big" href="coloring-{a.date}.pdf" download>⬇ Download &amp; Print (PDF)</a><a class="alt" href="coloring-{a.date}.png" download>Download picture (PNG)</a>
