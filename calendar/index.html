@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Ward Calendar · Farmington Bay 6th Ward</title>
+<meta name="theme-color" content="#005175">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/cover-favicon-32.png?v=cover1">
+<link rel="apple-touch-icon" href="../icons/cover-180.png?v=cover1">
+<style>
+  :root { --ink:#2b2420; --soft:#6d625a; --bg:#faf6f0; --card:#fff; --line:#e8dfd3; --accent:#005175; --chip:#e3eef4; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .preview { background:#c9a24a; color:#003a55; text-align:center; font-weight:700; padding:10px 14px; font-size:15px; }
+  header { background:linear-gradient(160deg,#005175,#003a55); color:#fff; padding:28px 20px 30px; text-align:center; border-bottom-left-radius:22px; border-bottom-right-radius:22px; }
+  header .ward { font:600 13px/1 Georgia, serif; letter-spacing:.14em; text-transform:uppercase; opacity:.85; }
+  header h1 { font:italic 400 28px/1.15 Georgia, serif; margin:10px 0 8px; }
+  header p { margin:0 auto; max-width:30em; font:italic 15px/1.45 Georgia, serif; opacity:.92; }
+  main { max-width:560px; margin:0 auto; padding:18px 14px 30px; }
+  .sub { display:flex; align-items:center; justify-content:center; gap:10px; min-height:56px; border-radius:16px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:17px; }
+  .sub svg { width:22px; height:22px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .toggle { display:flex; gap:8px; margin:14px 0 4px; }
+  .toggle button { flex:1; min-height:48px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--accent); font:600 16px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; cursor:pointer; }
+  .toggle button[aria-pressed=true] { background:var(--chip); border-color:var(--accent); }
+  h2 { font:italic 400 22px/1.2 Georgia, serif; margin:22px 0 4px; }
+  h3 { font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--soft); margin:14px 0 4px; }
+  .ev { display:flex; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:12px; margin:8px 0; box-shadow:0 1px 2px rgba(59,47,42,.06); min-height:72px; }
+  .date { flex:0 0 56px; height:60px; border-radius:12px; background:var(--chip); color:var(--accent); display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1; }
+  .date small { font-size:12px; font-weight:700; text-transform:uppercase; } .date b { font-size:24px; margin-top:3px; }
+  .evtx { flex:1; min-width:0; } .evtx b { display:block; font-size:17px; line-height:1.25; }
+  .when { margin:4px 0 0; font-weight:600; color:var(--accent); font-size:14.5px; } .where { margin:2px 0 0; font-size:14px; color:var(--soft); }
+  .grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:3px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:8px; }
+  .grid .dow { text-align:center; font-size:12px; font-weight:700; color:var(--soft); padding:4px 0; }
+  .grid .d { min-width:0; min-height:54px; border-radius:8px; padding:3px; font-size:13px; } .grid .d.has { background:var(--chip); }
+  .grid .d i { display:block; font-style:normal; font-size:10.5px; line-height:1.15; color:var(--accent); font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  details.about { background:var(--card); border:1px solid var(--line); border-radius:14px; margin:12px 0 0; padding:12px 14px; font-size:14.5px; }
+  details.about summary { font-weight:600; color:var(--accent); cursor:pointer; min-height:28px; } details.about p { margin:8px 0 0; } details.about a { color:var(--accent); }
+  .cal { display:inline-block; margin-top:6px; font-size:12px; font-weight:600; color:var(--accent); background:var(--chip); border-radius:999px; padding:2px 9px; }
+  .note { color:var(--soft); font-size:13px; text-align:center; margin:18px 0 0; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; --chip:#33291f; } .sub { background:#005175; } }
+</style>
+<script src="../nav.js" defer></script></head>
+<body>
+<div class="preview" id="pv" hidden>Preview With Example Events</div>
+<header><div class="ward">Farmington Bay 6th Ward</div><h1>Ward Calendar</h1><p>Upcoming ward activities and meetings. All times Mountain Time.</p></header>
+<main>
+  <a class="sub" href="ward.ics"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Add To My Calendar</a>
+  <details class="about"><summary>Why Two Calendars?</summary>
+    <p><b>Official Ward Calendar</b> is the Church calendar. It's the source, with full details, but it needs a Church Account sign-in.</p>
+    <p><b>Bay 6 Calendar</b> (this page) copies the public ward events from the official calendar automatically every 8 hours, so you can open it without signing in. Private items like interviews are never copied.</p>
+    <p>Need to add or change an event? Make the change on the <a href="https://www.churchofjesuschrist.org/calendar" rel="noopener">official ward calendar</a>. It shows up here at the next sync.</p>
+  </details>
+  <div class="toggle"><button id="bl" aria-pressed="true">List</button><button id="bg" aria-pressed="false">Month</button></div>
+  <div id="out"></div>
+  <p class="note" id="synced">Copied from the official ward calendar. Times shown in Mountain Time.</p>
+</main>
+<script>
+const TZ='America/Denver', f=(o,d)=>new Intl.DateTimeFormat('en-US',{timeZone:TZ,...o}).format(d);
+let EV=[], mode='list';
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function weekStart(d){const x=new Date(d);x.setDate(x.getDate()-x.getDay());return x;}
+function list(){let h='',m='',w='';for(const e of EV){const d=new Date(e.start),mm=f({month:'long',year:'numeric'},d);
+ if(mm!==m){h+=`<h2>${mm}</h2>`;m=mm;w='';}const ws='Week Of '+f({month:'short',day:'numeric'},weekStart(d));if(ws!==w){h+=`<h3>${ws}</h3>`;w=ws;}
+ const t=e.allDay?'All Day':f({hour:'numeric',minute:'2-digit'},d)+' – '+f({hour:'numeric',minute:'2-digit'},new Date(e.end))+' MT';
+ h+=`<div class="ev"><div class="date"><small>${f({weekday:'short'},d)}</small><b>${f({day:'numeric'},d)}</b></div><div class="evtx"><b>${esc(e.title)}</b><p class="when">${f({weekday:'long',month:'short',day:'numeric'},d)} · ${t}</p>${e.location?`<p class="where">${esc(e.location)}</p>`:''}<span class="cal">${esc(e.calendar.replace(/^Farmington 6th Ward$/,'Ward'))}</span></div></div>`;}
+ return h||'<p class="note">No upcoming events.</p>';}
+function grid(){const months=[...new Set(EV.map(e=>e.start.slice(0,7)))];let h='';for(const ym of months){const [y,mo]=ym.split('-').map(Number),first=new Date(y,mo-1,1),n=new Date(y,mo,0).getDate();
+ h+=`<h2>${f({month:'long',year:'numeric'},new Date(y,mo-1,15))}</h2><div class="grid">`+['S','M','T','W','T','F','S'].map(x=>`<div class="dow">${x}</div>`).join('')+'<div></div>'.repeat(first.getDay());
+ for(let i=1;i<=n;i++){const key=`${ym}-${String(i).padStart(2,'0')}`,es=EV.filter(e=>e.start.slice(0,10)===key);h+=`<div class="d${es.length?' has':''}">${i}${es.map(e=>`<i>${esc(e.title.replace(/^Example: /,''))}</i>`).join('')}</div>`;}h+='</div>';}return h;}
+function draw(){document.getElementById('out').innerHTML=mode==='list'?list():grid();bl.setAttribute('aria-pressed',mode==='list');bg.setAttribute('aria-pressed',mode==='grid');}
+bl.onclick=()=>{mode='list';draw()};bg.onclick=()=>{mode='grid';draw()};
+fetch('../data/calendar.json').then(r=>r.json()).then(j=>{pv.hidden=!j.preview;synced.textContent='Last copied from the official ward calendar '+f({month:'short',day:'numeric',hour:'numeric',minute:'2-digit'},new Date(j.generated))+' MT.';const now=j.preview?0:Date.now();EV=j.events.filter(e=>new Date(e.end)>=now);draw();});
+</script>
+</body></html>

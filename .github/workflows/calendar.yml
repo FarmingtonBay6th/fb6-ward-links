@@ -1,0 +1,33 @@
+# DRAFT – builds the Bay 6 Calendar from the official Church sync feed every 8 hours.
+# Needs repo secret CHURCH_ICS_URL (Settings → Secrets and variables → Actions). Never echo it.
+name: Sync Bay 6 Calendar
+on:
+  schedule:
+    - cron: "0 */8 * * *"   # every 8 hours (UTC)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: calendar-sync
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build calendar
+        env:
+          CHURCH_ICS_URL: ${{ secrets.CHURCH_ICS_URL }}
+        run: python3 tools/build_calendar.py "$CHURCH_ICS_URL" > /dev/null
+      - name: Commit if changed
+        run: |
+          git config user.name "bay6-calendar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/calendar.json calendar/ward.ics
+          # ignore the timestamp-only change so we don't commit every 8 hours for nothing
+          if git diff --cached --quiet -I '"generated"' -I '^DTSTAMP'; then echo "No changes"; exit 0; fi
+          git commit -m "Sync Bay 6 Calendar"
+          git push

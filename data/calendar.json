@@ -1,0 +1,70 @@
+{
+ "generated": "2026-10-30T06:50:47-06:00",
+ "timezone": "America/Denver",
+ "preview": false,
+ "events": [
+  {
+   "id": "0000000000000000000000175394652calendarC",
+   "title": "Primary Program Rehearsal",
+   "calendar": "Farmington 6th Ward",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-01T13:00:00-07:00",
+   "end": "2026-11-01T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000173786127calendarC",
+   "title": "6th Ward Primary Presentation Practice",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-05T16:00:00-07:00",
+   "end": "2026-11-05T17:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000173451252calendarC",
+   "title": "6th Ward Primary Presentation",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-08T12:00:00-07:00",
+   "end": "2026-11-08T13:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000171852777calendarC",
+   "title": "Relief Society Friendsgiving",
+   "calendar": "Relief Society",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-12T18:30:00-07:00",
+   "end": "2026-11-12T20:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000175810852calendarC",
+   "title": "Ward Temple Night",
+   "calendar": "Farmington 6th Ward",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-19T19:00:00-07:00",
+   "end": "2026-11-19T21:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000174312402calendarC",
+   "title": "Priesthood & Temple Preparation Meeting",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-13T14:00:00-07:00",
+   "end": "2026-12-13T15:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000175810952calendarC",
+   "title": "Ward Temple Night",
+   "calendar": "Farmington 6th Ward",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-17T19:00:00-07:00",
+   "end": "2026-12-17T21:00:00-07:00"
+  }
+ ]
+}

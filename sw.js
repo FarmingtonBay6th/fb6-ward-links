@@ -2,7 +2,7 @@
 // Network-first for the page; every non-navigation request (icons, images,
 // manifest, cross-origin links) goes straight to the network so iOS can always
 // fetch the home-screen icon.
-const CACHE = "fb6-cover-v8";
+const CACHE = "fb6-cover-v9";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(["./"])).then(() => self.skipWaiting()));
@@ -18,15 +18,20 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("fetch", (e) => {
   const req = e.request;
-  if (req.method !== "GET" || req.mode !== "navigate") return;
+  if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
-  // Only the main page itself. Sub-pages (e.g. /relief-society/) are not cached under "./".
   const scope = new URL(self.registration.scope).pathname;
-  if (url.pathname !== scope && url.pathname !== scope + "index.html") return;
+  // Network-first offline copies: the home page, the Bay 6 Calendar page, and its data.
+  // Other sub-pages and all other requests go straight to the network.
+  let key = null;
+  if (req.mode === "navigate" && (url.pathname === scope || url.pathname === scope + "index.html")) key = "./";
+  else if (req.mode === "navigate" && (url.pathname === scope + "calendar/" || url.pathname === scope + "calendar/index.html")) key = "./calendar/";
+  else if (url.pathname === scope + "data/calendar.json") key = "./data/calendar.json";
+  if (!key) return;
   e.respondWith(
     fetch(req)
-      .then((res) => { const copy = res.clone(); caches.open(CACHE).then((c) => c.put("./", copy)); return res; })
-      .catch(() => caches.match("./"))
+      .then((res) => { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(key, copy)); return res; })
+      .catch(() => caches.match(key))
   );
 });
