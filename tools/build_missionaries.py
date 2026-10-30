@@ -14,11 +14,24 @@ ICON = '''<svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Missio
 <g fill="none" stroke="#f3d98b" stroke-width="2.2"><circle cx="43" cy="60" r="13"/><path d="M30 60h26M43 47c5 4 5 22 0 26M43 47c-5 4-5 22 0 26M32 53h22M32 67h22"/></g>
 <path d="M63 52h26" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><path d="M63 61h22M63 69h18" stroke="#c9c9c9" stroke-width="2.4" stroke-linecap="round"/>
 <path d="M60 96l-7-4.5 7-4.5 7 4.5z" fill="#c9a24a"/></svg>'''
+def enc(t):   # reversed + base64, so no address (and no '@') is ever in the HTML
+    import base64
+    return base64.b64encode(t[::-1].encode()).decode()
 def card(m):
     name, email, place = m[0], m[1], m[2]
-    href = "mailto:" + email + "?subject=" + urllib.parse.quote(SUBJ)
+    user, dom = email.split("@")
     return (f'    <div class="mcard"><div class="who"><b>{name}</b><span>{place}</span></div>'
-            f'<a class="hello" href="{href}" aria-label="Say hello to {name} by email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg>Say hello</a></div>')
+            f'<a class="hello" href="#write" data-u="{enc(user)}" data-d="{enc(dom)}" aria-label="Say hello to {name} by email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg>Say hello</a></div>')
+JS = """<script>
+// addresses are assembled only when a button is tapped (spam bots reading the HTML never see one)
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a.hello[data-u]'); if (!a) return;
+  e.preventDefault();
+  var dec = function (s) { return atob(s).split('').reverse().join(''); };
+  window.location.href = 'mailto:' + dec(a.dataset.u) + String.fromCharCode(64) + dec(a.dataset.d);
+});
+</script>
+<noscript><p style="text-align:center;color:#6d625a;font-size:14px;margin:0 16px 20px">The Say hello buttons need JavaScript. You can also find missionary addresses in the Member Tools app or ask the ward mission leader.</p></noscript>"""
 page = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow"><title>Our Ward Missionaries · Farmington Bay 6th Ward</title><meta name="theme-color" content="#005175">
@@ -41,9 +54,11 @@ page = f'''<!doctype html>
 <header style="position:relative"><a class="back" href="../">‹ Ward Links</a>{ICON}
 <h1>Our Ward Missionaries</h1><p>They love hearing from home! Tap <b>Say hello</b> to send a quick note of love and encouragement.</p></header>
 <main>
-  <div class="note">Each button opens your email app with a greeting ready to go. A–Z by last name.</div>
+  <div class="note">Each button opens your email app addressed to that missionary. A–Z by last name.</div>
 {chr(10).join(card(m) for m in M)}
 </main>
+<div id="write"></div>
+{JS}
 <footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer>
 </body></html>
 '''
@@ -61,5 +76,14 @@ css = ('  .misscard { padding:0; overflow:hidden; } .misslink { display:flex; al
        '  .misslink .mt b { display:block; font:italic 400 21px/1.2 Georgia, serif; } .misslink .mt small { display:block; color:var(--soft); font-size:14px; margin-top:3px; }\n'
        '  .misslink .mt em { display:inline-block; margin-top:8px; font-style:normal; font-weight:600; font-size:15px; background:var(--accent2); color:#fff; padding:8px 13px; border-radius:11px; }\n')
 if ".misscard" not in H: H = H.replace("  section h2 {", css + "  section h2 {", 1)
+LOCAL_ICON = '''<svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Two missionary name tags with a map pin">
+<circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
+<g transform="rotate(-8 46 66)"><rect x="18" y="52" width="54" height="32" rx="6" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.2"/><path d="M27 63h34" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M27 72h24" stroke="#c9c9c9" stroke-width="2.2" stroke-linecap="round"/></g>
+<g transform="rotate(7 74 72)"><rect x="48" y="58" width="54" height="32" rx="6" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.2"/><path d="M57 69h34" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M57 78h24" stroke="#c9c9c9" stroke-width="2.2" stroke-linecap="round"/></g>
+<path d="M60 47c-8-9-13-14-13-21a13 13 0 0 1 26 0c0 7-5 12-13 21z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2"/><circle cx="60" cy="26" r="4.6" fill="#005175"/></svg>'''
+H = re.sub(r'  <section id="missionaries" class="miss">\n    <h2>Our Local Missionaries</h2>',
+           lambda _: '  <section id="missionaries" class="miss">\n    <div class="lochead">' + LOCAL_ICON + '<h2>Our Local Missionaries</h2></div>', H, count=1)
+if ".lochead" not in H.split("</style>")[0]:
+    H = H.replace("  section h2 {", "  .lochead { display:flex; align-items:center; gap:14px; } .lochead .badge { flex:0 0 72px; width:72px; height:72px; } .lochead h2 { margin:0; }\n  section h2 {", 1)
 (ROOT / "index.html").write_text(H)
 print(len(M), "missionaries")

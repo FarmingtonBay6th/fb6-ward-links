@@ -38,6 +38,7 @@
   .misslink:active { background:#f3f8fb; } .misslink .badge { flex:0 0 84px; width:84px; height:84px; }
   .misslink .mt b { display:block; font:italic 400 21px/1.2 Georgia, serif; } .misslink .mt small { display:block; color:var(--soft); font-size:14px; margin-top:3px; }
   .misslink .mt em { display:inline-block; margin-top:8px; font-style:normal; font-weight:600; font-size:15px; background:var(--accent2); color:#fff; padding:8px 13px; border-radius:11px; }
+  .lochead { display:flex; align-items:center; gap:14px; } .lochead .badge { flex:0 0 72px; width:72px; height:72px; } .lochead h2 { margin:0; }
   section h2 { font:italic 400 21px/1.2 Georgia, serif; margin:0 0 8px; }
   .elders { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 12px; }
   .btn { display:inline-block; padding:10px 14px; border-radius:12px; background:var(--accent2); color:#fff; text-decoration:none; font-weight:600; font-size:15px; }
@@ -177,7 +178,11 @@
     </div>
   </section>
   <section id="missionaries" class="miss">
-    <h2>Our Local Missionaries</h2>
+    <div class="lochead"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Two missionary name tags with a map pin">
+<circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
+<g transform="rotate(-8 46 66)"><rect x="18" y="52" width="54" height="32" rx="6" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.2"/><path d="M27 63h34" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M27 72h24" stroke="#c9c9c9" stroke-width="2.2" stroke-linecap="round"/></g>
+<g transform="rotate(7 74 72)"><rect x="48" y="58" width="54" height="32" rx="6" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.2"/><path d="M57 69h34" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M57 78h24" stroke="#c9c9c9" stroke-width="2.2" stroke-linecap="round"/></g>
+<path d="M60 47c-8-9-13-14-13-21a13 13 0 0 1 26 0c0 7-5 12-13 21z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2"/><circle cx="60" cy="26" r="4.6" fill="#005175"/></svg><h2>Our Local Missionaries</h2></div>
     <div class="elders">
       <a class="btn" href="sms:+18019704486">Text the Missionaries</a>
       <a class="btn alt" href="tel:+18019704486">Call the Missionaries</a>
