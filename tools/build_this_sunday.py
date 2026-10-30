@@ -70,7 +70,7 @@ page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 header{{background:linear-gradient(160deg,#005175,#003a55);color:#fff;text-align:center;padding:16px 20px 26px;border-bottom:4px solid var(--gold);border-radius:0 0 22px 22px}}
 header .back{{display:block;text-align:left;color:#e2c47a;text-decoration:none;font-size:14px;margin-bottom:8px}}
 .kicker{{font:600 12.5px/1 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:#e2c47a}}
-h1{{font:italic 400 32px/1.1 Georgia,serif;margin:10px 0 4px}} .mt{{font:400 19px Georgia,serif}} .ast{{font-size:.55em;vertical-align:super;margin-left:2px;opacity:.8}} .upd{{margin:6px 0 0;font:italic 12.5px/1.35 Georgia,serif;opacity:.75}} .meta{{margin-top:10px;font-size:14.5px;opacity:.92}}
+h1{{font:italic 400 32px/1.1 Georgia,serif;margin:10px 0 4px}} .mt{{font:400 19px Georgia,serif}} .ast{{font-size:.55em;vertical-align:super;margin-left:2px;opacity:.8}} .upd{{margin:6px 0 0;font:italic 12.5px/1.35 Georgia,serif;opacity:.75}} .upd.sec{{margin:0 0 10px;color:#6b6250;opacity:1}} .meta{{margin-top:10px;font-size:14.5px;opacity:.92}}
 .sample{{display:inline-block;margin-top:12px;background:#f6ecd2;color:var(--goldt);border:1px dashed var(--gold);border-radius:999px;padding:5px 12px;font:700 11px/1.2 -apple-system,sans-serif;letter-spacing:.06em}}
 main{{max-width:600px;margin:0 auto;padding:16px 14px 30px}}
 .lead{{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}}
@@ -97,14 +97,14 @@ footer{{text-align:center;color:var(--soft);font-size:11.5px;padding:8px 20px 36
 <main>
 <div class="lead"><div><span>Presiding</span><b>{E(A.get("presiding",""))}</b></div><div><span>Conducting</span><b>{E(A.get("conducting",""))}</b></div>
 <div><span>Chorister</span><b>{E(C.get("chorister",""))}</b></div><div><span>Organist</span><b>{E(C.get("organist",""))}</b></div></div>
-<details open><summary>Order of Meeting</summary><div class="in"><ol class="order">{"".join(rows)}</ol><p class="note">Tap a hymn to open it in the Church’s music library.</p></div></details>
-<details open><summary>Announcements</summary><div class="in"><ul class="list">{"".join(up)}</ul><a class="btn" href="../events/">See all Upcoming Events</a></div></details>
-<details open><summary>Little Disciples</summary><div class="in"><p class="note">A page for children. Think about Jesus as you solve each puzzle.</p>
+<details open><summary><span>Order of Meeting<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><ol class="order">{"".join(rows)}</ol><p class="note">Tap a hymn to open it in the Church’s music library.</p></div></details>
+<details open><summary><span>Announcements<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><ul class="list">{"".join(up)}</ul><a class="btn" href="../events/">See all Upcoming Events</a></div></details>
+<details open><summary><span>Little Disciples<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><p class="note">A page for children. Think about Jesus as you solve each puzzle.</p>
 {"<ol class='steps'>"+"".join(f"<li>{E(s)}</li>" for s in kc.get("steps",[]))+"</ol>" if kc.get("steps") else ""}
 {f'<p class="q">Scripture to Remember: “{E(mem[0])}” {E(mem[1])}</p>' if mem else ""}{kimg}</div></details>
 <details><summary>Come, Follow Me</summary><div class="in"><p><b>{E(cfm.get("title",""))}</b><br><span class="note">{E(cfm.get("dates",""))} · {E(cfm.get("scriptures",""))}</span></p>
 {f'<p class="q">{E(cfm["question"])}</p>' if cfm.get("question") else ""}<a class="btn" href="{cfm.get("url","https://www.churchofjesuschrist.org/study/come-follow-me")}" rel="noopener">Open this week’s lesson</a></div></details>
-{f'<details><summary>Hymn Spotlight</summary><div class="in"><p><b><span class="num">{E(hs["hymn"])}</span> {E(hs["title"])}</b></p><p>{E(hs.get("text",""))}</p><p class="q">{E(hs.get("points_to_christ",""))}</p></div></details>' if hs else ""}
+{f'<details><summary><span>Hymn Spotlight<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><p><b><span class="num">{E(hs["hymn"])}</span> {E(hs["title"])}</b></p><p>{E(hs.get("text",""))}</p><p class="q">{E(hs.get("points_to_christ",""))}</p></div></details>' if hs else ""}
 </main><footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer></body></html>'''
 low=page.lower(); assert not any(b in low for b in BLOCK), 'blocked name present'
 assert not re.search(r'\d{3}[-. ]\d{3}[-. ]\d{4}',re.sub(r'<[^>]+>','',page)), 'phone number present'
