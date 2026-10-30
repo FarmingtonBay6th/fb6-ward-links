@@ -1,5 +1,5 @@
 {
-  "_readme": "Primary class tabs (orgs/primary/). Rendered by orgs/primary/classes.js. classes: id, name, ages, teachers [adult full names], children [FIRST NAMES ONLY] or null for 'Coming soon'. NEVER ages, birthdays, last names or contact info for children. When in doubt, leave null ('Coming soon'). activities: same format as yw-classes.json. all: ward-wide Primary leaders (presidency names already on the contact card are not repeated) plus handbook notes.",
+  "_readme": "Primary class tabs (orgs/primary/). Rendered by orgs/primary/classes.js. classes: id, name, ages, teachers [adult full names], children [FIRST NAMES ONLY] or null for 'Coming soon'. NEVER ages, birthdays, last names or contact info for children. When in doubt, leave null ('Coming soon'). activities: same format as yw-classes.json. all: ward-wide Primary leaders (presidency names already on the contact card are not repeated) plus handbook notes. overrides: LCR full name -> go-by first name, applied by tools/build_primary_kids.py (children come from LCR Attendance Rolls).",
   "classes": [
     {
       "id": "nursery",
@@ -9,7 +9,17 @@
         "Eden Rasmussen",
         "Leslie Beynon"
       ],
-      "children": null,
+      "children": [
+        "Stetson",
+        "John",
+        "Hayes",
+        "Dawson",
+        "Calvin",
+        "Brodie",
+        "Bridger",
+        "Beckham",
+        "Asher"
+      ],
       "info": "Substitutes: Brooke Jeppesen, Keri Taylor."
     },
     {
@@ -21,7 +31,18 @@
         "Reese Roberson",
         "Jodi Wilcock"
       ],
-      "children": null,
+      "children": [
+        "Thatcher",
+        "Sophie",
+        "Ryan",
+        "Lily",
+        "Kate",
+        "Jackson",
+        "Ellie",
+        "Bretton",
+        "Brandon",
+        "Alice"
+      ],
       "info": null
     },
     {
@@ -34,7 +55,13 @@
         "Isabella Sackett",
         "Rani Hiller"
       ],
-      "children": null,
+      "children": [
+        "Tatum",
+        "Naomi",
+        "Jack",
+        "Elowyn",
+        "Birdie"
+      ],
       "info": null
     },
     {
@@ -47,7 +74,21 @@
         "Dennis Packard",
         "Gaylene Packard"
       ],
-      "children": null,
+      "children": [
+        "Rocco",
+        "Neal",
+        "Lyndee",
+        "Kentley",
+        "Jerrick",
+        "Jackson",
+        "Hugh",
+        "Heidi",
+        "Emmett",
+        "Chance",
+        "Brett",
+        "Blake",
+        "Annabelle"
+      ],
       "info": null
     },
     {
@@ -87,6 +128,7 @@
         "Kennedy",
         "Josie",
         "Josie",
+        "Josette",
         "Goldie",
         "Ella",
         "Cal",
@@ -221,5 +263,8 @@
         }
       ]
     }
+  },
+  "overrides": {
+    "Bingham, Truman Grey": "Grey"
   }
 }
