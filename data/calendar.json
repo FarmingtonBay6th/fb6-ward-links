@@ -1,8 +1,17 @@
 {
- "generated": "2026-10-30T06:50:47-06:00",
+ "generated": "2026-10-30T08:22:15-06:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
+  {
+   "id": "0000000000000000000000151153027calendarC",
+   "title": "Fast Sunday",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": true,
+   "start": "2026-11-01T00:00:00-06:00",
+   "end": "2026-11-02T00:00:00-07:00"
+  },
   {
    "id": "0000000000000000000000175394652calendarC",
    "title": "Primary Program Rehearsal",
@@ -11,6 +20,24 @@
    "allDay": false,
    "start": "2026-11-01T13:00:00-07:00",
    "end": "2026-11-01T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567699calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-01T15:45:00-07:00",
+   "end": "2026-11-01T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000148313127calendarC",
+   "title": "Worldwide Devotional for Young Adults",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-01T18:00:00-07:00",
+   "end": "2026-11-01T19:00:00-07:00"
   },
   {
    "id": "0000000000000000000000173786127calendarC",
@@ -22,6 +49,24 @@
    "end": "2026-11-05T17:30:00-07:00"
   },
   {
+   "id": "0000000000000000000000174726502calendarC",
+   "title": "Stake relief society training dinner",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-05T18:00:00-07:00",
+   "end": "2026-11-05T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000148313302calendarC",
+   "title": "Rebroadcast: Worldwide Devotional for Young Adults",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-08T00:00:00-07:00",
+   "end": "2026-11-08T01:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000173451252calendarC",
    "title": "6th Ward Primary Presentation",
    "calendar": "Primary",
@@ -29,6 +74,15 @@
    "allDay": false,
    "start": "2026-11-08T12:00:00-07:00",
    "end": "2026-11-08T13:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567700calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-08T15:45:00-07:00",
+   "end": "2026-11-08T16:45:00-07:00"
   },
   {
    "id": "0000000000000000000000171852777calendarC",
@@ -40,6 +94,24 @@
    "end": "2026-11-12T20:30:00-07:00"
   },
   {
+   "id": "0000000000000000000000148591485calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-14T06:00:00-07:00",
+   "end": "2026-11-14T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567701calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-15T15:45:00-07:00",
+   "end": "2026-11-15T16:45:00-07:00"
+  },
+  {
    "id": "0000000000000000000000175810852calendarC",
    "title": "Ward Temple Night",
    "calendar": "Farmington 6th Ward",
@@ -47,6 +119,123 @@
    "allDay": false,
    "start": "2026-11-19T19:00:00-07:00",
    "end": "2026-11-19T21:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567702calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-22T15:45:00-07:00",
+   "end": "2026-11-22T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000175711977calendarC",
+   "title": "Stake Missionary Fireside",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-22T18:30:00-07:00",
+   "end": "2026-11-22T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000174415102calendarC",
+   "title": "Pre-thanksgiving activities",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-26T07:30:00-07:00",
+   "end": "2026-11-26T12:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567703calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-29T15:45:00-07:00",
+   "end": "2026-11-29T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000154433277calendarC",
+   "title": "Set up for Ward Christmas Party",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-04T16:00:00-07:00",
+   "end": "2026-12-04T22:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000154889427calendarC",
+   "title": "Set Up For 6th Ward Christmas Party on 12/5/26",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-04T18:00:00-07:00",
+   "end": "2026-12-04T22:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000154888777calendarC",
+   "title": "6th Ward Christmas Party",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-05T07:00:00-07:00",
+   "end": "2026-12-05T11:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000154432152calendarC",
+   "title": "Ward Christmas Party",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-05T08:00:00-07:00",
+   "end": "2026-12-05T13:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000148313477calendarC",
+   "title": "First Presidency\u2019s Christmas Devotional",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2026-12-06T00:00:00-07:00",
+   "end": "2026-12-07T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000151153077calendarC",
+   "title": "Fast Sunday",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": true,
+   "start": "2026-12-06T00:00:00-07:00",
+   "end": "2026-12-07T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567704calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-06T15:45:00-07:00",
+   "end": "2026-12-06T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177347327calendarC",
+   "title": "Temple and Priesthood Preparation Meeting",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-06T16:00:00-07:00",
+   "end": "2026-12-06T17:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000148591486calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-12T06:00:00-07:00",
+   "end": "2026-12-12T14:00:00-07:00"
   },
   {
    "id": "0000000000000000000000174312402calendarC",
@@ -58,6 +247,15 @@
    "end": "2026-12-13T15:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000166567705calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-13T15:45:00-07:00",
+   "end": "2026-12-13T16:45:00-07:00"
+  },
+  {
    "id": "0000000000000000000000175810952calendarC",
    "title": "Ward Temple Night",
    "calendar": "Farmington 6th Ward",
@@ -65,6 +263,564 @@
    "allDay": false,
    "start": "2026-12-17T19:00:00-07:00",
    "end": "2026-12-17T21:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000148313627calendarC",
+   "title": "One-Hour Sacrament Meetings",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2026-12-20T00:00:00-07:00",
+   "end": "2026-12-21T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567706calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-27T15:45:00-07:00",
+   "end": "2026-12-27T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000151153152calendarC",
+   "title": "Fast Sunday",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": true,
+   "start": "2027-01-03T00:00:00-07:00",
+   "end": "2027-01-04T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567707calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-03T15:45:00-07:00",
+   "end": "2027-01-03T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110952calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-07T18:30:00-07:00",
+   "end": "2027-01-07T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111227calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-07T18:30:00-07:00",
+   "end": "2027-01-07T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177041902calendarC",
+   "title": "Stake YW's Pickleball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-07T19:00:00-07:00",
+   "end": "2027-01-07T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176732752calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-09T06:00:00-07:00",
+   "end": "2027-01-09T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567708calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-10T15:45:00-07:00",
+   "end": "2027-01-10T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110953calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-14T18:30:00-07:00",
+   "end": "2027-01-14T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111228calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-14T18:30:00-07:00",
+   "end": "2027-01-14T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177070277calendarC",
+   "title": "Stake YW's Pickleball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-14T19:00:00-07:00",
+   "end": "2027-01-14T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176186202calendarC",
+   "title": "\u201cRejoice in Christ\u201d Worldwide Discussion",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-01-16T00:00:00-07:00",
+   "end": "2027-01-17T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567709calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-17T15:45:00-07:00",
+   "end": "2027-01-17T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110954calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-21T18:30:00-07:00",
+   "end": "2027-01-21T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111229calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-21T18:30:00-07:00",
+   "end": "2027-01-21T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177070278calendarC",
+   "title": "Stake YW's Pickleball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-21T19:00:00-07:00",
+   "end": "2027-01-21T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000174793252calendarC",
+   "title": "Stake Relief Society Activiy",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-23T10:00:00-07:00",
+   "end": "2027-01-23T13:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567710calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-24T15:45:00-07:00",
+   "end": "2027-01-24T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000174416177calendarC",
+   "title": "Pre-Trek Fireside",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-24T17:00:00-07:00",
+   "end": "2027-01-24T22:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110955calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-28T18:30:00-07:00",
+   "end": "2027-01-28T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111230calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-28T18:30:00-07:00",
+   "end": "2027-01-28T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177070279calendarC",
+   "title": "Stake YW's Pickleball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-01-28T19:00:00-07:00",
+   "end": "2027-01-28T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000166567711calendarC",
+   "title": "Mission Prep",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-31T15:45:00-07:00",
+   "end": "2027-01-31T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110956calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-02-04T18:30:00-07:00",
+   "end": "2027-02-04T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111231calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-04T18:30:00-07:00",
+   "end": "2027-02-04T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176216477calendarC",
+   "title": "Worldwide Devotional for Young Adults",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-02-07T18:00:00-07:00",
+   "end": "2027-02-07T19:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110957calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-02-11T18:30:00-07:00",
+   "end": "2027-02-11T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111232calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-11T18:30:00-07:00",
+   "end": "2027-02-11T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000111735114calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-13T06:00:00-07:00",
+   "end": "2027-02-13T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177110958calendarC",
+   "title": "Stake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-02-18T18:30:00-07:00",
+   "end": "2027-02-18T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177111233calendarC",
+   "title": "Sake YM Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-18T18:30:00-07:00",
+   "end": "2027-02-18T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176217652calendarC",
+   "title": "RootsTech",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-03-04T00:00:00-07:00",
+   "end": "2027-03-07T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000174416477calendarC",
+   "title": "Camp Helaman",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": true,
+   "start": "2027-03-05T00:00:00-07:00",
+   "end": "2027-03-07T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176218427calendarC",
+   "title": "Worldwide Relief Society Devotional",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-03-06T00:00:00-07:00",
+   "end": "2027-03-07T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176217977calendarC",
+   "title": "Family Discovery Day",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-03-06T13:30:00-07:00",
+   "end": "2027-03-06T14:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176732852calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-13T06:00:00-07:00",
+   "end": "2027-03-13T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176492077calendarC",
+   "title": "Holy Week and Easter Sunday",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-03-21T00:00:00-06:00",
+   "end": "2027-03-29T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176505552calendarC",
+   "title": "General Conference",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-04-03T10:00:00-06:00",
+   "end": "2027-04-03T16:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176506177calendarC",
+   "title": "General Conference",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-04-04T10:00:00-06:00",
+   "end": "2027-04-04T16:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176507127calendarC",
+   "title": "Salt Lake Temple Celebration Begins",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-04-05T00:00:00-06:00",
+   "end": "2027-04-06T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732853calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-04-10T06:00:00-06:00",
+   "end": "2027-04-10T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000174416977calendarC",
+   "title": "Hoedown Trek Youth Activity",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-04-21T17:00:00-06:00",
+   "end": "2027-04-21T22:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176510902calendarC",
+   "title": "Worldwide Devotional for Young Adults",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-05-02T18:00:00-06:00",
+   "end": "2027-05-02T19:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732854calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-05-08T06:00:00-06:00",
+   "end": "2027-05-08T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176511277calendarC",
+   "title": "Friend to Friend Video for Children",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-05-22T00:00:00-06:00",
+   "end": "2027-05-23T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176511477calendarC",
+   "title": "Religious Educators Conference",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-06-10T00:00:00-06:00",
+   "end": "2027-06-12T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732855calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-06-12T06:00:00-06:00",
+   "end": "2027-06-12T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000174099477calendarC",
+   "title": "Salt Lake Temple Open House Stake YM/YW",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-06-27T18:40:00-06:00",
+   "end": "2027-06-27T21:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732856calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-07-10T06:00:00-06:00",
+   "end": "2027-07-10T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732857calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-08-14T06:00:00-06:00",
+   "end": "2027-08-14T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000174417277calendarC",
+   "title": "Post Trek Fireside",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-08-22T17:00:00-06:00",
+   "end": "2027-08-22T22:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176511777calendarC",
+   "title": "Friend to Friend Video for Children",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-09-04T00:00:00-06:00",
+   "end": "2027-09-05T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732858calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-09-11T06:00:00-06:00",
+   "end": "2027-09-11T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176514627calendarC",
+   "title": "Salt Lake Temple Celebration Closing Event",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-10-01T00:00:00-06:00",
+   "end": "2027-10-02T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176515277calendarC",
+   "title": "General Conference",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-10-02T10:00:00-06:00",
+   "end": "2027-10-02T16:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176515827calendarC",
+   "title": "General Conference",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-10-03T10:00:00-06:00",
+   "end": "2027-10-03T16:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176732859calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-10-09T06:00:00-06:00",
+   "end": "2027-10-09T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000176516352calendarC",
+   "title": "Worldwide Devotional for Young Adults",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": false,
+   "start": "2027-11-07T18:00:00-07:00",
+   "end": "2027-11-07T19:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176732860calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-11-13T06:00:00-07:00",
+   "end": "2027-11-13T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176516977calendarC",
+   "title": "First Presidency\u2019s Christmas Devotional",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-12-05T00:00:00-07:00",
+   "end": "2027-12-06T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176732861calendarC",
+   "title": "Farmington Bay Stake Baptism Day",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-12-11T06:00:00-07:00",
+   "end": "2027-12-11T14:00:00-07:00"
   }
  ]
 }

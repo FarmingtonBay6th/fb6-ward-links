@@ -17,9 +17,18 @@ MT = ZoneInfo("America/Denver")
 UNIT = "Farmington Bay 6th Ward"
 ALLOWED = {"elders quorum", "farmington 6th ward activities", "farmington 6th ward meetings", "farmington 6th ward",
            "primary", "relief society", "young men", "young women"}
-SUFFIX = re.compile(r"\s+-\s+" + re.escape(UNIT) + r"\s+-\s+(?P<cal>[^-]+?)\s*$")
+SUFFIX = re.compile(r"\s+[-–]\s+" + re.escape(UNIT) + r"\s+[-–]\s+(?P<cal>[^-–]+?)\s*$")
+# Stake and Churchwide calendars in the same sync group use different suffixes.
+STAKE = "Farmington Utah Farmington Bay Stake"
+OTHER_SUFFIXES = [(re.compile(r"\s+[-–]\s+" + re.escape(STAKE) + r"\s+[-–]\s+" + re.escape(STAKE) + r" Activities\s*$"), "Stake Activities"),
+                  (re.compile(r"\s+[-–]\s+" + re.escape(STAKE) + r"\s+[-–]\s+" + re.escape(STAKE) + r" Meetings\s*$"), "Stake Meetings"),
+                  (re.compile(r"\s+[-–]\s+Churchwide Events\s*$"), "Churchwide")]
+ALLOWED |= {"stake activities", "churchwide"}
+HARD_EXCLUDE = {"stake meetings", "bishop interviews (private)"}  # never publish, even if allowed elsewhere
+# Stake building calendar also holds other wards' bookings; they aren't Bay 6 events.
+OTHER_WARD = re.compile(r"\b(?:1st|2nd|3rd|4th|5th|7th|8th|9th|1\dth)\s+ward\b|spring creek ward", re.I)
 # Personal / family events that may sneak onto ward calendars, plus names that must never be published.
-PERSONAL = re.compile(r"birthday|bday|anniversary|baby shower|bridal|wedding|reception|funeral|\b\w+(?:'s|s'| family)\s+(?:party|home|house|bbq|open house)|\bfamily party|justin\s+huff|cody\s+sorenson", re.I)
+PERSONAL = re.compile(r"birthday|bday|anniversary|baby shower|bridal|wedding|reception|funeral|\b\w+(?:'s|s'| family)\s+(?:party|home|house|bbq|open house)|\bfamily party|\b\w+\s+family\b|^[A-Z][a-z]+\s+[A-Z][a-z]+\s+baptism$|justin\s+huff|cody\s+sorenson", re.I)
 STREET = re.compile(r"\b\d{2,5}\s+(?:[NSEW]\.?|North|South|East|West)?\s*\d{0,5}\s*(?:[NSEW]\.?|North|South|East|West|St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Way|Cir|Circle|Ct|Court)\b", re.I)
 CHURCH_ADDR = re.compile(r"549\s+s(outh)?\.?\s+1525\s+w", re.I)  # meetinghouse; any other street address is treated as a private home
 BLOCK = re.compile(r"interview|tithing|bishopric|recommend|setting[ -]?apart|\bpec\b|private|confidential|welfare", re.I)
@@ -67,8 +76,17 @@ def main():
     out, dropped = [], []
     for e in events(lines, calname):
         title = clean(e.get("SUMMARY", "")); m = SUFFIX.search(title)
-        cal = m.group("cal").strip() if m else clean(e.get("CATEGORIES", calname))
+        cal = m.group("cal").strip() if m else None
         if m: title = title[:m.start()].strip(" -")
+        else:
+            for rx, label in OTHER_SUFFIXES:
+                m2 = rx.search(title)
+                if m2: cal, title = label, title[:m2.start()].strip(" -"); break
+        if cal is None: cal = clean(e.get("CATEGORIES", calname))
+        if cal.lower() in HARD_EXCLUDE:
+            dropped.append(f"(hard-excluded) [{cal}]"); continue
+        if cal == "Stake Activities" and OTHER_WARD.search(title):
+            dropped.append(f"{title} [{cal}] other ward"); continue
         loc = clean(e.get("LOCATION", ""))
         if CHURCH_ADDR.search(loc): loc = "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington"
         elif re.search(r"\d", loc): loc = ""  # possible home address -> drop
