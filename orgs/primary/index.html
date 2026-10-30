@@ -41,6 +41,7 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
   .pc li { padding:12px 0; } .pc .who b { font-size:17px; line-height:1.25; } .pc .who span { display:block; font-size:14px; color:var(--soft); margin-top:2px; }
   .pc .txt { min-height:44px; min-width:72px; display:inline-flex; align-items:center; justify-content:center; font-size:15px; }
   .pc .txtall { display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; margin:12px 0 2px; font-size:16px; }
+.bd .bdlist li{display:flex;justify-content:space-between} .bd .bdlist li b{font-weight:600} .bd .bdlist li span{font-variant-numeric:tabular-nums}
 </style><script src="../../nav.js" defer></script><script src="classes.js?v=20261030b" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
@@ -76,6 +77,9 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
 <!--/EV-->
     <p class="empty" id="empty" hidden>No upcoming activities right now. See all <a href="../../events/">Upcoming Events</a>.</p>
     <p class="more" id="more">See all <a href="../../events/">Upcoming Events</a> for the Ward and Stake.</p></section>
+  <section class="bd" id="birthdays"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Birthday cake"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="58" width="60" height="28" rx="6" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M30 68c6 5 12 5 15 0s9 5 15 0 9 5 15 0 9 5 15 0" fill="none" stroke="#005175" stroke-width="2.6"/><path d="M45 58V44M60 58V40M75 58V44" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><path d="M45 38c-3 3 0 6 0 6s3-3 0-6zM60 34c-3 3 0 6 0 6s3-3 0-6zM75 38c-3 3 0 6 0 6s3-3 0-6z" fill="#c9a24a"/></svg>Happy Birthday This Month 🎈</h2>
+    <p class="note" id="bdnote">Celebrating our Primary children 🎉</p>
+    <ul class="bdlist" id="bdlist"></ul></section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Sign-up clipboard"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="34" y="30" width="52" height="62" rx="6" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="48" y="24" width="24" height="12" rx="4" fill="#c9a24a"/><path d="M44 52l4 4 7-8M44 68l4 4 7-8" stroke="#005175" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 52h16M62 68h16M44 82h34" stroke="#005175" stroke-width="2.6" stroke-linecap="round"/></svg>Sign-ups <span class="ph">Placeholder</span></h2>
     <p class="note">Service, meals, rides, and assignments sign-up links will go here.</p><span class="btn off">[Sign-up link]</span></section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Open book"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M60 38c-10-6-22-7-34-5v48c12-2 24-1 34 5 10-6 22-7 34-5V33c-12-2-24-1-34 5z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M60 38v48" stroke="#c9a24a" stroke-width="2.4"/><path d="M34 46c6-1 12 0 18 2M34 56c6-1 12 0 18 2M68 48c6-2 12-3 18-2M68 58c6-2 12-3 18-2" stroke="#005175" stroke-width="2.2" stroke-linecap="round"/></svg>Resources</h2>
@@ -87,4 +91,10 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
 <script>(function(){var n=Date.now(),k=0;document.querySelectorAll('.ev').forEach(function(e){var d=Date.parse(e.dataset.end);if(d&&d<n)e.hidden=true;else k++;});
 if(!k){document.getElementById('empty').hidden=false;document.getElementById('more').hidden=true;}})();</script>
 <script>/*textall*/(function(){var a=document.getElementById("text-all");if(!a)return;var ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(ios)a.href="sms:/open?addresses="+a.dataset.n;})();</script>
+<script>(function(){var M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var m=+new Intl.DateTimeFormat("en-US",{timeZone:"America/Denver",month:"numeric"}).format(new Date());
+fetch("../../data/primary-birthdays.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(a){var l=document.getElementById("bdlist");
+a=a.filter(function(b){return b.month===m}).sort(function(x,y){return x.day-y.day});
+if(!a.length){document.getElementById("bdnote").textContent="No Primary birthdays this month.";return;}
+a.forEach(function(b){var li=document.createElement("li");li.textContent=b.name+", "+M[m-1]+" "+b.day;l.appendChild(li);});}).catch(function(){document.getElementById("birthdays").hidden=true;});})();</script>
 </body></html>
