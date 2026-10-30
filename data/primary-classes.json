@@ -1,0 +1,233 @@
+{
+ "_readme": "Primary class tabs (orgs/primary/). Rendered by orgs/primary/classes.js. classes: id, name, ages, meets, teachers [adult full names], children [FIRST NAMES ONLY] or null for 'Coming soon'. NEVER ages, birthdays, last names or contact info for children. When in doubt, leave null ('Coming soon'). activities: same format as yw-classes.json. all: ward-wide Primary leaders (presidency names already on the contact card are not repeated) plus handbook notes.",
+ "classes": [
+  {
+   "id": "nursery",
+   "name": "Nursery",
+   "ages": "18 months to 3 years",
+   "meets": null,
+   "teachers": [
+    "Eden Rasmussen",
+    "Leslie Beynon"
+   ],
+   "children": null,
+   "info": "Substitutes: Brooke Jeppesen, Keri Taylor."
+  },
+  {
+   "id": "sunbeam-ctr-4",
+   "name": "Sunbeam & CTR 4",
+   "ages": "Ages 3–4 on December 31 of last year (combined class)",
+   "meets": null,
+   "teachers": [
+    "Nikki Roberson",
+    "Reese Roberson",
+    "Jodi Wilcock"
+   ],
+   "children": null,
+   "info": null
+  },
+  {
+   "id": "ctr-5",
+   "name": "CTR 5",
+   "ages": "Age 5 on December 31 of last year",
+   "meets": null,
+   "teachers": [
+    "Sarah Robinette",
+    "Emilee Wortley",
+    "Isabella Sackett",
+    "Rani Hiller"
+   ],
+   "children": null,
+   "info": null
+  },
+  {
+   "id": "ctr-6",
+   "name": "CTR 6",
+   "ages": "Age 6 on December 31 of last year",
+   "meets": null,
+   "teachers": [
+    "Mike Reynolds",
+    "Scott Thurgood",
+    "Dennis Packard",
+    "Gaylene Packard"
+   ],
+   "children": null,
+   "info": null
+  },
+  {
+   "id": "valiant-7",
+   "name": "Valiant 7",
+   "ages": "Age 7 on December 31 of last year",
+   "meets": null,
+   "teachers": [
+    "Kathryn Todd",
+    "Jennifer Zaugg"
+   ],
+   "children": [
+    "Ari",
+    "Drew",
+    "James",
+    "James",
+    "Kai",
+    "Magnolia",
+    "Mitchell",
+    "Oakley",
+    "Priscilla",
+    "Truman"
+   ],
+   "info": null
+  },
+  {
+   "id": "valiant-8",
+   "name": "Valiant 8",
+   "ages": "Age 8 on December 31 of last year",
+   "meets": null,
+   "teachers": [
+    "Angela Love",
+    "Matthew Love"
+   ],
+   "children": [
+    "Afton",
+    "Cal",
+    "Ella",
+    "Goldie",
+    "Josie",
+    "Josie",
+    "Kennedy",
+    "Millie",
+    "Nash",
+    "Nicole"
+   ],
+   "info": null
+  },
+  {
+   "id": "valiant-9",
+   "name": "Valiant 9",
+   "ages": "Age 9 on December 31 of last year",
+   "meets": null,
+   "teachers": [
+    "Kris Jenkins",
+    "Shon Call",
+    "Jon Olson",
+    "Devin Orvin"
+   ],
+   "children": [
+    "Anna",
+    "Benjamin",
+    "Camden",
+    "Gavin",
+    "Gwenyth",
+    "Henry",
+    "Henry",
+    "Josie",
+    "Joy",
+    "Madison",
+    "Violet",
+    "Wesley",
+    "Weston"
+   ],
+   "info": null
+  },
+  {
+   "id": "valiant-10",
+   "name": "Valiant 10",
+   "ages": "Age 10 on December 31 of last year (until January of the year they turn 12)",
+   "meets": null,
+   "teachers": [
+    "Pati Adamson",
+    "Katelyn Allen",
+    "Trisha Jorgensen",
+    "Debra Baird"
+   ],
+   "children": [
+    "Blake",
+    "Cruze",
+    "Ezra",
+    "Hannah",
+    "Holly",
+    "Jace",
+    "Kate",
+    "Klowie",
+    "Liv",
+    "Wyatt",
+    "Zeke"
+   ],
+   "info": null
+  }
+ ],
+ "activities": [],
+ "all": {
+  "presidency": [
+   {
+    "role": "President",
+    "name": "Marissa Reynolds"
+   },
+   {
+    "role": "1st Counselor",
+    "name": "Jasmine Burton"
+   },
+   {
+    "role": "2nd Counselor",
+    "name": "Candace Daly"
+   },
+   {
+    "role": "Secretary",
+    "name": "Ashley Olson"
+   }
+  ],
+  "leaders": [
+   {
+    "name": "Josh Gunn",
+    "role": "Music Leader"
+   },
+   {
+    "name": "Kati Barlow",
+    "role": "Pianist"
+   },
+   {
+    "name": "Spencer Loock",
+    "role": "Pianist"
+   },
+   {
+    "name": "Sally Barber",
+    "role": "Floater Teacher"
+   }
+  ],
+  "activityLeaders": [
+   "Janey Jones",
+   "Jed Jones",
+   "Justin Barber",
+   "Jeffrey Beynon",
+   "Jennifer Morrey",
+   "Christie McKean",
+   "Camille Butterfield",
+   "Sherri Gunn"
+  ],
+  "handbook": {
+   "url": "https://www.churchofjesuschrist.org/study/manual/general-handbook/12-primary?lang=eng",
+   "label": "General Handbook, Chapter 12: Primary",
+   "points": [
+    {
+     "h": "Purpose (12.1)",
+     "t": "The Primary organization helps God’s children prepare to return to His presence."
+    },
+    {
+     "h": "Nursery (12.1.3)",
+     "t": "Nursery helps children 18 months to 3 years feel Heavenly Father’s love and learn about His plan of happiness. At least two people should be called for each nursery class."
+    },
+    {
+     "h": "How Classes Are Organized (12.1.4)",
+     "t": "Primary classes are organized by age and the number of teachers available. Units with fewer children or teachers may combine two or more age-groups into one class. Children are divided into classes based on their age on December 31 of the previous year: Sunbeam (3), CTR 4–6, and Valiant 7–10."
+    },
+    {
+     "h": "Teachers and Nursery Leaders (12.3.5)",
+     "t": "It is a sacred privilege to teach children. When adults teach children in Church settings, at least two responsible adults should be present."
+    },
+    {
+     "h": "Valiant Activity Leaders (12.3.6)",
+     "t": "Valiant activity leaders minister to children as they plan service and activities beginning in January of the year children turn 8."
+    }
+   ]
+  }
+ }
+}

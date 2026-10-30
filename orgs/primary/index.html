@@ -38,7 +38,9 @@
   .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
   .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}
-</style><script src="../../nav.js" defer></script></head><body>
+  .pc li { padding:12px 0; } .pc .who b { font-size:17px; line-height:1.25; } .pc .who span { display:block; font-size:14px; color:var(--soft); margin-top:2px; }
+  .pc .txt { min-height:44px; min-width:72px; display:inline-flex; align-items:center; justify-content:center; font-size:15px; }
+</style><script src="../../nav.js" defer></script><script src="classes.js" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
   <svg class="hero" width="120" height="120" viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#005175"/><circle cx="50" cy="50" r="43" fill="none" stroke="#c9a24a" stroke-width="2"/><circle cx="50" cy="50" r="40" fill="none" stroke="#c9a24a" stroke-width=".8" opacity=".6"/><circle cx="50" cy="27" r="7" fill="#c9a24a"/><path d="M50 15v-3M41 18l-2-2M59 18l2-2M37 27h-3M63 27h3M41 36l-2 2M59 36l2 2" stroke="#c9a24a" stroke-width="2.6" stroke-linecap="round"/><g fill="#f3d98b"><circle cx="31" cy="50" r="5.5"/><circle cx="50" cy="48" r="5.5"/><circle cx="69" cy="50" r="5.5"/></g><g fill="#c9a24a"><path d="M25 74l3-17h6l3 17z"/><path d="M45 56h10v14h-10z"/><path d="M63 74l3-17h6l3 17z"/></g><path d="M36 62l9-2M55 60l9 2" stroke="#c9a24a" stroke-width="3.2" stroke-linecap="round"/><path d="M26 62l-4 6M74 62l4 6" stroke="#c9a24a" stroke-width="3.2" stroke-linecap="round"/><path d="M29 74v8M33 74v8M47 70v12M53 70v12M67 74v8M71 74v8" stroke="#c9a24a" stroke-width="3" stroke-linecap="round"/></svg>
@@ -50,10 +52,10 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
   <section class="pc"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Leader contact card"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="24" y="36" width="72" height="50" rx="8" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><circle cx="46" cy="56" r="8" fill="#005175"/><path d="M34 76c2-8 7-11 12-11s10 3 12 11" fill="#005175"/><path d="M64 52h22M64 62h18M64 72h14" stroke="#005175" stroke-width="3" stroke-linecap="round"/></svg>Presidency &amp; Contact</h2>
     <p class="note">Tap <b>Text</b> to send a message.</p>
     <ul>
-      <li><div class="who"><b>Marissa Reynolds</b><span>President<br>(801) 543-9297</span></div><a class="btn txt" href="sms:+18015439297">Text</a></li>
-      <li><div class="who"><b>Jasmine Burton</b><span>1st Counselor<br>(303) 931-1599</span></div><a class="btn txt" href="sms:+13039311599">Text</a></li>
-      <li><div class="who"><b>Candace Daly</b><span>2nd Counselor<br>(801) 599-8519</span></div><a class="btn txt" href="sms:+18015998519">Text</a></li>
-      <li><div class="who"><b>Ashley Olson</b><span>Secretary<br>(801) 628-5130</span></div><a class="btn txt" href="sms:+18016285130">Text</a></li>
+      <li><div class="who"><b>Marissa Reynolds</b><span>President</span></div><a class="btn txt" aria-label="Text Marissa Reynolds" href="sms:+18015439297">Text</a></li>
+      <li><div class="who"><b>Jasmine Burton</b><span>1st Counselor</span></div><a class="btn txt" aria-label="Text Jasmine Burton" href="sms:+13039311599">Text</a></li>
+      <li><div class="who"><b>Candace Daly</b><span>2nd Counselor</span></div><a class="btn txt" aria-label="Text Candace Daly" href="sms:+18015998519">Text</a></li>
+      <li><div class="who"><b>Ashley Olson</b><span>Secretary</span></div><a class="btn txt" aria-label="Text Ashley Olson" href="sms:+18016285130">Text</a></li>
     </ul></section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Activity calendar"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="34" width="60" height="54" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="#c9a24a"/><path d="M44 28v12M76 28v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><path d="M60 56l4 8 9 1-6.5 6 2 9-8.5-4.5-8.5 4.5 2-9-6.5-6 9-1z" fill="#005175"/></svg>Upcoming Activities</h2>
 <!--EV-->
