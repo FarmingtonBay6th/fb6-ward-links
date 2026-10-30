@@ -56,6 +56,9 @@
   .when { margin:6px 0 0; font-weight:600; color:var(--accent); font-size:14.5px; } .where { margin:2px 0 8px; font-size:14px; }
   .acts { display:flex; flex-wrap:wrap; gap:6px; } .acts .btn { padding:7px 11px; font-size:13.5px; border-radius:10px; }
   .note { color:var(--soft); font-size:13px; text-align:center; margin:4px 0 12px; }
+  .thumb.none { display:grid; place-items:center; width:96px; height:124px; border-radius:10px; border:1px solid var(--line); background:#e3eef4; }
+  .thumb.none svg { width:40px; height:40px; fill:none; stroke:var(--accent); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  @media (prefers-color-scheme: dark) { .thumb.none { background:#33291f; } }
   .empty { text-align:center; color:var(--soft); padding:20px; }
 </style>
 </head>
@@ -126,9 +129,34 @@
 </main>
 <footer><p class="q">“And now, my beloved brethren, I would that ye should come unto Christ” <br><span>Omni 1:26</span></p></footer>
 <script>
-(function(){ var now=Date.now(), shown=0;
-  document.querySelectorAll('.ev').forEach(function(el){ var end=Date.parse(el.dataset.end); if(end && end<now) el.hidden=true; else shown++; });
-  if(!shown) document.getElementById('empty').hidden=false; })();
+(function(){
+  var main=document.querySelector('main'), empty=document.getElementById('empty');
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function today(){ return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()); }
+  function denverDay(ms){ return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(ms)); }
+  function nice(d){ var p=d.split('-'); return new Date(Date.UTC(+p[0],p[1]-1,+p[2],12)).toLocaleDateString('en-US',{timeZone:'UTC',weekday:'short',month:'short',day:'numeric'}); }
+  function card(a){
+    var el=document.createElement('article'); el.className='ev'; el.dataset.day=a.endDate||a.date; el.dataset.sort=a.date+'T'+(a.endDate?'23:59':'12:00');
+    var thumb=a.flyer ? '<a class="thumb" href="'+esc(a.flyer)+'"><img src="'+esc(a.flyer)+'" alt="Flyer: '+esc(a.title)+'" loading="lazy"></a>'
+      : '<span class="thumb none" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h3l9-5v14l-9-5H3z"/><path d="M6 14l1.5 5h2.5l-1-4.5"/><path d="M18 9c1.5 1 1.5 5 0 6"/></svg></span>';
+    var acts=[]; if(a.flyer) acts.push('<a class="btn" href="'+esc(a.flyer)+'">View flyer</a>');
+    if(a.link && /^https:\/\//.test(a.link)) acts.push('<a class="btn alt" href="'+esc(a.link)+'" rel="noopener">'+esc(a.linkLabel||'More info')+'</a>');
+    el.innerHTML=thumb+'<div class="evtx"><b>'+esc(a.title)+'</b><small>'+esc(a.details)+'</small><p class="when">'+esc(nice(a.date))+(a.endDate?' – '+esc(nice(a.endDate)):'')+(a.time?' · '+esc(a.time):'')+'</p><p class="where">'+esc(a.place)+'</p>'+(acts.length?'<div class="acts">'+acts.join(' ')+'</div>':'')+'</div>';
+    return el;
+  }
+  function render(list){
+    var t=today(), now=Date.now();
+    (list||[]).forEach(function(a){ if(a && a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date)) main.insertBefore(card(a), empty); });
+    var evs=[].slice.call(main.querySelectorAll('.ev'));
+    evs.forEach(function(el){ if(!el.dataset.sort){ var e=Date.parse(el.dataset.end); el.dataset.sort=e?denverDay(e)+'T'+new Intl.DateTimeFormat('en-GB',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(e)):'9999'; } });
+    evs.sort(function(x,y){ return x.dataset.sort<y.dataset.sort?-1:x.dataset.sort>y.dataset.sort?1:0; }).forEach(function(el){ main.insertBefore(el, empty); });
+    var shown=0;
+    evs.forEach(function(el){ var past = el.dataset.day ? el.dataset.day < t : (Date.parse(el.dataset.end) < now); el.hidden=past; if(!past) shown++; });
+    empty.hidden=!!shown;
+  }
+  fetch('../data/approved-announcements.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():{}; })
+    .then(function(j){ render(j.announcements); }).catch(function(){ render([]); });
+})();
 </script>
 </body>
 </html>
