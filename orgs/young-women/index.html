@@ -38,6 +38,13 @@
   .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
   .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}
+  .yt { padding:14px 14px 16px; } .yt input { position:absolute; opacity:0; pointer-events:none; }
+  .yt .tabs { display:flex; gap:6px; background:#eef4f7; border-radius:12px; padding:4px; }
+  .yt label { flex:1; text-align:center; padding:9px 4px; border-radius:9px; font:600 13px/1.2 -apple-system, sans-serif; color:var(--navy); cursor:pointer; }
+  .yt .pane { display:none; padding:14px 2px 0; } .yt .pane h3 { font:italic 400 19px/1.2 Georgia, serif; margin:0 0 6px; color:var(--accent); }
+  #yt1:checked ~ .tabs [for=yt1], #yt2:checked ~ .tabs [for=yt2], #yt3:checked ~ .tabs [for=yt3] { background:var(--navy); color:#fff; box-shadow:inset 0 -3px 0 var(--gold); }
+  #yt1:checked ~ .p1, #yt2:checked ~ .p2, #yt3:checked ~ .p3 { display:block; }
+  @media (prefers-color-scheme: dark) { .yt .tabs { background:#1d1916; } .yt label { color:#8cc8e6; } }
 </style><script src="../../nav.js" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
@@ -55,6 +62,13 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
       <li><div class="who"><b>Lori Barnes</b><span>2nd Counselor<br>(801) 419-3178</span></div><a class="btn txt" href="sms:+18014193178">Text</a></li>
       <li><div class="who"><b>McCall Brown</b><span>Secretary<br>(925) 360-3364</span></div><a class="btn txt" href="sms:+19253603364">Text</a></li>
     </ul></section>
+  <section class="yt" aria-label="Young Women classes">
+    <input type="radio" name="yt" id="yt1" checked><input type="radio" name="yt" id="yt2"><input type="radio" name="yt" id="yt3">
+    <div class="tabs"><label for="yt1">Gatherers of Light</label><label for="yt2">Messengers of Hope</label><label for="yt3">Builders of Faith</label></div>
+    <div class="pane p1"><h3>Gatherers of Light</h3><p class="note">Class info, activities and announcements coming soon.</p></div>
+    <div class="pane p2"><h3>Messengers of Hope</h3><p class="note">Class info, activities and announcements coming soon.</p></div>
+    <div class="pane p3"><h3>Builders of Faith</h3><p class="note">Class info, activities and announcements coming soon.</p></div>
+  </section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Activity calendar"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="34" width="60" height="54" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="#c9a24a"/><path d="M44 28v12M76 28v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><path d="M60 56l4 8 9 1-6.5 6 2 9-8.5-4.5-8.5 4.5 2-9-6.5-6 9-1z" fill="#005175"/></svg>Upcoming Activities</h2>
 <!--EV-->
   <article class="ev" data-end="2026-11-22T19:30:00-07:00">
