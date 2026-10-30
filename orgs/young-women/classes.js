@@ -8,6 +8,7 @@
     '.ywtabs button[aria-selected="true"]{background:#005175;color:#fff;box-shadow:inset 0 -4px 0 #c9a24a}' +
     '.ywtabs button.all{grid-column:1/-1;min-height:48px}' +
     '.ywpanel[hidden]{display:none}.cs{color:#8a6d22;font-style:italic}.ywinfo dt{font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-top:10px}.ywinfo dd{margin:2px 0 0;font-size:15px}' +
+    '.ywleaders h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:12px 0 2px}.ywgh dd{line-height:1.45}' +
     '.ywhero{text-align:center;padding:18px 16px}.ywhero h2{justify-content:center;font-size:24px}' +
     '@media (prefers-color-scheme: dark){.ywtabs button{background:#27211d;color:#e2c47a}.ywtabs button[aria-selected="true"]{background:#005175;color:#fff}}';
   document.head.appendChild(css);
@@ -39,8 +40,24 @@
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2><p class="note">' + (c.info ? esc(c.info) : 'Class news, activities and info for ' + esc(c.name) + '.') + '</p></section>' +
       '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Women</a> tab for ward-wide activities.</p>') + '</section>' +
       '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd><dt>When We Meet</dt><dd>' + (c.meets ? esc(c.meets) : SOON) + '</dd>' +
-      '<dt>Class Presidency</dt><dd>' + pres + '</dd><dt>Advisers</dt><dd>' + adv + '</dd></dl></section>';
+      '<dt>Class Presidency</dt><dd>' + pres + '</dd><dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
+  }
+  function allExtras(a) {
+    // Presidency: only add names the page's contact card doesn't already list (no duplicates).
+    var onPage = [].map.call(all.querySelectorAll('.pc .who b'), function (b) { return b.textContent.trim(); });
+    var extraPres = (a.presidency || []).filter(function (m) { return onPage.indexOf(m.name) < 0; });
+    var li = function (n, r) { return '<li><b>' + esc(n) + '</b>' + (r ? ' <span>' + esc(r) + '</span>' : '') + '</li>'; };
+    var s = document.createElement('section'); s.className = 'ywinfo ywleaders';
+    s.innerHTML = '<h2>Advisers &amp; Specialists</h2>' + (extraPres.length ? '<h3>Presidency</h3><ul>' + extraPres.map(function (m) { return li(m.name, m.role); }).join('') + '</ul>' : '') +
+      '<h3>Advisers</h3>' + ((a.advisers || []).length ? '<ul>' + a.advisers.map(function (n) { return li(n, 'Adviser'); }).join('') + '</ul>' : SOON) +
+      '<h3>Specialists</h3>' + ((a.specialists || []).length ? '<ul>' + a.specialists.map(function (m) { return li(m.name, m.role || 'Specialist'); }).join('') + '</ul>' : SOON);
+    var pc = all.querySelector('.pc'); if (pc && pc.nextSibling) all.insertBefore(s, pc.nextSibling); else all.appendChild(s);
+    var h = a.handbook; if (!h) return;
+    var g = document.createElement('section'); g.className = 'ywinfo ywgh';
+    g.innerHTML = '<h2>From the General Handbook</h2><dl>' + (h.points || []).map(function (p) { return '<dt>' + esc(p.h) + '</dt><dd>' + esc(p.t) + '</dd>'; }).join('') + '</dl>' +
+      (/^https:\/\//.test(h.url) ? '<p><a class="btn alt" href="' + esc(h.url) + '" target="_blank" rel="noopener">' + esc(h.label || 'General Handbook') + ' ↗</a></p>' : '');
+    all.appendChild(g);
   }
   function show(id, save) {
     if (!document.getElementById('panel-' + id)) id = 'all';
@@ -57,6 +74,7 @@
   drawTabs(); show('all');
   fetch('../../data/yw-classes.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (j) {
     var t = today();
+    if (j.all) allExtras(j.all);
     (j.classes || []).forEach(function (c) {
       tabs.push({ id: c.id, name: c.name });
       panel(c, (j.activities || []).filter(function (a) { return a && a.title && (a.class === c.id || a.class === 'all') && (a.endDate || a.date) >= t; })
