@@ -14,7 +14,7 @@ def art(e,pre):
 p=f'{R}/events/index.html'; s=open(p).read()
 s=re.sub(r'(<p class="note">.*?</p>\n).*?(  <p class="empty")',lambda m:m.group(1)+''.join(art(e,'') for e in E)+m.group(2),s,count=1,flags=re.S)
 open(p,'w').write(s)
-for slug in os.listdir(f'{R}/orgs'):
+for slug in sorted(d for d in os.listdir(f'{R}/orgs') if os.path.isdir(f'{R}/orgs/{d}')):
     p=f'{R}/orgs/{slug}/index.html'; s=open(p).read()
     mine=''.join(art(e,'../../events/') for e in E if slug in e['orgs'])
     s=re.sub(r'<!--EV-->.*?<!--/EV-->',lambda m:'<!--EV-->\n'+mine+'<!--/EV-->',s,flags=re.S)

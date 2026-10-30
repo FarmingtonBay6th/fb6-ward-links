@@ -24,6 +24,25 @@
       "orgs": []
     },
     {
+      "title": "Primary Program Practice",
+      "alt": "Primary Program Practice",
+      "subtitle": "Ward Primary · all Primary children encouraged; doughnuts after",
+      "when": "Thu, Nov 5 · 4:00 PM",
+      "where": "Chapel · Primary Presentation is Sun, Nov 8 at 12:00 PM",
+      "end": "2026-11-05T17:00:00-07:00",
+      "flyer": "flyers/2026-11-05-primary-practice.png",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-05-primary-practice.png",
+          "primary": true
+        }
+      ],
+      "orgs": [
+        "primary"
+      ]
+    },
+    {
       "title": "Relief Society Training Dinner",
       "alt": "Relief Society Training Dinner",
       "subtitle": "Stake · for Relief Society presidencies",
