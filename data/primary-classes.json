@@ -1,11 +1,10 @@
 {
- "_readme": "Primary class tabs (orgs/primary/). Rendered by orgs/primary/classes.js. classes: id, name, ages, meets, teachers [adult full names], children [FIRST NAMES ONLY] or null for 'Coming soon'. NEVER ages, birthdays, last names or contact info for children. When in doubt, leave null ('Coming soon'). activities: same format as yw-classes.json. all: ward-wide Primary leaders (presidency names already on the contact card are not repeated) plus handbook notes.",
+ "_readme": "Primary class tabs (orgs/primary/). Rendered by orgs/primary/classes.js. classes: id, name, ages, teachers [adult full names], children [FIRST NAMES ONLY] or null for 'Coming soon'. NEVER ages, birthdays, last names or contact info for children. When in doubt, leave null ('Coming soon'). activities: same format as yw-classes.json. all: ward-wide Primary leaders (presidency names already on the contact card are not repeated) plus handbook notes.",
  "classes": [
   {
    "id": "nursery",
    "name": "Nursery",
    "ages": "18 months to 3 years",
-   "meets": null,
    "teachers": [
     "Eden Rasmussen",
     "Leslie Beynon"
@@ -17,7 +16,6 @@
    "id": "sunbeam-ctr-4",
    "name": "Sunbeam & CTR 4",
    "ages": "Ages 3–4 on December 31 of last year (combined class)",
-   "meets": null,
    "teachers": [
     "Nikki Roberson",
     "Reese Roberson",
@@ -30,7 +28,6 @@
    "id": "ctr-5",
    "name": "CTR 5",
    "ages": "Age 5 on December 31 of last year",
-   "meets": null,
    "teachers": [
     "Sarah Robinette",
     "Emilee Wortley",
@@ -44,7 +41,6 @@
    "id": "ctr-6",
    "name": "CTR 6",
    "ages": "Age 6 on December 31 of last year",
-   "meets": null,
    "teachers": [
     "Mike Reynolds",
     "Scott Thurgood",
@@ -58,7 +54,6 @@
    "id": "valiant-7",
    "name": "Valiant 7",
    "ages": "Age 7 on December 31 of last year",
-   "meets": null,
    "teachers": [
     "Kathryn Todd",
     "Jennifer Zaugg"
@@ -81,7 +76,6 @@
    "id": "valiant-8",
    "name": "Valiant 8",
    "ages": "Age 8 on December 31 of last year",
-   "meets": null,
    "teachers": [
     "Angela Love",
     "Matthew Love"
@@ -104,7 +98,6 @@
    "id": "valiant-9",
    "name": "Valiant 9",
    "ages": "Age 9 on December 31 of last year",
-   "meets": null,
    "teachers": [
     "Kris Jenkins",
     "Shon Call",
@@ -132,7 +125,6 @@
    "id": "valiant-10",
    "name": "Valiant 10",
    "ages": "Age 10 on December 31 of last year (until January of the year they turn 12)",
-   "meets": null,
    "teachers": [
     "Pati Adamson",
     "Katelyn Allen",

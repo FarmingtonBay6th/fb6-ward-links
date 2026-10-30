@@ -40,7 +40,7 @@
     var tl = c.id === 'nursery' ? 'Nursery Leaders' : ((c.teachers || []).length > 1 ? 'Teachers' : 'Teacher');
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2><p class="note">' + (c.info ? esc(c.info) : 'Class news, activities and info for ' + esc(c.name) + '.') + '</p></section>' +
       '<section class="ywinfo ywleaders"><h2>' + tl + '</h2>' + names(c.teachers) + '</section>' +
-      '<section class="ywinfo"><h2>Our Class</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd><dt>When We Meet</dt><dd>' + (c.meets ? esc(c.meets) : SOON) + '</dd><dt>Children</dt><dd>' + kids + '</dd></dl></section>' +
+      '<section class="ywinfo"><h2>Our Class</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd><dt>Children</dt><dd>' + kids + '</dd></dl></section>' +
       '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Primary</a> tab for Primary-wide activities.</p>') + '</section>';
     main.appendChild(p);
   }

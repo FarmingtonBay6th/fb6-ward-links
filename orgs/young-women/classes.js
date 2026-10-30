@@ -39,7 +39,7 @@
     var adv = (c.advisers || []).length ? esc(c.advisers.join(', ')) : SOON;
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2><p class="note">' + (c.info ? esc(c.info) : 'Class news, activities and info for ' + esc(c.name) + '.') + '</p></section>' +
       '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Women</a> tab for ward-wide activities.</p>') + '</section>' +
-      '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd><dt>When We Meet</dt><dd>' + (c.meets ? esc(c.meets) : SOON) + '</dd>' +
+      '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd>' +
       '<dt>Class Presidency</dt><dd>' + pres + '</dd><dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
   }
