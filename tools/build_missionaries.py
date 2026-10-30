@@ -65,7 +65,8 @@ home = f'''  <section id="serving" class="miss misscard">
       <span class="mt"><b>Our Ward Missionaries</b><small>{len(M)} ward members serving the Savior. Tap to say hello by email!</small><em>Say hello ›</em></span></a>
   </section>
 '''
-H = re.sub(r'  <section id="serving" class="miss[^"]*">.*?</section>\n', lambda _: home, H, count=1, flags=re.S)
+H = re.sub(r'  <section id="serving" class="miss[^"]*">.*?</section>\n', '', H, count=1, flags=re.S)   # Adam 2026-10-29: Ward card goes BEFORE Local
+H = H.replace('  <section id="missionaries" class="miss">', home + '  <section id="missionaries" class="miss">', 1)
 css = ('  .misscard { padding:0; overflow:hidden; } .misslink { display:flex; align-items:center; gap:14px; padding:16px; text-decoration:none; color:inherit; }\n'
        '  .misslink:active { background:#f3f8fb; } .misslink .badge { flex:0 0 84px; width:84px; height:84px; }\n'
        '  .misslink .mt b { display:block; font:italic 400 21px/1.2 Georgia, serif; } .misslink .mt small { display:block; color:var(--soft); font-size:14px; margin-top:3px; }\n'
