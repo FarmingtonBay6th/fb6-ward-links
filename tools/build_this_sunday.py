@@ -113,7 +113,7 @@ open(f'{R}/this-sunday/index.html','w').write(page)
 p=f'{R}/index.html'; s=open(p).read()
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); from build_icons import ICONS
 ban=(f'<!--TS--><a class="ts" href="this-sunday/">{ICONS["this-sunday"]}<span class="ts-k">This Sunday{" · SAMPLE" if sample else ""}<span class="ast" aria-hidden="true">*</span></span>'
-     f'<b>{E(label)} · {mtitle}</b><small>12:00 PM · Program, hymns, announcements, and the kids page</small><em class="ts-upd"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</em><span class="ts-go">›</span></a><!--/TS-->')
+     f'<b>{E(label)} · {mtitle}</b><small>12:00 PM · Program, Hymns, Announcements and Little Disciples</small><em class="ts-upd"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</em><span class="ts-go">›</span></a><!--/TS-->')
 s=re.sub(r'<!--TS-->.*?<!--/TS-->\n?','',s,flags=re.S)
 s=s.replace('<main>\n','<main>\n  '+ban+'\n',1)
 if '.ts .badge' not in s: s=s.replace('  .ts-k {','  .ts .badge { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:54px; height:54px; } .ts { padding-left:80px !important; }\n  .ts-k {',1)
