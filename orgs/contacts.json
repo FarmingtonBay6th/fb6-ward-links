@@ -1,0 +1,132 @@
+{
+  "_readme": "Presidency & Contact for each org page. phone: +1XXXXXXXXXX or null (shows as a gap). Run: python3 tools/build_contacts.py",
+  "relief-society": [
+    [
+      "Kathy Knight",
+      "President",
+      "+18015999326"
+    ],
+    [
+      "Angela Gee",
+      "1st Counselor",
+      "+18015540770"
+    ],
+    [
+      "Joann Barber",
+      "2nd Counselor",
+      "+18015298625"
+    ],
+    [
+      "Kelsey Kerr",
+      "Secretary",
+      "+18015036665"
+    ]
+  ],
+  "elders-quorum": [
+    [
+      "Jake Barker",
+      "President",
+      "+18012302729"
+    ],
+    [
+      "Bryce Bitton",
+      "1st Counselor",
+      "+18017211843"
+    ],
+    [
+      "Scott Adamson",
+      "2nd Counselor",
+      "+18017559829"
+    ],
+    [
+      "Kyle Morrey",
+      "Secretary",
+      "+18013176414"
+    ]
+  ],
+  "young-women": [
+    [
+      "Traci Harward",
+      "President",
+      "+18018646421"
+    ],
+    [
+      "Alice Call",
+      "1st Counselor",
+      "+18019101611"
+    ],
+    [
+      "Lori Barnes",
+      "2nd Counselor",
+      "+18014193178"
+    ],
+    [
+      "McCall Brown",
+      "Secretary",
+      "+19253603364"
+    ]
+  ],
+  "sunday-school": [
+    [
+      "Stuart Wilcock",
+      "President",
+      "+18015180101"
+    ],
+    [
+      "Jordon Jeppesen",
+      "1st Counselor",
+      "+18018218385"
+    ],
+    [
+      "Scott Rasmussen",
+      "2nd Counselor",
+      "+18017267229"
+    ],
+    [
+      "Randy Coy",
+      "Secretary",
+      "+18013190300"
+    ]
+  ],
+  "primary": [
+    [
+      "Marissa Reynolds",
+      "President",
+      "+18015439297"
+    ],
+    [
+      "Jasmine Burton",
+      "1st Counselor",
+      "+13039311599"
+    ],
+    [
+      "Candace Daly",
+      "2nd Counselor",
+      "+18015998519"
+    ],
+    [
+      "Ashley Olson",
+      "Secretary",
+      "+18016285130"
+    ]
+  ],
+  "temple-and-family-history": [
+    [
+      "Michael Burton",
+      "Ward Temple and Family History Leader",
+      "+18016470021"
+    ]
+  ],
+  "ward-missionaries": [
+    [
+      "Spencer Loock",
+      "Ward Mission Leader",
+      "+18015892676"
+    ],
+    [
+      "Wade Klinger",
+      "Assistant Ward Mission Leader",
+      "+18123447014"
+    ]
+  ]
+}

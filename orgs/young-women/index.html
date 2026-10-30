@@ -35,6 +35,8 @@
   .empty, .more { color:var(--soft); font-size:14px; margin:8px 0 0; } .empty a, .more a { color:var(--accent); }
   footer { text-align:center; color:var(--soft); font-size:11.5px; padding:8px 20px 36px; }
   @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } }
+  .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
+  .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 </style></head><body>
 <header>
   <a class="back" href="../../">‹ Ward Links</a>
@@ -44,11 +46,14 @@
   <p>“Arise and shine forth, that thy light may be a standard for the nations.”<cite>D&amp;C 115:5</cite></p>
 </header>
 <main>
-  <section><h2>Presidency &amp; Contact <span class="ph">Placeholder</span></h2>
-    <p class="note">Names and contact details will be added once approved.</p>
-    <ul><li><b class="dim">[Name]</b> <span>President</span></li><li><b class="dim">[Name]</b> <span>Counselor</span></li>
-    <li><b class="dim">[Name]</b> <span>Counselor</span></li><li><b class="dim">[Name]</b> <span>Secretary</span></li></ul>
-    <span class="btn off">Text the Presidency</span></section>
+  <section class="pc"><h2>Presidency &amp; Contact</h2>
+    <p class="note">Tap <b>Text</b> to send a message.</p>
+    <ul>
+      <li><div class="who"><b>Traci Harward</b><span>President<br>(801) 864-6421</span></div><a class="btn txt" href="sms:+18018646421">Text</a></li>
+      <li><div class="who"><b>Alice Call</b><span>1st Counselor<br>(801) 910-1611</span></div><a class="btn txt" href="sms:+18019101611">Text</a></li>
+      <li><div class="who"><b>Lori Barnes</b><span>2nd Counselor<br>(801) 419-3178</span></div><a class="btn txt" href="sms:+18014193178">Text</a></li>
+      <li><div class="who"><b>McCall Brown</b><span>Secretary<br>(925) 360-3364</span></div><a class="btn txt" href="sms:+19253603364">Text</a></li>
+    </ul></section>
   <section><h2>Upcoming Activities</h2>
 <!--EV-->
   <article class="ev" data-end="2026-11-22T19:30:00-07:00">

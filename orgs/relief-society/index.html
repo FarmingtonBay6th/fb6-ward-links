@@ -35,6 +35,8 @@
   .empty, .more { color:var(--soft); font-size:14px; margin:8px 0 0; } .empty a, .more a { color:var(--accent); }
   footer { text-align:center; color:var(--soft); font-size:11.5px; padding:8px 20px 36px; }
   @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } }
+  .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
+  .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 </style></head><body>
 <header>
   <a class="back" href="../../">‹ Ward Links</a>
@@ -44,11 +46,14 @@
   <p>“Willing to bear one another’s burdens, that they may be light; yea, and … to mourn with those that mourn; yea, and comfort those that stand in need of comfort.”<cite>Mosiah 18:8–9</cite></p>
 </header>
 <main>
-  <section><h2>Presidency &amp; Contact <span class="ph">Placeholder</span></h2>
-    <p class="note">Names and contact details will be added once approved.</p>
-    <ul><li><b class="dim">[Name]</b> <span>President</span></li><li><b class="dim">[Name]</b> <span>Counselor</span></li>
-    <li><b class="dim">[Name]</b> <span>Counselor</span></li><li><b class="dim">[Name]</b> <span>Secretary</span></li></ul>
-    <span class="btn off">Text the Presidency</span></section>
+  <section class="pc"><h2>Presidency &amp; Contact</h2>
+    <p class="note">Tap <b>Text</b> to send a message.</p>
+    <ul>
+      <li><div class="who"><b>Kathy Knight</b><span>President<br>(801) 599-9326</span></div><a class="btn txt" href="sms:+18015999326">Text</a></li>
+      <li><div class="who"><b>Angela Gee</b><span>1st Counselor<br>(801) 554-0770</span></div><a class="btn txt" href="sms:+18015540770">Text</a></li>
+      <li><div class="who"><b>Joann Barber</b><span>2nd Counselor<br>(801) 529-8625</span></div><a class="btn txt" href="sms:+18015298625">Text</a></li>
+      <li><div class="who"><b>Kelsey Kerr</b><span>Secretary<br>(801) 503-6665</span></div><a class="btn txt" href="sms:+18015036665">Text</a></li>
+    </ul></section>
   <section><h2>Upcoming Activities</h2>
 <!--EV-->
   <article class="ev" data-end="2026-11-05T20:00:00-07:00">
