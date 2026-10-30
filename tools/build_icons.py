@@ -9,7 +9,7 @@ def B(label, body): return f'<svg class="badge" viewBox="0 0 120 120" role="img"
 ICONS = {
  "this-sunday": B("Chapel", f'<path d="M50 50l10-30 10 30z" fill="{C}" stroke="{G}" stroke-width="2"/><rect x="50" y="50" width="20" height="38" fill="{C}" stroke="{G}" stroke-width="2"/><path d="M30 88V64l20-10v34M90 88V64L70 54v34" fill="{C}" stroke="{G}" stroke-width="2" stroke-linejoin="round"/><path d="M56 88V76a4 4 0 0 1 8 0v12" fill="#005175"/><path d="M26 88h68" stroke="{G}" stroke-width="3" stroke-linecap="round"/>'),
  "bishop": B("Conversation bubbles", f'<path d="M24 38h46a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H42l-12 10V70h-6a6 6 0 0 1-6-6V44a6 6 0 0 1 6-6z" fill="{C}" stroke="{G}" stroke-width="2.4" stroke-linejoin="round"/><path d="M82 52h12a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6h-4v8l-10-8H64a6 6 0 0 1-6-6v-2" fill="none" stroke="{C}" stroke-width="3" stroke-linejoin="round"/><g fill="#005175"><circle cx="35" cy="54" r="3.5"/><circle cx="47" cy="54" r="3.5"/><circle cx="59" cy="54" r="3.5"/></g>'),
- "temple-recommend": B("Temple and recommend card", f'<path d="M54 18l2 10h-4z" fill="{C}"/><path d="M50 28h8v8h-8zM46 36h16v10H46zM38 46h32v34H38z" fill="{C}" stroke="{G}" stroke-width="1.8"/><path d="M51 80v-9a3 3 0 0 1 6 0v9" fill="#005175"/><rect x="66" y="64" width="34" height="24" rx="4" fill="#1d1d1f" stroke="{G}" stroke-width="2.2"/><path d="M72 72h22" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M72 80h14" stroke="#c9c9c9" stroke-width="2" stroke-linecap="round"/><path d="M26 88h44" stroke="{G}" stroke-width="3" stroke-linecap="round"/>'),
+ "temple-recommend": B("Temple with Angel Moroni", '<circle cx="60" cy="13" r="2.2" fill="#f3d98b"/><path d="M58.6 15h2.8l1 6h-4.8z" fill="#f3d98b"/><path d="M61 15l6-2" stroke="#f3d98b" stroke-width="1.6" stroke-linecap="round"/>\n<path d="M60 21l4 16h-8z" fill="#f3d98b" stroke="#c9a24a" stroke-width="1.4"/><rect x="54" y="37" width="12" height="10" fill="#f3d98b" stroke="#c9a24a" stroke-width="1.6"/><rect x="51" y="47" width="18" height="10" fill="#f3d98b" stroke="#c9a24a" stroke-width="1.6"/>\n<rect x="32" y="57" width="56" height="31" fill="#f3d98b" stroke="#c9a24a" stroke-width="2"/><path d="M30 57h60" stroke="#c9a24a" stroke-width="3"/>\n<g fill="#005175"><rect x="38" y="63" width="5" height="11" rx="2.5"/><rect x="47" y="63" width="5" height="11" rx="2.5"/><rect x="68" y="63" width="5" height="11" rx="2.5"/><rect x="77" y="63" width="5" height="11" rx="2.5"/><path d="M56 88V75a4 4 0 0 1 8 0v13z"/><rect x="58.5" y="40" width="3" height="5" rx="1.5"/></g>\n<path d="M24 88h72" stroke="#c9a24a" stroke-width="3" stroke-linecap="round"/>'),   # 2026-10-29: Adam picked Temple A
  "tithing": B("Windows of heaven", f'<rect x="38" y="44" width="44" height="40" rx="3" fill="{C}" stroke="{G}" stroke-width="2.4"/><path d="M60 44v40M38 64h44" stroke="{G}" stroke-width="2.4"/><path d="M38 44a22 18 0 0 1 44 0" fill="{C}" stroke="{G}" stroke-width="2.4"/><path d="M60 18v10M40 24l5 8M80 24l-5 8M28 36l8 4M92 36l-8 4" stroke="{C}" stroke-width="3" stroke-linecap="round"/><path d="M60 90c-6-4-10-7-10-11a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 4-4 7-10 11z" fill="{G}"/>'),
  "calendar": B("Calendar", f'<rect x="30" y="34" width="60" height="54" rx="7" fill="{C}" stroke="{G}" stroke-width="2.4"/><path d="M30 50h60" stroke="{G}" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="{G}"/><path d="M44 28v12M76 28v12" stroke="{C}" stroke-width="4" stroke-linecap="round"/><g fill="#005175"><rect x="38" y="57" width="8" height="7" rx="1.5"/><rect x="52" y="57" width="8" height="7" rx="1.5"/><rect x="66" y="57" width="8" height="7" rx="1.5"/><rect x="38" y="70" width="8" height="7" rx="1.5"/><rect x="52" y="70" width="8" height="7" rx="1.5"/></g><path d="M70 74l3 3 6-7" stroke="#005175" stroke-width="2.6" fill="none" stroke-linecap="round"/>'),
  "events": B("Event flyer", f'<path d="M34 26h40l12 12v54H34z" fill="{C}" stroke="{G}" stroke-width="2.4" stroke-linejoin="round"/><path d="M74 26v12h12" fill="none" stroke="{G}" stroke-width="2.4"/><path d="M60 42l4 9 10 1-7.5 6.5 2.5 9.5-9-5-9 5 2.5-9.5L46 52l10-1z" fill="#005175"/><path d="M44 76h32M44 84h22" stroke="#005175" stroke-width="2.6" stroke-linecap="round"/>'),
@@ -24,6 +24,15 @@ CARD_MAP = {"Meet with the Bishop": "bishop", "Stake Temple Recommend": "temple-
             "Upcoming Events": "events", "Submit an Announcement": "announce"}
 SEC_MAP = {"Presidency &amp; Contact": "leaders", "Leaders &amp; Contact": "leaders", "Upcoming Activities": "activities", "Sign-ups": "signups", "Resources": "resources"}
 CSS_HOME = "  .ic { flex:0 0 52px; height:52px; border-radius:50%; background:none; display:grid; place-items:center; } .ic .badge { width:52px; height:52px; display:block; }\n"
+def apply_tfh():   # 2026-10-29: Temple A also replaces the Temple and Family History org logo (home tile + org page hero)
+    t = ICONS["temple-recommend"]
+    for f, cls, sz in ((ROOT / "index.html", "logo", 64), (ROOT / "orgs/temple-and-family-history/index.html", "hero", 120)):
+        s = f.read_text(); new = t.replace('class="badge"', f'class="{cls}" width="{sz}" height="{sz}"', 1)
+        if f.name == "index.html" and "orgs/temple" not in str(f):
+            s = re.sub(r'(<a class="org" href="orgs/temple-and-family-history/">)<svg class="logo".*?</svg>', lambda m: m.group(1) + new, s, 1, flags=re.S)
+        else:
+            s = re.sub(r'<svg class="hero".*?</svg>', lambda m: new, s, 1, flags=re.S)
+        f.write_text(s)
 def apply():
     p = ROOT / "index.html"; s = p.read_text()
     def card(m):
@@ -46,4 +55,4 @@ def apply():
         t = re.sub(r'<h2>(.*?)</h2>', h, t)
         if ".ih " not in t: t = t.replace("</style>", "h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}\n</style>", 1)
         o.write_text(t)
-if __name__ == "__main__": apply(); print("icons applied")
+if __name__ == "__main__": apply(); apply_tfh(); print("icons applied")
