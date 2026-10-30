@@ -8,12 +8,7 @@ B = Path("/workspace/sacrament/program-4page/build_program_4page.py").read_text(
 M = ast.literal_eval(re.search(r"^MISSIONARIES = (\[.*?^\])", B, re.S | re.M).group(1))
 M = sorted(M, key=lambda m: (m[0].split()[-1].lower(), m[0].lower()))
 SUBJ = "Hello from Farmington Bay 6th Ward!"
-ICON = '''<svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Missionary name tag with a globe">
-<circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
-<rect x="22" y="36" width="76" height="48" rx="9" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.5"/>
-<g fill="none" stroke="#f3d98b" stroke-width="2.2"><circle cx="43" cy="60" r="13"/><path d="M30 60h26M43 47c5 4 5 22 0 26M43 47c-5 4-5 22 0 26M32 53h22M32 67h22"/></g>
-<path d="M63 52h26" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><path d="M63 61h22M63 69h18" stroke="#c9c9c9" stroke-width="2.4" stroke-linecap="round"/>
-<path d="M60 96l-7-4.5 7-4.5 7 4.5z" fill="#c9a24a"/></svg>'''
+ICON = '''<svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Envelope with a missionary name tag"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="22" y="36" width="76" height="52" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.5"/><path d="M24 39l36 26 36-26" fill="none" stroke="#005175" stroke-width="3" stroke-linejoin="round"/><rect x="40" y="70" width="40" height="22" rx="4" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2"/><path d="M47 78h26" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M47 85h17" stroke="#c9c9c9" stroke-width="2" stroke-linecap="round"/></svg>'''  # option D chosen by Adam 2026-10-29
 def enc(t):   # reversed + base64, so no address (and no '@') is ever in the HTML
     import base64
     return base64.b64encode(t[::-1].encode()).decode()
