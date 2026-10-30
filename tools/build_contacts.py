@@ -4,6 +4,7 @@ import json,os,re
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D=json.load(open(f'{R}/orgs/contacts.json'))
 CSS='  .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }\n  .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }\n'
+HIDE_NUMBERS={'young-women'}  # show the Text button only; number stays in the sms: link
 def fmt(p): return f'({p[2:5]}) {p[5:8]}-{p[8:]}'
 for slug,people in D.items():
     if slug.startswith('_'): continue
@@ -12,7 +13,7 @@ for slug,people in D.items():
     lis=''
     for n,role,ph in people:
         name=f'<b>{n}</b>' if n else '<b class="gap">To be confirmed</b>'
-        sub=role+(f'<br>{fmt(ph)}' if ph else '')
+        sub=role+(f'<br>{fmt(ph)}' if ph and slug not in HIDE_NUMBERS else '')
         btn=f'<a class="btn txt" href="sms:{ph}">Text</a>' if ph else ''
         lis+=f'\n      <li><div class="who">{name}<span>{sub}</span></div>{btn}</li>'
     head='Presidency &amp; Contact' if slug not in ('temple-and-family-history','ward-missionaries','young-men') else 'Leaders &amp; Contact'
