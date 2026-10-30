@@ -4,7 +4,7 @@
     {
       "id": "gatherers-of-light",
       "name": "Gatherers of Light",
-      "ages": null,
+      "ages": "Starting in January of the year she turns 16",
       "meets": null,
       "presidency": [
         {
@@ -32,7 +32,7 @@
     {
       "id": "messengers-of-hope",
       "name": "Messengers of Hope",
-      "ages": null,
+      "ages": "Starting in January of the year she turns 14",
       "meets": null,
       "presidency": [
         {
@@ -58,7 +58,7 @@
     {
       "id": "builders-of-faith",
       "name": "Builders of Faith",
-      "ages": null,
+      "ages": "Starting in January of the year she turns 12",
       "meets": null,
       "presidency": [
         {
