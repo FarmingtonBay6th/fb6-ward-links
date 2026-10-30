@@ -26,7 +26,7 @@ jobs:
         run: |
           git config user.name "bay6-calendar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/calendar.json calendar/ward.ics
+          git add data/calendar.json calendar/ward.ics calendar/feeds
           # ignore the timestamp-only change so we don't commit every 8 hours for nothing
           if git diff --cached --quiet -I '"generated"' -I '^DTSTAMP'; then echo "No changes"; exit 0; fi
           git commit -m "Sync Bay 6 Calendar"

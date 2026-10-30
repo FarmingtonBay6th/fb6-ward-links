@@ -38,14 +38,29 @@
   details.about summary { font-weight:600; color:var(--accent); cursor:pointer; min-height:28px; } details.about p { margin:8px 0 0; } details.about a { color:var(--accent); }
   .cal { display:inline-block; margin-top:6px; font-size:12px; font-weight:600; color:var(--accent); background:var(--chip); border-radius:999px; padding:2px 9px; }
   .note { color:var(--soft); font-size:13px; text-align:center; margin:18px 0 0; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; --chip:#33291f; } .sub { background:#005175; } }
+  .addcal { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; }
+  .addcal h2 { margin:0 0 4px; } .addcal .hint { margin:0 0 10px; font-size:14.5px; color:var(--soft); }
+  .grp { border:1px solid var(--line); border-radius:14px; margin:8px 0; overflow:hidden; }
+  .grp label { display:flex; align-items:center; gap:12px; min-height:56px; padding:8px 12px; cursor:pointer; font-weight:600; font-size:16.5px; }
+  .grp input { width:24px; height:24px; accent-color:var(--accent); flex:0 0 auto; }
+  .grp label small { display:block; font-weight:400; font-size:13px; color:var(--soft); }
+  .grp .btns { display:none; grid-template-columns:1fr 1fr; gap:6px; padding:0 10px 10px; }
+  .grp.on { border-color:var(--accent); } .grp.on .btns { display:grid; }
+  .btns a, .btns button { display:flex; align-items:center; justify-content:center; min-height:46px; border-radius:10px; border:1px solid var(--accent); background:var(--chip); color:var(--accent); font:600 14.5px/1.1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-decoration:none; text-align:center; padding:4px 6px; cursor:pointer; }
+  .btns a.apple { background:var(--accent); color:#fff; }
+  .addev { background:none; border:0; padding:0; margin-left:8px; color:var(--accent); font:600 12px/1 inherit; text-decoration:underline; cursor:pointer; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; --chip:#33291f; } .sub { background:#005175; } .btns a.apple { background:#005175; color:#fff; } }
 </style>
 <script src="../nav.js" defer></script></head>
 <body>
 <div class="preview" id="pv" hidden>Preview With Example Events</div>
 <header><div class="ward">Farmington Bay 6th Ward</div><h1>Ward Calendar</h1><p>Upcoming ward, stake, and Churchwide events. All times Mountain Time.</p></header>
 <main>
-  <a class="sub" href="ward.ics"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Add To My Calendar</a>
+  <section class="addcal" id="add">
+    <h2>Add To My Calendar</h2>
+    <p class="hint">Tap the groups that apply to your family, then choose your phone or calendar app. No Church login needed. Updates automatically every 8 hours.</p>
+    <div id="groups"></div>
+  </section>
   <details class="about"><summary>Why Two Calendars?</summary>
     <p><b>Official Ward Calendar</b> is the Church calendar. It's the source, with full details, but it needs a Church Account sign-in.</p>
     <p><b>Bay 6 Calendar</b> (this page) copies the public ward events (plus Farmington Bay Stake activities and Churchwide events) from the official calendar automatically every 8 hours, so you can open it without signing in. Private items like interviews are never copied.</p>
@@ -58,12 +73,26 @@
 <script>
 const TZ='America/Denver', f=(o,d)=>new Intl.DateTimeFormat('en-US',{timeZone:TZ,...o}).format(d);
 let EV=[], mode='list';
+const FEEDS=[['ward','Ward','Sacrament Meeting, Ward Activities and Meetings'],['relief-society','Relief Society',''],['elders-quorum','Elders Quorum',''],['primary','Primary','Kids 3–11'],['young-men','Young Men',''],['young-women','Young Women',''],['stake-activities','Stake Activities','Farmington Bay Stake Events'],['churchwide','Churchwide','General Conference and Churchwide Broadcasts'],['all','Everything','All of the Above in One Calendar']];
+function feedLinks(slug){const https=new URL('feeds/'+slug+'.ics',location.href).href,webcal=https.replace(/^https?:/,'webcal:');
+ return {https,webcal,google:'https://calendar.google.com/calendar/r?cid='+encodeURIComponent(webcal),
+  outlook:'https://outlook.live.com/calendar/0/addfromweb?url='+encodeURIComponent(https)+'&name='+encodeURIComponent('Bay 6 – '+FEEDS.find(x=>x[0]===slug)[1])};}
+groups.innerHTML=FEEDS.map(([slug,name,sub])=>{const l=feedLinks(slug);return `<div class="grp" id="g-${slug}"><label><input type="checkbox" data-s="${slug}"><span>${name}${sub?`<small>${sub}</small>`:''}</span></label><div class="btns"><a class="apple" href="${l.webcal}">iPhone / Apple</a><a href="${l.google}" target="_blank" rel="noopener">Google Calendar</a><a href="${l.outlook}" target="_blank" rel="noopener">Outlook</a><button type="button" data-copy="${l.https}">Copy Link</button></div></div>`}).join('');
+groups.onchange=e=>{const s=e.target.dataset.s;if(s)document.getElementById('g-'+s).classList.toggle('on',e.target.checked);};
+groups.onclick=e=>{const u=e.target.dataset.copy;if(!u)return;const done=()=>{e.target.textContent='Copied!';setTimeout(()=>e.target.textContent='Copy Link',1800)};
+ navigator.clipboard?navigator.clipboard.writeText(u).then(done,()=>prompt('Copy this link:',u)):prompt('Copy this link:',u);};
+function addOne(i){const e=EV[i],z=d=>new Date(d).toISOString().replace(/[-:]|\.\d{3}/g,''),dd=d=>d.slice(0,10).replace(/-/g,'');
+ const t=e.allDay?[`DTSTART;VALUE=DATE:${dd(e.start)}`,`DTEND;VALUE=DATE:${dd(e.end)>dd(e.start)?dd(e.end):dd(e.start)}`]:[`DTSTART:${z(e.start)}`,`DTEND:${z(e.end)}`];
+ const x=s=>s.replace(/[\\,;]/g,c=>'\\'+c);
+ const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//The Bay 6 Hub//Event//EN','BEGIN:VEVENT',`UID:${e.id}@bay6hub`,`DTSTAMP:${z(Date.now())}`,...t,`SUMMARY:${x(e.title)}`,...(e.location?[`LOCATION:${x(e.location)}`]:[]),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download=e.title.replace(/[^\w ]/g,'').trim()+'.ics';a.click();}
+document.getElementById('out').onclick=e=>{if(e.target.dataset.add!==undefined)addOne(+e.target.dataset.add);};
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function weekStart(d){const x=new Date(d);x.setDate(x.getDate()-x.getDay());return x;}
-function list(){let h='',m='',w='';for(const e of EV){const d=new Date(e.start),mm=f({month:'long',year:'numeric'},d);
+function list(){let h='',m='',w='';for(const [i,e] of EV.entries()){const d=new Date(e.start),mm=f({month:'long',year:'numeric'},d);
  if(mm!==m){h+=`<h2>${mm}</h2>`;m=mm;w='';}const ws='Week Of '+f({month:'short',day:'numeric'},weekStart(d));if(ws!==w){h+=`<h3>${ws}</h3>`;w=ws;}
  const t=e.allDay?'All Day':f({hour:'numeric',minute:'2-digit'},d)+' – '+f({hour:'numeric',minute:'2-digit'},new Date(e.end))+' MT';
- h+=`<div class="ev"><div class="date"><small>${f({weekday:'short'},d)}</small><b>${f({day:'numeric'},d)}</b></div><div class="evtx"><b>${esc(e.title)}</b><p class="when">${f({weekday:'long',month:'short',day:'numeric'},d)} · ${t}</p>${e.location?`<p class="where">${esc(e.location)}</p>`:''}<span class="cal">${esc(e.calendar.replace(/^Farmington 6th Ward$/,'Ward'))}</span></div></div>`;}
+ h+=`<div class="ev"><div class="date"><small>${f({weekday:'short'},d)}</small><b>${f({day:'numeric'},d)}</b></div><div class="evtx"><b>${esc(e.title)}</b><p class="when">${f({weekday:'long',month:'short',day:'numeric'},d)} · ${t}</p>${e.location?`<p class="where">${esc(e.location)}</p>`:''}<span class="cal">${esc(e.calendar.replace(/^Farmington 6th Ward$/,'Ward'))}</span><button class="addev" data-add="${i}">Add</button></div></div>`;}
  return h||'<p class="note">No upcoming events.</p>';}
 function grid(){const months=[...new Set(EV.map(e=>e.start.slice(0,7)))];let h='';for(const ym of months){const [y,mo]=ym.split('-').map(Number),first=new Date(y,mo-1,1),n=new Date(y,mo,0).getDate();
  h+=`<h2>${f({month:'long',year:'numeric'},new Date(y,mo-1,15))}</h2><div class="grid">`+['S','M','T','W','T','F','S'].map(x=>`<div class="dow">${x}</div>`).join('')+'<div></div>'.repeat(first.getDay());

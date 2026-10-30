@@ -7,7 +7,7 @@ emails / phone numbers / descriptions so no contact info is ever published.
 Usage: python3 tools/build_calendar.py SOURCE [--preview]
 """
 import json, re, sys, urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -49,6 +49,49 @@ FIX_TITLES = {
     "Post Trek Fireside": "Post-Trek Fireside",
     "Annual stake young women activity": "Annual Stake Young Women Activity",
 }
+
+# Public subscribable feeds (same filtered/deduped list). Slug -> (calendar name, source calendars or None = all).
+FEEDS = {
+    "all": ("Bay 6 – All Events", None),
+    "ward": ("Bay 6 – Ward", {"Farmington 6th Ward", "Farmington 6th Ward Activities", "Farmington 6th Ward Meetings"}),
+    "relief-society": ("Bay 6 – Relief Society", {"Relief Society"}),
+    "elders-quorum": ("Bay 6 – Elders Quorum", {"Elders Quorum"}),
+    "primary": ("Bay 6 – Primary", {"Primary"}),
+    "young-men": ("Bay 6 – Young Men", {"Young Men"}),
+    "young-women": ("Bay 6 – Young Women", {"Young Women"}),
+    "stake-activities": ("Bay 6 – Stake Activities", {"Stake Activities"}),
+    "churchwide": ("Bay 6 – Churchwide", {"Churchwide"}),
+}
+
+def fold(line):
+    """RFC 5545 line folding at 75 octets (never splitting a UTF-8 character)."""
+    b, parts = line.encode(), []
+    while len(b) > 75:
+        cut = 75 if not parts else 74
+        while (b[cut] & 0xC0) == 0x80: cut -= 1
+        parts.append(b[:cut].decode()); b = b[cut:]
+    parts.append(b.decode())
+    return "\r\n ".join(parts)
+
+def write_ics(evs, name):
+    esc = lambda s: s.replace("\\", "\\\\").replace(",", "\\,").replace(";", "\\;").replace("\n", " ")
+    utc = lambda d: d.astimezone(ZoneInfo("UTC")).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(ZoneInfo("UTC")).strftime("%Y%m%dT%H%M%SZ")
+    ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//The Bay 6 Hub//Ward Calendar//EN", "CALSCALE:GREGORIAN",
+           "METHOD:PUBLISH", "X-WR-CALNAME:" + esc(name), "NAME:" + esc(name), "X-WR-TIMEZONE:America/Denver",
+           "REFRESH-INTERVAL;VALUE=DURATION:PT8H", "X-PUBLISHED-TTL:PT8H"]
+    for x in evs:
+        s, f = datetime.fromisoformat(x["start"]), datetime.fromisoformat(x["end"])
+        if x["allDay"]:
+            ds, de = s.strftime("%Y%m%d"), f.strftime("%Y%m%d")
+            if de <= ds: de = (s + timedelta(days=1)).strftime("%Y%m%d")
+            times = ["DTSTART;VALUE=DATE:" + ds, "DTEND;VALUE=DATE:" + de]
+        else:
+            times = ["DTSTART:" + utc(s), "DTEND:" + utc(max(f, s))]
+        ics += ["BEGIN:VEVENT", f"UID:{x['id']}@bay6hub", "DTSTAMP:" + stamp, *times,
+                "SUMMARY:" + esc(x["title"])] + (["LOCATION:" + esc(x["location"])] if x["location"] else []) + ["END:VEVENT"]
+    ics.append("END:VCALENDAR")
+    return "\r\n".join(fold(l) for l in ics) + "\r\n"
 
 def dedupe(evs):
     """Collapse same-day, time-overlapping events whose titles match after normalizing ('6th', 'on 12/5/26', case)."""
@@ -137,18 +180,16 @@ def main():
     (ROOT / "data").mkdir(exist_ok=True); (ROOT / "calendar").mkdir(exist_ok=True)
     json.dump({"generated": datetime.now(MT).isoformat(timespec="seconds"), "timezone": "America/Denver",
                "preview": preview, "events": out}, open(ROOT / "data/calendar.json", "w"), indent=1)
-    esc = lambda s: s.replace("\\", "\\\\").replace(",", "\\,").replace(";", "\\;")
-    ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//The Bay 6 Hub//Ward Calendar//EN", "CALSCALE:GREGORIAN",
-           "X-WR-CALNAME:Bay 6 Ward Calendar", "X-WR-TIMEZONE:America/Denver"]
-    for x in out:
-        s, f = datetime.fromisoformat(x["start"]), datetime.fromisoformat(x["end"])
-        fmt = (lambda d: "VALUE=DATE:" + d.strftime("%Y%m%d")) if x["allDay"] else (lambda d: ":" + d.astimezone(ZoneInfo("UTC")).strftime("%Y%m%dT%H%M%SZ"))
-        ics += ["BEGIN:VEVENT", f"UID:{x['id']}@bay6hub", "DTSTAMP:" + datetime.now(ZoneInfo("UTC")).strftime("%Y%m%dT%H%M%SZ"),
-                "DTSTART" + (";" if x["allDay"] else "") + fmt(s), "DTEND" + (";" if x["allDay"] else "") + fmt(f),
-                "SUMMARY:" + esc(x["title"]), "LOCATION:" + esc(x["location"]), "END:VEVENT"]
-    ics.append("END:VCALENDAR")
-    (ROOT / "calendar/ward.ics").write_text("\r\n".join(ics) + "\r\n")
+    (ROOT / "calendar/feeds").mkdir(exist_ok=True)
+    counts = {}
+    for slug, (name, cals) in FEEDS.items():
+        sel = [x for x in out if cals is None or x["calendar"] in cals]
+        counts[slug] = len(sel)
+        path = ROOT / "calendar" / ("ward.ics" if slug == "all" else f"feeds/{slug}.ics")
+        path.write_text(write_ics(sel, name))
+        if slug == "all": (ROOT / "calendar/feeds/all.ics").write_text(write_ics(sel, name))
     print(f"kept {len(out)} upcoming, dropped {len(dropped)} by filters, skipped {len(past)} past")
+    print("feeds:", ", ".join(f"{k}={v}" for k, v in counts.items()))
     for d in dropped: print("  dropped:", d)
     for d in merged: print("  merged:", d)
 
