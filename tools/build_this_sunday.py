@@ -111,10 +111,12 @@ assert not re.search(r'\d{3}[-. ]\d{3}[-. ]\d{4}',re.sub(r'<[^>]+>','',page)), '
 open(f'{R}/this-sunday/index.html','w').write(page)
 # home banner
 p=f'{R}/index.html'; s=open(p).read()
-ban=(f'<!--TS--><a class="ts" href="this-sunday/"><span class="ts-k">This Sunday{" · SAMPLE" if sample else ""}</span>'
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); from build_icons import ICONS
+ban=(f'<!--TS--><a class="ts" href="this-sunday/">{ICONS["this-sunday"]}<span class="ts-k">This Sunday{" · SAMPLE" if sample else ""}</span>'
      f'<b>{E(label)} · {mtitle}</b><small>12:00 PM · Program, hymns, announcements, and the kids page</small><span class="ts-go">›</span></a><!--/TS-->')
 s=re.sub(r'<!--TS-->.*?<!--/TS-->\n?','',s,flags=re.S)
 s=s.replace('<main>\n','<main>\n  '+ban+'\n',1)
+if '.ts .badge' not in s: s=s.replace('  .ts-k {','  .ts .badge { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:54px; height:54px; } .ts { padding-left:80px !important; }\n  .ts-k {',1)
 if '.ts {' not in s: s=s.replace('</style>\n</head>','''  .ts { position:relative; display:block; text-decoration:none; color:#fff; background:linear-gradient(150deg,#005175,#003a55); border:1px solid #c9a24a;
     border-left:6px solid #c9a24a; border-radius:16px; padding:14px 40px 14px 16px; margin:0 0 12px; box-shadow:0 4px 14px rgba(0,58,85,.25); }
   .ts-k { display:block; font:600 11.5px/1 Georgia, serif; letter-spacing:.16em; text-transform:uppercase; color:#e2c47a; }
