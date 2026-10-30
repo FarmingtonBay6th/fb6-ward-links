@@ -10,6 +10,17 @@
       "place": "Chapel",
       "details": "We need your voice. Choir practice every Sunday. We are getting ready for Thanksgiving and Christmas.",
       "flyer": "flyers/2026-11-01-ward-choir-practice.jpg"
+    },
+    {
+      "id": "2026-11-01-family-search-invitations",
+      "title": "Family Search Invitations",
+      "date": "2026-11-01",
+      "endDate": "2026-11-29",
+      "place": "",
+      "details": "We have a new website for our ward for family search activities. Each month we'll have a new invitation. This month (November) is to log into FamilySearch and see what's new. AND to check out the new site!",
+      "flyer": "flyers/2026-11-01-family-search-invitations.jpg",
+      "link": "https://www.helpgatherisrael.org/",
+      "linkLabel": "Ward Family History Site"
     }
   ]
 }
