@@ -1,0 +1,9 @@
+{
+  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, ages, meets, presidency [{role,name}], advisers [names], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver).",
+  "classes": [
+    {"id": "gatherers-of-light", "name": "Gatherers of Light", "ages": null, "meets": null, "presidency": [], "advisers": [], "info": null},
+    {"id": "messengers-of-hope", "name": "Messengers of Hope", "ages": null, "meets": null, "presidency": [], "advisers": [], "info": null},
+    {"id": "builders-of-faith", "name": "Builders of Faith", "ages": null, "meets": null, "presidency": [], "advisers": [], "info": null}
+  ],
+  "activities": []
+}

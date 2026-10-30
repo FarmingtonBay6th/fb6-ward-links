@@ -146,6 +146,7 @@ for k,sl,nm,th,q,ref,hb in O:
 <footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer>
 <script>(function(){{var n=Date.now(),k=0;document.querySelectorAll('.ev').forEach(function(e){{var d=Date.parse(e.dataset.end);if(d&&d<n)e.hidden=true;else k++;}});
 if(!k){{document.getElementById('empty').hidden=false;document.getElementById('more').hidden=true;}}}})();</script>
+{'<script src="classes.js" defer></script>' if sl=='young-women' else ''}
 </body></html>''')
 # logos sheet
 t=''.join(f'<div style="text-align:center;width:220px;margin:16px">{logo(k,160)}<div style="font:600 17px Georgia,serif;margin-top:8px">{nm}</div><div style="font:italic 15px Georgia,serif;color:#8a6d22">{th}</div></div>' for k,sl,nm,th,*_ in O)
