@@ -11,7 +11,7 @@ input,textarea,select{width:100%;font:inherit;padding:12px;border:1.5px solid va
 textarea{min-height:110px}.row{display:flex;gap:10px}.row>div{flex:1;min-width:0}.chips{display:flex;gap:8px;flex-wrap:wrap}.chips label{margin:0;font-weight:600;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;background:#fffdf9}
 .chips input{width:auto;margin-right:6px}.hp{position:absolute;left:-9999px}
 button{display:block;width:100%;background:var(--navy);color:#fff;font-weight:700;font-size:19px;padding:16px;border-radius:16px;border:2px solid var(--gold);margin-top:16px}
-.note{color:var(--soft);font-size:14px;text-align:center}#msg{font-weight:700;text-align:center;margin-top:12px}.preview-flag{background:#fff3cd;border:1px dashed var(--gold);border-radius:10px;padding:8px;text-align:center;font-size:14px}
+.nofly{margin:10px 2px 4px;padding:10px 12px;border-left:3px solid var(--gold);background:#fff;border-radius:10px;font-size:14px;line-height:1.4;color:var(--soft)}.nofly b{color:var(--navy)}.note{color:var(--soft);font-size:14px;text-align:center}#msg{font-weight:700;text-align:center;margin-top:12px}.preview-flag{background:#fff3cd;border:1px dashed var(--gold);border-radius:10px;padding:8px;text-align:center;font-size:14px}
 .appbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;background:linear-gradient(160deg,#005175,#003a55);color:#fff;padding:calc(env(safe-area-inset-top) + 10px) 14px 12px;border-bottom:3px solid var(--gold)}
 .appbar a{color:#fff;text-decoration:none;font-size:22px;opacity:.85}.appicon{width:44px;height:44px;flex:0 0 44px}.appbar h1{font:italic 400 22px/1.1 Georgia,serif;margin:0}.appbar small{display:block;opacity:.85;font-size:13px}
 .screen{display:none}.screen.on{display:block}.choice{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:20px;padding:18px;margin:12px 0;font:inherit;color:var(--ink);box-shadow:0 3px 10px rgba(0,0,0,.05)}
@@ -29,6 +29,7 @@ button{display:block;width:100%;background:var(--navy);color:#fff;font-weight:70
 <section class="screen on" id="s1"><p class="note" style="font-size:16px;color:var(--ink)">What would you like to send? Pick one or both.</p>
 <button type="button" class="choice" data-k="ann" aria-pressed="false"><span class="e">📣</span><span><b>Share an Announcement</b>Type what the ward should know</span><span class="ck">✓</span></button>
 <button type="button" class="choice" data-k="fly" aria-pressed="false"><span class="e">🖼️</span><span><b>Upload a Flyer</b>Photo or PDF, up to 10 MB</span><span class="ck">✓</span></button>
+<p class="nofly"><b>No flyer? No problem!</b> If you don’t have one, I can quickly create one for you, and I’m happy to do it. 😊</p>
 <button type="button" id="next" disabled>Next ›</button></section>
 <form id="f" class="screen card" novalidate>
 <label for="name">Your Name</label><input id="name" name="name" required autocomplete="name">
