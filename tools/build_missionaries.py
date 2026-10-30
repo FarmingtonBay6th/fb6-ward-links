@@ -45,7 +45,7 @@ page = f'''<!doctype html>
  .hello:active{{transform:scale(.97)}} .hello svg{{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linejoin:round}}
  footer{{text-align:center;color:var(--soft);font-size:12px;padding:8px 20px 30px}}
  @media (prefers-color-scheme:dark){{:root{{--ink:#f3ece4;--soft:#bfb2a5;--bg:#1d1916;--card:#27211d;--line:#3a312a}}}}
-</style></head><body>
+</style><script src="../nav.js" defer></script></head><body>
 <header style="position:relative"><a class="back" href="../">‹ The Bay 6 Hub</a>{ICON}
 <h1>Our Ward Missionaries</h1><p>They love hearing from home! Tap <b>Say hello</b> to send a quick note of love and encouragement.</p></header>
 <main>

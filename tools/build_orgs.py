@@ -100,7 +100,7 @@ for k,sl,nm,th,q,ref,hb in O:
   .empty, .more {{ color:var(--soft); font-size:14px; margin:8px 0 0; }} .empty a, .more a {{ color:var(--accent); }}
   footer {{ text-align:center; color:var(--soft); font-size:11.5px; padding:8px 20px 36px; }}
   @media (prefers-color-scheme: dark) {{ :root {{ --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; }} .ph {{ background:#3a301c; color:#e2c47a; }} }}
-</style></head><body>
+</style><script src="../../nav.js" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
   {logo(k,120,'hero')}

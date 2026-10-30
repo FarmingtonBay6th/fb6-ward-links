@@ -37,7 +37,7 @@ main{{max-width:560px;margin:0 auto;padding:16px 14px 30px;text-align:center}} .
 .big{{display:block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:19px;padding:16px 18px;border-radius:16px;margin:10px 0;border:2px solid var(--gold)}}
 .alt{{display:block;background:#e3eef4;color:var(--accent);text-decoration:none;font-weight:600;padding:12px;border-radius:14px}} .soft{{color:var(--soft);font-size:14px}}
 footer{{text-align:center;color:var(--soft);font-size:12px;padding:8px 20px 30px}}  header .tag{{font-style:italic;font-weight:600;color:#f3d98b;margin:4px auto 6px;text-align:center}}
-</style></head><body>
+</style><script src="../nav.js" defer></script></head><body>
 <header><a class="back" href="../">‹ The Bay 6 Hub</a><h1>Crayons &amp; Covenants</h1><p class="tag">Make it bright, share His light!</p><p>A new coloring page each week to go with what we are learning about Jesus Christ.</p></header>
 <main><h2 style="font:italic 400 22px Georgia,serif;margin:6px 0 2px;color:var(--accent)">{title}</h2><div class="soft">{ref}</div>
 <img class="sheet" src="coloring-{a.date}-preview.png" alt="Coloring page: {title}">
