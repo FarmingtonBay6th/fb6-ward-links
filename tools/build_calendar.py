@@ -37,6 +37,31 @@ BLOCK = re.compile(r"interview|tithing|bishopric|recommend|setting[ -]?apart|\bp
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 PHONE = re.compile(r"(\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}")
 
+# Title corrections for typos / odd casing in the source calendars (exact titles, applied before dedupe).
+FIX_TITLES = {
+    "Sake YM Basketball": "Stake YM Basketball",
+    "Stake YW's Pickleball": "Stake YW Pickleball",
+    "Stake Relief Society Activiy": "Stake Relief Society Activity",
+    "Stake relief society training dinner": "Stake Relief Society Training Dinner",
+    "Pre-thanksgiving activities": "Pre-Thanksgiving Activities",
+    "Set up for Ward Christmas Party": "Set Up for Ward Christmas Party",
+    "Set Up For 6th Ward Christmas Party on 12/5/26": "Set Up for 6th Ward Christmas Party",
+    "Post Trek Fireside": "Post-Trek Fireside",
+    "Annual stake young women activity": "Annual Stake Young Women Activity",
+}
+
+def dedupe(evs):
+    """Collapse same-day, time-overlapping events whose titles match after normalizing ('6th', 'on 12/5/26', case)."""
+    norm = lambda t: re.sub(r"\s+", " ", re.sub(r"\b6th\b|\bon \d+/\d+(/\d+)?|[^a-z0-9 ]", " ", t.lower())).strip()
+    rank = lambda x: (x["calendar"] not in ("Stake Activities", "Churchwide"), "6th Ward" in x["title"], bool(x["location"]), len(x["title"]))
+    out, merged = [], []
+    for x in sorted(evs, key=rank, reverse=True):
+        dup = next((k for k in out if k["start"][:10] == x["start"][:10] and norm(k["title"]) == norm(x["title"])
+                    and k["start"] < x["end"] and x["start"] < k["end"] or (k["start"] == x["start"] == x["end"] and norm(k["title"]) == norm(x["title"]))), None)
+        if dup: merged.append(f'{x["start"][:16]} "{x["title"]}" [{x["calendar"]}] -> "{dup["title"]}" [{dup["calendar"]}]')
+        else: out.append(x)
+    return out, merged
+
 def read(src):
     if re.match(r"https?://|webcal://", src):
         src = src.replace("webcal://", "https://", 1)
@@ -85,6 +110,7 @@ def main():
                 m2 = rx.search(title)
                 if m2: cal, title = label, title[:m2.start()].strip(" -"); break
         if cal is None: cal = clean(e.get("CATEGORIES", calname))
+        title = FIX_TITLES.get(re.sub(r"\s{2,}", " ", title).strip(), title)
         if cal.lower() in HARD_EXCLUDE:
             dropped.append(f"(hard-excluded) [{cal}]"); continue
         if cal == "Stake Activities" and OTHER_WARD.search(title):
@@ -106,6 +132,7 @@ def main():
         now = datetime.now(MT); past = [x for x in out if datetime.fromisoformat(x["end"]) < now]
         out = [x for x in out if x not in past]
     else: past = []
+    out, merged = dedupe(out)
     out.sort(key=lambda x: x["start"])
     (ROOT / "data").mkdir(exist_ok=True); (ROOT / "calendar").mkdir(exist_ok=True)
     json.dump({"generated": datetime.now(MT).isoformat(timespec="seconds"), "timezone": "America/Denver",
@@ -123,6 +150,7 @@ def main():
     (ROOT / "calendar/ward.ics").write_text("\r\n".join(ics) + "\r\n")
     print(f"kept {len(out)} upcoming, dropped {len(dropped)} by filters, skipped {len(past)} past")
     for d in dropped: print("  dropped:", d)
+    for d in merged: print("  merged:", d)
 
 if __name__ == "__main__":
     main()

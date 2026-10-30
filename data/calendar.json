@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T08:30:55-06:00",
+ "generated": "2026-10-30T08:39:43-06:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -50,7 +50,7 @@
   },
   {
    "id": "0000000000000000000000174726502calendarC",
-   "title": "Stake relief society training dinner",
+   "title": "Stake Relief Society Training Dinner",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -140,7 +140,7 @@
   },
   {
    "id": "0000000000000000000000174415102calendarC",
-   "title": "Pre-thanksgiving activities",
+   "title": "Pre-Thanksgiving Activities",
    "calendar": "Stake Activities",
    "location": "",
    "allDay": false,
@@ -157,17 +157,8 @@
    "end": "2026-11-29T16:45:00-07:00"
   },
   {
-   "id": "0000000000000000000000154433277calendarC",
-   "title": "Set up for Ward Christmas Party",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2026-12-04T16:00:00-07:00",
-   "end": "2026-12-04T22:00:00-07:00"
-  },
-  {
    "id": "0000000000000000000000154889427calendarC",
-   "title": "Set Up For 6th Ward Christmas Party on 12/5/26",
+   "title": "Set Up for 6th Ward Christmas Party",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -182,15 +173,6 @@
    "allDay": false,
    "start": "2026-12-05T07:00:00-07:00",
    "end": "2026-12-05T11:00:00-07:00"
-  },
-  {
-   "id": "0000000000000000000000154432152calendarC",
-   "title": "Ward Christmas Party",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2026-12-05T08:00:00-07:00",
-   "end": "2026-12-05T13:00:00-07:00"
   },
   {
    "id": "0000000000000000000000148313477calendarC",
@@ -301,17 +283,8 @@
    "end": "2027-01-03T16:45:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110952calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-01-07T18:30:00-07:00",
-   "end": "2027-01-07T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111227calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -320,7 +293,7 @@
   },
   {
    "id": "0000000000000000000000177041902calendarC",
-   "title": "Stake YW's Pickleball",
+   "title": "Stake YW Pickleball",
    "calendar": "Stake Activities",
    "location": "",
    "allDay": false,
@@ -346,17 +319,8 @@
    "end": "2027-01-10T16:45:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110953calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-01-14T18:30:00-07:00",
-   "end": "2027-01-14T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111228calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -365,7 +329,7 @@
   },
   {
    "id": "0000000000000000000000177070277calendarC",
-   "title": "Stake YW's Pickleball",
+   "title": "Stake YW Pickleball",
    "calendar": "Stake Activities",
    "location": "",
    "allDay": false,
@@ -391,17 +355,8 @@
    "end": "2027-01-17T16:45:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110954calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-01-21T18:30:00-07:00",
-   "end": "2027-01-21T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111229calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -410,7 +365,7 @@
   },
   {
    "id": "0000000000000000000000177070278calendarC",
-   "title": "Stake YW's Pickleball",
+   "title": "Stake YW Pickleball",
    "calendar": "Stake Activities",
    "location": "",
    "allDay": false,
@@ -419,7 +374,7 @@
   },
   {
    "id": "0000000000000000000000174793252calendarC",
-   "title": "Stake Relief Society Activiy",
+   "title": "Stake Relief Society Activity",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -445,17 +400,8 @@
    "end": "2027-01-24T22:00:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110955calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-01-28T18:30:00-07:00",
-   "end": "2027-01-28T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111230calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -464,7 +410,7 @@
   },
   {
    "id": "0000000000000000000000177070279calendarC",
-   "title": "Stake YW's Pickleball",
+   "title": "Stake YW Pickleball",
    "calendar": "Stake Activities",
    "location": "",
    "allDay": false,
@@ -481,17 +427,8 @@
    "end": "2027-01-31T16:45:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110956calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-02-04T18:30:00-07:00",
-   "end": "2027-02-04T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111231calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -508,17 +445,8 @@
    "end": "2027-02-07T19:00:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110957calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-02-11T18:30:00-07:00",
-   "end": "2027-02-11T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111232calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -535,17 +463,8 @@
    "end": "2027-02-13T14:00:00-07:00"
   },
   {
-   "id": "0000000000000000000000177110958calendarC",
-   "title": "Stake YM Basketball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2027-02-18T18:30:00-07:00",
-   "end": "2027-02-18T21:30:00-07:00"
-  },
-  {
    "id": "0000000000000000000000177111233calendarC",
-   "title": "Sake YM Basketball",
+   "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
@@ -734,7 +653,7 @@
   },
   {
    "id": "0000000000000000000000174417277calendarC",
-   "title": "Post Trek Fireside",
+   "title": "Post-Trek Fireside",
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
