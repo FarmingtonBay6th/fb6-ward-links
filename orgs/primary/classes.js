@@ -36,7 +36,7 @@
   function names(l) { return (l || []).length ? '<ul>' + l.map(function (n) { return '<li><b>' + esc(n) + '</b></li>'; }).join('') + '</ul>' : SOON; }
   function panel(c, acts) {
     var p = document.createElement('div'); p.className = 'ywpanel'; p.id = 'panel-' + c.id; p.hidden = true;
-    var kids = (c.children || []).length ? '<p class="kids">' + c.children.slice().sort(function(a,b){return a.localeCompare(b);}).map(esc).join(' · ') + '</p>' : SOON;
+    var kids = (c.children || []).length ? '<p class="kids">' + c.children.slice().sort(function(a,b){return b.localeCompare(a);}).map(esc).join(' · ') + '</p>' : SOON;
     var tl = c.id === 'nursery' ? 'Nursery Leaders' : ((c.teachers || []).length > 1 ? 'Teachers' : 'Teacher');
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2><p class="note">' + (c.info ? esc(c.info) : 'Class news, activities and info for ' + esc(c.name) + '.') + '</p></section>' +
       '<section class="ywinfo ywleaders"><h2>' + tl + '</h2>' + names(c.teachers) + '</section>' +
