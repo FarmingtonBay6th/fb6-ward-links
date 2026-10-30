@@ -22,6 +22,7 @@ button{display:block;width:100%;background:var(--navy);color:#fff;font-weight:70
 .done .sub{font:italic 18px/1.4 Georgia,serif;color:var(--navy);margin:0 0 14px}.done .warm{font:17px/1.65 Georgia,serif;color:var(--ink);max-width:30em;margin:0 auto 18px;text-align:center}
 .gold{display:block;background:var(--gold);color:#1b2a3a;text-decoration:none;font-weight:800;font-size:20px;padding:17px;border-radius:16px;border:2px solid #a8842f;margin:8px 0 4px;box-shadow:0 3px 10px rgba(201,162,74,.35)}
 .done{padding:28px 6px}
+.nb{white-space:nowrap}.gold{font-size:clamp(17px,5vw,20px);padding:16px 10px;white-space:nowrap}
 </style></head><body>
 <div class="appbar"><a href="../" aria-label="Back to Ward Links">‹</a><svg class="appicon" viewBox="0 0 120 120" role="img" aria-label="Announcement megaphone"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M30 52h12l34-18v52L42 68H30z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M42 68l5 18h9l-4-17" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.2" stroke-linejoin="round"/><path d="M84 48c5 3 5 21 0 24M90 42c9 6 9 30 0 36" fill="none" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/></svg><div><h1>Submit an Announcement</h1><small>No sign-in needed · Farmington Bay 6th Ward</small></div></div>
 <main><div class="preview-flag" id="pf">PREVIEW: not connected yet</div>
@@ -41,9 +42,9 @@ button{display:block;width:100%;background:var(--navy);color:#fff;font-weight:70
 <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 <button type="submit">Send It ›</button><div id="msg" role="status"></div>
 <p class="note"><a href="#" id="back">‹ Change what I'm sending</a></p></form>
-<section class="screen done" id="s3"><h2>Thank you! 🙏</h2><p class="sub">Your announcement is on its way to Adam Bingham.</p>
+<section class="screen done" id="s3"><h2>Thank you! 🙏</h2><p class="sub">Your announcement is on its way to <span class="nb">Adam&nbsp;Bingham</span>.</p>
 <p class="warm">You matter so much to Heavenly Father, and He loves you more than you know. Jesus Christ paid the price so you could learn, grow, and keep trying — and He's cheering you on every step of the way. You are loved. Keep going!</p>
-<a class="gold" href="sms:+18019921414?&amp;body=Hi%20Adam%2C%20about%20my%20announcement%3A%20">💬 Text Adam Bingham</a>
+<a class="gold" href="sms:+18019921414?&amp;body=Hi%20Adam%2C%20about%20my%20announcement%3A%20"><span class="nb">💬 Text Adam&nbsp;Bingham</span></a>
 <button type="button" onclick="location.reload()">Send Another</button><p class="note"><a href="../">Back to Ward Links</a></p></section>
 </main>
 <script>
