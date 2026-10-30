@@ -1,4 +1,15 @@
 {
   "_readme": "Approved announcements shown on events/. Append one object per item AFTER approval. Fields: id (unique slug), title, date (YYYY-MM-DD, Mountain Time), time (optional, free text e.g. '6:30 PM'), endDate (optional YYYY-MM-DD for multi-day items; hides after this day instead of date), place, details (one short line), flyer (optional, path relative to events/, e.g. 'flyers/2026-11-20-slug.jpg', max 1200px wide), link (optional URL), linkLabel (optional, default 'More info'). Items hide automatically once their date (or endDate) is before today in America/Denver. SAMPLE entries below are preview-only: remove before going live.",
-  "announcements": []
+  "announcements": [
+    {
+      "id": "2026-11-01-ward-choir-practice",
+      "title": "Ward Choir Practice",
+      "date": "2026-11-01",
+      "endDate": "2026-12-13",
+      "time": "2:15 PM",
+      "place": "Chapel",
+      "details": "We need your voice. Choir practice every Sunday. We are getting ready for Thanksgiving and Christmas.",
+      "flyer": "flyers/2026-11-01-ward-choir-practice.jpg"
+    }
+  ]
 }
