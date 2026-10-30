@@ -1,22 +1,4 @@
 {
   "_readme": "Approved announcements shown on events/. Append one object per item AFTER approval. Fields: id (unique slug), title, date (YYYY-MM-DD, Mountain Time), time (optional, free text e.g. '6:30 PM'), endDate (optional YYYY-MM-DD for multi-day items; hides after this day instead of date), place, details (one short line), flyer (optional, path relative to events/, e.g. 'flyers/2026-11-20-slug.jpg', max 1200px wide), link (optional URL), linkLabel (optional, default 'More info'). Items hide automatically once their date (or endDate) is before today in America/Denver. SAMPLE entries below are preview-only: remove before going live.",
-  "announcements": [
-    {
-      "id": "sample-chili-cookoff",
-      "title": "Sample: Ward Chili Cook-off",
-      "date": "2026-11-14",
-      "time": "6:00 PM",
-      "place": "Cultural Hall (sample)",
-      "details": "SAMPLE ENTRY for preview only. Bring a pot of chili or a side.",
-      "flyer": "flyers/sample-chili-cookoff.jpg"
-    },
-    {
-      "id": "sample-service-saturday",
-      "title": "Sample: Service Saturday Yard Cleanup",
-      "date": "2026-11-28",
-      "time": "9:00 AM",
-      "place": "Meet at the church parking lot (sample)",
-      "details": "SAMPLE ENTRY for preview only. Bring gloves and rakes."
-    }
-  ]
+  "announcements": []
 }
