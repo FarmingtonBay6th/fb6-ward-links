@@ -1,0 +1,198 @@
+{
+  "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, ward-missionaries). Run: python3 tools/build_events.py",
+  "events": [
+    {
+      "title": "Faith Leader Suicide Prevention Summit",
+      "alt": "Faith Leader Suicide Prevention Summit",
+      "subtitle": "NAMI Utah · for faith leaders",
+      "when": "Thu, Oct 29 · 8:00 AM – 3:00 PM",
+      "where": "Conference Center at Miller Campus, SLCC, Sandy (or virtual)",
+      "end": "2026-10-29T15:00:00-06:00",
+      "flyer": "flyers/2026-10-29-suicide-prevention-summit.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-10-29-suicide-prevention-summit.jpg",
+          "primary": true
+        },
+        {
+          "label": "Register",
+          "href": "https://form.jotform.com/262004948004147",
+          "primary": false
+        }
+      ],
+      "orgs": []
+    },
+    {
+      "title": "Relief Society Training Dinner",
+      "alt": "Relief Society Training Dinner",
+      "subtitle": "Stake · for Relief Society presidencies",
+      "when": "Thu, Nov 5 · 6:00 – 8:00 PM",
+      "where": "Farmington Bay Stake Center",
+      "end": "2026-11-05T20:00:00-07:00",
+      "flyer": "flyers/2026-11-05-rs-training.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-05-rs-training.jpg",
+          "primary": true
+        }
+      ],
+      "orgs": [
+        "relief-society"
+      ]
+    },
+    {
+      "title": "Sawubona Friendsgiving",
+      "alt": "Sawubona Friendsgiving",
+      "subtitle": "Ward Relief Society · dinner will be served",
+      "when": "Thu, Nov 12 · 6:30 PM",
+      "where": "Cultural Hall, Stake Center (Eagle Shore building)",
+      "end": "2026-11-12T21:00:00-07:00",
+      "flyer": "flyers/2026-11-12-rs-friendsgiving.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-12-rs-friendsgiving.jpg",
+          "primary": true
+        },
+        {
+          "label": "RSVP",
+          "href": "https://docs.google.com/forms/d/e/1FAIpQLSeWUA13M9W2ujzFxKp-gWIxMsXvvepqmqYs1OJ2qWbyEz3Npg/viewform",
+          "primary": false
+        }
+      ],
+      "orgs": [
+        "relief-society"
+      ]
+    },
+    {
+      "title": "Elder Gilbert YSA Devotional",
+      "alt": "Elder Gilbert YSA Devotional",
+      "subtitle": "Ogden Weber Institute · all young single adults",
+      "when": "Sun, Nov 15 · 6:00 – 7:00 PM (doors 5:00)",
+      "where": "Ogden Tabernacle, 2145 Washington Blvd, Ogden",
+      "end": "2026-11-15T19:00:00-07:00",
+      "flyer": "flyers/2026-11-15-elder-gilbert-devotional.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-15-elder-gilbert-devotional.jpg",
+          "primary": true
+        },
+        {
+          "label": "Map",
+          "href": "https://maps.google.com/?q=Ogden+Tabernacle,+2145+Washington+Blvd,+Ogden+UT",
+          "primary": false
+        }
+      ],
+      "orgs": [
+        "ward-missionaries"
+      ]
+    },
+    {
+      "title": "Single Adult 45+ Fireside: “The Battle Has Begun”",
+      "alt": "Single Adult 45+ Fireside: “The Battle Has Begun”",
+      "subtitle": "Davis Regional Single Adults · guest speaker Glenn Rawson",
+      "when": "Sun, Nov 15 · 7:00 PM",
+      "where": "Farmington South Stake Center, 695 S 200 E, Farmington",
+      "end": "2026-11-15T20:30:00-07:00",
+      "flyer": "flyers/2026-11-15-single-adult-fireside.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-15-single-adult-fireside.jpg",
+          "primary": true
+        },
+        {
+          "label": "More info",
+          "href": "https://www.facebook.com/groups/194876360889594/",
+          "primary": false
+        },
+        {
+          "label": "Map",
+          "href": "https://maps.google.com/?q=695+S+200+E,+Farmington+UT",
+          "primary": false
+        }
+      ],
+      "orgs": []
+    },
+    {
+      "title": "Stake Food Drive",
+      "alt": "Stake Food Drive",
+      "subtitle": "Farmington Bay Stake",
+      "when": "Sat, Nov 21 curbside pickup from 9:00 AM · Sun, Nov 22 drop-off 6:30 PM",
+      "where": "Curbside (Sat) · Stake Center (Sun)",
+      "end": "2026-11-22T19:30:00-07:00",
+      "flyer": "flyers/2026-11-21-food-drive.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-21-food-drive.jpg",
+          "primary": true
+        }
+      ],
+      "orgs": [
+        "relief-society",
+        "elders-quorum"
+      ]
+    },
+    {
+      "title": "Stake Missionary Fireside",
+      "alt": "Stake Missionary Fireside",
+      "subtitle": "Farmington Bay Stake · bring canned food; refreshments after",
+      "when": "Sun, Nov 22 · 6:30 – 7:30 PM",
+      "where": "Stake Center Chapel, 549 S 1525 W, Farmington",
+      "end": "2026-11-22T19:30:00-07:00",
+      "flyer": "flyers/2026-11-22-missionary-fireside.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-22-missionary-fireside.jpg",
+          "primary": true
+        },
+        {
+          "label": "Map",
+          "href": "https://maps.google.com/?q=549+S+1525+W,+Farmington+UT+84025",
+          "primary": false
+        }
+      ],
+      "orgs": [
+        "ward-missionaries",
+        "young-men",
+        "young-women"
+      ]
+    },
+    {
+      "title": "Jr. SNAP (Special Needs Activity Program)",
+      "alt": "Jr. SNAP (Special Needs Activity Program)",
+      "subtitle": "Central Davis · children, youth & young adults with special needs",
+      "when": "Mondays school is in session · 4:30 – 5:45 PM · Christmas Program Mon, Dec 7",
+      "where": "1282 W 1875 N, Farmington",
+      "end": "2026-12-14T17:45:00-07:00",
+      "flyer": "flyers/jr-snap.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/jr-snap.jpg",
+          "primary": true
+        },
+        {
+          "label": "Fall calendar",
+          "href": "flyers/jr-snap-calendar.jpg",
+          "primary": false
+        },
+        {
+          "label": "Map",
+          "href": "https://maps.google.com/?q=1282+W+1875+N,+Farmington+UT",
+          "primary": false
+        }
+      ],
+      "orgs": [
+        "primary",
+        "young-women",
+        "young-men"
+      ]
+    }
+  ]
+}
