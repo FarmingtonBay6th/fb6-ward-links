@@ -34,6 +34,10 @@
   .tx { flex:1; } .tx b { display:block; font-size:17px; } .tx small { display:block; color:var(--soft); font-size:13.5px; margin-top:2px; }
   .go { color:#8fb3c6; font-size:26px; line-height:1; }
   section.miss { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:22px; }
+  .misscard { padding:0; overflow:hidden; } .misslink { display:flex; align-items:center; gap:14px; padding:16px; text-decoration:none; color:inherit; }
+  .misslink:active { background:#f3f8fb; } .misslink .badge { flex:0 0 84px; width:84px; height:84px; }
+  .misslink .mt b { display:block; font:italic 400 21px/1.2 Georgia, serif; } .misslink .mt small { display:block; color:var(--soft); font-size:14px; margin-top:3px; }
+  .misslink .mt em { display:inline-block; margin-top:8px; font-style:normal; font-weight:600; font-size:15px; background:var(--accent2); color:#fff; padding:8px 13px; border-radius:11px; }
   section h2 { font:italic 400 21px/1.2 Georgia, serif; margin:0 0 8px; }
   .elders { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 12px; }
   .btn { display:inline-block; padding:10px 14px; border-radius:12px; background:var(--accent2); color:#fff; text-decoration:none; font-weight:600; font-size:15px; }
@@ -179,30 +183,14 @@
       <a class="btn alt" href="tel:+18019704486">Call the Missionaries</a>
     </div>
   </section>
-  <section id="serving" class="miss">
-    <h2>Our Ward Members Serving the Savior</h2>
-    <div style="color:var(--soft);font-size:14px;margin-bottom:4px">A–Z by last name. Write to them!</div>
-    <ul>
-      <li><b>Bo Barber</b> <span>Honduras, Comayagüela</span> <a href="mailto:bo.barber@missionary.org">bo.barber@missionary.org</a></li>
-      <li><b>Rachel Barber</b> <span>Colorado, Colorado Springs</span> <a href="mailto:rachel.barber@missionary.org">rachel.barber@missionary.org</a></li>
-      <li><b>Brandon Barrus</b> <span>North Carolina, Charlotte</span> <a href="mailto:brandon.barrus@missionary.org">brandon.barrus@missionary.org</a></li>
-      <li><b>Andrew Butterfield</b> <span>France, Paris North</span> <a href="mailto:andrew.butterfield@missionary.org">andrew.butterfield@missionary.org</a></li>
-      <li><b>Edmond Cooley</b> <span>Brazil, Londrina</span> <a href="mailto:edmond.cooley@missionary.org">edmond.cooley@missionary.org</a></li>
-      <li><b>Coen Drommond</b> <span>Washington, Vancouver</span> <a href="mailto:coen.drommond@missionary.org">coen.drommond@missionary.org</a></li>
-      <li><b>Eliza Gunn</b> <span>Perú, Lima Limatambo</span> <a href="mailto:elizafulgunn@gmail.com">elizafulgunn@gmail.com</a></li>
-      <li><b>Rose Haller</b> <span>Church-Service Mission</span> <a href="mailto:rosemhaller@gmail.com">rosemhaller@gmail.com</a></li>
-      <li><b>Maya Huff</b> <span>England, Birmingham</span> <a href="mailto:maya.huff@missionary.org">maya.huff@missionary.org</a></li>
-      <li><b>Randall and Bonnie Hunt</b> <span>Utah, Layton</span> <a href="mailto:randyhunt2055@gmail.com">randyhunt2055@gmail.com</a></li>
-      <li><b>Grady John</b> <span>Marshall Islands</span> <a href="mailto:grady.john@missionary.org">grady.john@missionary.org</a></li>
-      <li><b>Aspen Peterson</b> <span>Arizona, Phoenix</span> <a href="mailto:peterson.aspen@missionary.org">peterson.aspen@missionary.org</a></li>
-      <li><b>Emme Peterson</b> <span>North Carolina, Raleigh</span> <a href="mailto:emmeline.peterson@missionary.org">emmeline.peterson@missionary.org</a></li>
-      <li><b>Nathan Rees</b> <span>Church-Service Mission</span> <a href="mailto:n8rees@gmail.com">n8rees@gmail.com</a></li>
-      <li><b>Everest Squires</b> <span>Texas, San Antonio</span> <a href="mailto:squires.seth@missionary.org">squires.seth@missionary.org</a></li>
-      <li><b>Carter Tingey</b> <span>Colorado, Fort Collins</span> <a href="mailto:carter.tingey@missionary.org">carter.tingey@missionary.org</a></li>
-      <li><b>Randy and Verlee White</b> <span>Texas, Lubbock</span> <a href="mailto:WHITERANDY_102@MSN.com">WHITERANDY_102@MSN.com</a></li>
-      <li><b>Kalen Wood</b> <span>Utah, Layton</span> <a href="mailto:kalen.wood@missionary.org">kalen.wood@missionary.org</a></li>
-      <li><b>Boston Zaugg</b> <span>Baltic Mission</span> <a href="mailto:boston.zaugg@missionary.org">boston.zaugg@missionary.org</a></li>
-    </ul>
+  <section id="serving" class="miss misscard">
+    <a class="misslink" href="missionaries/" aria-label="Our Ward Missionaries: tap to say hello"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Missionary name tag with a globe">
+<circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
+<rect x="22" y="36" width="76" height="48" rx="9" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.5"/>
+<g fill="none" stroke="#f3d98b" stroke-width="2.2"><circle cx="43" cy="60" r="13"/><path d="M30 60h26M43 47c5 4 5 22 0 26M43 47c-5 4-5 22 0 26M32 53h22M32 67h22"/></g>
+<path d="M63 52h26" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><path d="M63 61h22M63 69h18" stroke="#c9c9c9" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M60 96l-7-4.5 7-4.5 7 4.5z" fill="#c9a24a"/></svg>
+      <span class="mt"><b>Our Ward Missionaries</b><small>19 ward members serving the Savior. Tap to say hello by email!</small><em>Say hello ›</em></span></a>
   </section>
 </main>
 <footer>
