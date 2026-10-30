@@ -62,13 +62,13 @@ s=s.replace('  <section id="missionaries" class="miss">',sec+'  <section id="mis
 open(p,'w').write(s)
 PH='<span class="ph">Placeholder</span>'
 # Adam 2026-10-30: YW class tabs
-YWCSS='''  .yt {{ padding:14px 14px 16px; }} .yt input {{ position:absolute; opacity:0; pointer-events:none; }}
-  .yt .tabs {{ display:flex; gap:6px; background:#eef4f7; border-radius:12px; padding:4px; }}
-  .yt label {{ flex:1; text-align:center; padding:9px 4px; border-radius:9px; font:600 13px/1.2 -apple-system, sans-serif; color:var(--navy); cursor:pointer; }}
-  .yt .pane {{ display:none; padding:14px 2px 0; }} .yt .pane h3 {{ font:italic 400 19px/1.2 Georgia, serif; margin:0 0 6px; color:var(--accent); }}
-  #yt1:checked ~ .tabs [for=yt1], #yt2:checked ~ .tabs [for=yt2], #yt3:checked ~ .tabs [for=yt3] {{ background:var(--navy); color:#fff; box-shadow:inset 0 -3px 0 var(--gold); }}
-  #yt1:checked ~ .p1, #yt2:checked ~ .p2, #yt3:checked ~ .p3 {{ display:block; }}
-  @media (prefers-color-scheme: dark) {{ .yt .tabs {{ background:#1d1916; }} .yt label {{ color:#8cc8e6; }} }}
+YWCSS='''  .yt { padding:14px 14px 16px; } .yt input { position:absolute; opacity:0; pointer-events:none; }
+  .yt .tabs { display:flex; gap:6px; background:#eef4f7; border-radius:12px; padding:4px; }
+  .yt label { flex:1; text-align:center; padding:9px 4px; border-radius:9px; font:600 13px/1.2 -apple-system, sans-serif; color:var(--navy); cursor:pointer; }
+  .yt .pane { display:none; padding:14px 2px 0; } .yt .pane h3 { font:italic 400 19px/1.2 Georgia, serif; margin:0 0 6px; color:var(--accent); }
+  #yt1:checked ~ .tabs [for=yt1], #yt2:checked ~ .tabs [for=yt2], #yt3:checked ~ .tabs [for=yt3] { background:var(--navy); color:#fff; box-shadow:inset 0 -3px 0 var(--gold); }
+  #yt1:checked ~ .p1, #yt2:checked ~ .p2, #yt3:checked ~ .p3 { display:block; }
+  @media (prefers-color-scheme: dark) { .yt .tabs { background:#1d1916; } .yt label { color:#8cc8e6; } }
 '''
 YWTABS='''  <section class="yt" aria-label="Young Women classes">
     <input type="radio" name="yt" id="yt1" checked><input type="radio" name="yt" id="yt2"><input type="radio" name="yt" id="yt3">
