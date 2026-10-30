@@ -38,8 +38,11 @@
   details.about summary { font-weight:600; color:var(--accent); cursor:pointer; min-height:28px; } details.about p { margin:8px 0 0; } details.about a { color:var(--accent); }
   .cal { display:inline-block; margin-top:6px; font-size:12px; font-weight:600; color:var(--accent); background:var(--chip); border-radius:999px; padding:2px 9px; }
   .note { color:var(--soft); font-size:13px; text-align:center; margin:18px 0 0; }
-  .addcal { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; }
-  .addcal h2 { margin:0 0 4px; } .addcal .hint { margin:0 0 10px; font-size:14.5px; color:var(--soft); }
+  .addtgl { width:100%; border:0; cursor:pointer; font-family:inherit; }
+  .addtgl .chev { margin-left:auto; margin-right:-4px; transition:transform .2s; } .addtgl[aria-expanded=true] .chev { transform:rotate(180deg); }
+  .addtgl { padding:0 16px; justify-content:flex-start; }
+  #addpanel { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin-top:8px; }
+  .addcal .hint { margin:0 0 10px; font-size:14.5px; color:var(--soft); }
   .grp { border:1px solid var(--line); border-radius:14px; margin:8px 0; overflow:hidden; }
   .grp label { display:flex; align-items:center; gap:12px; min-height:56px; padding:8px 12px; cursor:pointer; font-weight:600; font-size:16.5px; }
   .grp input { width:24px; height:24px; accent-color:var(--accent); flex:0 0 auto; }
@@ -57,9 +60,11 @@
 <header><div class="ward">Farmington Bay 6th Ward</div><h1>Ward Calendar</h1><p>Upcoming ward, stake, and Churchwide events. All times Mountain Time.</p></header>
 <main>
   <section class="addcal" id="add">
-    <h2>Add To My Calendar</h2>
+    <button type="button" class="sub addtgl" id="addtgl" aria-expanded="false" aria-controls="addpanel"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Add To My Calendar<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div id="addpanel" hidden>
     <p class="hint">Tap the groups that apply to your family, then choose your phone or calendar app. No Church login needed. Updates automatically every 8 hours.</p>
     <div id="groups"></div>
+    </div>
   </section>
   <details class="about"><summary>Why Two Calendars?</summary>
     <p><b>Official Ward Calendar</b> is the Church calendar. It's the source, with full details, but it needs a Church Account sign-in.</p>
@@ -78,6 +83,7 @@ function feedLinks(slug){const https=new URL('feeds/'+slug+'.ics',location.href)
  return {https,webcal,google:'https://calendar.google.com/calendar/r?cid='+encodeURIComponent(webcal),
   outlook:'https://outlook.live.com/calendar/0/addfromweb?url='+encodeURIComponent(https)+'&name='+encodeURIComponent('Bay 6 – '+FEEDS.find(x=>x[0]===slug)[1])};}
 groups.innerHTML=FEEDS.map(([slug,name,sub])=>{const l=feedLinks(slug);return `<div class="grp" id="g-${slug}"><label><input type="checkbox" data-s="${slug}"><span>${name}${sub?`<small>${sub}</small>`:''}</span></label><div class="btns"><a class="apple" href="${l.webcal}">iPhone / Apple</a><a href="${l.google}" target="_blank" rel="noopener">Google Calendar</a><a href="${l.outlook}" target="_blank" rel="noopener">Outlook</a><button type="button" data-copy="${l.https}">Copy Link</button></div></div>`}).join('');
+addtgl.onclick=()=>{const o=addtgl.getAttribute('aria-expanded')!=='true';addtgl.setAttribute('aria-expanded',o);addpanel.hidden=!o;};
 groups.onchange=e=>{const s=e.target.dataset.s;if(s)document.getElementById('g-'+s).classList.toggle('on',e.target.checked);};
 groups.onclick=e=>{const u=e.target.dataset.copy;if(!u)return;const done=()=>{e.target.textContent='Copied!';setTimeout(()=>e.target.textContent='Copy Link',1800)};
  navigator.clipboard?navigator.clipboard.writeText(u).then(done,()=>prompt('Copy this link:',u)):prompt('Copy this link:',u);};
