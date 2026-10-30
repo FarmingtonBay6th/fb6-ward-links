@@ -38,6 +38,7 @@
   .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
   .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}
+  .pc .txtall { display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; margin:12px 0 2px; font-size:16px; }
 </style><script src="../../nav.js" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
@@ -48,13 +49,14 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
 </header>
 <main>
   <section class="pc"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Leader contact card"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="24" y="36" width="72" height="50" rx="8" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><circle cx="46" cy="56" r="8" fill="#005175"/><path d="M34 76c2-8 7-11 12-11s10 3 12 11" fill="#005175"/><path d="M64 52h22M64 62h18M64 72h14" stroke="#005175" stroke-width="3" stroke-linecap="round"/></svg>Presidency &amp; Contact</h2>
-    <p class="note">Tap <b>Text</b> to send a message.</p>
+    <p class="note">Tap <b>Text</b> to message one person, or <b>Text All</b> for a group text.</p>
     <ul>
       <li><div class="who"><b>Stuart Wilcock</b><span>President</span></div><a class="btn txt" aria-label="Text Stuart Wilcock" href="sms:+18015180101">Text</a></li>
       <li><div class="who"><b>Jordon Jeppesen</b><span>1st Counselor</span></div><a class="btn txt" aria-label="Text Jordon Jeppesen" href="sms:+18018218385">Text</a></li>
       <li><div class="who"><b>Scott Rasmussen</b><span>2nd Counselor</span></div><a class="btn txt" aria-label="Text Scott Rasmussen" href="sms:+18017267229">Text</a></li>
       <li><div class="who"><b>Randy Coy</b><span>Secretary</span></div><a class="btn txt" aria-label="Text Randy Coy" href="sms:+18013190300">Text</a></li>
-    </ul></section>
+    </ul>
+    <a class="btn txtall" id="text-all" data-n="+18015180101,+18018218385,+18017267229,+18013190300" href="sms:+18015180101,+18018218385,+18017267229,+18013190300" aria-label="Text the whole group at once">💬 Text All</a></section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Activity calendar"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="34" width="60" height="54" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="#c9a24a"/><path d="M44 28v12M76 28v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><path d="M60 56l4 8 9 1-6.5 6 2 9-8.5-4.5-8.5 4.5 2-9-6.5-6 9-1z" fill="#005175"/></svg>Upcoming Activities</h2>
 <!--EV-->
 <!--/EV-->
@@ -70,4 +72,5 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
 <footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer>
 <script>(function(){var n=Date.now(),k=0;document.querySelectorAll('.ev').forEach(function(e){var d=Date.parse(e.dataset.end);if(d&&d<n)e.hidden=true;else k++;});
 if(!k){document.getElementById('empty').hidden=false;document.getElementById('more').hidden=true;}})();</script>
+<script>/*textall*/(function(){var a=document.getElementById("text-all");if(!a)return;var ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(ios)a.href="sms:/open?addresses="+a.dataset.n;})();</script>
 </body></html>

@@ -23,3 +23,7 @@ for slug,people in D.items():
     s=re.sub(r'<section( class="pc")?><h2>(Presidency|Leaders) &amp; Contact.*?</section>',lambda m:sec,s,count=1,flags=re.S)
     if '.pc li' not in s: s=s.replace('</style>',CSS+'</style>',1)
     open(p,'w').write(s)
+
+# Group "Text All" button on every card (also covers hand-built pages)
+import importlib.util as _u, os as _o
+_s=_u.spec_from_file_location("ata", _o.path.join(R,"tools","add_text_all.py")); _m=_u.module_from_spec(_s); _s.loader.exec_module(_m); _m.run()
