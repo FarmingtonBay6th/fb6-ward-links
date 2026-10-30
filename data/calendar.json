@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T08:22:15-06:00",
+ "generated": "2026-10-30T08:30:55-06:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -551,6 +551,15 @@
    "allDay": false,
    "start": "2027-02-18T18:30:00-07:00",
    "end": "2027-02-18T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000176216902calendarC",
+   "title": "Temple and Family History Leadership Instruction",
+   "calendar": "Churchwide",
+   "location": "",
+   "allDay": true,
+   "start": "2027-03-04T00:00:00-07:00",
+   "end": "2027-03-05T00:00:00-07:00"
   },
   {
    "id": "0000000000000000000000176217652calendarC",

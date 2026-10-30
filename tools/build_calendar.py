@@ -25,6 +25,8 @@ OTHER_SUFFIXES = [(re.compile(r"\s+[-–]\s+" + re.escape(STAKE) + r"\s+[-–]\s
                   (re.compile(r"\s+[-–]\s+Churchwide Events\s*$"), "Churchwide")]
 ALLOWED |= {"stake activities", "churchwide"}
 HARD_EXCLUDE = {"stake meetings", "bishop interviews (private)"}  # never publish, even if allowed elsewhere
+# Adam-approved exact titles that bypass the title/description filters (titles only; descriptions never published).
+ALLOW_TITLES = {"Ward Temple Night", "Temple and Family History Leadership Instruction"}
 # Stake building calendar also holds other wards' bookings; they aren't Bay 6 events.
 OTHER_WARD = re.compile(r"\b(?:1st|2nd|3rd|4th|5th|7th|8th|9th|1\dth)\s+ward\b|spring creek ward", re.I)
 # Personal / family events that may sneak onto ward calendars, plus names that must never be published.
@@ -93,7 +95,7 @@ def main():
         e["LOCATION"] = loc
         desc = e.get("DESCRIPTION", "").replace("\\,", ",")
         home_addr = bool(STREET.search(CHURCH_ADDR.sub("", desc)))  # e.g. "at the Bishop's home...1266 W 475 S"
-        if cal.lower() not in ALLOWED or BLOCK.search(title) or PERSONAL.search(title) or home_addr or e.get("CLASS", "").upper() in ("PRIVATE", "CONFIDENTIAL"):
+        if cal.lower() not in ALLOWED or (title not in ALLOW_TITLES and (BLOCK.search(title) or PERSONAL.search(title) or home_addr or e.get("CLASS", "").upper() in ("PRIVATE", "CONFIDENTIAL"))):
             dropped.append(f"{title} [{cal}]"); continue
         st, allday = e["DTSTART"]; en = e.get("DTEND", (st, allday))[0]
         out.append({"id": re.sub(r"\W", "", e.get("UID", title))[:40], "title": title, "calendar": cal,
