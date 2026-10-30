@@ -102,7 +102,7 @@ for k,sl,nm,th,q,ref,hb in O:
   @media (prefers-color-scheme: dark) {{ :root {{ --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; }} .ph {{ background:#3a301c; color:#e2c47a; }} }}
 </style></head><body>
 <header>
-  <a class="back" href="../../">‹ Ward Links</a>
+  <a class="back" href="../../">‹ The Bay 6 Hub</a>
   {logo(k,120,'hero')}
   <div class="ward">Farmington Bay 6th Ward</div>
   <h1>{nm}</h1><div class="theme">{th}</div>

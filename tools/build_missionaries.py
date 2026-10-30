@@ -46,7 +46,7 @@ page = f'''<!doctype html>
  footer{{text-align:center;color:var(--soft);font-size:12px;padding:8px 20px 30px}}
  @media (prefers-color-scheme:dark){{:root{{--ink:#f3ece4;--soft:#bfb2a5;--bg:#1d1916;--card:#27211d;--line:#3a312a}}}}
 </style></head><body>
-<header style="position:relative"><a class="back" href="../">‹ Ward Links</a>{ICON}
+<header style="position:relative"><a class="back" href="../">‹ The Bay 6 Hub</a>{ICON}
 <h1>Our Ward Missionaries</h1><p>They love hearing from home! Tap <b>Say hello</b> to send a quick note of love and encouragement.</p></header>
 <main>
   <div class="note">Each button opens your email app addressed to that missionary. A–Z by last name.</div>
