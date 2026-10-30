@@ -65,6 +65,7 @@ home = f'''  <section id="serving" class="miss misscard">
       <span class="mt"><b>Our Ward Missionaries</b><small>{len(M)} ward members serving the Savior. Tap to say hello by email!</small><em>Say hello ›</em></span></a>
   </section>
 '''
+H = re.sub(r'    <a class="card" href="#missionaries">.*?</a>\n', '', H, flags=re.S)   # Adam 2026-10-29 9:27 PM: old 'Our Missionaries' link removed; the two icon cards replace it
 H = re.sub(r'  <section id="serving" class="miss[^"]*">.*?</section>\n', '', H, count=1, flags=re.S)   # Adam 2026-10-29: Ward card goes BEFORE Local
 H = H.replace('  <section id="missionaries" class="miss">', home + '  <section id="missionaries" class="miss">', 1)
 css = ('  .misscard { padding:0; overflow:hidden; } .misslink { display:flex; align-items:center; gap:14px; padding:16px; text-decoration:none; color:inherit; }\n'
