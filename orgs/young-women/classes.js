@@ -49,9 +49,10 @@
     var extraPres = (a.presidency || []).filter(function (m) { return onPage.indexOf(m.name) < 0; });
     var li = function (n, r) { return '<li><b>' + esc(n) + '</b>' + (r ? ' <span>' + esc(r) + '</span>' : '') + '</li>'; };
     var s = document.createElement('section'); s.className = 'ywinfo ywleaders';
-    s.innerHTML = '<h2>Advisers &amp; Specialists</h2>' + (extraPres.length ? '<h3>Presidency</h3><ul>' + extraPres.map(function (m) { return li(m.name, m.role); }).join('') + '</ul>' : '') +
-      '<h3>Advisers</h3>' + ((a.advisers || []).length ? '<ul>' + a.advisers.map(function (n) { return li(n, 'Adviser'); }).join('') + '</ul>' : SOON) +
-      '<h3>Specialists</h3>' + ((a.specialists || []).length ? '<ul>' + a.specialists.map(function (m) { return li(m.name, m.role || 'Specialist'); }).join('') + '</ul>' : SOON);
+    var hasAdv = (a.advisers || []).length; // class advisers are listed on their class tabs
+    s.innerHTML = '<h2>' + (hasAdv ? 'Advisers &amp; Specialists' : 'Specialists') + '</h2>' + (extraPres.length ? '<h3>Presidency</h3><ul>' + extraPres.map(function (m) { return li(m.name, m.role); }).join('') + '</ul>' : '') +
+      (hasAdv ? '<h3>Advisers</h3><ul>' + a.advisers.map(function (n) { return li(n, 'Adviser'); }).join('') + '</ul>' : '') +
+      (hasAdv ? '<h3>Specialists</h3>' : '') + ((a.specialists || []).length ? '<ul>' + a.specialists.map(function (m) { return li(m.name, m.role || 'Specialist'); }).join('') + '</ul>' : SOON);
     var pc = all.querySelector('.pc'); if (pc && pc.nextSibling) all.insertBefore(s, pc.nextSibling); else all.appendChild(s);
     var h = a.handbook; if (!h) return;
     var g = document.createElement('section'); g.className = 'ywinfo ywgh';

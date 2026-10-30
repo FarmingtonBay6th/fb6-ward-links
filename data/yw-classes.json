@@ -25,7 +25,8 @@
         }
       ],
       "advisers": [
-        "Chandra Draxler"
+        "Chandra Draxler",
+        "Koria Horrocks"
       ],
       "info": null
     },
@@ -52,7 +53,9 @@
           "name": "Sarah"
         }
       ],
-      "advisers": [],
+      "advisers": [
+        "Denise Evans"
+      ],
       "info": null
     },
     {
@@ -78,7 +81,10 @@
           "name": "Emma"
         }
       ],
-      "advisers": [],
+      "advisers": [
+        "Libbie Archibald",
+        "Stacie Orvin"
+      ],
       "info": null
     }
   ],
@@ -102,17 +108,8 @@
         "name": "McCall Brown"
       }
     ],
-    "advisers": [
-      "Denise Evans",
-      "Stacie Orvin"
-    ],
+    "advisers": [],
     "specialists": [
-      {
-        "name": "Libbie Archibald"
-      },
-      {
-        "name": "Koria Horrocks"
-      },
       {
         "name": "Bailey Lake"
       },
