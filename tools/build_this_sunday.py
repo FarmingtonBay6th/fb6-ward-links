@@ -70,7 +70,7 @@ page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 header{{background:linear-gradient(160deg,#005175,#003a55);color:#fff;text-align:center;padding:16px 20px 26px;border-bottom:4px solid var(--gold);border-radius:0 0 22px 22px}}
 header .back{{display:block;text-align:left;color:#e2c47a;text-decoration:none;font-size:14px;margin-bottom:8px}}
 .kicker{{font:600 12.5px/1 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:#e2c47a}}
-h1{{font:italic 400 32px/1.1 Georgia,serif;margin:10px 0 4px}} .mt{{font:400 19px Georgia,serif}} .meta{{margin-top:10px;font-size:14.5px;opacity:.92}}
+h1{{font:italic 400 32px/1.1 Georgia,serif;margin:10px 0 4px}} .mt{{font:400 19px Georgia,serif}} .ast{{font-size:.55em;vertical-align:super;margin-left:2px;opacity:.8}} .upd{{margin:6px 0 0;font:italic 12.5px/1.35 Georgia,serif;opacity:.75}} .meta{{margin-top:10px;font-size:14.5px;opacity:.92}}
 .sample{{display:inline-block;margin-top:12px;background:#f6ecd2;color:var(--goldt);border:1px dashed var(--gold);border-radius:999px;padding:5px 12px;font:700 11px/1.2 -apple-system,sans-serif;letter-spacing:.06em}}
 main{{max-width:600px;margin:0 auto;padding:16px 14px 30px}}
 .lead{{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}}
@@ -92,7 +92,7 @@ footer{{text-align:center;color:var(--soft);font-size:11.5px;padding:8px 20px 36
 @media(min-width:760px){{main{{max-width:720px}} h1{{font-size:40px}}}}
 </style><script src="../nav.js" defer></script></head><body>
 <header><a class="back" href="../">‹ The Bay 6 Hub</a><div class="kicker">Farmington Bay 6th Ward · This Sunday</div>
-<h1>{E(f"{dt:%A}, {dt:%B} {dt.day}")}</h1><div class="mt">{mtitle}</div>
+<h1>{E(f"{dt:%A}, {dt:%B} {dt.day}")}<sup class="ast" aria-hidden="true">*</sup></h1><div class="mt">{mtitle}</div><p class="upd"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p>
 <div class="meta">12:00 PM · Stake Center chapel (Eagle Shore building)</div>{S}</header>
 <main>
 <div class="lead"><div><span>Presiding</span><b>{E(A.get("presiding",""))}</b></div><div><span>Conducting</span><b>{E(A.get("conducting",""))}</b></div>
@@ -112,15 +112,15 @@ open(f'{R}/this-sunday/index.html','w').write(page)
 # home banner
 p=f'{R}/index.html'; s=open(p).read()
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); from build_icons import ICONS
-ban=(f'<!--TS--><a class="ts" href="this-sunday/">{ICONS["this-sunday"]}<span class="ts-k">This Sunday{" · SAMPLE" if sample else ""}</span>'
-     f'<b>{E(label)} · {mtitle}</b><small>12:00 PM · Program, hymns, announcements, and the kids page</small><span class="ts-go">›</span></a><!--/TS-->')
+ban=(f'<!--TS--><a class="ts" href="this-sunday/">{ICONS["this-sunday"]}<span class="ts-k">This Sunday{" · SAMPLE" if sample else ""}<span class="ast" aria-hidden="true">*</span></span>'
+     f'<b>{E(label)} · {mtitle}</b><small>12:00 PM · Program, hymns, announcements, and the kids page</small><em class="ts-upd"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</em><span class="ts-go">›</span></a><!--/TS-->')
 s=re.sub(r'<!--TS-->.*?<!--/TS-->\n?','',s,flags=re.S)
 s=s.replace('<main>\n','<main>\n  '+ban+'\n',1)
 if '.ts .badge' not in s: s=s.replace('  .ts-k {','  .ts .badge { position:absolute; left:14px; top:50%; transform:translateY(-50%); width:54px; height:54px; } .ts { padding-left:80px !important; }\n  .ts-k {',1)
 if '.ts {' not in s: s=s.replace('</style>\n</head>','''  .ts { position:relative; display:block; text-decoration:none; color:#fff; background:linear-gradient(150deg,#005175,#003a55); border:1px solid #c9a24a;
     border-left:6px solid #c9a24a; border-radius:16px; padding:14px 40px 14px 16px; margin:0 0 12px; box-shadow:0 4px 14px rgba(0,58,85,.25); }
   .ts-k { display:block; font:600 11.5px/1 Georgia, serif; letter-spacing:.16em; text-transform:uppercase; color:#e2c47a; }
-  .ts b { display:block; font:italic 400 21px/1.25 Georgia, serif; margin:6px 0 3px; } .ts small { display:block; font-size:13.5px; opacity:.9; }
+  .ts b { display:block; font:italic 400 21px/1.25 Georgia, serif; margin:6px 0 3px; } .ts small { display:block; font-size:13.5px; opacity:.9; } .ts-k .ast { margin-left:1px; } .ts-upd { display:block; margin-top:5px; font:italic 11.5px/1.3 Georgia, serif; color:#e2c47a; opacity:.9; }
   .ts-go { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#e2c47a; font-size:30px; }
 </style>
 </head>''',1)
