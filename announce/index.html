@@ -48,7 +48,7 @@ button{display:block;width:100%;background:var(--navy);color:#fff;font-weight:70
 <button type="button" onclick="location.reload()">Send Another</button><p class="note"><a href="../">Back to Ward Links</a></p></section>
 </main>
 <script>
-const GAS_URL = '';   // set to the Apps Script web app /exec URL once Adam deploys it
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwAsUucP-s5V1ILI8EzNPh4UuhqowJh8-J7V3K6knDXCkmU2UuW0DNpgieYCPc7D1pr/exec';   // set to the Apps Script web app /exec URL once Adam deploys it
 const MAX = 10 * 1024 * 1024, OK = ['jpg','jpeg','png','heic','heif','pdf'];
 if (GAS_URL) document.getElementById('pf').remove();
 const $ = id => document.getElementById(id), pick = {ann:false, fly:false};
