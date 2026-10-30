@@ -1,0 +1,142 @@
+{
+  "_readme": "Young Men quorum tabs (orgs/young-men/). Mirrors data/yw-classes.json and is rendered by orgs/young-men/quorums.js. classes: id (URL hash), name, ages, meets, presidencyLabel, presidency [{role,name}] (name null shows 'Coming soon'), duties, advisers [names; null shows 'Coming soon'], info. NO phone numbers or other personal info for youth. YOUTH: FIRST NAMES ONLY. Adults: full names. Quorum advisers appear only on their quorum tab. activities: same format as yw-classes.json (class = a quorum id or 'all'). all: specialists shown on the All Young Men tab, plus handbook notes.",
+  "classes": [
+    {
+      "id": "deacons-quorum",
+      "name": "Deacons Quorum",
+      "ages": "Starting in January of the year he turns 12",
+      "meets": null,
+      "presidencyLabel": "Quorum Presidency",
+      "presidency": [
+        {
+          "role": "President",
+          "name": null
+        },
+        {
+          "role": "1st Counselor",
+          "name": null
+        },
+        {
+          "role": "2nd Counselor",
+          "name": null
+        },
+        {
+          "role": "Secretary",
+          "name": null
+        }
+      ],
+      "duties": "Pass the sacrament and assist the bishop in “administering all temporal things” (D&C 107:68). See D&C 20:57–59; 84:111. (GH 10.1.3.1)",
+      "advisers": [
+        "Thomas Frasure",
+        "Morgan Cox",
+        "Jim Daly",
+        "Matt Johns"
+      ],
+      "info": null
+    },
+    {
+      "id": "teachers-quorum",
+      "name": "Teachers Quorum",
+      "ages": "Starting in January of the year he turns 14",
+      "meets": null,
+      "presidencyLabel": "Quorum Presidency",
+      "presidency": [
+        {
+          "role": "President",
+          "name": null
+        },
+        {
+          "role": "1st Counselor",
+          "name": null
+        },
+        {
+          "role": "2nd Counselor",
+          "name": null
+        },
+        {
+          "role": "Secretary",
+          "name": null
+        }
+      ],
+      "duties": "Same duties as deacons. Teachers also prepare the sacrament and serve as ministering brothers. See D&C 20:53–59; 84:111. (GH 10.1.3.2)",
+      "advisers": [
+        "Sean Zech",
+        "Devin Barlow",
+        "Trenton Brown"
+      ],
+      "info": null
+    },
+    {
+      "id": "priests-quorum",
+      "name": "Priests Quorum",
+      "ages": "Starting in January of the year he turns 16",
+      "meets": null,
+      "presidencyLabel": "Quorum Leaders",
+      "presidency": [
+        {
+          "role": "Quorum President",
+          "name": "Bishop Drommond"
+        },
+        {
+          "role": "Bishop's Assistant",
+          "name": null
+        },
+        {
+          "role": "Bishop's Assistant",
+          "name": null
+        },
+        {
+          "role": "Secretary",
+          "name": null
+        }
+      ],
+      "duties": "Same duties as deacons and teachers. See D&C 20:46–52, 73–79. (GH 10.1.3.3)",
+      "advisers": [
+        "David Todd",
+        "Ian Allen",
+        "Ben Butterfield",
+        null
+      ],
+      "info": null
+    }
+  ],
+  "activities": [],
+  "all": {
+    "presidency": [],
+    "advisers": [],
+    "specialists": [
+      {
+        "name": "Joe Lake"
+      },
+      {
+        "name": "Chris Phelps"
+      }
+    ],
+    "handbook": {
+      "url": "https://www.churchofjesuschrist.org/study/manual/general-handbook/10-aaronic-priesthood?lang=eng",
+      "label": "General Handbook, Chapter 10: Aaronic Priesthood Quorums",
+      "points": [
+        {
+          "h": "Purpose",
+          "t": "Aaronic Priesthood quorums help young men make and keep sacred covenants and deepen their conversion to Jesus Christ and His gospel. (GH 10.1.1)"
+        },
+        {
+          "h": "Aaronic Priesthood Quorum Theme",
+          "t": "“I am a beloved son of God, and He has a work for me to do. …” The theme helps each young man understand his divine identity and his purpose as a priesthood holder. (GH 10.1.2)"
+        },
+        {
+          "h": "Quorums",
+          "t": "Young men join the deacons quorum in January of the year they turn 12, the teachers quorum in January of the year they turn 14, and the priests quorum in January of the year they turn 16. (GH 10.1.3)"
+        },
+        {
+          "h": "Bishopric",
+          "t": "The bishopric is the presidency of the Aaronic Priesthood in the ward. The bishop is the president of the priests quorum. The first counselor has responsibility for the teachers quorum, and the second counselor for the deacons quorum. (GH 10.3)"
+        },
+        {
+          "h": "Youth Quorum Leaders",
+          "t": "An ordained deacon serves as deacons quorum president and an ordained teacher as teachers quorum president; where possible, one or two counselors and a secretary serve with him. The bishop calls one or two priests to be his assistants in leading the priests quorum. (GH 10.1.3, 10.4.1)"
+        }
+      ]
+    }
+  }
+}
