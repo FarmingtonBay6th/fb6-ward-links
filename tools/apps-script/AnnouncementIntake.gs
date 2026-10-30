@@ -14,7 +14,8 @@ function doPost(e) {
     const d = JSON.parse(e.postData.contents);
     if (d.website) return out({ ok: true });                       // honeypot: bots fill the hidden field
     const clip = (s, n) => String(s || '').trim().slice(0, n);
-    if (!clip(d.name, 100) || !clip(d.title, 140) || !clip(d.details, 3000)) return out({ ok: false, error: 'Please fill in your name, a title and the details.' });
+    const hasAnn = clip(d.title, 140) && clip(d.details, 3000), hasFile = d.file && d.file.data;
+    if (!clip(d.name, 100) || !(hasAnn || hasFile)) return out({ ok: false, error: 'Please add your name and an announcement or a flyer.' });
     let fileName = '', fileUrl = '';
     if (d.file && d.file.data) {
       const ext = String(d.file.name || '').split('.').pop().toLowerCase();
