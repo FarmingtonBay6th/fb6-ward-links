@@ -9,9 +9,9 @@
   "background_color": "#005175",
   "theme_color": "#005175",
   "icons": [
-    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/christus-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
-    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/christus-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/christus-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/christus-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/cover-180.png?v=cover1", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/cover-192.png?v=cover1", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/cover-512.png?v=cover1", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "https://farmingtonbay6th.github.io/fb6-ward-links/icons/cover-maskable-512.png?v=cover1", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
