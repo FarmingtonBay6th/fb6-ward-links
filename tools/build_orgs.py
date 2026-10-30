@@ -61,23 +61,6 @@ s=re.sub(r'  <section class="orgs" id="organizations">.*?</section>\n','',s,flag
 s=s.replace('  <section id="missionaries" class="miss">',sec+'  <section id="missionaries" class="miss">',1)
 open(p,'w').write(s)
 PH='<span class="ph">Placeholder</span>'
-# Adam 2026-10-30: YW class tabs
-YWCSS='''  .yt { padding:14px 14px 16px; } .yt input { position:absolute; opacity:0; pointer-events:none; }
-  .yt .tabs { display:flex; gap:6px; background:#eef4f7; border-radius:12px; padding:4px; }
-  .yt label { flex:1; text-align:center; padding:9px 4px; border-radius:9px; font:600 13px/1.2 -apple-system, sans-serif; color:var(--navy); cursor:pointer; }
-  .yt .pane { display:none; padding:14px 2px 0; } .yt .pane h3 { font:italic 400 19px/1.2 Georgia, serif; margin:0 0 6px; color:var(--accent); }
-  #yt1:checked ~ .tabs [for=yt1], #yt2:checked ~ .tabs [for=yt2], #yt3:checked ~ .tabs [for=yt3] { background:var(--navy); color:#fff; box-shadow:inset 0 -3px 0 var(--gold); }
-  #yt1:checked ~ .p1, #yt2:checked ~ .p2, #yt3:checked ~ .p3 { display:block; }
-  @media (prefers-color-scheme: dark) { .yt .tabs { background:#1d1916; } .yt label { color:#8cc8e6; } }
-'''
-YWTABS='''  <section class="yt" aria-label="Young Women classes">
-    <input type="radio" name="yt" id="yt1" checked><input type="radio" name="yt" id="yt2"><input type="radio" name="yt" id="yt3">
-    <div class="tabs"><label for="yt1">Gatherers of Light</label><label for="yt2">Messengers of Hope</label><label for="yt3">Builders of Faith</label></div>
-    <div class="pane p1"><h3>Gatherers of Light</h3><p class="note">Class info, activities and announcements coming soon.</p></div>
-    <div class="pane p2"><h3>Messengers of Hope</h3><p class="note">Class info, activities and announcements coming soon.</p></div>
-    <div class="pane p3"><h3>Builders of Faith</h3><p class="note">Class info, activities and announcements coming soon.</p></div>
-  </section>
-'''
 for k,sl,nm,th,q,ref,hb in O:
     d=f'{R}/orgs/{sl}'; os.makedirs(d,exist_ok=True)
     open(d+'/index.html','w').write(f'''<!doctype html>
@@ -117,7 +100,7 @@ for k,sl,nm,th,q,ref,hb in O:
   .empty, .more {{ color:var(--soft); font-size:14px; margin:8px 0 0; }} .empty a, .more a {{ color:var(--accent); }}
   footer {{ text-align:center; color:var(--soft); font-size:11.5px; padding:8px 20px 36px; }}
   @media (prefers-color-scheme: dark) {{ :root {{ --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; }} .ph {{ background:#3a301c; color:#e2c47a; }} }}
-{YWCSS if k=='yw' else ''}</style><script src="../../nav.js" defer></script></head><body>
+</style><script src="../../nav.js" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
   {logo(k,120,'hero')}
@@ -131,7 +114,7 @@ for k,sl,nm,th,q,ref,hb in O:
     <ul><li><b class="dim">[Name]</b> <span>President</span></li><li><b class="dim">[Name]</b> <span>Counselor</span></li>
     <li><b class="dim">[Name]</b> <span>Counselor</span></li><li><b class="dim">[Name]</b> <span>Secretary</span></li></ul>
     <span class="btn off">Text the Presidency</span></section>
-{YWTABS if k=='yw' else ''}  <section><h2>Upcoming Activities</h2>
+  <section><h2>Upcoming Activities</h2>
 <!--EV-->
 <!--/EV-->
     <p class="empty" id="empty" hidden>No upcoming activities right now. See all <a href="../../events/">Upcoming Events</a>.</p>
