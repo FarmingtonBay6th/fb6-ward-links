@@ -2,7 +2,7 @@
  * Ward Links "Submit an Announcement" no-login intake (Google Apps Script web app).
  * Deploy from adamandshalisa@gmail.com: Extensions > Apps Script in the response sheet (or script.new),
  * paste this file, then Deploy > New deployment > Web app: Execute as "Me", Who has access "Anyone".
- * Paste the /exec URL into announce/index.html (GAS_URL). Nothing is published until Adam approves each row.
+ * Paste the /exec URL into announce/index.html (GAS_URL). Nothing is published until Adam approves each row, EXCEPT Young Women class-tab flyers (Where = "YW:<class>", source=yw), which the intake routine posts automatically.
  */
 const SHEET_ID  = '1IYZeE7NEQkc_36PGjaX3qKj9PfuUsKt8l3S8Xwj8k3s';   // Ward Links Announcement Submissions (SacramentMeeting)
 const FOLDER_ID = '1AgH3EXbsLHPqB3_XMQxHt3Wqc5-qv4DU';             // SacramentMeeting / Announcement Flyers (private)
@@ -30,7 +30,7 @@ function doPost(e) {
     const lock = LockService.getScriptLock(); lock.waitLock(20000);
     SpreadsheetApp.openById(SHEET_ID).getSheets()[0].appendRow([
       new Date(), clip(d.name, 100), clip(d.contact, 120), clip(d.title, 140), clip(d.details, 3000),
-      clip(d.start, 10), clip(d.end, 10), clip(d.where, 20), clip(d.link, 500), fileName, fileUrl, 'New', '']);
+      clip(d.start, 10), clip(d.end, 10), clip(d.where, 20), clip(d.link, 500), fileName, fileUrl, 'New', '', clip(d.source, 10), clip(d.ywClass, 40)]);  // source=yw rows (Where = 'YW:<class>') are auto-posted, no approval
     lock.releaseLock();
     return out({ ok: true });
   } catch (err) {
