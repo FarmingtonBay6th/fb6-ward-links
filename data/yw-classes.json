@@ -1,5 +1,5 @@
 {
-  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, presidency [{role,name}], advisers [names], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver). all: ward-wide leaders shown on the All Young Women tab (adults: full names; presidency names already in the page's contact card are not repeated) plus handbook notes. YOUTH: FIRST NAMES ONLY; you may store a last initial (e.g. 'Emma H.'). The page shows the initial only when two girls' first names are alike (e.g. 'Brynnlee B.' and 'Brinley R.'); otherwise it shows the first name alone.",
+  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, presidency [{role,name}], advisers [names], members [other girls in the class, not in the presidency; alphabetical, first name + last initial], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver). all: ward-wide leaders shown on the All Young Women tab (adults: full names; presidency names already in the page's contact card are not repeated) plus handbook notes. YOUTH: FIRST NAMES ONLY; you may store a last initial (e.g. 'Emma H.'). The page shows the initial only when two girls' first names are alike (e.g. 'Brynnlee B.' and 'Brinley R.'); otherwise it shows the first name alone.",
   "classes": [
     {
       "id": "gatherers-of-light",
@@ -7,7 +7,7 @@
       "presidency": [
         {
           "role": "President",
-          "name": "Presley"
+          "name": "Presley P."
         },
         {
           "role": "1st Counselor",
@@ -15,7 +15,7 @@
         },
         {
           "role": "2nd Counselor",
-          "name": "Alia"
+          "name": "Alia W."
         },
         {
           "role": "Secretary",
@@ -26,7 +26,13 @@
         "Chandra Draxler",
         "Koria Horrocks"
       ],
-      "info": null
+      "info": null,
+      "members": [
+        "Anessa B.",
+        "Brinley R.",
+        "Brooklyn M.",
+        "Brynnlee B."
+      ]
     },
     {
       "id": "messengers-of-hope",
@@ -52,7 +58,19 @@
       "advisers": [
         "Denise Evans"
       ],
-      "info": null
+      "info": null,
+      "members": [
+        "Anna B.",
+        "Brooklyn R.",
+        "Kapreece S.",
+        "Lainey J.",
+        "Molly T.",
+        "Penelope A.",
+        "Preslee R.",
+        "Quinn B.",
+        "Scarlett C.",
+        "Sienna P."
+      ]
     },
     {
       "id": "builders-of-faith",
@@ -79,7 +97,15 @@
         "Libbie Archibald",
         "Stacie Orvin"
       ],
-      "info": null
+      "info": null,
+      "members": [
+        "Clover B.",
+        "Ella B.",
+        "Emmie A.",
+        "Estelle P.",
+        "Juliette C.",
+        "Rowan A."
+      ]
     }
   ],
   "activities": [],

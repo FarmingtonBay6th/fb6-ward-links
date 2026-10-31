@@ -44,7 +44,7 @@
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2></section>' +
       '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Women</a> tab for ward-wide activities.</p>') +
       '<p class="note">Made a Canva post for this class? Download it as a PNG or PDF and send it in. Flyers sent with this button post automatically here and on Upcoming Events.</p><a class="btn" href="../../announce/?source=yw&amp;class=' + encodeURIComponent(c.id) + '">Submit to the Hub ›</a></section>' +
-      '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Class Presidency</dt><dd>' + pres + '</dd><dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
+      '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Class Presidency</dt><dd>' + pres + '</dd>' + ((c.members || []).length ? '<dt>Class Members</dt><dd>' + esc(c.members.map(girl).join(', ')) + '</dd>' : '') + '<dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
   }
   function allExtras(a) {
@@ -88,7 +88,7 @@
     fetch('../../data/calendar.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return {}; })]).then(function (rs) {
     var j = rs[0]; j.activities = (j.activities || []).concat((rs[1].events || []).filter(function (e) { return e.ywClass; }).map(fromCal));
     var t = today();
-    (j.classes || []).forEach(function (c) { (c.presidency || []).forEach(function (m) { var k = KEYN(m.name); dupKeys[k] = (dupKeys[k] || 0) + 1; }); });
+    (j.classes || []).forEach(function (c) { (c.presidency || []).map(function (m) { return m.name; }).concat(c.members || []).forEach(function (n) { var k = KEYN(n); dupKeys[k] = (dupKeys[k] || 0) + 1; }); });
     if (j.all) allExtras(j.all);
     (j.classes || []).forEach(function (c) {
       tabs.push({ id: c.id, name: c.name });
