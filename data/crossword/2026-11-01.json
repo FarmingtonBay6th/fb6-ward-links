@@ -1,0 +1,161 @@
+{
+ "date": "2026-11-01",
+ "title": "I Will Turn Their Mourning into Joy",
+ "subtitle": "Jeremiah 31–33; 36–39; Lamentations 1; 3 · Church History · Hymns",
+ "rows": 15,
+ "cols": 15,
+ "grid": [
+  "#K#B#######M###",
+  "#I#A##ZEDEKIAH#",
+  "#R#R#####B#R###",
+  "#T#U#REDEEMER##",
+  "#L#C#####D#####",
+  "RACHEL##EMMA###",
+  "#N####A##E##J##",
+  "#DISCONSOLATE##",
+  "####O#A##E##H#A",
+  "B###V#T##C#ROLL",
+  "R###E#H##H##I#M",
+  "A###N#O#####A#A",
+  "N#HEARTS#J##K##",
+  "C###N#H#MORNING",
+  "HEARTH###Y##M##"
+ ],
+ "across": [
+  {
+   "n": 4,
+   "row": 1,
+   "col": 6,
+   "answer": "ZEDEKIAH",
+   "clue": "King who asked in secret, “Is there any word from the Lord?” (Jer. 37:17)"
+  },
+  {
+   "n": 6,
+   "row": 3,
+   "col": 5,
+   "answer": "REDEEMER",
+   "clue": "“I Know That My ___ Lives” (Hymns, no. 136)"
+  },
+  {
+   "n": 7,
+   "row": 5,
+   "col": 0,
+   "answer": "RACHEL",
+   "clue": "She is heard “weeping for her children” in Ramah (Jer. 31:15)"
+  },
+  {
+   "n": 8,
+   "row": 5,
+   "col": 8,
+   "answer": "EMMA",
+   "clue": "First compiler of a Latter-day Saint hymnbook (D&C 25:11)"
+  },
+  {
+   "n": 11,
+   "row": 7,
+   "col": 1,
+   "answer": "DISCONSOLATE",
+   "clue": "“Come, Ye ___” — hymn this week’s lesson pairs with Lamentations"
+  },
+  {
+   "n": 15,
+   "row": 9,
+   "col": 11,
+   "answer": "ROLL",
+   "clue": "Ancient book that was burned and then written again (Jer. 36:28)"
+  },
+  {
+   "n": 16,
+   "row": 12,
+   "col": 2,
+   "answer": "HEARTS",
+   "clue": "Where the Lord will write His law under the new covenant (Jer. 31:33)"
+  },
+  {
+   "n": 18,
+   "row": 13,
+   "col": 8,
+   "answer": "MORNING",
+   "clue": "The Lord’s compassions “are new every ___” (Lam. 3:23)"
+  },
+  {
+   "n": 19,
+   "row": 14,
+   "col": 0,
+   "answer": "HEARTH",
+   "clue": "The burning roll’s last stop in the king’s winter house (Jer. 36:22–23)"
+  }
+ ],
+ "down": [
+  {
+   "n": 1,
+   "row": 0,
+   "col": 1,
+   "answer": "KIRTLAND",
+   "clue": "Ohio town of the first temple of this dispensation (dedicated 1836)"
+  },
+  {
+   "n": 2,
+   "row": 0,
+   "col": 3,
+   "answer": "BARUCH",
+   "clue": "Scribe who wrote the roll “from the mouth of Jeremiah” (Jer. 36:4)"
+  },
+  {
+   "n": 3,
+   "row": 0,
+   "col": 11,
+   "answer": "MIRE",
+   "clue": "What Jeremiah sank in at the bottom of the dungeon (Jer. 38:6)"
+  },
+  {
+   "n": 5,
+   "row": 1,
+   "col": 9,
+   "answer": "EBEDMELECH",
+   "clue": "Ethiopian who lowered cords to draw a prophet out of the dungeon (Jer. 38:7–13)"
+  },
+  {
+   "n": 9,
+   "row": 6,
+   "col": 6,
+   "answer": "ANATHOTH",
+   "clue": "Hometown where Jeremiah bought a field for seventeen shekels (Jer. 32:7–9)"
+  },
+  {
+   "n": 10,
+   "row": 6,
+   "col": 12,
+   "answer": "JEHOIAKIM",
+   "clue": "King who cut up the roll with a penknife, three or four leaves at a time (Jer. 36:23)"
+  },
+  {
+   "n": 12,
+   "row": 7,
+   "col": 4,
+   "answer": "COVENANT",
+   "clue": "“New” one promised in Jeremiah 31:31, now made at baptism"
+  },
+  {
+   "n": 13,
+   "row": 8,
+   "col": 14,
+   "answer": "ALMA",
+   "clue": "Prophet who baptized at the Waters of Mormon"
+  },
+  {
+   "n": 14,
+   "row": 9,
+   "col": 0,
+   "answer": "BRANCH",
+   "clue": "“The ___ of righteousness” to grow up unto David (Jer. 33:15)"
+  },
+  {
+   "n": 17,
+   "row": 12,
+   "col": 9,
+   "answer": "JOY",
+   "clue": "What mourning will be turned into (Jer. 31:13)"
+  }
+ ]
+}

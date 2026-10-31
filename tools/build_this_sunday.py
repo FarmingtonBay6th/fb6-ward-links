@@ -66,6 +66,7 @@ if kids:
     kimg=f'<a class="kids" href="{fn}"><img src="{fn}" alt="Little Disciples kids page" loading="lazy"></a><a class="btn" href="{fn}" download>Download the kids page</a>'
 hs=d.get('hymn_spotlight')
 S='<div class="sample">SAMPLE · built from the Oct 25 program for preview</div>' if sample else ''
+CROSSWORD='<a class="xw" href="../crossword/"><span class="xw-k">Sunday Crossword</span><b>A Gospel Puzzle for Adults</b><small>This week’s Come, Follow Me, Church history and hymns. For after the meeting or at home.</small><span class="xw-go">›</span></a>'
 page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex, nofollow">
 <title>This Sunday · Farmington Bay 6th Ward</title><meta name="theme-color" content="#005175">
@@ -94,6 +95,7 @@ ul.list{{list-style:none;margin:0;padding:0}} .list li{{padding:10px 0;border-to
 .btn{{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:15px}}
 .kids img{{display:block;width:100%;max-width:340px;margin:4px auto 0;border:1px solid var(--line);border-radius:10px}}
 .steps{{margin:8px 0 0;padding-left:20px}} .steps li{{margin:5px 0}} .q{{font:italic 15px/1.45 Georgia,serif}} .note{{color:var(--soft);font-size:13.5px}}
+.xw{{position:relative;display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:16px;padding:12px 40px 12px 16px;margin:12px 0;box-shadow:0 1px 2px rgba(59,47,42,.06)}} .xw-k{{display:block;font:600 11.5px/1 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--goldt)}} .xw b{{display:block;font:italic 400 19px/1.25 Georgia,serif;margin:5px 0 2px;color:var(--blue)}} .xw small{{display:block;font-size:13.5px;color:var(--soft)}} .xw-go{{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:28px}}
 footer{{text-align:center;color:var(--soft);font-size:11.5px;padding:8px 20px 36px}}
 @media(min-width:760px){{main{{max-width:720px}} h1{{font-size:40px}}}}
 </style><script src="../nav.js" defer></script></head><body>
@@ -110,6 +112,7 @@ footer{{text-align:center;color:var(--soft);font-size:11.5px;padding:8px 20px 36
 {f'<p class="q">Scripture to Remember: “{E(mem[0])}” {E(mem[1])}</p>' if mem else ""}{kimg}</div></details>
 <details><summary>Come, Follow Me</summary><div class="in"><p><b>{E(cfm.get("title",""))}</b><br><span class="note">{E(cfm.get("dates",""))} · {E(cfm.get("scriptures",""))}</span></p>
 {f'<p class="q">{E(cfm["question"])}</p>' if cfm.get("question") else ""}<a class="btn" href="{cfm.get("url","https://www.churchofjesuschrist.org/study/come-follow-me")}" rel="noopener">Open this week’s lesson</a></div></details>
+'''+(CROSSWORD if os.path.exists(f'{R}/data/crossword/index.json') else '')+f'''
 {f'<details><summary><span>Hymns<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><p><b><span class="num">{E(hs["hymn"])}</span> {E(hs["title"])}</b></p><p>{E(hs.get("text",""))}</p><p class="q">{E(hs.get("points_to_christ",""))}</p></div></details>' if hs else ""}
 </main><footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer></body></html>'''
 low=page.lower(); assert not any(b in low for b in BLOCK), 'blocked name present'
