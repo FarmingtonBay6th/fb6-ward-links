@@ -72,13 +72,22 @@
   main.addEventListener('click', function (e) { var a = e.target.closest('a[data-tab]'); if (a) { e.preventDefault(); show(a.dataset.tab, true); } });
   addEventListener('hashchange', function () { var h = location.hash.slice(1); if (h) show(h, true); });
   drawTabs(); show('all');
-  fetch('../../data/yw-classes.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (j) {
+  function fromCal(e) {  // data/calendar.json event tagged by tools/build_calendar.py (ywClass)
+    var d = new Date(e.start), o = { timeZone: 'America/Denver' };
+    var ymd = function (x) { return new Intl.DateTimeFormat('en-CA', Object.assign({ year: 'numeric', month: '2-digit', day: '2-digit' }, o)).format(x); };
+    var end = new Date(e.allDay ? Date.parse(e.end) - 1 : e.end);
+    return { class: e.ywClass, title: e.title, date: ymd(d), endDate: ymd(end) !== ymd(d) ? ymd(end) : null, place: e.location,
+      time: e.allDay ? '' : d.toLocaleTimeString('en-US', Object.assign({ hour: 'numeric', minute: '2-digit' }, o)) };
+  }
+  Promise.all([fetch('../../data/yw-classes.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+    fetch('../../data/calendar.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return {}; })]).then(function (rs) {
+    var j = rs[0]; j.activities = (j.activities || []).concat((rs[1].events || []).filter(function (e) { return e.ywClass; }).map(fromCal));
     var t = today();
     if (j.all) allExtras(j.all);
     (j.classes || []).forEach(function (c) {
       tabs.push({ id: c.id, name: c.name });
       panel(c, (j.activities || []).filter(function (a) { return a && a.title && (a.class === c.id || a.class === 'all') && (a.endDate || a.date) >= t; })
-        .sort(function (x, y) { return x.date < y.date ? -1 : 1; }));
+        .sort(function (x, y) { return x.date < y.date ? -1 : x.date > y.date ? 1 : 0; }));
     });
     drawTabs();
     var want = location.hash.slice(1); var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}

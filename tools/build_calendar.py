@@ -139,6 +139,23 @@ def events(lines, calname):
             elif name in ("SUMMARY", "LOCATION", "CATEGORIES", "UID", "CLASS", "DESCRIPTION"): ev[name] = v
     return
 
+# Young Women class tags. Type one in the Church calendar title or description:
+# [Gatherers] [Messengers] [Builders] [All YW]. Fallback (Young Women calendar only): the class name word in the title/description.
+# Untagged Young Women "Combined"/"Class Activities" items show on every class tab.
+YW_TAG = re.compile(r"\[\s*(gatherers?|messengers?|builders?|all\s*yw)\s*\]", re.I)
+YW_IDS = {"gatherer": "gatherers-of-light", "messenger": "messengers-of-hope", "builder": "builders-of-faith"}
+def yw_class(title, desc, cal):
+    m = YW_TAG.search(title) or YW_TAG.search(desc)
+    w = (m.group(1) if m else "").lower()
+    if not w and cal == "Young Women":
+        m2 = re.search(r"\b(gatherers?|messengers?|builders?)\b", f"{title} {desc}", re.I)
+        w = m2.group(1).lower() if m2 else ""
+    if w.startswith("all"): return "all"
+    for k, v in YW_IDS.items():
+        if w.startswith(k): return v
+    if cal == "Young Women" and re.search(r"combined|class activit", title, re.I): return "all"
+    return None
+
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     text = read(sys.argv[1]); lines = unfold(text)
@@ -167,9 +184,10 @@ def main():
         if cal.lower() not in ALLOWED or (title not in ALLOW_TITLES and (BLOCK.search(title) or PERSONAL.search(title) or home_addr or e.get("CLASS", "").upper() in ("PRIVATE", "CONFIDENTIAL"))):
             dropped.append(f"{title} [{cal}]"); continue
         st, allday = e["DTSTART"]; en = e.get("DTEND", (st, allday))[0]
+        ywc = yw_class(title, desc, cal); title = YW_TAG.sub("", title).strip(" -")
         out.append({"id": re.sub(r"\W", "", e.get("UID", title))[:40], "title": title, "calendar": cal,
                     "location": e["LOCATION"], "allDay": allday,
-                    "start": st.isoformat(), "end": en.isoformat()})
+                    "start": st.isoformat(), "end": en.isoformat(), **({"ywClass": ywc} if ywc else {})})
     preview = "--preview" in sys.argv
     if not preview:  # upcoming only
         now = datetime.now(MT); past = [x for x in out if datetime.fromisoformat(x["end"]) < now]
