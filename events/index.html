@@ -71,12 +71,6 @@
 </header>
 <main>
   <p class="note">Ward, Stake, and Area flyers, for your information. Times are Mountain Time. Past events hide automatically. Tap a flyer to see it full size.</p>
-  <article class="ev" data-end="2026-10-29T15:00:00-06:00">
-    <a class="thumb" href="flyers/2026-10-29-suicide-prevention-summit.jpg"><img src="flyers/2026-10-29-suicide-prevention-summit.jpg" alt="Flyer: Faith Leader Suicide Prevention Summit" loading="lazy"></a>
-    <div class="evtx"><b>Faith Leader Suicide Prevention Summit</b><small>NAMI Utah · for faith leaders</small>
-      <p class="when">Thu, Oct 29 · 8:00 AM – 3:00 PM</p><p class="where">Conference Center at Miller Campus, SLCC, Sandy (or virtual)</p>
-      <div class="acts"><a class="btn" href="flyers/2026-10-29-suicide-prevention-summit.jpg">View flyer</a> <a class="btn alt" href="https://form.jotform.com/262004948004147" rel="noopener">Register</a></div></div>
-  </article>
   <article class="ev" data-end="2026-11-05T17:00:00-07:00">
     <a class="thumb" href="flyers/2026-11-05-primary-practice.png"><img src="flyers/2026-11-05-primary-practice.png" alt="Flyer: Primary Program Practice" loading="lazy"></a>
     <div class="evtx"><b>Primary Program Practice</b><small>Ward Primary · all Primary children encouraged; doughnuts after</small>
@@ -154,6 +148,7 @@
     evs.forEach(function(el){ var past = el.dataset.day ? el.dataset.day < t : (Date.parse(el.dataset.end) < now); el.hidden=past; if(!past) shown++; });
     empty.hidden=!!shown;
   }
+  [].forEach.call(main.querySelectorAll('.ev[data-end]'),function(el){ if(Date.parse(el.dataset.end)<Date.now()) el.hidden=true; });
   fetch('../data/approved-announcements.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():{}; })
     .then(function(j){ render(j.announcements); }).catch(function(){ render([]); });
 })();

@@ -2,28 +2,6 @@
   "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, ward-missionaries). Run: python3 tools/build_events.py",
   "events": [
     {
-      "title": "Faith Leader Suicide Prevention Summit",
-      "alt": "Faith Leader Suicide Prevention Summit",
-      "subtitle": "NAMI Utah · for faith leaders",
-      "when": "Thu, Oct 29 · 8:00 AM – 3:00 PM",
-      "where": "Conference Center at Miller Campus, SLCC, Sandy (or virtual)",
-      "end": "2026-10-29T15:00:00-06:00",
-      "flyer": "flyers/2026-10-29-suicide-prevention-summit.jpg",
-      "buttons": [
-        {
-          "label": "View flyer",
-          "href": "flyers/2026-10-29-suicide-prevention-summit.jpg",
-          "primary": true
-        },
-        {
-          "label": "Register",
-          "href": "https://form.jotform.com/262004948004147",
-          "primary": false
-        }
-      ],
-      "orgs": []
-    },
-    {
       "title": "Primary Program Practice",
       "alt": "Primary Program Practice",
       "subtitle": "Ward Primary · all Primary children encouraged; doughnuts after",

@@ -2,8 +2,10 @@
 """Render events/events.json into events/index.html and each orgs/<slug>/index.html.
 Edit events.json (add an entry with an "orgs" list), then run: python3 tools/build_events.py"""
 import json,re,os
+from datetime import datetime,timezone
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 E=json.load(open(f'{R}/events/events.json'))['events']
+E=[e for e in E if datetime.fromisoformat(e['end'])>datetime.now(timezone.utc)]  # drop ended events at build time
 def art(e,pre):
     f=pre+e['flyer']
     b=' '.join(f'<a class="btn" href="{pre+x["href"] if not re.match(r"[a-z]+:",x["href"]) else x["href"]}">{x["label"]}</a>' if x['primary'] else
