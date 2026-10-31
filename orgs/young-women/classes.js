@@ -15,6 +15,10 @@
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function today() { return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Denver', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()); }
   function nice(d) { var p = d.split('-'); return new Date(Date.UTC(+p[0], p[1] - 1, +p[2], 12)).toLocaleDateString('en-US', { timeZone: 'UTC', weekday: 'short', month: 'short', day: 'numeric' }); }
+  // Youth names: first name only; keep a stored last initial only when two first names are alike.
+  var KEYN = function (n) { return String(n).split(' ')[0].toLowerCase().replace(/y/g, 'i').replace(/(.)\1+/g, '$1').replace(/[aeiou]/g, ''); };
+  var dupKeys = {};
+  function girl(n) { var f = String(n).split(' ')[0]; return dupKeys[KEYN(n)] > 1 ? String(n) : f; }
   var SOON = '<span class="cs">Coming soon</span>';
 
   var all = document.createElement('div'); all.className = 'ywpanel'; all.id = 'panel-all';
@@ -35,10 +39,11 @@
   }
   function panel(c, acts) {
     var p = document.createElement('div'); p.className = 'ywpanel'; p.id = 'panel-' + c.id; p.hidden = true;
-    var pres = (c.presidency || []).length ? '<ul>' + c.presidency.map(function (m) { return '<li><b>' + esc(m.name) + '</b> <span>' + esc(m.role) + '</span></li>'; }).join('') + '</ul>' : SOON;
+    var pres = (c.presidency || []).length ? '<ul>' + c.presidency.map(function (m) { return '<li><b>' + esc(girl(m.name)) + '</b> <span>' + esc(m.role) + '</span></li>'; }).join('') + '</ul>' : SOON;
     var adv = (c.advisers || []).length ? esc(c.advisers.join(', ')) : SOON;
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2></section>' +
-      '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Women</a> tab for ward-wide activities.</p>') + '</section>' +
+      '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Women</a> tab for ward-wide activities.</p>') +
+      '<p class="note">Made a Canva post for this class? Download it as a PNG or PDF and send it in. Approved flyers show here and on Upcoming Events.</p><a class="btn" href="../../announce/">Submit to the Hub ›</a></section>' +
       '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Class Presidency</dt><dd>' + pres + '</dd><dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
   }
@@ -83,6 +88,7 @@
     fetch('../../data/calendar.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return {}; })]).then(function (rs) {
     var j = rs[0]; j.activities = (j.activities || []).concat((rs[1].events || []).filter(function (e) { return e.ywClass; }).map(fromCal));
     var t = today();
+    (j.classes || []).forEach(function (c) { (c.presidency || []).forEach(function (m) { var k = KEYN(m.name); dupKeys[k] = (dupKeys[k] || 0) + 1; }); });
     if (j.all) allExtras(j.all);
     (j.classes || []).forEach(function (c) {
       tabs.push({ id: c.id, name: c.name });
