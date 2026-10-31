@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T10:13:09-06:00",
+ "generated": "2026-10-30T18:43:05-06:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -38,6 +38,24 @@
    "allDay": false,
    "start": "2026-11-01T18:00:00-07:00",
    "end": "2026-11-01T19:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177429477calendarC",
+   "title": "Combined YW activity- News Anchor Visit!",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-04T16:45:00-07:00",
+   "end": "2026-11-04T19:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177405827calendarC",
+   "title": "Combined YM: Fugitive",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-04T19:00:00-07:00",
+   "end": "2026-11-04T20:00:00-07:00"
   },
   {
    "id": "0000000000000000000000173786127calendarC",
@@ -85,6 +103,24 @@
    "end": "2026-11-08T16:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000177404677calendarC",
+   "title": "Deacons: Engineering Challenge",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-11T19:00:00-07:00",
+   "end": "2026-11-11T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177429627calendarC",
+   "title": "YW-Class Activities",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-11T19:00:00-07:00",
+   "end": "2026-11-11T20:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000171852777calendarC",
    "title": "Relief Society Friendsgiving",
    "calendar": "Relief Society",
@@ -110,6 +146,24 @@
    "allDay": false,
    "start": "2026-11-15T15:45:00-07:00",
    "end": "2026-11-15T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177406277calendarC",
+   "title": "Deacons: Relay Races",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-18T19:00:00-07:00",
+   "end": "2026-11-18T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177429727calendarC",
+   "title": "YW- Class Activities",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-18T19:00:00-07:00",
+   "end": "2026-11-18T20:00:00-07:00"
   },
   {
    "id": "0000000000000000000000175810852calendarC",
@@ -139,6 +193,24 @@
    "end": "2026-11-22T20:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000177429752calendarC",
+   "title": "YW- No Activity, Happy Thanksgiving!",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-25T19:00:00-07:00",
+   "end": "2026-11-25T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177406327calendarC",
+   "title": "All YM No Activity: Thanksgiving",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-25T19:00:00-07:00",
+   "end": "2026-11-25T20:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000174415102calendarC",
    "title": "Pre-Thanksgiving Activities",
    "calendar": "Stake Activities",
@@ -155,6 +227,24 @@
    "allDay": false,
    "start": "2026-11-29T15:45:00-07:00",
    "end": "2026-11-29T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177429927calendarC",
+   "title": "Combined YW/YM Service Scavenger Hunt",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-02T19:00:00-07:00",
+   "end": "2026-12-02T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177406002calendarC",
+   "title": "Combined YM: Service Scavenger Hunt",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-02T19:00:00-07:00",
+   "end": "2026-12-02T20:00:00-07:00"
   },
   {
    "id": "0000000000000000000000154889427calendarC",
@@ -256,6 +346,15 @@
    "end": "2026-12-21T00:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000177408777calendarC",
+   "title": "All YM No Activity: Christmas",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-23T19:00:00-07:00",
+   "end": "2026-12-23T20:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000166567706calendarC",
    "title": "Mission Prep",
    "calendar": "Stake Activities",
@@ -263,6 +362,15 @@
    "allDay": false,
    "start": "2026-12-27T15:45:00-07:00",
    "end": "2026-12-27T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177408927calendarC",
+   "title": "All YM No Activity: New Years",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-30T19:00:00-07:00",
+   "end": "2026-12-30T20:00:00-07:00"
   },
   {
    "id": "0000000000000000000000151153152calendarC",
