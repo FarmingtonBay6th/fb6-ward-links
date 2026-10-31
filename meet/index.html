@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Request a Meeting · Farmington Bay 6th Ward</title>
+<style>
+body{margin:0;font-family:-apple-system,system-ui,Segoe UI,Roboto,sans-serif;background:#f3f6fa;color:#1c2733}
+main{max-width:520px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0}.sub{color:#556;margin:0 0 12px;font-size:15px}
+.warn{background:#fff4e5;border:2px solid #e08a00;border-radius:12px;padding:12px;font-size:15px;margin-bottom:14px}
+.warn b{display:block;font-size:16px;margin-bottom:4px}
+fieldset{border:0;background:#fff;border-radius:12px;padding:12px;margin:0 0 12px;box-shadow:0 1px 3px #0001}
+legend{font-weight:700;font-size:16px;padding:0;margin-bottom:6px;float:left;width:100%}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid #d5dde6;border-radius:10px;margin:6px 0;font-size:15px}
+.opt input{margin-top:3px;transform:scale(1.3)}.opt small{display:block;color:#667}
+.opt.off{opacity:.4}
+input[type=text]{width:100%;box-sizing:border-box;font-size:16px;padding:10px;border:1px solid #c5cfda;border-radius:8px;margin-top:4px}
+label.t{font-size:14px;color:#445;display:block;margin-top:8px}
+button{width:100%;font-size:18px;font-weight:700;padding:14px;border:0;border-radius:12px;background:#1f5fa8;color:#fff}
+.err{color:#b00020;font-size:14px;margin-top:8px;min-height:1em}
+.ban{background:#8b0000;color:#fff;border-radius:12px;padding:14px;font-size:16px;line-height:1.4;margin-bottom:14px}.bh{font-size:21px;font-weight:800;margin-bottom:6px}
+.rem{background:#8b0000;color:#fff;font-weight:700;border-radius:10px;padding:10px;margin-bottom:8px;font-size:15px}.ok{background:#fff;border:2px solid #8b0000}
+</style></head><body><main>
+<div class="ban" role="alert"><div class="bh">&#128274; PLEASE DO NOT SHARE ANYTHING CONFIDENTIAL</div>This text goes to Adam Bingham (Ward Executive Secretary) and Spencer Sorenson, who only schedule appointments. We do NOT want to know why you're meeting. Just pick a category below. Anything personal is between you and the Bishop.</div>
+<h1>Request a Meeting with the Bishopric</h1>
+<p class="sub">Fill this out, tap the button, then press <b>Send</b> in your text app. Adam Bingham (Executive Secretary) and Spencer Sorenson will text you back with a time.</p>
+
+<form id="f" novalidate>
+<fieldset><legend>1. What's this for?</legend><div id="why"></div></fieldset>
+<fieldset id="lenSet" style="display:none"><legend>How much time do you think you'll need?</legend>
+<label class="opt"><input type="radio" name="len" value="15 minutes"><span>15 minutes</span></label>
+<label class="opt"><input type="radio" name="len" value="30 minutes"><span>30 minutes</span></label>
+<label class="opt"><input type="radio" name="len" value="Not sure"><span>Not sure</span></label></fieldset>
+<fieldset><legend>2. When works best?</legend>
+<label class="opt"><input type="radio" name="when" value="Sunday before church"><span>Sunday before church</span></label>
+<label class="opt"><input type="radio" name="when" value="Sunday after church"><span>Sunday after church</span></label>
+<label class="opt" id="tue"><input type="radio" name="when" value="Tuesday evening"><span>Tuesday evening<small id="tuenote">Bishop only. Counselors don't meet on Tuesdays.</small></span></label>
+<label class="opt"><input type="radio" name="when" value="any of these times"><span>Any of these</span></label>
+</fieldset>
+<fieldset><legend>3. Your name</legend>
+<input type="text" id="name" autocomplete="name" placeholder="First and last name">
+<label class="t">Meeting is for someone else (e.g. your youth)? Their name (optional)</label>
+<input type="text" id="for" placeholder="Optional">
+</fieldset>
+<div class="rem">Reminder: don't add any personal details to the text.</div>
+<label class="opt ok"><input type="checkbox" id="ok"><span><b>I understand: no confidential or personal details.</b></span></label>
+<button type="submit">Create my text</button><div class="err" id="err"></div>
+</form></main>
+<script>
+const NUMS=["+18019921414","+18012052600"];
+const WHY=[["Temple recommend renewal or youth interview","15 min with a member of the Bishopric","a temple recommend interview with a member of the Bishopric","15 minutes",1],
+["First temple recommend, new to the ward (under a year), or graduating senior","15 min with the Bishop","a temple recommend interview with the Bishop","15 minutes"],
+["Ecclesiastical endorsement or opening mission papers/portal","15 min with the Bishop","an endorsement or mission papers interview with the Bishop","15 minutes"],
+["Patriarchal blessing or Melchizedek Priesthood","30 min with the Bishop","a patriarchal blessing or Melchizedek Priesthood interview with the Bishop","30 minutes"],
+["Mission, temple endowment, or sealing","45 min with the Bishop. For a sealing interview, bring your fiancé(e).","a mission, endowment, or sealing interview with the Bishop","45 minutes"],
+["Something else","With the Bishop","a meeting with the Bishop",null]];
+const $=s=>document.querySelector(s),v=n=>(document.querySelector(`input[name=${n}]:checked`)||{}).value;
+$("#why").innerHTML=WHY.map((w,i)=>`<label class="opt"><input type="radio" name="why" value="${i}"><span><b>${w[0]}</b><small>${w[1]}</small></span></label>`).join("");
+function render(){const i=v("why"),w=WHY[i];
+ $("#lenSet").style.display=w&&!w[3]?"":"none";
+ const t=$("#tue input"),off=!!(w&&w[4]);t.disabled=off;$("#tue").classList.toggle("off",off);if(off&&t.checked)t.checked=false;}
+document.querySelectorAll("input[name=why]").forEach(r=>r.addEventListener("change",render));render();
+function body(){const w=WHY[v("why")],n=$("#name").value.trim(),f=$("#for").value.trim();
+ return `Hi Adam and Spencer, this is ${n}. I'd like to schedule ${w[2]}${f?` for ${f}`:""}.\nTime needed: ${w[3]||v("len")}\nPreferred time: ${v("when")}`;}
+$("#f").addEventListener("submit",e=>{e.preventDefault();const miss=[],w=WHY[v("why")];
+ if(!w)miss.push("what it's for");else if(!w[3]&&!v("len"))miss.push("how much time");if(!v("when"))miss.push("when");if($("#name").value.trim().length<2)miss.push("your name");if(!$("#ok").checked)miss.push("the \"I understand\" box");
+ if(miss.length){$("#err").textContent="Please choose: "+miss.join(", ")+".";return;}$("#err").textContent="";
+ const b=encodeURIComponent(body()),ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&"ontouchend" in document);
+ location.href=ios?`sms:/open?addresses=${NUMS.join(",")}&body=${b}`:`sms:${NUMS.join(",")}?body=${b}`;});
+window._body=body;
+</script></body></html>
