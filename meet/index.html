@@ -50,7 +50,7 @@ const WHY=[["Temple recommend renewal or youth interview","15 min with a member 
 ["Ecclesiastical endorsement or opening mission papers/portal","15 min with the Bishop","an endorsement or mission papers interview with the Bishop","15 minutes"],
 ["Patriarchal blessing or Melchizedek Priesthood","30 min with the Bishop","a patriarchal blessing or Melchizedek Priesthood interview with the Bishop","30 minutes"],
 ["Mission, temple endowment, or sealing","45 min with the Bishop. For a sealing interview, bring your fiancé(e).","a mission, endowment, or sealing interview with the Bishop","45 minutes"],
-["Something else","With the Bishop","a meeting with the Bishop",null]];
+["Something else (DO NOT TELL US WHAT)","","a meeting with the Bishop",null]];
 const $=s=>document.querySelector(s),v=n=>(document.querySelector(`input[name=${n}]:checked`)||{}).value;
 $("#why").innerHTML=WHY.map((w,i)=>`<label class="opt"><input type="radio" name="why" value="${i}"><span><b>${w[0]}</b><small>${w[1]}</small></span></label>`).join("");
 function render(){const i=v("why"),w=WHY[i];
