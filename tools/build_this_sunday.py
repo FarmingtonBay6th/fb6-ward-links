@@ -51,7 +51,13 @@ up=[]
 for x in d.get('upcoming',[]):
     when=x.get('weekly') or (lambda q:f"{q:%a}, {q:%b} {q.day}")(datetime.date.fromisoformat(x['date']))
     if x.get('date') and x['date']<d['date']: continue
-    up.append(f'<li><b>{E(x["title"])}</b><span class="when">{E(when)}</span><span>{E(clean(x.get("short","")))}</span></li>')
+    sub=(x["title"],clean(x.get("short","")))
+    if up and up[-1][0]==when: up[-1][1].append(sub); continue  # same date: show date once, one line per event
+    up.append((when,[sub]))
+def li(w,s):
+    if len(s)==1: t,r=s[0]; return f'<li><b>{E(t)}</b><span class="when">{E(w)}</span>'+(f'<span>{E(r)}</span>' if r else '')+'</li>'
+    return f'<li><span class="when">{E(w)}</span>'+''.join(f'<div><b>{E(t)}</b>'+(f'<span>{E(r)}</span>' if r else '')+'</div>' for t,r in s)+'</li>'
+up=[li(w,s) for w,s in up]
 cfm=d.get('come_follow_me') or {}
 kc=d.get('kids_challenge') or {}; mem=d.get('kids_memory_scripture')
 kimg=''
