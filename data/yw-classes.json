@@ -108,7 +108,35 @@
       ]
     }
   ],
-  "activities": [],
+  "activities": [
+    {
+      "class": "builders-of-faith",
+      "title": "News Anchor Night (Combined Young Women)",
+      "date": "2026-11-04",
+      "time": "4:45 PM",
+      "place": "Meet at the church to leave together",
+      "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
+      "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
+    },
+    {
+      "class": "messengers-of-hope",
+      "title": "News Anchor Night (Combined Young Women)",
+      "date": "2026-11-04",
+      "time": "4:45 PM",
+      "place": "Meet at the church to leave together",
+      "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
+      "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
+    },
+    {
+      "class": "gatherers-of-light",
+      "title": "News Anchor Night (Combined Young Women)",
+      "date": "2026-11-04",
+      "time": "4:45 PM",
+      "place": "Meet at the church to leave together",
+      "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
+      "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
+    }
+  ],
   "all": {
     "presidency": [
       {
