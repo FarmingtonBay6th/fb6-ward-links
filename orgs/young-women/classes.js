@@ -37,10 +37,9 @@
     var p = document.createElement('div'); p.className = 'ywpanel'; p.id = 'panel-' + c.id; p.hidden = true;
     var pres = (c.presidency || []).length ? '<ul>' + c.presidency.map(function (m) { return '<li><b>' + esc(m.name) + '</b> <span>' + esc(m.role) + '</span></li>'; }).join('') + '</ul>' : SOON;
     var adv = (c.advisers || []).length ? esc(c.advisers.join(', ')) : SOON;
-    p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2><p class="note">' + (c.info ? esc(c.info) : 'Class news, activities and info for ' + esc(c.name) + '.') + '</p></section>' +
+    p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2></section>' +
       '<section><h2>Class Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No class activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Women</a> tab for ward-wide activities.</p>') + '</section>' +
-      '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd>' +
-      '<dt>Class Presidency</dt><dd>' + pres + '</dd><dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
+      '<section class="ywinfo"><h2>Class Info</h2><dl><dt>Class Presidency</dt><dd>' + pres + '</dd><dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
   }
   function allExtras(a) {

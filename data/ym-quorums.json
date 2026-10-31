@@ -1,10 +1,9 @@
 {
-  "_readme": "Young Men quorum tabs (orgs/young-men/). Mirrors data/yw-classes.json and is rendered by orgs/young-men/quorums.js. classes: id (URL hash), name, ages, presidencyLabel, presidency [{role,name}] (name null shows 'Coming soon'), duties, advisers [names; null shows 'Coming soon'], info. NO phone numbers or other personal info for youth. YOUTH: FIRST NAMES ONLY. Adults: full names. Quorum advisers appear only on their quorum tab. activities: same format as yw-classes.json (class = a quorum id or 'all'). all: specialists shown on the All Young Men tab, plus handbook notes.",
+  "_readme": "Young Men quorum tabs (orgs/young-men/). Mirrors data/yw-classes.json and is rendered by orgs/young-men/quorums.js. classes: id (URL hash), name, presidencyLabel, presidency [{role,name}] (name null shows 'Coming soon'), duties, advisers [names; null shows 'Coming soon'], info. NO phone numbers or other personal info for youth. YOUTH: FIRST NAMES ONLY. Adults: full names. Quorum advisers appear only on their quorum tab. activities: same format as yw-classes.json (class = a quorum id or 'all'). all: specialists shown on the All Young Men tab, plus handbook notes.",
   "classes": [
     {
       "id": "deacons-quorum",
       "name": "Deacons Quorum",
-      "ages": "Starting in January of the year he turns 12",
       "presidencyLabel": "Quorum Presidency",
       "presidency": [
         {
@@ -36,7 +35,6 @@
     {
       "id": "teachers-quorum",
       "name": "Teachers Quorum",
-      "ages": "Starting in January of the year he turns 14",
       "presidencyLabel": "Quorum Presidency",
       "presidency": [
         {
@@ -67,7 +65,6 @@
     {
       "id": "priests-quorum",
       "name": "Priests Quorum",
-      "ages": "Starting in January of the year he turns 16",
       "presidencyLabel": "Quorum Leaders",
       "presidency": [
         {
@@ -120,10 +117,6 @@
         {
           "h": "Aaronic Priesthood Quorum Theme",
           "t": "“I am a beloved son of God, and He has a work for me to do. …” The theme helps each young man understand his divine identity and his purpose as a priesthood holder. (GH 10.1.2)"
-        },
-        {
-          "h": "Quorums",
-          "t": "Young men join the deacons quorum in January of the year they turn 12, the teachers quorum in January of the year they turn 14, and the priests quorum in January of the year they turn 16. (GH 10.1.3)"
         },
         {
           "h": "Bishopric",

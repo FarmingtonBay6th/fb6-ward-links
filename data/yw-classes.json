@@ -1,10 +1,9 @@
 {
-  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, ages, presidency [{role,name}], advisers [names], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver). all: ward-wide leaders shown on the All Young Women tab (adults: full names; presidency names already in the page's contact card are not repeated) plus handbook notes. YOUTH: FIRST NAMES ONLY.",
+  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, presidency [{role,name}], advisers [names], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver). all: ward-wide leaders shown on the All Young Women tab (adults: full names; presidency names already in the page's contact card are not repeated) plus handbook notes. YOUTH: FIRST NAMES ONLY.",
   "classes": [
     {
       "id": "gatherers-of-light",
       "name": "Gatherers of Light",
-      "ages": "Starting in January of the year she turns 16",
       "presidency": [
         {
           "role": "President",
@@ -32,7 +31,6 @@
     {
       "id": "messengers-of-hope",
       "name": "Messengers of Hope",
-      "ages": "Starting in January of the year she turns 14",
       "presidency": [
         {
           "role": "President",
@@ -59,7 +57,6 @@
     {
       "id": "builders-of-faith",
       "name": "Builders of Faith",
-      "ages": "Starting in January of the year she turns 12",
       "presidency": [
         {
           "role": "President",
@@ -133,10 +130,6 @@
         {
           "h": "Class Presidencies",
           "t": "Each class has a called president, and where possible counselors and a secretary. Class presidencies, supported by adult leaders, plan Sunday meetings, service, and activities. Advisers support and guide class presidencies as they learn and carry out their responsibilities."
-        },
-        {
-          "h": "How Classes Are Organized",
-          "t": "Classes are organized by age, as the ward decides: bishoprics and adult Young Women leaders prayerfully decide how to organize the young women for instruction and activities. When needed, classes may meet together."
         }
       ]
     }

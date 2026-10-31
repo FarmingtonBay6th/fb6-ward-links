@@ -37,10 +37,9 @@
     var p = document.createElement('div'); p.className = 'ywpanel'; p.id = 'panel-' + c.id; p.hidden = true;
     var pres = (c.presidency || []).length ? '<ul>' + c.presidency.map(function (m) { return '<li><b>' + (m.name ? esc(m.name) : SOON) + '</b> <span>' + esc(m.role) + '</span></li>'; }).join('') + '</ul>' : SOON;
     var adv = (c.advisers || []).length ? c.advisers.map(function (n) { return n ? esc(n) : SOON; }).join(', ') : SOON;
-    p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2><p class="note">' + (c.info ? esc(c.info) : 'Quorum news, activities and info for ' + esc(c.name) + '.') + '</p></section>' +
+    p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2></section>' +
       '<section><h2>Quorum Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No quorum activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Men</a> tab for ward-wide activities.</p>') + '</section>' +
-      '<section class="ywinfo"><h2>Quorum Info</h2><dl><dt>Ages</dt><dd>' + (c.ages ? esc(c.ages) : SOON) + '</dd>' +
-      '<dt>' + esc(c.presidencyLabel || 'Quorum Presidency') + '</dt><dd>' + pres + '</dd>' + (c.duties ? '<dt>Duties</dt><dd>' + esc(c.duties) + '</dd>' : '') + '<dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
+      '<section class="ywinfo"><h2>Quorum Info</h2><dl><dt>' + esc(c.presidencyLabel || 'Quorum Presidency') + '</dt><dd>' + pres + '</dd>' + (c.duties ? '<dt>Duties</dt><dd>' + esc(c.duties) + '</dd>' : '') + '<dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
   }
   function allExtras(a) {
