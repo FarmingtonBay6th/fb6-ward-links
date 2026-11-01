@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T20:39:47-06:00",
+ "generated": "2026-11-01T09:28:49-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -77,6 +77,24 @@
    "end": "2026-11-05T20:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000177544702calendarC",
+   "title": "Teachers: Campout YMCA",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-06T15:30:00-07:00",
+   "end": "2026-11-07T17:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177541752calendarC",
+   "title": "Priests: Baptisms",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-07T06:00:00-07:00",
+   "end": "2026-11-07T08:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000148313302calendarC",
    "title": "Rebroadcast: Worldwide Devotional for Young Adults",
    "calendar": "Churchwide",
@@ -123,6 +141,15 @@
    "ywClass": "all"
   },
   {
+   "id": "0000000000000000000000177542402calendarC",
+   "title": "Priests: Open DDD",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-11T19:00:00-07:00",
+   "end": "2026-11-11T20:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000171852777calendarC",
    "title": "Relief Society Friendsgiving",
    "calendar": "Relief Society",
@@ -151,7 +178,7 @@
   },
   {
    "id": "0000000000000000000000177406277calendarC",
-   "title": "Deacons: Relay Races",
+   "title": "Combined YM: Relay Races",
    "calendar": "Young Men",
    "location": "",
    "allDay": false,
@@ -305,6 +332,15 @@
    "end": "2026-12-06T17:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000177543202calendarC",
+   "title": "Priests: Flo Rider",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-09T19:00:00-07:00",
+   "end": "2026-12-09T20:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000148591486calendarC",
    "title": "Farmington Bay Stake Baptism Day",
    "calendar": "Stake Activities",
@@ -330,6 +366,15 @@
    "allDay": false,
    "start": "2026-12-13T15:45:00-07:00",
    "end": "2026-12-13T16:45:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177543502calendarC",
+   "title": "Combined YM/YM: Service Project",
+   "calendar": "Young Men",
+   "location": "",
+   "allDay": false,
+   "start": "2026-12-16T19:00:00-07:00",
+   "end": "2026-12-16T20:00:00-07:00"
   },
   {
    "id": "0000000000000000000000175810952calendarC",
