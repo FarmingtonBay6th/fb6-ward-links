@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c3b6e"/><stop offset="1" stop-color="#0a1630"/></linearGradient>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dc8e"/><stop offset=".5" stop-color="#d4a843"/><stop offset="1" stop-color="#a87a22"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".3" r=".7"><stop offset="0" stop-color="#3a64a8" stop-opacity=".55"/><stop offset="1" stop-color="#3a64a8" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="512" height="512" fill="url(#bg)"/><rect width="512" height="512" fill="url(#glow)"/>
+<path d="M256 70 L410 124 V250 C410 352 342 418 256 450 C170 418 102 352 102 250 V124 Z" fill="none" stroke="url(#g)" stroke-width="20" stroke-linejoin="round"/>
+<path d="M256 104 L382 148 V250 C382 334 326 390 256 418 C186 390 130 334 130 250 V148 Z" fill="#0d1d3d" opacity=".55"/>
+<text x="256" y="318" text-anchor="middle" font-family="Georgia,'DejaVu Serif',serif" font-weight="bold" font-size="170" fill="url(#g)" letter-spacing="-6">RH</text>
+<rect x="196" y="346" width="120" height="6" rx="3" fill="url(#g)"/>
+</svg>
