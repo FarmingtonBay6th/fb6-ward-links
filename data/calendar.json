@@ -1,26 +1,8 @@
 {
- "generated": "2026-11-01T17:44:45-07:00",
+ "generated": "2026-11-02T01:53:41-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
-  {
-   "id": "0000000000000000000000151153027calendarC",
-   "title": "Fast Sunday",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": true,
-   "start": "2026-11-01T00:00:00-06:00",
-   "end": "2026-11-02T00:00:00-07:00"
-  },
-  {
-   "id": "0000000000000000000000148313127calendarC",
-   "title": "Worldwide Devotional for Young Adults",
-   "calendar": "Churchwide",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-01T18:00:00-07:00",
-   "end": "2026-11-01T19:00:00-07:00"
-  },
   {
    "id": "0000000000000000000000177429477calendarC",
    "title": "Combined YW activity- News Anchor Visit!",
@@ -148,6 +130,15 @@
    "allDay": false,
    "start": "2026-11-14T06:00:00-07:00",
    "end": "2026-11-14T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000177678952calendarC",
+   "title": "Pinewood Derby Party",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-14T13:00:00-07:00",
+   "end": "2026-11-14T15:30:00-07:00"
   },
   {
    "id": "0000000000000000000000166567701calendarC",
