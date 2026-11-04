@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T17:44:48-07:00",
+ "generated": "2026-11-04T01:49:37-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -187,6 +187,15 @@
    "end": "2026-11-19T21:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000177883527calendarC",
+   "title": "Cello recital",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-21T11:00:00-07:00",
+   "end": "2026-11-21T13:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000166567702calendarC",
    "title": "Mission Prep",
    "calendar": "Stake Activities",
@@ -211,7 +220,8 @@
    "location": "",
    "allDay": false,
    "start": "2026-11-25T19:00:00-07:00",
-   "end": "2026-11-25T20:00:00-07:00"
+   "end": "2026-11-25T20:00:00-07:00",
+   "ywClass": "all"
   },
   {
    "id": "0000000000000000000000177406327calendarC",
