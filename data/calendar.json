@@ -1,27 +1,8 @@
 {
- "generated": "2026-11-04T01:49:37-07:00",
+ "generated": "2026-11-05T01:51:42-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
-  {
-   "id": "0000000000000000000000177429477calendarC",
-   "title": "Combined YW activity- News Anchor Visit!",
-   "calendar": "Young Women",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-04T16:45:00-07:00",
-   "end": "2026-11-04T19:00:00-07:00",
-   "ywClass": "all"
-  },
-  {
-   "id": "0000000000000000000000177405827calendarC",
-   "title": "Combined YM: Fugitive",
-   "calendar": "Young Men",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-04T19:00:00-07:00",
-   "end": "2026-11-04T20:00:00-07:00"
-  },
   {
    "id": "0000000000000000000000173786127calendarC",
    "title": "6th Ward Primary Presentation Practice",
