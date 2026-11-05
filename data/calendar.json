@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T01:51:42-07:00",
+ "generated": "2026-11-05T09:59:34-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -683,6 +683,15 @@
    "end": "2027-02-24T21:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000178007327calendarC",
+   "title": "Stake Men's Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-25T17:30:00-07:00",
+   "end": "2027-02-25T21:30:00-07:00"
+  },
+  {
    "id": "0000000000000000000000177613160calendarC",
    "title": "Interfaith Holy Week Choir and Orchestra rehearsal",
    "calendar": "Stake Activities",
@@ -708,6 +717,15 @@
    "allDay": true,
    "start": "2027-03-04T00:00:00-07:00",
    "end": "2027-03-07T00:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000178007328calendarC",
+   "title": "Stake Men's Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-04T17:30:00-07:00",
+   "end": "2027-03-04T21:30:00-07:00"
   },
   {
    "id": "0000000000000000000000174416477calendarC",
@@ -746,6 +764,15 @@
    "end": "2027-03-10T21:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000178007329calendarC",
+   "title": "Stake Men's Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-11T17:30:00-07:00",
+   "end": "2027-03-11T21:30:00-07:00"
+  },
+  {
    "id": "0000000000000000000000176732852calendarC",
    "title": "Farmington Bay Stake Baptism Day",
    "calendar": "Stake Activities",
@@ -764,6 +791,15 @@
    "end": "2027-03-14T20:30:00-06:00"
   },
   {
+   "id": "0000000000000000000000178007330calendarC",
+   "title": "Stake Men's Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-18T17:30:00-06:00",
+   "end": "2027-03-18T21:30:00-06:00"
+  },
+  {
    "id": "0000000000000000000000176492077calendarC",
    "title": "Holy Week and Easter Sunday",
    "calendar": "Churchwide",
@@ -771,6 +807,24 @@
    "allDay": true,
    "start": "2027-03-21T00:00:00-06:00",
    "end": "2027-03-29T00:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000178007331calendarC",
+   "title": "Stake Men's Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-25T17:30:00-06:00",
+   "end": "2027-03-25T21:30:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000178007332calendarC",
+   "title": "Stake Men's Basketball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-04-01T17:30:00-06:00",
+   "end": "2027-04-01T21:30:00-06:00"
   },
   {
    "id": "0000000000000000000000176505552calendarC",
