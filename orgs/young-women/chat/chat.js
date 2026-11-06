@@ -37,7 +37,7 @@
     if (!data.notifPrefs) data.notifPrefs = {};
     if (!data.unread) data.unread = {};
     if (!data.settings) data.settings = clone(SEED.settings || {});
-    if (window.YWSignups) data.signups = window.YWSignups.ensureModel(data.signups, new Date());
+    /* Sign-ups are not stored in this chat record. */
     if (!data.presence) data.presence = {};
     if (!data.presence.leaders) data.presence.leaders = ["u-traci", "u-mignon"];
     return data;
@@ -492,26 +492,18 @@
     if (i >= 0) list.splice(i, 1); else list.push(adultId);
     persist(); render();
   }
-  function loadSignupBase() {
-    var stored = loadDemo();
-    if (state.data && state.data.signups && stored.signups && state.data.signups.version === stored.signups.version) {
-      return state.data;
-    }
-    return stored;
+  function signupOpts() {
+    return { classFilter: state.signupFilter || "", reviewClassId: state.reviewClassId || "" };
   }
   function commitSignup(action) {
-    if (!window.YWSignups || !action) { toast("Sign-Ups Are Not Ready."); return; }
+    if (!window.YWSignupClient || !window.YWSignupClient.configured()) { toast("Sign-Ups Are Not Connected."); return; }
+    if (!action) { toast("Sign-Ups Are Not Ready."); return; }
     if (action.invalid) { toast(action.message || "Check That Row And Try Again."); return; }
-    var result = window.YWSignups.commitStored({
-      load: loadSignupBase,
-      save: function (data) { saveDemo(data); state.data = data; },
-      actorId: state.currentUserId,
-      action: action,
-      now: new Date()
-    });
-    if (!result.ok) state.data = loadDemo();
-    toast(result.message || (result.ok ? "Saved." : "Could Not Save."));
-    render();
+    window.YWSignupClient.submit(action, signupOpts()).then(function (result) {
+      toast((result && result.message) || (result && result.ok ? "Saved." : "Could Not Save."));
+      var wrap = $("main-panel");
+      if (wrap && state.panel === "signups") window.YWSignupClient.paint(wrap, signupOpts());
+    }).catch(function () { toast("Sign-Ups Could Not Reach The Ward Script."); });
   }
 
   function render() { renderChrome(); renderChannels(); renderMain(); renderComposer(); }
@@ -721,22 +713,8 @@
   }
 
   function renderSignups() {
-    var wrap = $("main-panel"); if (!wrap || !window.YWSignups) return;
-    var u = currentUser();
-    if (u && window.YWSignups.isLeader(u) && !state.rosterRequested) {
-      state.rosterRequested = true;
-      fetch("../../../data/yw-classes.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (j) {
-        state.roster = j;
-        if (state.panel === "signups") render();
-      }).catch(function () {});
-    }
-    var view = window.YWSignups.buildView(state.data, state.currentUserId, new Date(), {
-      roster: state.roster || null,
-      classFilter: state.signupFilter || "",
-      reviewClassId: state.reviewClassId || "",
-      demo: isDemo()
-    });
-    wrap.innerHTML = window.YWSignups.renderHtml(view);
+    var wrap = $("main-panel"); if (!wrap || !window.YWSignupClient) return;
+    window.YWSignupClient.paint(wrap, signupOpts());
   }
 
   function renderMembers() {
@@ -943,7 +921,9 @@
     if (t.hasAttribute("data-presence")) { toggleAdultPresence(t.getAttribute("data-presence")); return; }
     if (t.hasAttribute("data-su-filter")) { state.signupFilter = t.getAttribute("data-su-filter") || ""; render(); return; }
     if (t.hasAttribute("data-su-action") && window.YWSignups) {
-      commitSignup(window.YWSignups.actionFromControl(t, document)); return;
+      var action = window.YWSignups.actionFromControl(t, document);
+      if (action && action.type === "add-member" && window.YWSignupClient) action = window.YWSignupClient.readAddMember();
+      commitSignup(action); return;
     }
   }
 

@@ -110,33 +110,51 @@ Open **Sign-Ups** in the chat (or `#signups`). It is part of the Young Women cha
 
 The photographed handwritten sheet is a **review queue**, not live data. Handwritten rows stay under **Paper Sheet Review** with the status **Not Applied**.
 
-Exact class-list matches (for example Brooke, Kate, Brinley R., Brynnlee B.) are shown as suggestions only. **Brooklin** does not match one stored spelling; Brooklyn M. and Brooklyn R. are both possible, so that name stays unresolved. The sheet’s class is not verified, even though the exact matches sit in Gatherers of Light. A leader chooses the class and each person, then uses **Apply Confirmed Rows Only**. Unconfirmed names are not written onto spots. General sign-up works while that review sits untouched.
+Exact class-list matches (for example Brooke, Kate, Brinley R., Brynnlee B.) are shown as suggestions only. **Brooklin** does not match one stored spelling; Brooklyn M. and Brooklyn R. are both possible, so that name stays unresolved. The sheet’s class is not verified, even though the exact matches sit in Gatherers of Light. A leader chooses the class and each person, then uses **Apply Confirmed Rows Only**. Unconfirmed names are not written onto spots. The review does nothing until sign-ups are connected.
 
 ### Storage And Migration
 
+Sign-ups are **not connected** yet. The tab does not save on the phone. Chat messages still use Demo Mode `localStorage`. That record is not the sign-up list.
+
+The Hub's only live write backend is Google Apps Script plus a private Google Sheet (the announcement intake already deployed from the ward Google account). Firebase and Supabase in `config.js` are still `YOUR_` placeholders. There is no Supabase or Firebase project in this repo. The Supabase connector was not connected in this session, so it was not used to create a project.
+
 | Item | State |
 |---|---|
-| Working store | Existing Demo Mode `localStorage` key `bay6-yw-chat-v4` (schema 2 inside the chat record). Old ward-wide greeter rows had no class and are not copied. |
-| Rules | `signups.js` re-reads the membership record on every claim, release, assign, and settings change. Two saves of the same spot cannot both win. |
-| Production database | None in this repo. No production database was created or changed. |
-| SQL file | `migrations/001_yw_signups.sql` is **NOT APPLIED**. It is a prepared Postgres / Supabase sketch, including row level security and a claim function that still raises until a real membership table exists. |
-| Live mode | `config.js` remains `mode: "demo"`. Placeholder table names are not a connection. |
+| Chosen backend | New private Apps Script web app, same pattern as the announcement intake. Not a separate site. |
+| Code | `apps-script/Code.js`, `Signups.js`, `SignupApi.js`, `appsscript.json`. |
+| Sheet | Created by `setupYwSignups` in the owner's Drive. Must not be published to the web. |
+| Auth | Google ID token checked by the script, then the private ward list. The chat persona menu cannot grant access. |
+| Atomic claims | `LockService` around read/modify/write, plus slot version. |
+| Production sheet | Not created. This agent cannot sign in to the ward Google account. |
+| SQL file | `migrations/001_yw_signups.sql` is **NOT APPLIED** and is not the deployment path. |
+| `signups.scriptUrl` | Empty on purpose. |
 
-Do not describe this tab as live. Before a real ward uses it beyond Demo Mode:
+Rules tests (`signups.test.js`) exercise the shared rules with no network. Handler tests (`signup-api.test.js`) exercise the script's request function with a fake token check and an in-memory sheet. Neither is a live Google test.
 
-1. Provision Firebase or Supabase and keep secrets out of the repo.
-2. Review and apply `migrations/001_yw_signups.sql` (or the Firestore equivalent) yourself.
-3. Replace the stub `yw_claim_slot` so it checks `auth.uid()` against the ward membership table and updates a slot only when `user_id` is null and `slot_version` matches.
-4. Point the chat adapter at that backend. Until then Demo Mode stays on.
-5. Sign in as a youth, another class, a parent, an adviser, and the presidency, and repeat the checks in `signups.test.js`.
-6. Only then turn off the Demo Mode banner.
+The existing announcement web app was probed with a honeypot that writes no row. Its redirect response is JSON and allows browser reads. That is why sign-ups can stay inside the Hub page. The new sign-up script has not been deployed, so that probe is not a sign-up test.
+
+### Deploy From The Ward Google Account
+
+The Mac has git only. Use the browser, signed in as the account that already owns the announcement script. Do not paste cookies or tokens into the repo.
+
+1. Open [script.google.com](https://script.google.com) → New project → name it `Bay 6 YW Sign-Ups`.
+2. Add four files and paste: `Code.js`, `Signups.js`, `SignupApi.js`, and `appsscript.json` from `orgs/young-women/chat/apps-script/`.
+3. Select `setupYwSignups` → Run → allow Sheets access. Leave the new spreadsheet private. Do not use Publish to the web.
+4. Open the script's Project Settings → Google Cloud Platform project. In that Cloud project, APIs & Services → Credentials → Create OAuth client ID → Web application. Authorized JavaScript origins: `https://farmingtonbay6th.github.io`. No client secret belongs in this repo.
+5. Apps Script → Project Settings → Script properties → `GOOGLE_CLIENT_ID` = that client id.
+6. Deploy → New deployment → Web app → Execute as Me → Who has access: Anyone → Deploy. Copy the `/exec` URL.
+7. Put that URL in `config.js` as `signups.scriptUrl` and merge. The page reads the client id from the script. It is public; the sheet and tokens are not.
+
+Until step 7, the Sign-Ups tab says **Sign-Ups Are Not Connected**. After it, the deploying Google account is the only moderator (`Ward Leader`). Add each person by the Google account they will use. Do not import the handwritten sheet. The paper review stays **Not Applied** until a signed-in leader confirms the class and each name. GitHub Pages updates only from `main`, so the config change is not live until that commit is merged.
 
 Run the checks locally:
 
 ```bash
 node --check orgs/young-women/chat/signups.js
+node --check orgs/young-women/chat/signup-api.js
 node --check orgs/young-women/chat/chat.js
 node --test orgs/young-women/chat/signups.test.js
+node --test orgs/young-women/chat/signup-api.test.js
 ```
 
 ## Files
@@ -148,8 +166,12 @@ node --test orgs/young-women/chat/signups.test.js
 | `demo-data.js` | Demo seed users, messages, reports |
 | `chat.js` | Client app + Demo localStorage backend |
 | `signups.js` | Sign-up rules, rotation, review queue, and screen markup |
-| `signups.test.js` | Permission, capacity, conflict, rotation, and privacy checks |
-| `migrations/001_yw_signups.sql` | Prepared SQL. **Not applied.** |
+| `signup-api.js` | Request checks: token, ward list, claims |
+| `signup-client.js` | Browser caller. No sign-up localStorage |
+| `signup-api.test.js` | Handler tests with a fake token and an in-memory sheet. Not live Google |
+| `signups.test.js` | Rules tests. Not live Google |
+| `apps-script/` | Paste-ready private web app |
+| `migrations/001_yw_signups.sql` | Unused SQL sketch. **Not applied.** |
 | `README.md` | This document |
 
 ## Hub Link
