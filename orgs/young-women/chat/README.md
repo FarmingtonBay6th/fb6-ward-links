@@ -36,7 +36,7 @@ The UI is mobile-first and uses the Hub colors (navy / gold / warm paper). Headi
 - Lets you switch **Demo Persona** (youth, parent, adviser, moderator) to walk the join and moderation flows
 - **Notification Settings** (bell in the header): per-channel toggles, alert level, quiet hours, delivery choices, parent **Notify Me Too**, plus a **Try Demo Alert** banner/badge simulation
 - **Photos** in the composer (choose/take). EXIF/location stripped by canvas re-encode. 5 MB cap. Moderators see **All Photos** and can Remove. Photos are reportable like any message
-- **Sign-Ups** tab: Door Greeters and class Lessons for This Week plus the next ~8 Sundays
+- **Sign-Ups** tab: per-class Door Greeting and Lessons. This Week is shown first. Girls claim future open spots in their own class and can release their own claims. Presidency and class advisers assign people, dates, and capacity. Greeting months rotate only after a leader sets the starting month and class. Lesson dates are a separate list.
 
 Reset Demo Data from **Moderator Tools** (as a presidency persona).
 
@@ -77,7 +77,7 @@ GitHub Pages serves only the default branch. To preview now:
 3. Respect Notification Settings: channel follows, alert level (All / Leaders Only / Daily Summary / Off), Quiet Hours (default 9:00 PM–7:00 AM), and parent **Notify Me Too**.
 4. **Fallbacks:** Twilio (or ward SMS relay) for Text Message Backup; transactional email for Email Backup when push is denied or unavailable.
 5. Photos: store encrypted/object-store blobs server-side (not data URLs). Keep client EXIF strip. Moderators keep the All Photos view + Remove.
-6. Sign-Ups and the Leaders channel need the same invite-only auth rules as chat (Leaders never listed for youth).
+6. Sign-Ups and the Leaders channel need the same invite-only auth rules as chat (Leaders never listed for youth). Do not call Sign-Ups live until the checks below have been run against a real backend.
 
 ## How The Presidency Moderates
 
@@ -95,6 +95,50 @@ Recommended practice:
 - Prefer mute for short issues; remove for ongoing harm; always involve parents for serious concerns.
 - Never enable youth-to-youth DMs or public invite links.
 
+## Sign-Ups
+
+Open **Sign-Ups** in the chat (or `#signups`). It is part of the Young Women chat, not a public roster on the ward page.
+
+- **Door Greeting** uses a three-month rotation. Each class greets every third month. The presidency chooses the starting month, the starting class, and the class order. Until that is saved, no greeting class is guessed and no greeting dates are created.
+- **Lessons** use their own dates. A Sunday can have a lesson without a greeting, or a greeting without a lesson.
+- Young women **Sign Up** for a future open spot in their own class and **Release** their own claim. They cannot take another class’s spots, past dates, or a full date.
+- Presidency can assign any class. An adviser can assign only her class. Parents can see a daughter’s class list of names already on the schedule, and cannot claim or assign.
+- Leaders can add dates, change capacity (1–12), cancel a date, and add another assignment type (per class, or on the greeting rotation).
+- Nothing on this tab sends a message, a notification, or a text.
+
+### Paper Sheet Review
+
+The photographed handwritten sheet is a **review queue**, not live data. Handwritten rows stay under **Paper Sheet Review** with the status **Not Applied**.
+
+Exact class-list matches (for example Brooke, Kate, Brinley R., Brynnlee B.) are shown as suggestions only. **Brooklin** does not match one stored spelling; Brooklyn M. and Brooklyn R. are both possible, so that name stays unresolved. The sheet’s class is not verified, even though the exact matches sit in Gatherers of Light. A leader chooses the class and each person, then uses **Apply Confirmed Rows Only**. Unconfirmed names are not written onto spots. General sign-up works while that review sits untouched.
+
+### Storage And Migration
+
+| Item | State |
+|---|---|
+| Working store | Existing Demo Mode `localStorage` key `bay6-yw-chat-v4` (schema 2 inside the chat record). Old ward-wide greeter rows had no class and are not copied. |
+| Rules | `signups.js` re-reads the membership record on every claim, release, assign, and settings change. Two saves of the same spot cannot both win. |
+| Production database | None in this repo. No production database was created or changed. |
+| SQL file | `migrations/001_yw_signups.sql` is **NOT APPLIED**. It is a prepared Postgres / Supabase sketch, including row level security and a claim function that still raises until a real membership table exists. |
+| Live mode | `config.js` remains `mode: "demo"`. Placeholder table names are not a connection. |
+
+Do not describe this tab as live. Before a real ward uses it beyond Demo Mode:
+
+1. Provision Firebase or Supabase and keep secrets out of the repo.
+2. Review and apply `migrations/001_yw_signups.sql` (or the Firestore equivalent) yourself.
+3. Replace the stub `yw_claim_slot` so it checks `auth.uid()` against the ward membership table and updates a slot only when `user_id` is null and `slot_version` matches.
+4. Point the chat adapter at that backend. Until then Demo Mode stays on.
+5. Sign in as a youth, another class, a parent, an adviser, and the presidency, and repeat the checks in `signups.test.js`.
+6. Only then turn off the Demo Mode banner.
+
+Run the checks locally:
+
+```bash
+node --check orgs/young-women/chat/signups.js
+node --check orgs/young-women/chat/chat.js
+node --test orgs/young-women/chat/signups.test.js
+```
+
 ## Files
 
 | File | Purpose |
@@ -103,6 +147,9 @@ Recommended practice:
 | `config.js` | Mode + Firebase/Supabase placeholders (no secrets) |
 | `demo-data.js` | Demo seed users, messages, reports |
 | `chat.js` | Client app + Demo localStorage backend |
+| `signups.js` | Sign-up rules, rotation, review queue, and screen markup |
+| `signups.test.js` | Permission, capacity, conflict, rotation, and privacy checks |
+| `migrations/001_yw_signups.sql` | Prepared SQL. **Not applied.** |
 | `README.md` | This document |
 
 ## Hub Link

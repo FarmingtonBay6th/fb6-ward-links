@@ -1,0 +1,24 @@
+# Runs the Young Women sign-up checks. No database, no secrets, no deploy.
+name: Young Women Sign-Ups
+on:
+  pull_request:
+  push:
+    paths:
+      - "orgs/young-women/chat/**"
+      - ".github/workflows/yw-signups.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check syntax
+        run: |
+          node --check orgs/young-women/chat/signups.js
+          node --check orgs/young-women/chat/chat.js
+      - name: Behavioral tests
+        run: node --test orgs/young-women/chat/signups.test.js
