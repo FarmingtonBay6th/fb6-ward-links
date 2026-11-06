@@ -1,10 +1,11 @@
 /* Young Women Chat · backend config (NO SECRETS)
    Keep this file free of API keys, service-account JSON, and passwords.
-   Wire a real backend by filling the placeholders below and setting mode to
-   "firebase" or "supabase". Until then the app runs in DEMO mode (localStorage).
+   Chat messages stay in Demo Mode until a chat backend exists.
+   Sign-ups do not. They use signups.scriptUrl (a private Google Apps Script).
+   An empty scriptUrl means Not Connected. Do not point sign-ups at localStorage.
 */
 window.YW_CHAT_CONFIG = {
-  /* "demo" | "firebase" | "supabase" */
+  /* Chat only. "demo" until a chat backend exists. Sign-ups ignore this flag. */
   mode: "demo",
 
   /* Display */
@@ -73,5 +74,14 @@ window.YW_CHAT_CONFIG = {
   photoMaxBytes: 5 * 1024 * 1024,
   photoMaxStored: 8,
 
-  demoStorageKey: "bay6-yw-chat-v4"
+  demoStorageKey: "bay6-yw-chat-v4",
+
+  /* Sign-ups. Provider is the Hub's existing Google Apps Script pattern.
+     scriptUrl stays empty until the private web app is deployed.
+     The Google client id is read from that script. It is not a secret.
+     Never put a sheet id, token, or private key here. */
+  signups: {
+    provider: "google-apps-script",
+    scriptUrl: ""
+  }
 };

@@ -19,6 +19,10 @@ jobs:
       - name: Check syntax
         run: |
           node --check orgs/young-women/chat/signups.js
+          node --check orgs/young-women/chat/signup-api.js
           node --check orgs/young-women/chat/chat.js
-      - name: Behavioral tests
-        run: node --test orgs/young-women/chat/signups.test.js
+          node --check orgs/young-women/chat/apps-script/Code.js
+      - name: Rules tests and handler tests
+        run: |
+          node --test orgs/young-women/chat/signups.test.js
+          node --test orgs/young-women/chat/signup-api.test.js

@@ -853,6 +853,8 @@
     return {
       allowed: true,
       demo: !!options.demo,
+      shared: !!options.shared,
+      version: model.version,
       actor: { id: actor.id, name: displayName(actor), classId: actor.classId || null, leader: isLeader(actor), presidency: isPresidency(actor) },
       rotation: {
         configured: !!greetingClass,
@@ -983,7 +985,8 @@
       return "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>" + esc(view && view.message ? view.message : "Sign-Ups Are Unavailable.") + "</p></div>";
     }
     var html = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Door Greeting And Lessons For Your Class. Open Spots Stay Open Until Someone Claims Them.</p>";
-    if (view.demo) html += "<p class=\"signup-note\">Demo: Saved On This Device Only. Nothing Is Sent To Anyone.</p>";
+    if (view.shared) html += "<p class=\"signup-note\">Saved For The Ward. Your Class Sees These Names.</p>";
+    else if (view.demo) html += "<p class=\"signup-note\">Demo: Saved On This Device Only. Nothing Is Sent To Anyone.</p>";
     html += "</div>";
     if (view.filters.length) {
       html += "<div class=\"signup-filters\" role=\"group\" aria-label=\"Class\">";

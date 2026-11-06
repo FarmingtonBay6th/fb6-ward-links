@@ -1,4 +1,6 @@
--- NOT APPLIED. Do not run this file against production.
+-- NOT APPLIED. Not the deployment path.
+-- The Hub's live write backend is Google Apps Script, not this file.
+-- Do not run this file against production.
 -- Bay 6 Hub has no production database in this repository. GitHub Pages stores
 -- the working Demo Mode copy in the existing localStorage key bay6-yw-chat-v4.
 -- This is a prepared Postgres / Supabase sketch of the same rules as signups.js.
