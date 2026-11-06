@@ -152,6 +152,35 @@
     var b = parts.length > 1 ? parts[parts.length - 1][0] : "";
     return (a + b).toUpperCase();
   }
+
+  /* Soft, Church-appropriate neutrals — distinguishable by name tint + left accent, not loud bubbles. */
+  var PERSON_PALETTE = [
+    { bg: "#eef2f5", accent: "#5a6f7e", name: "#3d4f5c", bgDark: "#2c3338", nameDark: "#c5d0d8" }, /* slate */
+    { bg: "#eef1f6", accent: "#5c6b85", name: "#3f4d63", bgDark: "#2b3038", nameDark: "#c4cbd6" }, /* gray-blue */
+    { bg: "#eef3f2", accent: "#5a736c", name: "#3d524c", bgDark: "#2b3331", nameDark: "#c3d0cc" }, /* sage */
+    { bg: "#f3f1ee", accent: "#7a6f5f", name: "#564c40", bgDark: "#322e2a", nameDark: "#d0c6ba" }, /* sand */
+    { bg: "#eef3f6", accent: "#4f6d7a", name: "#385460", bgDark: "#2a3236", nameDark: "#bfd0d8" }, /* muted navy */
+    { bg: "#f1f2f0", accent: "#6a7168", name: "#4a5248", bgDark: "#2e302e", nameDark: "#c8cdc6" }, /* warm gray */
+    { bg: "#f0f2f5", accent: "#667788", name: "#455463", bgDark: "#2c3034", nameDark: "#c6ced6" }, /* cool gray */
+    { bg: "#f2f0ee", accent: "#75685c", name: "#524840", bgDark: "#312e2b", nameDark: "#d0c7be" }, /* taupe */
+    { bg: "#eef4f3", accent: "#5a7570", name: "#3e544f", bgDark: "#2b3332", nameDark: "#c2d1cd" }, /* soft teal-gray */
+    { bg: "#f1f0ef", accent: "#6e6862", name: "#4c4742", bgDark: "#2f2d2b", nameDark: "#cbc6c1" }  /* stone */
+  ];
+  function personPalette(id) {
+    var s = String(id || "unknown");
+    var h = 2166136261;
+    for (var i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return PERSON_PALETTE[(h >>> 0) % PERSON_PALETTE.length];
+  }
+  function personStyleAttr(id) {
+    var p = personPalette(id);
+    return "style=\"--person-bg:" + p.bg + ";--person-accent:" + p.accent + ";--person-name:" + p.name +
+      ";--person-bg-dark:" + p.bgDark + ";--person-name-dark:" + p.nameDark + "\"";
+  }
+
   var GROUP_MINUTES = 5;
   function uid(prefix) { return prefix + "-" + Math.random().toString(36).slice(2, 9); }
   function toast(msg) {
@@ -459,8 +488,9 @@
         var groupCls = groupWithPrev ? "group-cont" : "group-start";
         if (!groupWithNext) groupCls += " group-end";
 
+        var colorAttr = mine ? "" : (" " + personStyleAttr(author.id || m.authorId));
         html += "<article class=\"msg-row msg-hit " + (mine ? "mine" : "theirs") + " " + groupCls +
-          "\" data-mid=\"" + esc(m.id) + "\" tabindex=\"0\" aria-label=\"Message from " + esc(author.name) + "\">";
+          "\" data-mid=\"" + esc(m.id) + "\"" + colorAttr + " tabindex=\"0\" aria-label=\"Message from " + esc(author.name) + "\">";
         if (!groupWithPrev) {
           html += "<div class=\"sender\"><span class=\"avatar\" aria-hidden=\"true\">" + esc(initials(author.name)) +
             "</span><b>" + esc(author.name) + "</b><span class=\"role\">" + esc(roleLabel(author)) + "</span></div>";
