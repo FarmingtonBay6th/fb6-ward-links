@@ -64,5 +64,5 @@ window.YW_CHAT_CONFIG = {
   },
 
   /* localStorage key prefix used in DEMO mode */
-  demoStorageKey: "bay6-yw-chat-v1"
+  demoStorageKey: "bay6-yw-chat-v2"
 };
