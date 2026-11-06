@@ -34,8 +34,10 @@ window.YW_CHAT_DEMO_SEED = {
 
   messages: [
     { id: "m1", channelId: "main", authorId: "u-traci", text: "Welcome to Bay 6 Young Women Chat! This replaces our GroupMe. Be kind, keep covenants, and report anything that feels off.", createdAt: "2026-11-05T18:00:00-07:00", removed: false },
+    { id: "m1b", channelId: "main", authorId: "u-traci", text: "Ask a leader if you need help inviting a friend from the ward list.", createdAt: "2026-11-05T18:02:00-07:00", removed: false },
     { id: "m2", channelId: "main", authorId: "u-mignon", text: "Reminder: two adults are always watching each channel. No private youth-to-youth chats here.", createdAt: "2026-11-05T18:05:00-07:00", removed: false },
     { id: "m3", channelId: "main", authorId: "u-presley", text: "Excited for activity night! 🌟", createdAt: "2026-11-05T18:12:00-07:00", removed: false },
+    { id: "m3b", channelId: "main", authorId: "u-presley", text: "Who else is coming?", createdAt: "2026-11-05T18:13:00-07:00", removed: false },
     { id: "m4", channelId: "gatherers", authorId: "u-chandra", text: "Gatherers — bring a flashlight for Thursday’s light walk.", createdAt: "2026-11-05T17:30:00-07:00", removed: false },
     { id: "m5", channelId: "gatherers", authorId: "u-presley", text: "Got it! Can we also bring glow sticks?", createdAt: "2026-11-05T17:40:00-07:00", removed: false },
     { id: "m6", channelId: "messengers", authorId: "u-denise", text: "Messengers of Hope: service project sign-up is on the Hub Young Women page.", createdAt: "2026-11-05T16:00:00-07:00", removed: false },
