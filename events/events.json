@@ -4,9 +4,9 @@
     {
       "title": "Primary Program Practice",
       "alt": "Primary Program Practice",
-      "subtitle": "Ward Primary · all Primary children encouraged; doughnuts after",
-      "when": "Thu, Nov 5 · 4:00 PM",
-      "where": "Chapel · Primary Presentation is Sun, Nov 8 at 12:00 PM",
+      "subtitle": "Ward Primary \u00b7 all Primary children encouraged; doughnuts after",
+      "when": "Thu, Nov 5 \u00b7 4:00 PM",
+      "where": "Chapel \u00b7 Primary Presentation is Sun, Nov 8 at 12:00 PM",
       "end": "2026-11-05T17:00:00-07:00",
       "flyer": "flyers/2026-11-05-primary-practice.png",
       "buttons": [
@@ -23,8 +23,8 @@
     {
       "title": "Relief Society Training Dinner",
       "alt": "Relief Society Training Dinner",
-      "subtitle": "Stake · for Relief Society presidencies",
-      "when": "Thu, Nov 5 · 6:00 – 8:00 PM",
+      "subtitle": "Stake \u00b7 for Relief Society presidencies",
+      "when": "Thu, Nov 5 \u00b7 6:00 \u2013 8:00 PM",
       "where": "Farmington Bay Stake Center",
       "end": "2026-11-05T20:00:00-07:00",
       "flyer": "flyers/2026-11-05-rs-training.jpg",
@@ -42,8 +42,8 @@
     {
       "title": "Sawubona Friendsgiving",
       "alt": "Sawubona Friendsgiving",
-      "subtitle": "Ward Relief Society · dinner will be served",
-      "when": "Thu, Nov 12 · 6:30 PM",
+      "subtitle": "Ward Relief Society \u00b7 dinner will be served",
+      "when": "Thu, Nov 12 \u00b7 6:30 PM",
       "where": "Cultural Hall, Stake Center (Eagle Shore building)",
       "end": "2026-11-12T21:00:00-07:00",
       "flyer": "flyers/2026-11-12-rs-friendsgiving.jpg",
@@ -66,8 +66,8 @@
     {
       "title": "Elder Gilbert YSA Devotional",
       "alt": "Elder Gilbert YSA Devotional",
-      "subtitle": "Ogden Weber Institute · all young single adults",
-      "when": "Sun, Nov 15 · 6:00 – 7:00 PM (doors 5:00)",
+      "subtitle": "Ogden Weber Institute \u00b7 all young single adults",
+      "when": "Sun, Nov 15 \u00b7 6:00 \u2013 7:00 PM (doors 5:00)",
       "where": "Ogden Tabernacle, 2145 Washington Blvd, Ogden",
       "end": "2026-11-15T19:00:00-07:00",
       "flyer": "flyers/2026-11-15-elder-gilbert-devotional.jpg",
@@ -88,10 +88,10 @@
       ]
     },
     {
-      "title": "Single Adult 45+ Fireside: “The Battle Has Begun”",
-      "alt": "Single Adult 45+ Fireside: “The Battle Has Begun”",
-      "subtitle": "Davis Regional Single Adults · guest speaker Glenn Rawson",
-      "when": "Sun, Nov 15 · 7:00 PM",
+      "title": "Single Adult 45+ Fireside: \u201cThe Battle Has Begun\u201d",
+      "alt": "Single Adult 45+ Fireside: \u201cThe Battle Has Begun\u201d",
+      "subtitle": "Davis Regional Single Adults \u00b7 guest speaker Glenn Rawson",
+      "when": "Sun, Nov 15 \u00b7 7:00 PM",
       "where": "Farmington South Stake Center, 695 S 200 E, Farmington",
       "end": "2026-11-15T20:30:00-07:00",
       "flyer": "flyers/2026-11-15-single-adult-fireside.jpg",
@@ -118,8 +118,8 @@
       "title": "Stake Food Drive",
       "alt": "Stake Food Drive",
       "subtitle": "Farmington Bay Stake",
-      "when": "Sat, Nov 21 curbside pickup from 9:00 AM · Sun, Nov 22 drop-off 6:30 PM",
-      "where": "Curbside (Sat) · Stake Center (Sun)",
+      "when": "Sat, Nov 21 curbside pickup from 9:00 AM \u00b7 Sun, Nov 22 drop-off 6:30 PM",
+      "where": "Curbside (Sat) \u00b7 Stake Center (Sun)",
       "end": "2026-11-22T19:30:00-07:00",
       "flyer": "flyers/2026-11-21-food-drive.jpg",
       "buttons": [
@@ -137,8 +137,8 @@
     {
       "title": "Stake Missionary Fireside",
       "alt": "Stake Missionary Fireside",
-      "subtitle": "Farmington Bay Stake · bring canned food; refreshments after",
-      "when": "Sun, Nov 22 · 6:30 – 7:30 PM",
+      "subtitle": "Farmington Bay Stake \u00b7 bring canned food; refreshments after",
+      "when": "Sun, Nov 22 \u00b7 6:30 \u2013 7:30 PM",
       "where": "Stake Center Chapel, 549 S 1525 W, Farmington",
       "end": "2026-11-22T19:30:00-07:00",
       "flyer": "flyers/2026-11-22-missionary-fireside.jpg",
@@ -163,8 +163,8 @@
     {
       "title": "Jr. SNAP (Special Needs Activity Program)",
       "alt": "Jr. SNAP (Special Needs Activity Program)",
-      "subtitle": "Central Davis · children, youth & young adults with special needs",
-      "when": "Mondays school is in session · 4:30 – 5:45 PM · Christmas Program Mon, Dec 7",
+      "subtitle": "Central Davis \u00b7 children, youth & young adults with special needs",
+      "when": "Mondays school is in session \u00b7 4:30 \u2013 5:45 PM \u00b7 Christmas Program Mon, Dec 7",
       "where": "1282 W 1875 N, Farmington",
       "end": "2026-12-14T17:45:00-07:00",
       "flyer": "flyers/jr-snap.jpg",
@@ -190,6 +190,33 @@
         "young-women",
         "young-men"
       ]
+    },
+    {
+      "title": "Utah Coalition Against Pornography: 2026 St. George Conference",
+      "alt": "Utah Coalition Against Pornography: 2026 St. George Conference",
+      "subtitle": "Keynotes Curtis Morley and Jenet Erickson, PhD \u00b7 tickets $15 in person, $10 online",
+      "when": "Sat, Nov 7 \u00b7 9:00 AM to 1:30 PM",
+      "where": "Hilton Garden Inn, 1731 South Convention Center Drive, St. George",
+      "end": "2026-11-07T13:30:00-07:00",
+      "flyer": "flyers/2026-11-07-ucap-st-george.jpg",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/2026-11-07-ucap-st-george.jpg",
+          "primary": true
+        },
+        {
+          "label": "Register",
+          "href": "https://utahcoalition.org",
+          "primary": false
+        },
+        {
+          "label": "Map",
+          "href": "https://maps.google.com/?q=Hilton+Garden+Inn,+1731+South+Convention+Center+Drive,+St.+George+UT",
+          "primary": false
+        }
+      ],
+      "orgs": []
     }
   ]
 }
