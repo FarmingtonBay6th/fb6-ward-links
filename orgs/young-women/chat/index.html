@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Young Women Chat · Farmington Bay 6th Ward</title>
+<meta name="theme-color" content="#005175">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../icons/cover-favicon-32.png?v=cover1">
+<style>
+  :root { --ink:#2b2420; --soft:#6d625a; --bg:#faf6f0; --card:#fff; --line:#e8dfd3; --accent:#005175; --navy:#005175; --gold:#c9a24a; --danger:#9b2c2c; --ok:#1f6f6a; --warnbg:#fff4e5; --okbg:#e7f5f2; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  body { min-height:100dvh; display:flex; flex-direction:column; }
+  header.app { background:linear-gradient(160deg,#005175,#003a55); color:#fff; padding:14px 16px 16px; border-bottom:4px solid var(--gold); }
+  header.app .ward { font:600 11px/1 Georgia, serif; letter-spacing:.14em; text-transform:uppercase; opacity:.85; }
+  header.app h1 { font:400 22px/1.15 Georgia, serif; margin:6px 0 4px; }
+  header.app .sub { margin:0; font:italic 14px/1.35 Georgia, serif; opacity:.92; }
+  .demo-banner { background:#8a6d22; color:#fff; text-align:center; font:700 12px/1.3 -apple-system,sans-serif; letter-spacing:.04em; text-transform:uppercase; padding:8px 12px; }
+  .demo-banner span { font-weight:500; text-transform:none; letter-spacing:0; opacity:.95; }
+  .shell { max-width:720px; margin:0 auto; width:100%; flex:1; display:flex; flex-direction:column; min-height:0; }
+  .toolbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:10px 12px; border-bottom:1px solid var(--line); background:var(--card); }
+  .toolbar label { font-size:12px; color:var(--soft); font-weight:600; }
+  .toolbar select { flex:1; min-width:180px; min-height:44px; border-radius:12px; border:1px solid var(--line); padding:8px 10px; background:#fff; font:15px/1.2 inherit; color:var(--ink); }
+  .who { font-size:13px; color:var(--soft); width:100%; }
+  .who strong { color:var(--ink); }
+  .pill { display:inline-block; font:700 11px/1 -apple-system,sans-serif; letter-spacing:.04em; text-transform:uppercase; color:#8a6d22; background:#f6ecd2; border:1px dashed #c9a24a; border-radius:999px; padding:4px 8px; }
+  .tabs { display:flex; gap:6px; padding:8px 10px; overflow-x:auto; border-bottom:1px solid var(--line); background:var(--bg); -webkit-overflow-scrolling:touch; }
+  .tabs button { flex:0 0 auto; min-height:40px; padding:8px 14px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); font:600 14px/1 inherit; cursor:pointer; }
+  .tabs button.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .layout { display:grid; grid-template-columns:1fr; flex:1; min-height:0; }
+  @media (min-width:720px) {
+    .layout { grid-template-columns:200px 1fr; }
+    .channels { border-right:1px solid var(--line); }
+  }
+  .channels { display:flex; gap:8px; padding:10px; overflow-x:auto; background:var(--card); border-bottom:1px solid var(--line); }
+  @media (min-width:720px) {
+    .channels { flex-direction:column; overflow-x:visible; overflow-y:auto; border-bottom:0; }
+  }
+  .chan { text-align:left; border:1px solid var(--line); background:#fff; border-radius:14px; padding:10px 12px; cursor:pointer; min-width:140px; font:inherit; color:inherit; }
+  .chan b { display:block; font-size:15px; }
+  .chan small { display:block; color:var(--soft); font-size:12px; margin-top:2px; }
+  .chan .deep { display:inline-block; margin-top:6px; font:700 10px/1 -apple-system,sans-serif; letter-spacing:.05em; text-transform:uppercase; border-radius:999px; padding:3px 7px; }
+  .chan .deep.ok { background:var(--okbg); color:var(--ok); }
+  .chan .deep.warn { background:var(--warnbg); color:#8a6d22; }
+  .chan.on { border-color:var(--navy); box-shadow:0 0 0 2px rgba(0,81,117,.15); }
+  .chan.dim { opacity:.45; }
+  .main { display:flex; flex-direction:column; min-height:0; min-width:0; background:var(--bg); }
+  #main-panel { flex:1; overflow:auto; padding:12px; min-height:220px; }
+  .panel-head h2 { font:italic 400 22px/1.2 Georgia, serif; margin:0 0 4px; }
+  .panel-head p { margin:0 0 12px; color:var(--soft); font-size:14px; }
+  .msg-list { display:flex; flex-direction:column; gap:10px; padding-bottom:8px; }
+  .msg { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:12px 14px; box-shadow:0 1px 2px rgba(59,47,42,.05); }
+  .msg.removed { opacity:.7; }
+  .msg .meta { display:flex; flex-wrap:wrap; gap:6px 10px; align-items:baseline; font-size:13px; margin-bottom:6px; }
+  .msg .meta b { font-size:15px; }
+  .msg .role { color:var(--soft); }
+  .msg time { margin-left:auto; color:var(--soft); font-size:12px; }
+  .msg .body { margin:0; white-space:pre-wrap; word-break:break-word; }
+  .msg .body.dim { color:var(--soft); font-style:italic; }
+  .msg-acts { display:flex; gap:10px; margin-top:8px; }
+  .linkish { background:none; border:0; padding:0; color:var(--accent); font:600 13px inherit; cursor:pointer; text-decoration:underline; }
+  .linkish.danger { color:var(--danger); }
+  .composer { border-top:1px solid var(--line); background:var(--card); padding:10px 12px calc(10px + env(safe-area-inset-bottom)); }
+  .composer form { display:flex; gap:8px; align-items:flex-end; }
+  .composer textarea { flex:1; min-height:48px; max-height:120px; resize:vertical; border-radius:14px; border:1px solid var(--line); padding:12px; font:15px/1.35 inherit; background:#fff; color:var(--ink); }
+  .composer button, .btn { appearance:none; border:0; border-radius:12px; background:var(--navy); color:#fff; font:700 15px/1 inherit; padding:12px 16px; min-height:48px; cursor:pointer; }
+  .btn.alt { background:#e3eef4; color:var(--navy); }
+  .btn.danger { background:var(--danger); }
+  .btn.mini { min-height:40px; padding:8px 12px; font-size:13px; border-radius:10px; }
+  .btn:disabled, .composer button:disabled { opacity:.45; cursor:not-allowed; }
+  .callout { border-radius:14px; padding:12px 14px; margin-bottom:12px; }
+  .callout.warn { background:var(--warnbg); border:1px solid #e2c47a; }
+  .callout b { display:block; margin-bottom:4px; }
+  .callout p { margin:0; font-size:14px; color:var(--soft); }
+  .empty, .note { color:var(--soft); font-size:14px; }
+  .cardish { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:12px 0; }
+  .cardish.soft { background:#f3f8fb; }
+  .cardish h3 { font:italic 400 18px/1.2 Georgia, serif; margin:0 0 8px; }
+  .people { list-style:none; padding:0; margin:0; }
+  .people li { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:10px 0; border-top:1px solid var(--line); }
+  .people li:first-child { border-top:0; }
+  .people .who { flex:1; min-width:140px; }
+  .people .who b { display:block; font-size:15px; color:var(--ink); }
+  .people .who span { display:block; font-size:13px; color:var(--soft); }
+  .people .snip { display:block; font-size:13px; margin-top:4px; color:var(--ink); }
+  .row-acts { display:flex; flex-wrap:wrap; gap:6px; width:100%; }
+  .steps { list-style:none; padding:0; margin:0 0 12px; }
+  .steps li { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px; margin:0 0 8px; }
+  .steps li.done { border-left:4px solid var(--ok); }
+  .steps li.now { border-left:4px solid var(--gold); }
+  .steps b { display:block; margin-bottom:4px; }
+  .steps p { margin:0; color:var(--soft); font-size:14px; }
+  .bullets { margin:0; padding-left:1.2em; color:var(--ink); }
+  .bullets li { margin:4px 0; }
+  #toast { position:fixed; left:50%; bottom:calc(18px + env(safe-area-inset-bottom)); transform:translateX(-50%); background:#003a55; color:#fff; padding:12px 16px; border-radius:12px; font:600 14px/1.3 inherit; box-shadow:0 8px 24px rgba(0,0,0,.25); z-index:50; max-width:min(92vw,420px); text-align:center; }
+  footer.note-foot { text-align:center; color:var(--soft); font-size:11.5px; padding:8px 16px 20px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; }
+    .toolbar select, .composer textarea, .chan { background:#1d1916; color:var(--ink); }
+    .pill { background:#3a301c; color:#e2c47a; }
+    .btn.alt { background:#314652; color:#d7ecf6; }
+    .cardish.soft { background:#221e1a; }
+  }
+</style>
+<script src="../../../nav.js" defer></script>
+</head>
+<body>
+  <div id="demo-banner" class="demo-banner">Demo Mode <span>· Local Mock Data On This Device · No Backend Required</span></div>
+  <header class="app">
+    <div class="ward">Farmington Bay 6th Ward · Bay 6 Hub</div>
+    <h1>Young Women Chat</h1>
+    <p class="sub">Invite-only · Parent-approved · Two-deep adults · Replaces GroupMe</p>
+  </header>
+  <div class="shell">
+    <div class="toolbar">
+      <label for="role-switch">Demo Persona</label>
+      <select id="role-switch" aria-label="Switch Demo Persona"></select>
+      <div class="who" id="who-ami"></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Chat Sections">
+      <button type="button" data-panel="chat" class="on">Chat</button>
+      <button type="button" data-panel="members">Members</button>
+      <button type="button" data-panel="join">How To Join</button>
+      <button type="button" data-panel="mod" id="tab-mod" hidden>Moderator Tools</button>
+    </div>
+    <div class="layout">
+      <nav class="channels" id="channel-nav" aria-label="Channels"></nav>
+      <section class="main" aria-label="Conversation">
+        <div id="main-panel"></div>
+        <div class="composer" id="composer">
+          <form id="composer-form">
+            <label class="visually-hidden" for="msg-input" style="position:absolute;left:-9999px">Message</label>
+            <textarea id="msg-input" rows="2" maxlength="1000" placeholder="Write A Kind Message…"></textarea>
+            <button type="submit" id="msg-send">Send</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div id="toast" hidden role="status"></div>
+  <footer class="note-foot">This is not an official website of The Church of Jesus Christ of Latter-day Saints. Private ward tool — no ads, no public discovery.</footer>
+  <script src="config.js"></script>
+  <script src="demo-data.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
