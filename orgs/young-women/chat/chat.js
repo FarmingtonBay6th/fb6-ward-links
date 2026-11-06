@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var CFG = window.YW_CHAT_CONFIG || { mode: "demo", channels: [], safety: {}, demoStorageKey: "bay6-yw-chat-v1" };
+  var CFG = window.YW_CHAT_CONFIG || { mode: "demo", channels: [], safety: {}, demoStorageKey: "bay6-yw-chat-v2" };
   var SEED = window.YW_CHAT_DEMO_SEED || { users: [], messages: [], reports: [], invites: [], presence: {} };
 
   var state = {
@@ -32,7 +32,7 @@
   }
 
   function loadDemo() {
-    var key = CFG.demoStorageKey || "bay6-yw-chat-v1";
+    var key = CFG.demoStorageKey || "bay6-yw-chat-v2";
     try {
       var raw = localStorage.getItem(key);
       if (raw) return JSON.parse(raw);
@@ -50,7 +50,7 @@
   }
 
   function saveDemo(data) {
-    try { localStorage.setItem(CFG.demoStorageKey || "bay6-yw-chat-v1", JSON.stringify(data)); }
+    try { localStorage.setItem(CFG.demoStorageKey || "bay6-yw-chat-v2", JSON.stringify(data)); }
     catch (e) { /* quota */ }
   }
 
@@ -121,6 +121,38 @@
       return d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
     } catch (e) { return ""; }
   }
+  function fmtBubbleTime(iso) {
+    try {
+      var d = new Date(iso);
+      return d.toLocaleString("en-US", { hour: "numeric", minute: "2-digit" });
+    } catch (e) { return ""; }
+  }
+  function fmtDaySep(iso) {
+    try {
+      var d = new Date(iso);
+      var now = new Date();
+      var sameDay = d.toDateString() === now.toDateString();
+      var yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
+      if (sameDay) return "Today · " + d.toLocaleString("en-US", { hour: "numeric", minute: "2-digit" });
+      if (d.toDateString() === yesterday.toDateString()) {
+        return "Yesterday · " + d.toLocaleString("en-US", { hour: "numeric", minute: "2-digit" });
+      }
+      return d.toLocaleString("en-US", { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+    } catch (e) { return ""; }
+  }
+  function sameDay(a, b) {
+    try { return new Date(a).toDateString() === new Date(b).toDateString(); } catch (e) { return false; }
+  }
+  function minsApart(a, b) {
+    try { return Math.abs(new Date(a) - new Date(b)) / 60000; } catch (e) { return 999; }
+  }
+  function initials(name) {
+    var parts = String(name || "?").trim().split(/\s+/);
+    var a = (parts[0] && parts[0][0]) || "?";
+    var b = parts.length > 1 ? parts[parts.length - 1][0] : "";
+    return (a + b).toUpperCase();
+  }
+  var GROUP_MINUTES = 5;
   function uid(prefix) { return prefix + "-" + Math.random().toString(36).slice(2, 9); }
   function toast(msg) {
     state.toast = msg;
@@ -293,7 +325,7 @@
 
   function resetDemo() {
     if (!isDemo()) return;
-    try { localStorage.removeItem(CFG.demoStorageKey || "bay6-yw-chat-v1"); } catch (e) {}
+    try { localStorage.removeItem(CFG.demoStorageKey || "bay6-yw-chat-v2"); } catch (e) {}
     state.data = loadDemo();
     state.currentUserId = state.data.sessionUserId;
     toast("Demo Data Reset.");
@@ -403,18 +435,38 @@
     } else if (!msgs.length) {
       html += "<p class=\"empty\">No Messages Yet. Say Hello!</p>";
     } else {
-      msgs.forEach(function (m) {
-        var author = userById(m.authorId) || { name: "Unknown", role: "" };
+      msgs.forEach(function (m, i) {
+        var prev = i > 0 ? msgs[i - 1] : null;
+        var next = i < msgs.length - 1 ? msgs[i + 1] : null;
+        var author = userById(m.authorId) || { name: "Unknown", role: "", id: m.authorId };
+        var mine = u && m.authorId === u.id;
+
+        if (!prev || !sameDay(prev.createdAt, m.createdAt) || minsApart(prev.createdAt, m.createdAt) > 60) {
+          html += "<div class=\"day-sep\" role=\"separator\"><span>" + esc(fmtDaySep(m.createdAt)) + "</span></div>";
+        }
+
         if (m.removed) {
-          html += "<article class=\"msg removed\"><div class=\"meta\"><b>Message Removed</b><time>" +
-            esc(fmtTime(m.createdAt)) + "</time></div><p class=\"body dim\">Removed by a moderator.</p></article>";
+          html += "<article class=\"msg-row removed group-start group-end\"><div class=\"bubble\">" +
+            "<p class=\"body dim\">Message Removed</p>" +
+            "<time class=\"mtime\">" + esc(fmtBubbleTime(m.createdAt)) + "</time></div></article>";
           return;
         }
-        html += "<article class=\"msg\" data-mid=\"" + esc(m.id) + "\">" +
-          "<div class=\"meta\"><b>" + esc(author.name) + "</b>" +
-          "<span class=\"role\">" + esc(roleLabel(author)) + "</span>" +
-          "<time>" + esc(fmtTime(m.createdAt)) + "</time></div>" +
-          "<p class=\"body\">" + esc(m.text) + "</p>" +
+
+        var groupWithPrev = prev && !prev.removed && prev.authorId === m.authorId &&
+          minsApart(prev.createdAt, m.createdAt) <= GROUP_MINUTES && sameDay(prev.createdAt, m.createdAt);
+        var groupWithNext = next && !next.removed && next.authorId === m.authorId &&
+          minsApart(m.createdAt, next.createdAt) <= GROUP_MINUTES && sameDay(m.createdAt, next.createdAt);
+        var groupCls = groupWithPrev ? "group-cont" : "group-start";
+        if (!groupWithNext) groupCls += " group-end";
+
+        html += "<article class=\"msg-row msg-hit " + (mine ? "mine" : "theirs") + " " + groupCls +
+          "\" data-mid=\"" + esc(m.id) + "\" tabindex=\"0\" aria-label=\"Message from " + esc(author.name) + "\">";
+        if (!groupWithPrev) {
+          html += "<div class=\"sender\"><span class=\"avatar\" aria-hidden=\"true\">" + esc(initials(author.name)) +
+            "</span><b>" + esc(author.name) + "</b><span class=\"role\">" + esc(roleLabel(author)) + "</span></div>";
+        }
+        html += "<div class=\"bubble\"><p class=\"body\">" + esc(m.text) + "</p>" +
+          "<time class=\"mtime\">" + esc(fmtBubbleTime(m.createdAt)) + "</time></div>" +
           "<div class=\"msg-acts\">" +
           "<button type=\"button\" class=\"linkish\" data-report=\"" + esc(m.id) + "\">Report</button>" +
           (isMod(u) ? "<button type=\"button\" class=\"linkish danger\" data-remove=\"" + esc(m.id) + "\">Remove Message</button>" : "") +
@@ -425,6 +477,8 @@
     wrap.innerHTML = html;
     requestAnimationFrame(function () {
       var list = $("msg-list");
+      var panel = $("main-panel");
+      if (panel) panel.scrollTop = panel.scrollHeight;
       if (list) list.scrollTop = list.scrollHeight;
     });
   }
@@ -593,6 +647,15 @@
 
   /* ---------- events ---------- */
   function onClick(e) {
+    var actBtn = e.target.closest("[data-report],[data-remove]");
+    var row = e.target.closest(".msg-row.msg-hit");
+    if (row && !actBtn) {
+      var was = row.classList.contains("show-acts");
+      document.querySelectorAll(".msg-row.show-acts").forEach(function (el) { el.classList.remove("show-acts"); });
+      if (!was) row.classList.add("show-acts");
+      return;
+    }
+
     var t = e.target.closest("[data-channel],[data-panel],[data-report],[data-remove],[data-status],[data-approve-child],[data-invite],[data-resolve],[data-presence],#btn-opt-in,#btn-reset-demo,#msg-send");
     if (!t) return;
 
