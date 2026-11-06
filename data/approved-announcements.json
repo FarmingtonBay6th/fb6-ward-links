@@ -37,9 +37,21 @@
       "date": "2027-01-07",
       "endDate": "2027-02-18",
       "time": "Thursdays, 6:30 to 8:45 PM",
-      "place": "Deacons: Green's Building · Priests: Stake Center",
+      "place": "Deacons: Green's Building \u00b7 Priests: Stake Center",
       "details": "Stake YM basketball every Thursday, Jan 7 to Feb 18, 2027. Teacher-age young men may play with either team.",
       "flyer": "flyers/2027-01-07-stake-ym-basketball.jpg"
+    },
+    {
+      "id": "2026-11-07-ucap-st-george",
+      "title": "Utah Coalition Against Pornography: 2026 St. George Conference",
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "time": "9:00 AM to 1:30 PM",
+      "place": "Hilton Garden Inn, 1731 South Convention Center Drive, St. George",
+      "details": "Tickets $15 in person, $10 online \u00b7 registration required \u00b7 keynotes Curtis Morley and Jenet Erickson, PhD",
+      "flyer": "flyers/2026-11-07-ucap-st-george.jpg",
+      "link": "https://utahcoalition.org",
+      "linkLabel": "Register at utahcoalition.org"
     }
   ]
 }
