@@ -47,7 +47,10 @@ window.YW_CHAT_CONFIG = {
       messages: "yw_messages",
       members: "yw_members",
       reports: "yw_reports",
-      invites: "yw_invites"
+      invites: "yw_invites",
+      /* Names only. The SQL migration is not applied and mode stays demo. */
+      signupEntries: "yw_signup_entries",
+      signupSlots: "yw_signup_slots"
     }
   },
 
@@ -59,7 +62,9 @@ window.YW_CHAT_CONFIG = {
       messages: "yw_messages",
       members: "yw_members",
       reports: "yw_reports",
-      invites: "yw_invites"
+      invites: "yw_invites",
+      signupEntries: "yw_signup_entries",
+      signupSlots: "yw_signup_slots"
     }
   },
 
