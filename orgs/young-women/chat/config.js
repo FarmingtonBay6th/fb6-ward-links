@@ -64,5 +64,9 @@ window.YW_CHAT_CONFIG = {
   },
 
   /* localStorage key prefix used in DEMO mode */
-  demoStorageKey: "bay6-yw-chat-v3"
+  /* Photos: client strips EXIF by canvas re-encode; 5 MB cap */
+  photoMaxBytes: 5 * 1024 * 1024,
+  photoMaxStored: 8,
+
+  demoStorageKey: "bay6-yw-chat-v4"
 };

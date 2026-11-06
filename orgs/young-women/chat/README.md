@@ -13,6 +13,7 @@ Channels:
 - **Gatherers** — Gatherers of Light
 - **Messengers** — Messengers of Hope
 - **Builders** — Builders of Faith
+- **Leaders** — YW presidency and advisers only (fully hidden from youth)
 
 Safety model (kids first):
 
@@ -33,6 +34,9 @@ The UI is mobile-first and uses the Hub colors (navy / gold / warm paper). Headi
 - Stores all data in `localStorage` (key from `demoStorageKey`)
 - Needs **no backend**
 - Lets you switch **Demo Persona** (youth, parent, adviser, moderator) to walk the join and moderation flows
+- **Notification Settings** (bell in the header): per-channel toggles, alert level, quiet hours, delivery choices, parent **Notify Me Too**, plus a **Try Demo Alert** banner/badge simulation
+- **Photos** in the composer (choose/take). EXIF/location stripped by canvas re-encode. 5 MB cap. Moderators see **All Photos** and can Remove. Photos are reportable like any message
+- **Sign-Ups** tab: Door Greeters and class Lessons for This Week plus the next ~8 Sundays
 
 Reset Demo Data from **Moderator Tools** (as a presidency persona).
 
@@ -66,6 +70,15 @@ GitHub Pages serves only the default branch. To preview now:
 6. Merge this PR so GitHub Pages publishes `/orgs/young-women/chat/`.
 7. Retire GroupMe only after presidency, parents, and youth have completed the join path.
 
+### Go-Live Notifications Plan
+
+1. Ship a small **PWA**: `manifest.webmanifest` + service worker scoped to `/orgs/young-women/chat/` (Add To Home Screen on iPhone / Android).
+2. Use **Web Push** (VAPID keys stored only in server env — never in this repo) so phones get “New Message In Gatherers” style alerts.
+3. Respect Notification Settings: channel follows, alert level (All / Leaders Only / Daily Summary / Off), Quiet Hours (default 9:00 PM–7:00 AM), and parent **Notify Me Too**.
+4. **Fallbacks:** Twilio (or ward SMS relay) for Text Message Backup; transactional email for Email Backup when push is denied or unavailable.
+5. Photos: store encrypted/object-store blobs server-side (not data URLs). Keep client EXIF strip. Moderators keep the All Photos view + Remove.
+6. Sign-Ups and the Leaders channel need the same invite-only auth rules as chat (Leaders never listed for youth).
+
 ## How The Presidency Moderates
 
 Sign in as a **Moderator** (YW presidency). In Demo Mode, pick Traci, Mignon, Lori, or McCall from **Demo Persona**.
@@ -95,3 +108,7 @@ Recommended practice:
 ## Hub Link
 
 The Young Women org page includes one card linking here. No other Hub pages, styles, or links were changed for this MVP.
+
+## Later Ideas (Not Built Yet)
+
+- **Feeding Missionaries sign-ups** — Traci floated this; park it until she asks to build it (could sit beside Door Greeters / Lessons on Sign-Ups).

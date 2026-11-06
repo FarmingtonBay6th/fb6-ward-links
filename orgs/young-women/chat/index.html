@@ -157,6 +157,76 @@
     }
     .msg-row.theirs .sender b { color:var(--person-name-dark, #c5d0d8); }
     .day-sep span { background:var(--bg); }
+
+  header.app { position:relative; }
+  header.app .head-row { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+  header.app .head-text { min-width:0; flex:1; }
+  .icon-btn { appearance:none; border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.12); color:#fff; width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:0 0 auto; padding:0; }
+  .icon-btn:hover, .icon-btn:focus { background:rgba(255,255,255,.22); outline:none; }
+  .icon-btn svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .chan { position:relative; }
+  .chan .badge { position:absolute; top:6px; right:8px; min-width:18px; height:18px; padding:0 5px; border-radius:999px; background:var(--navy); color:#fff; font:700 10px/18px -apple-system,sans-serif; text-align:center; }
+  .chan.on .badge { background:var(--gold); color:#1d1916; }
+  .banner-toast { position:fixed; left:50%; top:calc(12px + env(safe-area-inset-top)); transform:translateX(-50%); background:#003a55; color:#fff; padding:12px 16px; border-radius:14px; font:600 14px/1.3 inherit; box-shadow:0 10px 28px rgba(0,0,0,.28); z-index:60; max-width:min(92vw,420px); text-align:center; border:1px solid rgba(201,162,74,.45); }
+  .banner-toast .tiny { display:block; margin-top:4px; font:500 11px/1.3 inherit; opacity:.85; text-transform:none; letter-spacing:0; }
+  .settings-block { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:0 0 12px; }
+  .settings-block h3 { font:italic 400 18px/1.2 Georgia, serif; margin:0 0 10px; }
+  .settings-block .hint { margin:0 0 10px; color:var(--soft); font-size:13px; }
+  .settings-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-top:1px solid var(--line); }
+  .settings-row:first-of-type { border-top:0; }
+  .settings-row label.main { flex:1; font-weight:600; font-size:15px; }
+  .settings-row .sub { display:block; font-weight:500; font-size:12px; color:var(--soft); margin-top:2px; }
+  .toggle { position:relative; width:48px; height:28px; flex:0 0 auto; }
+  .toggle input { opacity:0; width:0; height:0; position:absolute; }
+  .toggle span { position:absolute; inset:0; background:#cfc4b6; border-radius:999px; transition:.2s; cursor:pointer; }
+  .toggle span:before { content:""; position:absolute; width:22px; height:22px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.2); }
+  .toggle input:checked + span { background:var(--navy); }
+  .toggle input:checked + span:before { transform:translateX(20px); }
+  .radio-list { display:flex; flex-direction:column; gap:8px; }
+  .radio-list label { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; cursor:pointer; font-size:14px; }
+  .radio-list label.on { border-color:var(--navy); box-shadow:0 0 0 2px rgba(0,81,117,.12); }
+  .radio-list input { margin-top:3px; }
+  .quiet-times { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px; }
+  .quiet-times input[type=time] { min-height:40px; border-radius:10px; border:1px solid var(--line); padding:6px 8px; font:14px inherit; background:#fff; color:var(--ink); }
+  .demo-note { background:#f6ecd2; border:1px dashed #c9a24a; color:#5c4a1c; border-radius:12px; padding:10px 12px; font:600 13px/1.35 inherit; margin-bottom:12px; }
+  .composer form { align-items:flex-end; }
+  .composer .photo-btn { appearance:none; border:1px solid var(--line); background:#eef3f6; color:var(--navy); width:48px; height:48px; border-radius:14px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:0 0 auto; padding:0; }
+  .composer .photo-btn svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .composer .photo-btn:disabled { opacity:.45; cursor:not-allowed; }
+  .bubble .photo-thumb { display:block; max-width:min(220px,70vw); max-height:220px; width:auto; height:auto; border-radius:14px; margin:0 0 6px; cursor:pointer; object-fit:cover; background:#ddd; }
+  .msg-row.mine .bubble .photo-thumb { border:1px solid var(--line); }
+  .photo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; }
+  .photo-card { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+  .photo-card img { width:100%; height:120px; object-fit:cover; cursor:pointer; background:#eee; display:block; }
+  .photo-card .meta { padding:8px 10px; font-size:12px; color:var(--soft); }
+  .photo-card .meta b { display:block; color:var(--ink); font-size:13px; margin-bottom:2px; }
+  .photo-card .acts { padding:0 10px 10px; }
+  .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:80; display:flex; align-items:center; justify-content:center; padding:16px; }
+  .lightbox[hidden] { display:none !important; }
+  .lightbox img { max-width:min(96vw,720px); max-height:86vh; border-radius:12px; object-fit:contain; background:#111; }
+  .lightbox .close { position:absolute; top:calc(10px + env(safe-area-inset-top)); right:12px; appearance:none; border:0; background:rgba(255,255,255,.15); color:#fff; width:44px; height:44px; border-radius:12px; font:700 20px/1 inherit; cursor:pointer; }
+  @media (prefers-color-scheme: dark) {
+    .radio-list label, .quiet-times input[type=time], .photo-card { background:#1d1916; color:var(--ink); }
+    .composer .photo-btn { background:#314652; color:#d7ecf6; border-color:#3a312a; }
+    .demo-note { background:#3a301c; color:#e2c47a; border-color:#c9a24a; }
+    .toggle span { background:#4a3f36; }
+  }
+  }
+
+  .signup-week { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:0 0 12px; }
+  .signup-week.this { border-color:var(--navy); box-shadow:0 0 0 2px rgba(0,81,117,.12); }
+  .signup-week h3 { font:italic 400 18px/1.2 Georgia, serif; margin:0 0 4px; }
+  .signup-week .when { color:var(--soft); font-size:13px; margin:0 0 10px; }
+  .signup-grid { display:grid; gap:8px; }
+  .signup-slot { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; }
+  .signup-slot .label { flex:1; min-width:120px; font-weight:600; font-size:14px; }
+  .signup-slot .label span { display:block; font-weight:500; color:var(--soft); font-size:12px; margin-top:2px; }
+  .signup-slot .who { font-size:14px; color:var(--ink); }
+  .signup-slot.open .who { color:var(--soft); font-style:italic; }
+  .signup-section { margin:16px 0 8px; font:700 12px/1 -apple-system,sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+  .topic-edit { width:100%; min-height:36px; border-radius:10px; border:1px solid var(--line); padding:8px 10px; font:14px inherit; background:#fff; color:var(--ink); margin-top:6px; }
+  @media (prefers-color-scheme: dark) {
+    .signup-slot, .topic-edit { background:#1d1916; color:var(--ink); }
   }
 </style>
 <script src="../../../nav.js" defer></script>
@@ -164,9 +234,16 @@
 <body>
   <div id="demo-banner" class="demo-banner">Demo Mode <span>· Local Mock Data On This Device · No Backend Required</span></div>
   <header class="app">
-    <div class="ward">Farmington Bay 6th Ward · Bay 6 Hub</div>
-    <h1>Young Women Chat</h1>
-    <p class="sub">Invite-only · Parent-approved · Two-deep adults · Replaces GroupMe</p>
+    <div class="head-row">
+      <div class="head-text">
+        <div class="ward">Farmington Bay 6th Ward · Bay 6 Hub</div>
+        <h1>Young Women Chat</h1>
+        <p class="sub">Invite-only · Parent-approved · Two-deep adults · Replaces GroupMe</p>
+      </div>
+      <button type="button" class="icon-btn" id="btn-notif-settings" aria-label="Notification Settings" title="Notification Settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5"/><path d="M9.5 17a2.5 2.5 0 0 0 5 0"/><circle cx="19" cy="6" r="2.2" fill="currentColor" stroke="none"/></svg>
+      </button>
+    </div>
   </header>
   <div class="shell">
     <div class="toolbar">
@@ -178,6 +255,7 @@
       <button type="button" data-panel="chat" class="on">Chat</button>
       <button type="button" data-panel="members">Members</button>
       <button type="button" data-panel="join">How To Join</button>
+      <button type="button" data-panel="signups">Sign-Ups</button>
       <button type="button" data-panel="mod" id="tab-mod" hidden>Moderator Tools</button>
     </div>
     <div class="layout">
@@ -187,6 +265,10 @@
         <div class="composer" id="composer">
           <form id="composer-form">
             <label class="visually-hidden" for="msg-input" style="position:absolute;left:-9999px">Message</label>
+            <button type="button" class="photo-btn" id="btn-photo" aria-label="Add Photo" title="Add Photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            </button>
+            <input type="file" id="photo-input" accept="image/*" capture="environment" hidden>
             <textarea id="msg-input" rows="2" maxlength="1000" placeholder="Write A Kind Message…"></textarea>
             <button type="submit" id="msg-send">Send</button>
           </form>
@@ -195,6 +277,11 @@
     </div>
   </div>
   <div id="toast" hidden role="status"></div>
+  <div id="banner-toast" class="banner-toast" hidden role="status"></div>
+  <div id="lightbox" class="lightbox" hidden>
+    <button type="button" class="close" id="lightbox-close" aria-label="Close">×</button>
+    <img id="lightbox-img" alt="Full Size Photo">
+  </div>
   <footer class="note-foot">This is not an official website of The Church of Jesus Christ of Latter-day Saints. Private ward tool — no ads, no public discovery.</footer>
   <script src="config.js"></script>
   <script src="demo-data.js"></script>
