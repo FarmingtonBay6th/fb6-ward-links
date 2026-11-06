@@ -39,6 +39,17 @@
   .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}
   .pc .txtall { display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; margin:12px 0 2px; font-size:16px; }
+  .nlcard { display:flex; gap:14px; align-items:flex-start; }
+  .nlcard .thumb { flex:0 0 96px; }
+  .nlcard .thumb img { width:96px; height:124px; object-fit:cover; border-radius:10px; border:1px solid var(--line); display:block; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .nlcard .tx { flex:1; min-width:0; }
+  .nlcard .tx b { display:block; font-size:17px; line-height:1.25; margin-bottom:4px; }
+  .leslist li { display:block; }
+  .leslist li b { display:block; font-size:15px; }
+  .leslist li span { display:block; font-size:13.5px; color:var(--soft); margin-top:2px; }
+  .linkcard { display:block; text-decoration:none; color:inherit; border:1px solid var(--line); border-radius:14px; padding:14px; background:#f7fafc; }
+  .linkcard b { display:block; color:var(--navy); font-size:16px; margin-bottom:4px; }
+  .linkcard small { display:block; color:var(--soft); font-size:13.5px; line-height:1.35; }
 </style><script src="../../nav.js" defer></script></head><body>
 <header>
   <a class="back" href="../../">‹ The Bay 6 Hub</a>
@@ -57,6 +68,26 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
       <li><div class="who"><b>Kelsey Kerr</b><span>Secretary</span></div><a class="btn txt" aria-label="Text Kelsey Kerr" href="sms:+18015036665">Text</a></li>
     </ul>
     <a class="btn txtall" id="text-all" data-n="+18015999326,+18015540770,+18015298625,+18015036665" href="sms:+18015999326,+18015540770,+18015298625,+18015036665" aria-label="Text the whole group at once">💬 Text All</a></section>
+  <section id="newsletter"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Newsletter"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="32" width="60" height="56" rx="6" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M38 48h44M38 60h36M38 72h28" stroke="#005175" stroke-width="3" stroke-linecap="round"/></svg>November Newsletter</h2>
+    <div class="nlcard">
+      <a class="thumb" href="newsletter/2026-11-november.pdf"><img src="newsletter/2026-11-november-preview.jpg" alt="Preview: November Relief Society Newsletter" loading="lazy"></a>
+      <div class="tx">
+        <b>November Newsletter</b>
+        <p class="note" style="margin:0 0 10px">Lesson schedule, Temple &amp; Table, Friendsgiving, Ward Temple Night, and more.</p>
+        <a class="btn" href="newsletter/2026-11-november.pdf">Open PDF</a>
+      </div>
+    </div>
+  </section>
+  <section id="lessons"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Open book"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M60 38c-10-6-22-7-34-5v48c12-2 24-1 34 5 10-6 22-7 34-5V33c-12-2-24-1-34 5z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M60 38v48" stroke="#c9a24a" stroke-width="2.4"/></svg>Sunday Lessons</h2>
+    <p class="note">November 2026</p>
+    <ul class="leslist">
+      <li><b>Nov 1 · A Higher And Holier Fast</b><span>Jessica Cooley</span></li>
+      <li><b>Nov 8 · The Sculpting Of Our Souls</b><span>Emily Harker</span></li>
+      <li><b>Nov 15 · Christ Centered Unity</b><span>Ashley Squires</span></li>
+      <li><b>Nov 22 · Love Like Jesus</b><span>Jessica Cooley</span></li>
+      <li><b>Nov 29 · Jesus Lives To Lift</b><span>Teacher TBA</span></li>
+    </ul>
+  </section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Activity calendar"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="34" width="60" height="54" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="#c9a24a"/><path d="M44 28v12M76 28v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><path d="M60 56l4 8 9 1-6.5 6 2 9-8.5-4.5-8.5 4.5 2-9-6.5-6 9-1z" fill="#005175"/></svg>Upcoming Activities</h2>
 <!--EV-->
   <article class="ev" data-end="2026-11-05T20:00:00-07:00">
@@ -65,11 +96,21 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
       <p class="when">Thu, Nov 5 · 6:00 – 8:00 PM</p><p class="where">Farmington Bay Stake Center</p>
       <div class="acts"><a class="btn" href="../../events/flyers/2026-11-05-rs-training.jpg">View flyer</a></div></div>
   </article>
+  <article class="ev" data-end="2026-11-10T14:00:00-07:00">
+    <div class="evtx" style="padding-left:0"><b>RS Temple &amp; Table</b><small>Temple session, then lunch together</small>
+      <p class="when">Tue, Nov 10 · 10:30 AM temple · Lunch 12:30 PM</p><p class="where">Bountiful Temple · Cafe Rio, Farmington</p>
+      <div class="acts"><a class="btn alt" href="https://maps.google.com/?q=Bountiful+Utah+Temple" rel="noopener">Temple Map</a> <a class="btn alt" href="https://maps.google.com/?q=Cafe+Rio+Farmington+UT" rel="noopener">Cafe Rio Map</a></div></div>
+  </article>
   <article class="ev" data-end="2026-11-12T21:00:00-07:00">
     <a class="thumb" href="../../events/flyers/2026-11-12-rs-friendsgiving.jpg"><img src="../../events/flyers/2026-11-12-rs-friendsgiving.jpg" alt="Flyer: Sawubona Friendsgiving" loading="lazy"></a>
     <div class="evtx"><b>Sawubona Friendsgiving</b><small>Ward Relief Society · dinner will be served</small>
       <p class="when">Thu, Nov 12 · 6:30 PM</p><p class="where">Cultural Hall, Stake Center (Eagle Shore building)</p>
       <div class="acts"><a class="btn" href="../../events/flyers/2026-11-12-rs-friendsgiving.jpg">View flyer</a> <a class="btn alt" href="https://docs.google.com/forms/d/e/1FAIpQLSeWUA13M9W2ujzFxKp-gWIxMsXvvepqmqYs1OJ2qWbyEz3Npg/viewform" rel="noopener">RSVP</a></div></div>
+  </article>
+  <article class="ev" data-end="2026-11-19T21:00:00-07:00">
+    <div class="evtx" style="padding-left:0"><b>Ward Temple Night</b><small>After-social at the Barber home</small>
+      <p class="when">Thu, Nov 19 · 7:00 PM</p><p class="where">Bountiful Temple · Social at Barber’s House after</p>
+      <div class="acts"><a class="btn alt" href="https://maps.google.com/?q=Bountiful+Utah+Temple" rel="noopener">Temple Map</a></div></div>
   </article>
   <article class="ev" data-end="2026-11-22T19:30:00-07:00">
     <a class="thumb" href="../../events/flyers/2026-11-21-food-drive.jpg"><img src="../../events/flyers/2026-11-21-food-drive.jpg" alt="Flyer: Stake Food Drive" loading="lazy"></a>
