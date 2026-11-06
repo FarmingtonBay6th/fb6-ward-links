@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var CFG = window.YW_CHAT_CONFIG || { mode: "demo", channels: [], safety: {}, demoStorageKey: "bay6-yw-chat-v2" };
+  var CFG = window.YW_CHAT_CONFIG || { mode: "demo", channels: [], safety: {}, demoStorageKey: "bay6-yw-chat-v3" };
   var SEED = window.YW_CHAT_DEMO_SEED || { users: [], messages: [], reports: [], invites: [], presence: {} };
 
   var state = {
@@ -32,7 +32,7 @@
   }
 
   function loadDemo() {
-    var key = CFG.demoStorageKey || "bay6-yw-chat-v2";
+    var key = CFG.demoStorageKey || "bay6-yw-chat-v3";
     try {
       var raw = localStorage.getItem(key);
       if (raw) return JSON.parse(raw);
@@ -50,7 +50,7 @@
   }
 
   function saveDemo(data) {
-    try { localStorage.setItem(CFG.demoStorageKey || "bay6-yw-chat-v2", JSON.stringify(data)); }
+    try { localStorage.setItem(CFG.demoStorageKey || "bay6-yw-chat-v3", JSON.stringify(data)); }
     catch (e) { /* quota */ }
   }
 
@@ -106,14 +106,27 @@
     if (!twoDeepOk(channelId) && u.kind === "youth") return false;
     return true;
   }
+  function isLeadershipAdult(u) {
+    return !!(u && (isMod(u) || u.role === "adviser" || u.role === "parent" || isAdult(u)));
+  }
+  /* Adults / presidency see every channel. Youth see Main + their own class messages. */
   function canViewChannel(u, channelId) {
     if (!u) return false;
-    if (isMod(u) || u.role === "adviser" || u.role === "parent") return true;
+    if (isLeadershipAdult(u)) return true;
     if (u.status === "active" || u.status === "muted") {
       if (channelId === "main") return true;
-      return !u.classId || u.classId === channelId;
+      return u.classId === channelId;
     }
     return false;
+  }
+  /* Every signed-in demo role can OPEN any channel; out-of-class youth get a friendly notice. */
+  function canOpenChannel(u) {
+    return !!u;
+  }
+  function classChannelNotice(channelId) {
+    var ch = channelById(channelId);
+    var label = (ch && ch.name) ? ch.name : "This";
+    return "This Channel Is For The " + label + " Class";
   }
   function fmtTime(iso) {
     try {
@@ -214,6 +227,10 @@
   }
 
   function setChannel(id) {
+    if (!canOpenChannel(currentUser())) {
+      toast("Sign In To Open A Channel.");
+      return;
+    }
     state.channelId = id;
     state.panel = "chat";
     render();
@@ -354,7 +371,7 @@
 
   function resetDemo() {
     if (!isDemo()) return;
-    try { localStorage.removeItem(CFG.demoStorageKey || "bay6-yw-chat-v2"); } catch (e) {}
+    try { localStorage.removeItem(CFG.demoStorageKey || "bay6-yw-chat-v3"); } catch (e) {}
     state.data = loadDemo();
     state.currentUserId = state.data.sessionUserId;
     toast("Demo Data Reset.");
@@ -422,11 +439,12 @@
     var nav = $("channel-nav");
     if (!nav) return;
     nav.innerHTML = (CFG.channels || []).map(function (c) {
-      var ok = canViewChannel(u, c.id);
+      var memberView = canViewChannel(u, c.id);
       var deep = twoDeepOk(c.id);
       var adults = adultsPresent(c.id).length;
-      var cls = "chan" + (c.id === state.channelId ? " on" : "") + (!ok ? " dim" : "");
-      return "<button type=\"button\" class=\"" + cls + "\" data-channel=\"" + esc(c.id) + "\" " + (ok ? "" : "disabled") + ">" +
+      var cls = "chan" + (c.id === state.channelId ? " on" : "") + (!memberView ? " dim" : "");
+      /* Never disable — tapping always opens the channel (friendly notice if out of class). */
+      return "<button type=\"button\" class=\"" + cls + "\" data-channel=\"" + esc(c.id) + "\">" +
         "<b>" + esc(c.name) + "</b><small>" + esc(c.blurb) + "</small>" +
         "<span class=\"deep " + (deep ? "ok" : "warn") + "\">" + adults + " Adults</span></button>";
     }).join("");
@@ -460,7 +478,13 @@
       "<div class=\"msg-list\" id=\"msg-list\" role=\"log\" aria-live=\"polite\">";
 
     if (!canViewChannel(u, state.channelId)) {
-      html += "<p class=\"empty\">You Do Not Have Access To This Channel Yet. Finish Join Steps First.</p>";
+      if (u && u.kind === "youth" && state.channelId !== "main") {
+        html += "<div class=\"callout\"><b>" + esc(classChannelNotice(state.channelId)) +
+          "</b><p>Only " + esc(ch.name) + " class members and adult leaders can read and post here. " +
+          "Switch to Main, or pick your own class channel.</p></div>";
+      } else {
+        html += "<p class=\"empty\">You Do Not Have Access To This Channel Yet. Finish Join Steps First.</p>";
+      }
     } else if (!msgs.length) {
       html += "<p class=\"empty\">No Messages Yet. Say Hello!</p>";
     } else {
