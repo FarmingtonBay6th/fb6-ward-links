@@ -142,7 +142,8 @@
         }
         viewState = body.view;
         members = body.members || null;
-        wrap.innerHTML = window.YWSignups.renderHtml(body.view) + adminHtml() +
+        if (window.YWChatChrome) window.YWChatChrome.refresh();
+        wrap.innerHTML = identityHtml() + window.YWSignups.renderHtml(body.view) + adminHtml() +
           "<p><button type=\"button\" class=\"btn mini alt\" id=\"su-sign-out\">Sign Out</button></p>";
       });
     }).catch(function (err) {
@@ -194,10 +195,22 @@
     setToken("");
     viewState = null;
     members = null;
+    if (window.YWChatChrome) window.YWChatChrome.refresh();
     var wrap = document.getElementById("main-panel");
     if (wrap) paint(wrap, paint.opts || {});
   });
 
+  function identityHtml() {
+    var who = signedInActor();
+    if (!who) return "";
+    return "<p class=\"signup-note\"><strong>" + escapeHtml(who.name) + "</strong> · " + escapeHtml(who.role) + ". Shared Sign-Ups. The Chat demo persona does not change this.</p>";
+  }
+  function signedInActor() {
+    var actor = viewState && viewState.allowed && viewState.actor;
+    if (!actor || !token()) return null;
+    var role = actor.presidency ? "Moderator" : (actor.leader ? "Adviser" : (actor.classId ? "Young Woman" : "Parent / Guardian"));
+    return { name: actor.name, role: role };
+  }
   window.YWSignupClient = {
     configured: configured,
     notConnectedHtml: notConnectedHtml,
@@ -205,6 +218,7 @@
     submit: submit,
     readAddMember: readAddMember,
     readMemberStatus: readMemberStatus,
+    signedInActor: signedInActor,
     token: token
   };
 })();
