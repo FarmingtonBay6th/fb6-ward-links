@@ -525,13 +525,13 @@
     var sel = $("role-switch");
     var who = $("who-ami");
     if (onSignups) {
-      if (label) label.textContent = "This Private Link";
+      if (label) label.textContent = signed ? "Leader Link" : "Sunday Sign-Ups";
       if (sel) sel.hidden = true;
       if (who) {
         who.innerHTML = signed
           ? "<strong>" + esc(signed.name) + "</strong> · " + esc(signed.role) +
             " · <span class=\"pill\">Shared Sign-Ups</span>"
-          : "Open the private link below. The Chat demo persona is not used here.";
+          : "Type a name on the sheet. No account is needed.";
       }
     } else {
       if (label) label.textContent = "Demo Persona";
@@ -949,6 +949,8 @@
     if (t.hasAttribute("data-su-action") && window.YWSignups) {
       var action = window.YWSignups.actionFromControl(t, document);
       if (action && action.type === "add-member" && window.YWSignupClient) action = window.YWSignupClient.readAddMember();
+      if (action && action.type === "public-claim" && window.YWSignupClient) action = window.YWSignupClient.readPublicClaim(t);
+      if (action && action.type === "public-release" && window.YWSignupClient) action = window.YWSignupClient.readPublicRelease(t);
       if (action && action.type === "use-link" && window.YWSignupClient) action = window.YWSignupClient.readUseLink();
       if (action && action.type === "create-link") action = { op: "create-link", memberId: t.getAttribute("data-member") };
       if (action && action.type === "revoke-link") action = { op: "revoke-link", linkId: t.getAttribute("data-link") };

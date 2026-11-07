@@ -185,6 +185,43 @@ test("invalid and revoked links save nothing, and a youth link cannot take leade
   assert.equal(call(db, "presley", { op: "view" }).status, 401);
 });
 
+test("anyone can read the sheet and claim a spot without a link or account", function () {
+  var db = memory(seed());
+  function pub(body) {
+    return Api.handleSignupRequest({ body: body, now: NOW, loadStore: db.loadStore, saveStore: db.saveStore, hashToken: hashToken });
+  }
+  var view = pub({ op: "public-view" });
+  assert.equal(view.status, 200);
+  var text = JSON.stringify(view.body);
+  assert.equal(text.indexOf("Ward Leader"), -1);
+  assert.equal(text.indexOf("@"), -1);
+  assert.equal(text.indexOf("555-"), -1);
+  assert.equal(text.indexOf("tokenHash"), -1);
+  assert.equal(text.indexOf("releaseHash"), -1);
+  assert.equal(view.body.rotationSet, false);
+  var entry = view.body.entries.find(function (item) { return item.className === "Gatherers of Light" && item.task === "Lessons" && item.spots[0].open; });
+  assert.ok(entry);
+  assert.equal(pub({ op: "public-claim", entryId: entry.id, slotId: entry.spots[0].id, expectedSlotVersion: 0, displayName: "a@b.com", releaseHash: hashToken("release-one-0123456789abcdef") }).status, 400);
+  assert.equal(db.saves(), 0);
+  var hash = hashToken("release-one-0123456789abcdef");
+  var claim = pub({ op: "public-claim", entryId: entry.id, slotId: entry.spots[0].id, expectedSlotVersion: 0, displayName: "Sam", releaseHash: hash });
+  assert.equal(claim.status, 200);
+  assert.ok(JSON.stringify(claim.body).indexOf("Sam") >= 0);
+  assert.equal(JSON.stringify(claim.body).indexOf(hash), -1);
+  assert.equal(JSON.stringify(claim.body).indexOf("Ward Leader"), -1);
+  var clash = pub({ op: "public-claim", entryId: entry.id, slotId: entry.spots[0].id, expectedSlotVersion: 0, displayName: "Other", releaseHash: hashToken("release-two-0123456789abcdef") });
+  assert.equal(clash.status, 409);
+  assert.equal(pub({ op: "public-release", entryId: entry.id, slotId: entry.spots[0].id, releaseHash: hashToken("wrong-release-0123456789abcdef") }).status, 403);
+  assert.equal(pub({ op: "create-link", memberId: "m-owner", tokenHash: hashToken("public-escalation-token-0123456789") }).status, 401);
+  assert.equal(db.read().users.length, seed().users.length);
+  var slot = db.read().signups.entries.find(function (item) { return item.id === entry.id; }).slots[0];
+  assert.equal(slot.displayName, "Sam");
+  assert.equal(slot.releaseHash, hash);
+  var after = pub({ op: "public-view" });
+  assert.equal(JSON.stringify(after.body).indexOf("releaseHash"), -1);
+  assert.ok(JSON.stringify(after.body).indexOf("Sam") >= 0);
+});
+
 test("the not-connected page does not call this phone the sign-up store", function () {
   var html = fs.readFileSync(path.join(__dirname, "signup-client.js"), "utf8");
   assert.ok(html.indexOf("Sign-Ups Are Not Connected") >= 0);

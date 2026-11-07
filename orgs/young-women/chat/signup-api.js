@@ -184,6 +184,88 @@
     return { ok: true, store: next, message: "Ward List Updated." };
   }
 
+  function cleanDisplayName(value) {
+    var name = String(value || "").replace(/\s+/g, " ").trim();
+    if (name.length < 2 || name.length > 40) return "";
+    if (/[<>@]/.test(name) || /https?:/i.test(name) || /www\./i.test(name)) return "";
+    if (!/^[A-Za-z][A-Za-z .'-]*$/.test(name)) return "";
+    return name;
+  }
+  function findEntry(model, id) {
+    var entries = (model && model.entries) || [];
+    for (var i = 0; i < entries.length; i++) if (entries[i].id === id) return entries[i];
+    return null;
+  }
+  function findSlot(entry, id) {
+    if (!entry) return null;
+    for (var i = 0; i < entry.slots.length; i++) if (entry.slots[i].id === id) return entry.slots[i];
+    return null;
+  }
+  function slotFilled(slot) { return !!(slot && (slot.userId || slot.displayName)); }
+  function publicBoard(store, now) {
+    var model = store.signups || rules().createModel(now);
+    var today = rules().denverYmd(now);
+    var entries = (model.entries || []).map(function (entry) {
+      var type = null;
+      (model.types || []).forEach(function (item) { if (item.id === entry.typeId) type = item; });
+      var className = "Class";
+      rules().CLASSES.forEach(function (item) { if (item.id === entry.classId) className = item.name; });
+      return {
+        id: entry.id,
+        date: entry.date,
+        className: className,
+        task: type ? type.name : "Sign-Up",
+        cancelled: !!entry.cancelled,
+        spots: (entry.slots || []).map(function (slot) {
+          return {
+            id: slot.id,
+            open: !slotFilled(slot) && !entry.cancelled && entry.date >= today,
+            displayName: slot.displayName || "",
+            version: slot.version || 0
+          };
+        })
+      };
+    }).sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    return {
+      ok: true,
+      rotationSet: !!(model.rotation && model.rotation.startMonth && model.rotation.startClassId),
+      today: today,
+      entries: entries
+    };
+  }
+  function publicClaim(store, body, now) {
+    var next = clone(store);
+    var model = next.signups;
+    var entry = findEntry(model, body.entryId);
+    var slot = findSlot(entry, body.slotId);
+    if (!entry || !slot) return fail("validation", "That Spot Is Not On The Sheet.");
+    if (slot.version !== Number(body.expectedSlotVersion)) return fail("conflict", "Someone Else Just Took That Spot.");
+    if (entry.cancelled) return fail("forbidden", "That Date Was Cancelled.");
+    if (entry.date < rules().denverYmd(now)) return fail("forbidden", "That Date Has Passed.");
+    if (slotFilled(slot)) return fail(entry.slots.some(function (item) { return !slotFilled(item); }) ? "conflict" : "full", slotFilled(slot) && entry.slots.some(function (item) { return !slotFilled(item); }) ? "Someone Else Just Took That Spot." : "Those Spots Are Full.");
+    var name = cleanDisplayName(body.displayName);
+    if (!name) return fail("validation", "Enter A Name, Up To 40 Letters.");
+    var releaseHash = String(body.releaseHash || "");
+    if (releaseHash.length < 32) return fail("validation", "Sign-Up Could Not Be Saved.");
+    slot.displayName = name;
+    slot.releaseHash = releaseHash;
+    slot.version += 1;
+    model.version = (model.version || 0) + 1;
+    return { ok: true, store: next, message: "You’re Signed Up." };
+  }
+  function publicRelease(store, body) {
+    var next = clone(store);
+    var entry = findEntry(next.signups, body.entryId);
+    var slot = findSlot(entry, body.slotId);
+    if (!entry || !slot || !slot.displayName) return fail("validation", "That Sign-Up Is Not There.");
+    var hash = body.releaseHash ? String(body.releaseHash) : "";
+    if (!hash || !hashesEqual(hash, slot.releaseHash || "")) return fail("forbidden", "This Phone Cannot Remove That Sign-Up.");
+    slot.displayName = "";
+    slot.releaseHash = "";
+    slot.version += 1;
+    next.signups.version = (next.signups.version || 0) + 1;
+    return { ok: true, store: next, message: "Removed From The Sheet." };
+  }
   function handleSignupRequest(opts) {
     opts = opts || {};
     var body = opts.body || {};
@@ -197,6 +279,20 @@
     if (!store.signups) store.signups = rules().createModel(now);
     if (!store.users) store.users = [];
     if (!store.links) store.links = [];
+    if (body.op === "public-view") {
+      return reply(200, publicBoard(store, now));
+    }
+    if (body.op === "public-claim" || body.op === "public-release") {
+      var pub = body.op === "public-claim" ? publicClaim(store, body, now) : publicRelease(store, body);
+      if (!pub.ok) {
+        var pubStatus = pub.error === "conflict" || pub.error === "full" ? 409 : (pub.error === "forbidden" ? 403 : 400);
+        return reply(pubStatus, pub);
+      }
+      opts.saveStore(pub.store);
+      var board = publicBoard(pub.store, now);
+      board.message = pub.message;
+      return reply(200, board);
+    }
     var linkToken = String(body.linkToken || "");
     if (linkToken.length < 20 || !opts.hashToken) return reply(401, fail("unauthorized", "Open The Private Link A Leader Gave You."));
     var link = findActiveLink(store, opts.hashToken(linkToken));
