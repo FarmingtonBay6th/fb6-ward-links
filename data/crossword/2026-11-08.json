@@ -1,0 +1,182 @@
+{
+ "date": "2026-11-08",
+ "title": "A New Spirit Will I Put within You",
+ "subtitle": "Ezekiel 1–3; 33–34; 36–37; 47 · Church History · Hymns",
+ "rows": 15,
+ "cols": 15,
+ "grid": [
+  "####FLESH##S###",
+  "S#H####T##WHEEL",
+  "T#O###LOST#E#Z#",
+  "I#N#W##N#U#P#E#",
+  "CHEBAR#Y#R#H#K#",
+  "K#Y#T#B#ENGEDI#",
+  "S###C#R#P##R#E#",
+  "#M#THRESHOLD#L#",
+  "#E##M#A#R##S###",
+  "ADAMANT#A####F#",
+  "#I##N#H#ISRAEL#",
+  "#C######M####I#",
+  "SINEWS#######N#",
+  "#N#####TRUMPET#",
+  "TELABIB########"
+ ],
+ "across": [
+  {
+   "n": 1,
+   "row": 0,
+   "col": 4,
+   "answer": "FLESH",
+   "clue": "What He gives in exchange: “an heart of ___” (Ezek. 36:26)"
+  },
+  {
+   "n": 6,
+   "row": 1,
+   "col": 10,
+   "answer": "WHEEL",
+   "clue": "“A ___ in the middle of a ___” (Ezek. 1:16)"
+  },
+  {
+   "n": 8,
+   "row": 2,
+   "col": 6,
+   "answer": "LOST",
+   "clue": "The Lord will seek that which was ___ (Ezek. 34:16)"
+  },
+  {
+   "n": 11,
+   "row": 4,
+   "col": 0,
+   "answer": "CHEBAR",
+   "clue": "River where the heavens were opened to an exiled priest (Ezek. 1:1)"
+  },
+  {
+   "n": 13,
+   "row": 5,
+   "col": 8,
+   "answer": "ENGEDI",
+   "clue": "Where fishers will spread forth nets beside healed waters (Ezek. 47:10)"
+  },
+  {
+   "n": 15,
+   "row": 7,
+   "col": 3,
+   "answer": "THRESHOLD",
+   "clue": "Waters issued out from under it, eastward (Ezek. 47:1)"
+  },
+  {
+   "n": 16,
+   "row": 9,
+   "col": 0,
+   "answer": "ADAMANT",
+   "clue": "Harder than flint, as the Lord made Ezekiel’s forehead (Ezek. 3:9)"
+  },
+  {
+   "n": 18,
+   "row": 10,
+   "col": 8,
+   "answer": "ISRAEL",
+   "clue": "“___, ___, God Is Calling” (Hymns, no. 7)"
+  },
+  {
+   "n": 19,
+   "row": 12,
+   "col": 0,
+   "answer": "SINEWS",
+   "clue": "Laid upon the bones before the flesh came up (Ezek. 37:6)"
+  },
+  {
+   "n": 20,
+   "row": 13,
+   "col": 7,
+   "answer": "TRUMPET",
+   "clue": "What the watchman blows when he sees the sword come (Ezek. 33:3)"
+  },
+  {
+   "n": 21,
+   "row": 14,
+   "col": 0,
+   "answer": "TELABIB",
+   "clue": "Where Ezekiel “sat where they sat” seven days, astonished (Ezek. 3:15)"
+  }
+ ],
+ "down": [
+  {
+   "n": 2,
+   "row": 0,
+   "col": 7,
+   "answer": "STONY",
+   "clue": "Kind of heart the Lord promises to take away (Ezek. 36:26)"
+  },
+  {
+   "n": 3,
+   "row": 0,
+   "col": 11,
+   "answer": "SHEPHERDS",
+   "clue": "Israel’s leaders, rebuked for feeding themselves and not the flock (Ezek. 34:2)"
+  },
+  {
+   "n": 4,
+   "row": 1,
+   "col": 0,
+   "answer": "STICKS",
+   "clue": "Judah’s and Joseph’s, made one in the prophet’s hand (Ezek. 37:16–17)"
+  },
+  {
+   "n": 5,
+   "row": 1,
+   "col": 2,
+   "answer": "HONEY",
+   "clue": "The eaten roll was in the prophet’s mouth as ___ for sweetness (Ezek. 3:3)"
+  },
+  {
+   "n": 7,
+   "row": 1,
+   "col": 13,
+   "answer": "EZEKIEL",
+   "clue": "Priest-prophet among the captives by the river Chebar (Ezek. 1:1–3)"
+  },
+  {
+   "n": 9,
+   "row": 2,
+   "col": 9,
+   "answer": "TURN",
+   "clue": "“___ ye, ___ ye from your evil ways” (Ezek. 33:11)"
+  },
+  {
+   "n": 10,
+   "row": 3,
+   "col": 4,
+   "answer": "WATCHMAN",
+   "clue": "Ezekiel’s calling unto the house of Israel (Ezek. 3:17; 33:7)"
+  },
+  {
+   "n": 12,
+   "row": 5,
+   "col": 6,
+   "answer": "BREATH",
+   "clue": "“Come from the four winds, O ___” (Ezek. 37:9)"
+  },
+  {
+   "n": 13,
+   "row": 5,
+   "col": 8,
+   "answer": "EPHRAIM",
+   "clue": "In whose hand is the stick of Joseph (Ezek. 37:19)"
+  },
+  {
+   "n": 14,
+   "row": 7,
+   "col": 1,
+   "answer": "MEDICINE",
+   "clue": "What the leaf of the riverbank trees will be for (Ezek. 47:12)"
+  },
+  {
+   "n": 17,
+   "row": 9,
+   "col": 13,
+   "answer": "FLINT",
+   "clue": "Adamant is harder than this (Ezek. 3:9)"
+  }
+ ]
+}
