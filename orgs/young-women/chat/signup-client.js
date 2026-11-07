@@ -119,7 +119,7 @@
   }
   function adminHtml() {
     if (!members) return "";
-    var html = "<section class=\"signup-week\"><h3>Ward List</h3><p class=\"signup-note\">Names And Roles Only. Private Links Are Not Listed Here.</p><ul class=\"people\">";
+    var html = "<section class=\"signup-week\" id=\"su-leader-people\"><h3>Leaders</h3><p class=\"signup-note\">Add a leader by name, then Make Private Link on that row. Copy the new link. It is separate from the one you are using. The Chat Members tab is not this list.</p><ul class=\"people\">";
     members.forEach(function (m) {
       var held = m.status === "pending";
       html += "<li><div class=\"who\"><b>" + escapeHtml(m.name) + "</b><span>" + escapeHtml(m.role) +
@@ -136,9 +136,9 @@
       if (link.status !== "active") return;
       html += "<p><button type=\"button\" class=\"btn mini alt\" data-su-action=\"revoke-link\" data-link=\"" + escapeHtml(link.id) + "\">Turn Off Link</button></p>";
     });
-    html += "<p class=\"signup-note\">Add a person by the name to show. A private link is the only access. Pending cannot claim a spot until you allow it. No account is created.</p>" +
-      "<label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\"></label>" +
-      "<label class=\"field\">Role <select id=\"su-member-role\"><option value=\"youth\">Young Woman</option><option value=\"adviser\">Adviser</option><option value=\"moderator\">Moderator</option><option value=\"parent\">Parent / Guardian</option></select></label>" +
+    html += "<p class=\"signup-note\">No account. The new link is the access, and it does not prove who is holding it.</p>" +
+      "<label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\" value=\"Traci Harward\"></label>" +
+      "<label class=\"field\">Role <select id=\"su-member-role\"><option value=\"moderator\" selected>Moderator</option><option value=\"adviser\">Adviser</option><option value=\"youth\">Young Woman</option><option value=\"parent\">Parent / Guardian</option></select></label>" +
       "<label class=\"field\">Class <select id=\"su-member-class\"><option value=\"\">None</option>" +
       "<option value=\"gatherers\">Gatherers of Light</option><option value=\"messengers\">Messengers of Hope</option><option value=\"builders\">Builders of Faith</option></select></label>" +
       "<label class=\"field\">Sign-Up Access <select id=\"su-member-status\"><option value=\"pending\">Pending Until A Leader Allows</option><option value=\"active\">Active</option></select></label>" +
@@ -176,7 +176,7 @@
         if (body.privateLink) shownLink = body.privateLink;
         if (window.YWChatChrome) window.YWChatChrome.refresh();
         var once = shownLink ? "<div class=\"callout\"><b>Copy This Private Link Now</b><p>It will not be shown again. Anyone who has it can use that access. It does not prove who they are.</p><input class=\"field\" readonly value=\"" + escapeHtml(shownLink) + "\"></div>" : "";
-        wrap.insertAdjacentHTML("beforeend", "<details class=\"signup-week\"><summary>Leader Tools</summary>" + once + identityHtml() + window.YWSignups.renderHtml(body.view) + adminHtml() + "</details>");
+        wrap.insertAdjacentHTML("afterbegin", "<section class=\"signup-week\">" + adminHtml() + once + "</section><details class=\"signup-week\"><summary>Schedule Settings</summary>" + identityHtml() + window.YWSignups.renderHtml(body.view) + "</details>");
       });
       });
     }).catch(function (err) {
