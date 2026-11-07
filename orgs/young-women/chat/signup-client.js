@@ -48,6 +48,56 @@
     try { history.replaceState(null, "", location.pathname + location.search + "#signups"); } catch (e2) {}
   }
   captureLink();
+  function requestPublic(op, extra) {
+    var payload = { op: op };
+    if (extra) Object.keys(extra).forEach(function (key) { if (key !== "op") payload[key] = extra[key]; });
+    return fetch(scriptUrl(), {
+      method: "POST",
+      redirect: "follow",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function (res) { return res.json(); });
+  }
+  function releaseMap() {
+    try { return JSON.parse(sessionStorage.getItem("fb6-yw-release-tokens") || "{}"); }
+    catch (e) { return {}; }
+  }
+  function rememberRelease(slotId, value) {
+    var map = releaseMap();
+    if (value) map[slotId] = value;
+    else delete map[slotId];
+    try { sessionStorage.setItem("fb6-yw-release-tokens", JSON.stringify(map)); } catch (e) {}
+  }
+  function boardHtml(board) {
+    var mine = releaseMap();
+    var html = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Pick An Open Spot And Type The Name To Show.</p></div>" +
+      "<p class=\"signup-note\">Anyone can see the names people type here. This page does not check who is typing. On this phone you can remove a sign-up you just made. A leader can clear a spot.</p>" +
+      "<label class=\"field\">Name <input id=\"su-display-name\" maxlength=\"40\" autocomplete=\"name\"></label>";
+    if (!board.rotationSet) html += "<p class=\"signup-note\">Door Greeting Months Are Not Set Yet.</p>";
+    var shown = false;
+    (board.entries || []).forEach(function (entry) {
+      if (entry.date < board.today) return;
+      shown = true;
+      html += "<section class=\"signup-week" + (entry.date === board.today || entry === board.entries[0] ? "" : "") + "\"><h3>" + escapeHtml(entry.date) + "</h3><h4>" + escapeHtml(entry.className) + " · " + escapeHtml(entry.task) + "</h4>";
+      if (entry.cancelled) html += "<p class=\"signup-note\">Cancelled</p>";
+      (entry.spots || []).forEach(function (spot) {
+        html += "<div class=\"signup-slot" + (spot.open ? " open" : "") + "\"><div class=\"label\">" + escapeHtml(entry.task) +
+          "<span>" + (spot.open ? "Open Spot" : "Filled") + "</span></div><div class=\"who" + (spot.displayName ? "" : " open") + "\">" +
+          escapeHtml(spot.displayName || (spot.open ? "Open" : "Filled")) + "</div>";
+        if (spot.open) {
+          html += "<button type=\"button\" class=\"btn mini\" data-su-action=\"public-claim\" data-entry=\"" + escapeHtml(entry.id) +
+            "\" data-slot=\"" + escapeHtml(spot.id) + "\" data-ver=\"" + escapeHtml(spot.version) + "\">Sign Up</button>";
+        } else if (mine[spot.id]) {
+          html += "<button type=\"button\" class=\"btn mini alt\" data-su-action=\"public-release\" data-entry=\"" + escapeHtml(entry.id) +
+            "\" data-slot=\"" + escapeHtml(spot.id) + "\">Remove My Sign-Up</button>";
+        }
+        html += "</div>";
+      });
+      html += "</section>";
+    });
+    if (!shown) html += "<p class=\"signup-note\">No Upcoming Spots Are Posted Yet.</p>";
+    return html;
+  }
   function request(op, extra) {
     var payload = { op: op, linkToken: token() };
     if (extra) Object.keys(extra).forEach(function (key) { payload[key] = extra[key]; });
@@ -104,11 +154,14 @@
     paint.opts = opts || {};
     if (!configured()) { wrap.innerHTML = notConnectedHtml(); return Promise.resolve(); }
     return loadReady().then(function () {
-      if (!token()) {
-        wrap.innerHTML = askHtml();
-        return;
-      }
-      return request("view", { classFilter: opts.classFilter || "", reviewClassId: opts.reviewClassId || "" }).then(function (body) {
+      return requestPublic("public-view").then(function (board) {
+        if (!board || !board.ok) {
+          wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>The Sign-Up Sheet Could Not Be Loaded.</p></div>";
+          return;
+        }
+        wrap.innerHTML = boardHtml(board);
+        if (!token()) return;
+        return request("view", { classFilter: opts.classFilter || "", reviewClassId: opts.reviewClassId || "" }).then(function (body) {
         if (!body || !body.ok) {
           if (body && body.error === "unauthorized") setToken("");
           var extra = body && body.error === "not-member"
@@ -123,8 +176,8 @@
         if (body.privateLink) shownLink = body.privateLink;
         if (window.YWChatChrome) window.YWChatChrome.refresh();
         var once = shownLink ? "<div class=\"callout\"><b>Copy This Private Link Now</b><p>It will not be shown again. Anyone who has it can use that access. It does not prove who they are.</p><input class=\"field\" readonly value=\"" + escapeHtml(shownLink) + "\"></div>" : "";
-        wrap.innerHTML = once + identityHtml() + window.YWSignups.renderHtml(body.view) + adminHtml() +
-          "<p><button type=\"button\" class=\"btn mini alt\" id=\"su-sign-out\">Sign Out</button></p>";
+        wrap.insertAdjacentHTML("beforeend", "<details class=\"signup-week\"><summary>Leader Tools</summary>" + once + identityHtml() + window.YWSignups.renderHtml(body.view) + adminHtml() + "</details>");
+      });
       });
     }).catch(function (err) {
       var oldScript = err && err.code === "version";
@@ -135,7 +188,14 @@
   }
   function submit(action, opts) {
     opts = opts || {};
-    if (action && action.op === "local-link") return Promise.resolve({ ok: true, message: "Private Link Saved On This Phone For This Visit." });
+    if (action && action.op === "local-link") return Promise.resolve({ ok: true, message: "Leader Link Saved On This Phone For This Visit." });
+    if (action && (action.op === "public-claim" || action.op === "public-release")) {
+      return requestPublic(action.op, action).then(function (body) {
+        if (body && body.releaseToken && action.slotId) rememberRelease(action.slotId, body.releaseToken);
+        if (body && body.ok && action.op === "public-release") rememberRelease(action.slotId, "");
+        return body;
+      });
+    }
     if (action && (action.op === "add-member" || action.op === "update-member" || action.op === "create-link" || action.op === "revoke-link")) {
       var fields = {
         classFilter: opts.classFilter || "",
@@ -161,6 +221,23 @@
       role: (document.getElementById("su-member-role") || {}).value || "",
       classId: (document.getElementById("su-member-class") || {}).value || "",
       status: (document.getElementById("su-member-status") || {}).value || "pending"
+    };
+  }
+  function readPublicClaim(el) {
+    return {
+      op: "public-claim",
+      entryId: el.getAttribute("data-entry"),
+      slotId: el.getAttribute("data-slot"),
+      expectedSlotVersion: Number(el.getAttribute("data-ver") || 0),
+      displayName: (document.getElementById("su-display-name") || {}).value || ""
+    };
+  }
+  function readPublicRelease(el) {
+    return {
+      op: "public-release",
+      entryId: el.getAttribute("data-entry"),
+      slotId: el.getAttribute("data-slot"),
+      releaseToken: releaseMap()[el.getAttribute("data-slot")] || ""
     };
   }
   function readUseLink() {
@@ -207,6 +284,8 @@
     submit: submit,
     readAddMember: readAddMember,
     readUseLink: readUseLink,
+    readPublicClaim: readPublicClaim,
+    readPublicRelease: readPublicRelease,
     readMemberStatus: readMemberStatus,
     signedInActor: signedInActor,
     token: token

@@ -126,15 +126,21 @@ function doPost(e) {
   try { body = JSON.parse(e.postData && e.postData.contents ? e.postData.contents : "{}"); }
   catch (err) { return json_({ ok: false, error: "validation", message: "Sign-Ups Could Not Read That Request." }); }
   var plain = "";
-  if (body.op === "create-link") {
+  var isPublic = body.op === "public-view" || body.op === "public-claim" || body.op === "public-release";
+  if (body.op === "create-link" || body.op === "public-claim") {
     plain = newToken_();
-    body.tokenHash = hashToken_(plain);
+    if (body.op === "create-link") body.tokenHash = hashToken_(plain);
+    else body.releaseHash = hashToken_(plain);
+  }
+  if (body.op === "public-release" && body.releaseToken) {
+    body.releaseHash = hashToken_(body.releaseToken);
+    body.releaseToken = "";
   }
   var lock = LockService.getScriptLock();
   try {
     lock.waitLock(20000);
     var roster = null;
-    try { roster = roster_(); } catch (ignore) { roster = null; }
+    if (!isPublic) { try { roster = roster_(); } catch (ignore) { roster = null; } }
     var result = YWSignupApi.handleSignupRequest({
       body: body,
       now: new Date(),
@@ -143,9 +149,10 @@ function doPost(e) {
       saveStore: saveStore_,
       hashToken: hashToken_
     });
-    if (result.body && result.body.ok && plain) {
+    if (result.body && result.body.ok && plain && body.op === "create-link") {
       result.body.privateLink = "https://farmingtonbay6th.github.io/fb6-ward-links/orgs/young-women/chat/#su=" + plain;
     }
+    if (result.body && result.body.ok && plain && body.op === "public-claim") result.body.releaseToken = plain;
     return json_(result.body);
   } catch (err) {
     return json_({ ok: false, error: "validation", message: "Sign-Ups Could Not Be Saved." });
