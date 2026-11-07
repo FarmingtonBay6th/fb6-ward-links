@@ -1,22 +1,16 @@
-Private-link sign-ups. Do not merge the Hub page until these steps are done.
-Do not run setupYwSignups. It creates a second spreadsheet and is not safe to repeat.
-Do not turn on billing. No new Google API is required.
+Simple Sunday sign-up sheet. Do not merge the Hub page until step 2 is done.
+Do not run setupYwSignups. Do not run issueOwnerLeaderLink again. Do not turn on billing.
 
-This replaces Google sign-in. Holding a private link is the access. It does not prove who is holding the link.
+The ordinary page lets anyone see open spots, type a display name, and sign up.
+There is no account and no sign-in. The private spreadsheet stays private.
+The public response shows only volunteered names, dates, classes, and tasks.
 
-1. In the existing Bay 6 YW Sign-Ups script, replace Code.gs, Signups.gs, and SignupApi.gs with the files in this folder. Keep appsscript.json scopes as they are.
+1. In the existing Bay 6 YW Sign-Ups script, replace Code.gs and SignupApi.gs with the files from this pull request. Signups.gs can stay as it is if it already matches Signups.js from main.
 2. Deploy → Manage deployments → pencil on the current web app → Version: New version → Deploy.
-   Keep the same /exec URL. Do not create a second web app.
-3. In the editor, select issueOwnerLeaderLink and Run it once.
-   It does not create a spreadsheet and does not erase the sign-up document or the member row.
-   It adds a Links sheet of hashes and a Link Once sheet.
-4. Open the private spreadsheet. Copy the link in Link Once cell A2. Delete rows 1 and 2.
-   The execution log does not contain the link. The script stores only a SHA-256 hash.
-5. After that link is copied, the Hub page pull request can be merged.
-   Until the page is merged, the live page still asks for Google sign-in, and that sign-in will fail against this script.
-6. Open the copied link. The page keeps the secret in the browser session and removes it from the address bar.
-   From Ward List, add people by the name to show and make a separate private link for each person.
-   Youth links cannot change other people or become a leader link.
-   Pending cannot claim a spot until Allow Sign-Ups.
-7. To turn a lost link off, use Turn Off Link, then Make Private Link. The old link stops working.
-   Do not publish the spreadsheet. Do not put a link, a hash, or the sheet id in the Hub repo.
+   Keep the same /exec URL.
+3. Merge the Hub pull request only after that new version is deployed.
+   Merging first makes the public page call a script that does not know the new actions yet.
+4. Open https://farmingtonbay6th.github.io/fb6-ward-links/orgs/young-women/chat/#signups
+   with no link. The sheet should appear. Type a name and sign up for one open spot, then remove it on that same phone.
+5. The existing leader link still opens Leader Tools. Do not put that link in the repo.
+   Greeting rotation stays unset until a leader sets it. The paper sheet stays unapplied.
