@@ -134,10 +134,12 @@
     html += "</ul>";
     (linkRows || []).forEach(function (link) {
       if (link.status !== "active") return;
-      html += "<p><button type=\"button\" class=\"btn mini alt\" data-su-action=\"revoke-link\" data-link=\"" + escapeHtml(link.id) + "\">Turn Off Link</button></p>";
+      var who = "That Link";
+      (members || []).forEach(function (m) { if (m.id === link.memberId) who = m.name; });
+      html += "<p><button type=\"button\" class=\"btn mini alt\" data-su-action=\"revoke-link\" data-link=\"" + escapeHtml(link.id) + "\">Turn Off " + escapeHtml(who) + " Link</button></p>";
     });
     html += "<p class=\"signup-note\">No account. The new link is the access, and it does not prove who is holding it.</p>" +
-      "<label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\" value=\"Traci Harward\"></label>" +
+      "<label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\"></label>" +
       "<label class=\"field\">Role <select id=\"su-member-role\"><option value=\"moderator\" selected>Moderator</option><option value=\"adviser\">Adviser</option><option value=\"youth\">Young Woman</option><option value=\"parent\">Parent / Guardian</option></select></label>" +
       "<label class=\"field\">Class <select id=\"su-member-class\"><option value=\"\">None</option>" +
       "<option value=\"gatherers\">Gatherers of Light</option><option value=\"messengers\">Messengers of Hope</option><option value=\"builders\">Builders of Faith</option></select></label>" +
@@ -175,8 +177,10 @@
         linkRows = body.links || null;
         if (body.privateLink) shownLink = body.privateLink;
         if (window.YWChatChrome) window.YWChatChrome.refresh();
-        var once = shownLink ? "<div class=\"callout\"><b>Copy This Private Link Now</b><p>It will not be shown again. Anyone who has it can use that access. It does not prove who they are.</p><input class=\"field\" readonly value=\"" + escapeHtml(shownLink) + "\"></div>" : "";
-        wrap.insertAdjacentHTML("afterbegin", "<section class=\"signup-week\">" + adminHtml() + once + "</section><details class=\"signup-week\"><summary>Schedule Settings</summary>" + identityHtml() + window.YWSignups.renderHtml(body.view) + "</details>");
+        var once = shownLink ? "<div class=\"callout\" id=\"su-new-link-box\"><b>Copy This Private Link Now</b><p>It will not be shown again. Anyone who has it can use that access. It does not prove who they are.</p><input id=\"su-new-link\" class=\"field\" readonly value=\"" + escapeHtml(shownLink) + "\"></div>" : "";
+        wrap.insertAdjacentHTML("afterbegin", "<section class=\"signup-week\">" + once + adminHtml() + "</section><details class=\"signup-week\"><summary>Schedule Settings</summary>" + identityHtml() + window.YWSignups.renderHtml(body.view) + "</details>");
+        var copyBox = document.getElementById("su-new-link");
+        if (copyBox) { copyBox.focus(); copyBox.select(); copyBox.scrollIntoView(); }
       });
       });
     }).catch(function (err) {
@@ -204,7 +208,10 @@
       ["name", "role", "classId", "status", "memberId", "linkId"].forEach(function (key) {
         if (action[key]) fields[key] = action[key];
       });
-      return request(action.op, fields);
+      return request(action.op, fields).then(function (body) {
+        if (body && body.privateLink) shownLink = body.privateLink;
+        return body;
+      });
     }
     return request("mutate", {
       action: action,
