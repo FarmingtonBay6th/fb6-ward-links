@@ -36,7 +36,7 @@ The UI is mobile-first and uses the Hub colors (navy / gold / warm paper). Headi
 - Lets you switch **Demo Persona** (youth, parent, adviser, moderator) to walk the join and moderation flows
 - **Notification Settings** (bell in the header): per-channel toggles, alert level, quiet hours, delivery choices, parent **Notify Me Too**, plus a **Try Demo Alert** banner/badge simulation
 - **Photos** in the composer (choose/take). EXIF/location stripped by canvas re-encode. 5 MB cap. Moderators see **All Photos** and can Remove. Photos are reportable like any message
-- **Sign-Ups** tab: Door Greeters and class Lessons for This Week plus the next ~8 Sundays
+- **Sign-Ups** tab: per-class Door Greeting and Lessons. This Week is shown first. Girls claim future open spots in their own class and can release their own claims. Presidency and class advisers assign people, dates, and capacity. Greeting months rotate only after a leader sets the starting month and class. Lesson dates are a separate list.
 
 Reset Demo Data from **Moderator Tools** (as a presidency persona).
 
@@ -77,7 +77,7 @@ GitHub Pages serves only the default branch. To preview now:
 3. Respect Notification Settings: channel follows, alert level (All / Leaders Only / Daily Summary / Off), Quiet Hours (default 9:00 PM–7:00 AM), and parent **Notify Me Too**.
 4. **Fallbacks:** Twilio (or ward SMS relay) for Text Message Backup; transactional email for Email Backup when push is denied or unavailable.
 5. Photos: store encrypted/object-store blobs server-side (not data URLs). Keep client EXIF strip. Moderators keep the All Photos view + Remove.
-6. Sign-Ups and the Leaders channel need the same invite-only auth rules as chat (Leaders never listed for youth).
+6. Sign-Ups and the Leaders channel need the same invite-only auth rules as chat (Leaders never listed for youth). Do not call Sign-Ups live until the checks below have been run against a real backend.
 
 ## How The Presidency Moderates
 
@@ -95,6 +95,68 @@ Recommended practice:
 - Prefer mute for short issues; remove for ongoing harm; always involve parents for serious concerns.
 - Never enable youth-to-youth DMs or public invite links.
 
+## Sign-Ups
+
+Open **Sign-Ups** in the chat (or `#signups`). It is part of the Young Women chat, not a public roster on the ward page.
+
+- **Door Greeting** uses a three-month rotation. Each class greets every third month. The presidency chooses the starting month, the starting class, and the class order. Until that is saved, no greeting class is guessed and no greeting dates are created.
+- **Lessons** use their own dates. A Sunday can have a lesson without a greeting, or a greeting without a lesson.
+- Young women **Sign Up** for a future open spot in their own class and **Release** their own claim. They cannot take another class’s spots, past dates, or a full date.
+- Presidency can assign any class. An adviser can assign only her class. Parents can see a daughter’s class list of names already on the schedule, and cannot claim or assign.
+- Leaders can add dates, change capacity (1–12), cancel a date, and add another assignment type (per class, or on the greeting rotation).
+- Nothing on this tab sends a message, a notification, or a text.
+
+### Paper Sheet Review
+
+The photographed handwritten sheet is a **review queue**, not live data. Handwritten rows stay under **Paper Sheet Review** with the status **Not Applied**.
+
+Exact class-list matches (for example Brooke, Kate, Brinley R., Brynnlee B.) are shown as suggestions only. **Brooklin** does not match one stored spelling; Brooklyn M. and Brooklyn R. are both possible, so that name stays unresolved. The sheet’s class is not verified, even though the exact matches sit in Gatherers of Light. A leader chooses the class and each person, then uses **Apply Confirmed Rows Only**. Unconfirmed names are not written onto spots. The review does nothing until sign-ups are connected.
+
+### Storage And Migration
+
+Sign-ups are **not connected** yet. The tab does not save on the phone. Chat messages still use Demo Mode `localStorage`. That record is not the sign-up list.
+
+The Hub's only live write backend is Google Apps Script plus a private Google Sheet (the announcement intake already deployed from the ward Google account). Firebase and Supabase in `config.js` are still `YOUR_` placeholders. There is no Supabase or Firebase project in this repo. The Supabase connector was not connected in this session, so it was not used to create a project.
+
+| Item | State |
+|---|---|
+| Chosen backend | New private Apps Script web app, same pattern as the announcement intake. Not a separate site. |
+| Code | `apps-script/Code.js`, `Signups.js`, `SignupApi.js`, `appsscript.json`. |
+| Sheet | Created by `setupYwSignups` in the owner's Drive. Must not be published to the web. |
+| Auth | Google ID token checked by the script, then the private ward list. The chat persona menu cannot grant access. |
+| Atomic claims | `LockService` around read/modify/write, plus slot version. |
+| Production sheet | Not created. This agent cannot sign in to the ward Google account. |
+| SQL file | `migrations/001_yw_signups.sql` is **NOT APPLIED** and is not the deployment path. |
+| `signups.scriptUrl` | Set to the deployed `/exec` URL. Spreadsheet id is not in the repo. |
+
+Rules tests (`signups.test.js`) exercise the shared rules with no network. Handler tests (`signup-api.test.js`) exercise the script's request function with a fake token check and an in-memory sheet. Neither is a live Google test.
+
+The existing announcement web app was probed with a honeypot that writes no row. Its redirect response is JSON and allows browser reads. That is why sign-ups can stay inside the Hub page. The new sign-up script has not been deployed, so that probe is not a sign-up test.
+
+### Deploy From The Ward Google Account
+
+The Mac has git only. Use the browser, signed in as the account that already owns the announcement script. Do not paste cookies or tokens into the repo.
+
+1. Open [script.google.com](https://script.google.com) → New project → name it `Bay 6 YW Sign-Ups`.
+2. Add four files and paste: `Code.js`, `Signups.js`, `SignupApi.js`, and `appsscript.json` from `orgs/young-women/chat/apps-script/`.
+3. Select `setupYwSignups` → Run → allow Sheets access. Leave the new spreadsheet private. Do not use Publish to the web.
+4. Open the script's Project Settings → Google Cloud Platform project. In that Cloud project, APIs & Services → Credentials → Create OAuth client ID → Web application. Authorized JavaScript origins: `https://farmingtonbay6th.github.io`. No client secret belongs in this repo.
+5. Apps Script → Project Settings → Script properties → `GOOGLE_CLIENT_ID` = that client id.
+6. Deploy → New deployment → Web app → Execute as Me → Who has access: Anyone → Deploy. Copy the `/exec` URL.
+7. The `/exec` URL and public client id are now in `config.js`. The sheet id is not.
+
+The Sign-Ups tab asks for Google sign-in. Consent is External/Testing, so only listed test users can sign in. After it, the deploying Google account is the only moderator (`Ward Leader`). Add each person by the Google account they will use. Do not import the handwritten sheet. The paper review stays **Not Applied** until a signed-in leader confirms the class and each name. GitHub Pages updates only from `main`, so the config change is not live until that commit is merged.
+
+Run the checks locally:
+
+```bash
+node --check orgs/young-women/chat/signups.js
+node --check orgs/young-women/chat/signup-api.js
+node --check orgs/young-women/chat/chat.js
+node --test orgs/young-women/chat/signups.test.js
+node --test orgs/young-women/chat/signup-api.test.js
+```
+
 ## Files
 
 | File | Purpose |
@@ -103,6 +165,13 @@ Recommended practice:
 | `config.js` | Mode + Firebase/Supabase placeholders (no secrets) |
 | `demo-data.js` | Demo seed users, messages, reports |
 | `chat.js` | Client app + Demo localStorage backend |
+| `signups.js` | Sign-up rules, rotation, review queue, and screen markup |
+| `signup-api.js` | Request checks: token, ward list, claims |
+| `signup-client.js` | Browser caller. No sign-up localStorage |
+| `signup-api.test.js` | Handler tests with a fake token and an in-memory sheet. Not live Google |
+| `signups.test.js` | Rules tests. Not live Google |
+| `apps-script/` | Paste-ready private web app |
+| `migrations/001_yw_signups.sql` | Unused SQL sketch. **Not applied.** |
 | `README.md` | This document |
 
 ## Hub Link

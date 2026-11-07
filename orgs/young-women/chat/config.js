@@ -1,10 +1,11 @@
 /* Young Women Chat · backend config (NO SECRETS)
    Keep this file free of API keys, service-account JSON, and passwords.
-   Wire a real backend by filling the placeholders below and setting mode to
-   "firebase" or "supabase". Until then the app runs in DEMO mode (localStorage).
+   Chat messages stay in Demo Mode until a chat backend exists.
+   Sign-ups use the deployed Google web app in signups.scriptUrl.
+   An empty scriptUrl means Not Connected. Do not point sign-ups at localStorage.
 */
 window.YW_CHAT_CONFIG = {
-  /* "demo" | "firebase" | "supabase" */
+  /* Chat only. "demo" until a chat backend exists. Sign-ups ignore this flag. */
   mode: "demo",
 
   /* Display */
@@ -47,7 +48,10 @@ window.YW_CHAT_CONFIG = {
       messages: "yw_messages",
       members: "yw_members",
       reports: "yw_reports",
-      invites: "yw_invites"
+      invites: "yw_invites",
+      /* Names only. The SQL migration is not applied and mode stays demo. */
+      signupEntries: "yw_signup_entries",
+      signupSlots: "yw_signup_slots"
     }
   },
 
@@ -59,7 +63,9 @@ window.YW_CHAT_CONFIG = {
       messages: "yw_messages",
       members: "yw_members",
       reports: "yw_reports",
-      invites: "yw_invites"
+      invites: "yw_invites",
+      signupEntries: "yw_signup_entries",
+      signupSlots: "yw_signup_slots"
     }
   },
 
@@ -68,5 +74,14 @@ window.YW_CHAT_CONFIG = {
   photoMaxBytes: 5 * 1024 * 1024,
   photoMaxStored: 8,
 
-  demoStorageKey: "bay6-yw-chat-v4"
+  demoStorageKey: "bay6-yw-chat-v4",
+
+  /* Sign-ups. Public web app URL and public OAuth client id only.
+     The spreadsheet id, tokens, and ward emails stay out of this file.
+     The public class list does not authorize anyone. */
+  signups: {
+    provider: "google-apps-script",
+    scriptUrl: "https://script.google.com/macros/s/AKfycbx9tx5QhPB5vXaAXvwTNNalymcP9YCJaxDQbQEsnbCQts-dSQho0jETdl_AuK_w_K93/exec",
+    googleClientId: "646086561329-5mbcrfrdmhmmgdjd2t2jdd3lieo6h3r1.apps.googleusercontent.com"
+  }
 };
