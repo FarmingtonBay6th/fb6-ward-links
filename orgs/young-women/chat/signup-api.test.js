@@ -136,6 +136,27 @@ test("the paper sheet is not applied and youth cannot edit the ward list", funct
   assert.equal(JSON.stringify(db.read().signups).indexOf("Brooke"), -1);
 });
 
+test("a pending young woman cannot claim, and the public class list is not access", function () {
+  var store = seed();
+  store.users.push({ id: "m-wait", email: "wait@example.test", name: "Waiting Youth", role: "youth", kind: "youth", classId: "gatherers", status: "pending" });
+  var db = memory(store);
+  var tokens = Object.assign({}, TOKENS, { wait: "wait@example.test" });
+  var view = call(db, "wait", { op: "view" }, tokens);
+  assert.equal(view.status, 200);
+  assert.equal(view.body.view.allowed, false);
+  assert.equal(JSON.stringify(view.body).indexOf("@"), -1);
+  var leader = call(db, "leader", { op: "view" }, tokens);
+  var lesson = leader.body.view.prominent.groups.find(function (g) { return g.classId === "gatherers" && g.typeId === "lesson"; });
+  var denied = call(db, "wait", { op: "mutate", version: leader.body.view.version, action: {
+    type: "claim", entryId: lesson.entryId, slotId: lesson.slots[0].id, expectedUserId: null, expectedSlotVersion: lesson.slots[0].version
+  } }, tokens);
+  assert.notEqual(denied.status, 200);
+  assert.equal(db.read().signups.entries.some(function (e) { return e.slots.some(function (s) { return s.userId === "m-wait"; }); }), false);
+  var allowed = call(db, "leader", { op: "update-member", memberId: "m-wait", status: "active" }, tokens);
+  assert.equal(allowed.status, 200);
+  assert.equal(db.read().users.find(function (u) { return u.id === "m-wait"; }).status, "active");
+});
+
 test("the not-connected page does not call this phone the sign-up store", function () {
   var html = fs.readFileSync(path.join(__dirname, "signup-client.js"), "utf8");
   assert.ok(html.indexOf("Sign-Ups Are Not Connected") >= 0);
