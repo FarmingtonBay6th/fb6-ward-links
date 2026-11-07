@@ -1,0 +1,27 @@
+# Rules for the Sister Missionary lesson form. No Google call and no deploy.
+name: Sister Lesson Form
+on:
+  pull_request:
+  push:
+    paths:
+      - "missionaries/lesson/**"
+      - "tools/apps-script/MissionaryLessonIntake.gs"
+      - ".github/workflows/sister-lesson.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check syntax and rules
+        run: |
+          node --check missionaries/lesson/lesson.js
+          node --check missionaries/lesson/availability.js
+          tmp="$(mktemp --suffix=.js)"
+          cp tools/apps-script/MissionaryLessonIntake.gs "$tmp"
+          node --check "$tmp"
+          node --test missionaries/lesson/lesson.test.js
