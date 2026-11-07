@@ -510,19 +510,42 @@
 
   function renderChrome() {
     var u = currentUser();
+    var onSignups = state.panel === "signups";
+    var signed = window.YWSignupClient && window.YWSignupClient.signedInActor && window.YWSignupClient.signedInActor();
     var demoBanner = $("demo-banner");
-    if (demoBanner) demoBanner.hidden = !isDemo();
-    var who = $("who-ami");
-    if (who && u) {
-      who.innerHTML = "<strong>" + esc(u.name) + "</strong> · " + esc(roleLabel(u)) +
-        " · <span class=\"pill\">" + esc(titleCaseStatus(u.status)) + "</span>";
+    if (demoBanner) {
+      demoBanner.hidden = !isDemo();
+      if (isDemo()) {
+        demoBanner.innerHTML = onSignups
+          ? "Chat Demo Only <span>· Messages on this device are practice. Sign-Ups are the shared ward board. The demo persona does not change Sign-Ups.</span>"
+          : "Chat Demo Only <span>· Messages stay on this device. Sign-Ups are a separate shared board.</span>";
+      }
     }
+    var label = $("persona-label");
     var sel = $("role-switch");
-    if (sel) {
-      sel.innerHTML = state.data.users.filter(function (x) { return !x.removed; }).map(function (x) {
-        return "<option value=\"" + esc(x.id) + "\"" + (x.id === state.currentUserId ? " selected" : "") + ">" +
-          esc(x.name) + " (" + esc(roleLabel(x)) + ")</option>";
-      }).join("");
+    var who = $("who-ami");
+    if (onSignups) {
+      if (label) label.textContent = "Sign-Ups Account";
+      if (sel) sel.hidden = true;
+      if (who) {
+        who.innerHTML = signed
+          ? "<strong>" + esc(signed.name) + "</strong> · " + esc(signed.role) +
+            " · <span class=\"pill\">Shared Sign-Ups</span>"
+          : "Sign in below. The Chat demo persona is not used here.";
+      }
+    } else {
+      if (label) label.textContent = "Demo Persona";
+      if (sel) {
+        sel.hidden = false;
+        sel.innerHTML = state.data.users.filter(function (x) { return !x.removed; }).map(function (x) {
+          return "<option value=\"" + esc(x.id) + "\"" + (x.id === state.currentUserId ? " selected" : "") + ">" +
+            esc(x.name) + " (" + esc(roleLabel(x)) + ")</option>";
+        }).join("");
+      }
+      if (who && u) {
+        who.innerHTML = "<strong>" + esc(u.name) + "</strong> · " + esc(roleLabel(u)) +
+          " · <span class=\"pill\">Chat Practice</span>";
+      }
     }
     document.querySelectorAll("[data-panel]").forEach(function (btn) {
       btn.classList.toggle("on", btn.getAttribute("data-panel") === state.panel);
@@ -975,6 +998,7 @@
     if (h === "signups" || h === "members" || h === "join") state.panel = h;
     render();
   }
+  window.YWChatChrome = { refresh: function () { renderChrome(); } };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
