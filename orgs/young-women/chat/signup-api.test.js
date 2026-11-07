@@ -233,6 +233,10 @@ test("a moderator link can add another moderator and a separate link", function 
   assert.equal(made.status, 200);
   assert.equal(JSON.stringify(made.body).indexOf(hash), -1);
   assert.equal(JSON.stringify(made.body).indexOf("traci-leader-token"), -1);
+  assert.equal(made.body.privateLink, undefined);
+  made.body.links.forEach(function (link) {
+    assert.deepEqual(Object.keys(link).sort(), ["id", "memberId", "status"]);
+  });
   var youth = call(db, "presley", { op: "add-member", name: "Traci Harward", role: "moderator", status: "active" });
   assert.equal(youth.status, 403);
   var stored = db.read().links.filter(function (link) { return link.memberId === traci[0].id && link.status === "active"; });
