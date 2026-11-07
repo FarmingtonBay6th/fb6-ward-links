@@ -222,6 +222,33 @@ test("anyone can read the sheet and claim a spot without a link or account", fun
   assert.ok(JSON.stringify(after.body).indexOf("Sam") >= 0);
 });
 
+test("a moderator link can add another moderator and a separate link", function () {
+  var db = memory(seed());
+  var added = call(db, "leader", { op: "add-member", name: "Traci Harward", role: "moderator", status: "active" });
+  assert.equal(added.status, 200);
+  var traci = db.read().users.filter(function (user) { return user.name === "Traci Harward" && user.role === "moderator"; });
+  assert.equal(traci.length, 1);
+  var hash = hashToken("traci-leader-token-0123456789abcd");
+  var made = call(db, "leader", { op: "create-link", memberId: traci[0].id, tokenHash: hash });
+  assert.equal(made.status, 200);
+  assert.equal(JSON.stringify(made.body).indexOf(hash), -1);
+  assert.equal(JSON.stringify(made.body).indexOf("traci-leader-token"), -1);
+  var youth = call(db, "presley", { op: "add-member", name: "Traci Harward", role: "moderator", status: "active" });
+  assert.equal(youth.status, 403);
+  var stored = db.read().links.filter(function (link) { return link.memberId === traci[0].id && link.status === "active"; });
+  assert.equal(stored.length, 1);
+  assert.equal(stored[0].tokenHash, hash);
+});
+
+test("the leader form is on the sign-up page and the public sheet stays first for everyone else", function () {
+  var html = fs.readFileSync(path.join(__dirname, "signup-client.js"), "utf8");
+  assert.ok(html.indexOf("Make Private Link") >= 0);
+  assert.ok(html.indexOf("Traci Harward") >= 0);
+  assert.ok(html.indexOf("afterbegin") >= 0);
+  assert.ok(html.indexOf("public-view") >= 0);
+  assert.ok(html.indexOf("afterbegin") < html.lastIndexOf("public-view") || html.indexOf("adminHtml()") > 0);
+});
+
 test("the not-connected page does not call this phone the sign-up store", function () {
   var html = fs.readFileSync(path.join(__dirname, "signup-client.js"), "utf8");
   assert.ok(html.indexOf("Sign-Ups Are Not Connected") >= 0);
