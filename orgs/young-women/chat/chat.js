@@ -2,7 +2,7 @@
    DEMO mode: localStorage mock backend. Live modes: wire via config.js (Firebase / Supabase).
    Safety-first: invite-only, parent approval, youth opt-in, two-deep adults, no youth DMs.
    Features: continuous chat, per-person accents, notifications demo, photos (EXIF stripped),
-   Sign-Ups (Door Greeters + Lessons), private Leaders channel. */
+   Sign-Ups (per-class Door Greeting and Lessons), private Leaders channel. */
 (function () {
   "use strict";
 
@@ -37,50 +37,23 @@
     if (!data.notifPrefs) data.notifPrefs = {};
     if (!data.unread) data.unread = {};
     if (!data.settings) data.settings = clone(SEED.settings || {});
-    if (!data.signups) data.signups = seedSignups();
+    /* Sign-ups are not stored in this chat record. */
     if (!data.presence) data.presence = {};
     if (!data.presence.leaders) data.presence.leaders = ["u-traci", "u-mignon"];
     return data;
-  }
-
-  function nextSundays(count) {
-    var out = [];
-    var d = new Date();
-    var day = d.getDay();
-    var add = day === 0 ? 0 : (7 - day);
-    var first = new Date(d.getFullYear(), d.getMonth(), d.getDate() + add);
-    first.setHours(12, 0, 0, 0);
-    for (var i = 0; i < count; i++) {
-      var x = new Date(first);
-      x.setDate(first.getDate() + i * 7);
-      out.push(x.toISOString().slice(0, 10));
-    }
-    return out;
-  }
-
-  function seedSignups() {
-    var dates = nextSundays(8);
-    return dates.map(function (date, i) {
-      return {
-        date: date,
-        greeters: [
-          { slot: "door1", label: "Door Greeter 1", userId: i === 0 ? "u-presley" : null },
-          { slot: "door2", label: "Door Greeter 2", userId: i === 0 ? "u-lucy" : null }
-        ],
-        lessons: [
-          { classId: "gatherers", teacherId: i === 0 ? "u-presley" : null, topic: i === 0 ? "Standing In Holy Places" : "" },
-          { classId: "messengers", teacherId: i === 0 ? "u-lucy" : null, topic: i === 0 ? "Hope In Christ" : "" },
-          { classId: "builders", teacherId: i === 0 ? "u-builders-pres" : null, topic: i === 0 ? "Faith To Act" : "" }
-        ]
-      };
-    });
   }
 
   function loadDemo() {
     var key = CFG.demoStorageKey || "bay6-yw-chat-v4";
     try {
       var raw = localStorage.getItem(key);
-      if (raw) return ensureShape(JSON.parse(raw));
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        var already = parsed.signups && parsed.signups.schema === 2;
+        parsed = ensureShape(parsed);
+        if (!already) saveDemo(parsed);
+        return parsed;
+      }
     } catch (e) {}
     var fresh = ensureShape({
       users: clone(SEED.users),
@@ -216,12 +189,6 @@
       }
       return d.toLocaleString("en-US", { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
     } catch (e) { return ""; }
-  }
-  function fmtSunday(dateStr) {
-    try {
-      var d = new Date(dateStr + "T12:00:00");
-      return d.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
-    } catch (e) { return dateStr; }
   }
   function sameDay(a, b) {
     try { return new Date(a).toDateString() === new Date(b).toDateString(); } catch (e) { return false; }
@@ -525,65 +492,18 @@
     if (i >= 0) list.splice(i, 1); else list.push(adultId);
     persist(); render();
   }
-  function activeYouth() {
-    return (state.data.users || []).filter(function (x) {
-      return x.kind === "youth" && (x.status === "active" || x.status === "muted") && !x.removed;
-    });
+  function signupOpts() {
+    return { classFilter: state.signupFilter || "", reviewClassId: state.reviewClassId || "" };
   }
-  function claimGreeter(date, slot) {
-    var u = currentUser();
-    var row = (state.data.signups || []).find(function (s) { return s.date === date; });
-    if (!row) return;
-    var g = row.greeters.find(function (x) { return x.slot === slot; });
-    if (!g) return;
-    if (isMod(u) || (u && u.role === "adviser")) {
-      var names = activeYouth();
-      var pick = prompt("Assign Door Greeter (Type A Name Exactly):\n" + names.map(function (n) { return n.name; }).join(", "), g.userId ? (userById(g.userId) || {}).name || "" : "");
-      if (pick === null) return;
-      pick = pick.trim();
-      if (!pick) { g.userId = null; persist(); render(); toast("Slot Cleared."); return; }
-      var match = names.find(function (n) { return n.name.toLowerCase() === pick.toLowerCase(); });
-      if (!match) { toast("Name Must Be On The Ward Young Women List."); return; }
-      g.userId = match.id; persist(); render(); toast("Assigned."); return;
-    }
-    if (!u || u.kind !== "youth" || u.status !== "active") { toast("Active Young Women Can Sign Up."); return; }
-    if (g.userId && g.userId !== u.id) { toast("That Slot Is Taken."); return; }
-    if (g.userId === u.id) { g.userId = null; toast("Removed You From This Slot."); }
-    else { g.userId = u.id; toast("You’re Signed Up. Thank You!"); }
-    persist(); render();
-  }
-  function claimLesson(date, classId) {
-    var u = currentUser();
-    var row = (state.data.signups || []).find(function (s) { return s.date === date; });
-    if (!row) return;
-    var lesson = row.lessons.find(function (x) { return x.classId === classId; });
-    if (!lesson) return;
-    if (isMod(u) || (u && u.role === "adviser")) {
-      var names = activeYouth().filter(function (n) { return !n.classId || n.classId === classId; });
-      var pick = prompt("Assign Lesson Teacher For " + channelById(classId).name + ":\n" + names.map(function (n) { return n.name; }).join(", "), lesson.teacherId ? (userById(lesson.teacherId) || {}).name || "" : "");
-      if (pick === null) return;
-      pick = pick.trim();
-      if (!pick) { lesson.teacherId = null; persist(); render(); toast("Slot Cleared."); return; }
-      var match = names.find(function (n) { return n.name.toLowerCase() === pick.toLowerCase(); });
-      if (!match) { toast("Name Must Be On The Ward Young Women List."); return; }
-      lesson.teacherId = match.id; persist(); render(); toast("Assigned."); return;
-    }
-    if (!u || u.kind !== "youth" || u.status !== "active") { toast("Active Young Women Can Sign Up."); return; }
-    if (u.classId && u.classId !== classId) { toast("Sign Up For Your Own Class Lesson."); return; }
-    if (lesson.teacherId && lesson.teacherId !== u.id) { toast("That Slot Is Taken."); return; }
-    if (lesson.teacherId === u.id) { lesson.teacherId = null; toast("Removed You From This Lesson."); }
-    else { lesson.teacherId = u.id; toast("You’re Teaching. Thank You!"); }
-    persist(); render();
-  }
-  function editLessonTopic(date, classId, topic) {
-    var u = currentUser();
-    if (!isMod(u) && !(u && u.role === "adviser")) { toast("Leaders Edit Lesson Topics."); return; }
-    var row = (state.data.signups || []).find(function (s) { return s.date === date; });
-    if (!row) return;
-    var lesson = row.lessons.find(function (x) { return x.classId === classId; });
-    if (!lesson) return;
-    lesson.topic = (topic || "").trim();
-    persist(); toast("Lesson Topic Saved."); render();
+  function commitSignup(action) {
+    if (!window.YWSignupClient || !window.YWSignupClient.configured()) { toast("Sign-Ups Are Not Connected."); return; }
+    if (!action) { toast("Sign-Ups Are Not Ready."); return; }
+    if (action.invalid) { toast(action.message || "Check That Row And Try Again."); return; }
+    window.YWSignupClient.submit(action, signupOpts()).then(function (result) {
+      toast((result && result.message) || (result && result.ok ? "Saved." : "Could Not Save."));
+      var wrap = $("main-panel");
+      if (wrap && state.panel === "signups") window.YWSignupClient.paint(wrap, signupOpts());
+    }).catch(function () { toast("Sign-Ups Could Not Reach The Ward Script."); });
   }
 
   function render() { renderChrome(); renderChannels(); renderMain(); renderComposer(); }
@@ -793,59 +713,8 @@
   }
 
   function renderSignups() {
-    var wrap = $("main-panel"); if (!wrap) return;
-    var u = currentUser();
-    var rows = state.data.signups || seedSignups();
-    state.data.signups = rows;
-    var html = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Door Greeters And Class Lessons · Ward List Only</p></div>";
-    rows.forEach(function (row, idx) {
-      var isThis = idx === 0;
-      html += "<div class=\"signup-week" + (isThis ? " this" : "") + "\">";
-      html += "<h3>" + (isThis ? "This Week" : "Upcoming") + "</h3>";
-      html += "<p class=\"when\">" + esc(fmtSunday(row.date)) + "</p>";
-      html += "<div class=\"signup-section\">Door Greeters</div><div class=\"signup-grid\">";
-      row.greeters.forEach(function (g) {
-        var who = g.userId ? userById(g.userId) : null;
-        var mine = who && u && who.id === u.id;
-        var open = !who;
-        var leader = isMod(u) || (u && u.role === "adviser");
-        html += "<div class=\"signup-slot" + (open ? " open" : "") + "\"><div class=\"label\">" + esc(g.label) +
-          "<span>" + (open ? "Open Slot" : "Filled") + "</span></div>" +
-          "<div class=\"who\">" + (who ? esc(who.name) : "Open") + "</div>";
-        if (u && ((u.kind === "youth" && u.status === "active") || leader)) {
-          var label = leader ? (who ? "Assign / Clear" : "Assign") : (mine ? "Remove Me" : (open ? "Sign Up" : "Taken"));
-          var disabled = !leader && !open && !mine;
-          html += "<button type=\"button\" class=\"btn mini" + (mine ? " alt" : "") + "\" data-greeter=\"" + esc(row.date) + ":" + esc(g.slot) + "\"" +
-            (disabled ? " disabled" : "") + ">" + label + "</button>";
-        }
-        html += "</div>";
-      });
-      html += "</div>";
-      html += "<div class=\"signup-section\">Lessons</div><div class=\"signup-grid\">";
-      row.lessons.forEach(function (lesson) {
-        var teacher = lesson.teacherId ? userById(lesson.teacherId) : null;
-        var mine = teacher && u && teacher.id === u.id;
-        var open = !teacher;
-        var leader = isMod(u) || (u && u.role === "adviser");
-        var cname = channelById(lesson.classId).name;
-        html += "<div class=\"signup-slot" + (open ? " open" : "") + "\"><div class=\"label\">" + esc(cname) +
-          "<span>" + (lesson.topic ? esc(lesson.topic) : "Topic TBD") + "</span></div>" +
-          "<div class=\"who\">" + (teacher ? esc(teacher.name) : "Open") + "</div>";
-        if (u && ((u.kind === "youth" && u.status === "active") || leader)) {
-          var canYouth = !u.kind || u.kind !== "youth" || !u.classId || u.classId === lesson.classId;
-          var label2 = leader ? (teacher ? "Assign / Clear" : "Assign") : (mine ? "Remove Me" : (open ? "Sign Up" : "Taken"));
-          var disabled2 = !leader && ((!open && !mine) || !canYouth);
-          html += "<button type=\"button\" class=\"btn mini" + (mine ? " alt" : "") + "\" data-lesson=\"" + esc(row.date) + ":" + esc(lesson.classId) + "\"" +
-            (disabled2 ? " disabled" : "") + ">" + label2 + "</button>";
-        }
-        if (leader) {
-          html += "<input class=\"topic-edit\" data-topic=\"" + esc(row.date) + ":" + esc(lesson.classId) + "\" value=\"" + esc(lesson.topic || "") + "\" placeholder=\"Lesson Topic\">";
-        }
-        html += "</div>";
-      });
-      html += "</div></div>";
-    });
-    wrap.innerHTML = html;
+    var wrap = $("main-panel"); if (!wrap || !window.YWSignupClient) return;
+    window.YWSignupClient.paint(wrap, signupOpts());
   }
 
   function renderMembers() {
@@ -1015,7 +884,7 @@
       if (!was) row.classList.add("show-acts");
       return;
     }
-    var t = e.target.closest("[data-channel],[data-panel],[data-report],[data-remove],[data-status],[data-approve-child],[data-invite],[data-resolve],[data-presence],[data-greeter],[data-lesson],#btn-opt-in,#btn-reset-demo,#msg-send,#btn-notif-settings,#btn-try-alert,#btn-photo,#lightbox-close,#lightbox");
+    var t = e.target.closest("[data-channel],[data-panel],[data-report],[data-remove],[data-status],[data-approve-child],[data-invite],[data-resolve],[data-presence],[data-su-action],[data-su-filter],[data-su-member],#btn-opt-in,#btn-reset-demo,#msg-send,#btn-notif-settings,#btn-try-alert,#btn-photo,#lightbox-close,#lightbox");
     if (!t) return;
     if (t.id === "lightbox" || t.id === "lightbox-close") { closeLightbox(); return; }
     if (t.id === "btn-notif-settings") { setPanel(state.panel === "notif" ? "chat" : "notif"); return; }
@@ -1050,13 +919,14 @@
       resolveReport(rp[0], rp[1]); return;
     }
     if (t.hasAttribute("data-presence")) { toggleAdultPresence(t.getAttribute("data-presence")); return; }
-    if (t.hasAttribute("data-greeter")) {
-      var gp = t.getAttribute("data-greeter").split(":");
-      claimGreeter(gp[0], gp[1]); return;
+    if (t.hasAttribute("data-su-filter")) { state.signupFilter = t.getAttribute("data-su-filter") || ""; render(); return; }
+    if (t.hasAttribute("data-su-member") && window.YWSignupClient) {
+      commitSignup(window.YWSignupClient.readMemberStatus(t)); return;
     }
-    if (t.hasAttribute("data-lesson")) {
-      var lp = t.getAttribute("data-lesson").split(":");
-      claimLesson(lp[0], lp[1]); return;
+    if (t.hasAttribute("data-su-action") && window.YWSignups) {
+      var action = window.YWSignups.actionFromControl(t, document);
+      if (action && action.type === "add-member" && window.YWSignupClient) action = window.YWSignupClient.readAddMember();
+      commitSignup(action); return;
     }
   }
 
@@ -1068,9 +938,9 @@
       if (t.hasAttribute("data-alert-level")) render();
       return;
     }
-    if (t && t.hasAttribute("data-topic")) {
-      var tp = t.getAttribute("data-topic").split(":");
-      editLessonTopic(tp[0], tp[1], t.value); return;
+    if (t && t.id === "su-review-class") { state.reviewClassId = t.value || ""; render(); return; }
+    if (t && (t.hasAttribute("data-su-assign") || t.hasAttribute("data-su-topic")) && window.YWSignups) {
+      commitSignup(window.YWSignups.actionFromControl(t, document)); return;
     }
     if (t && t.id === "photo-input" && t.files && t.files[0]) {
       var file = t.files[0]; t.value = "";
@@ -1099,7 +969,12 @@
     if (sel) sel.addEventListener("change", function () { switchUser(sel.value); });
   }
 
-  function boot() { initData(); bind(); render(); }
+  function boot() {
+    initData(); bind();
+    var h = (location.hash || "").replace(/^#/, "");
+    if (h === "signups" || h === "members" || h === "join") state.panel = h;
+    render();
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
