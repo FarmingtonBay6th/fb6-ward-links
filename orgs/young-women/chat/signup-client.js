@@ -2,10 +2,11 @@
    Does not keep the sign-up board on the phone. */
 (function () {
   "use strict";
-  var TOKEN_KEY = "fb6-yw-signups-token";
-  var clientId = "";
+  var TOKEN_KEY = "fb6-yw-signups-link";
   var viewState = null;
   var members = null;
+  var linkRows = null;
+  var shownLink = "";
 
   function cfg() {
     return (window.YW_CHAT_CONFIG && window.YW_CHAT_CONFIG.signups) || {};
@@ -31,42 +32,24 @@
       "<div class=\"callout\"><b>A Ward Leader Still Needs To Deploy The Private Google Script</b>" +
       "<p>Nothing is saved on this phone. Chat messages are separate and are not used as the sign-up list.</p></div>";
   }
-  function signInHtml() {
-    return "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Sign In With The Google Account A Leader Added.</p></div>" +
-      "<div id=\"su-google-signin\"></div>" +
-      "<p class=\"signup-note\">The public class list does not grant Sign-Ups. A leader adds your Google account first. This phone does not keep the sign-up board.</p>";
+  function askHtml() {
+    return "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Open The Private Link A Leader Gave You.</p></div>" +
+      "<div class=\"callout\"><b>A Private Link Is The Access</b>" +
+      "<p>Anyone holding the link can use what it allows. It does not prove who is holding it. Keep it private. A leader can turn it off. There is no account to create.</p></div>" +
+      "<label class=\"field\">Paste A Private Link <input id=\"su-paste-link\" autocomplete=\"off\" spellcheck=\"false\"></label>" +
+      "<button type=\"button\" class=\"btn mini\" data-su-action=\"use-link\">Use Private Link</button>";
   }
-  function loadGis() {
-    return new Promise(function (resolve, reject) {
-      if (window.google && window.google.accounts && window.google.accounts.id) { resolve(); return; }
-      var existing = document.getElementById("gsi-client");
-      if (existing) { existing.addEventListener("load", function () { resolve(); }); existing.addEventListener("error", reject); return; }
-      var s = document.createElement("script");
-      s.id = "gsi-client";
-      s.src = "https://accounts.google.com/gsi/client";
-      s.async = true;
-      s.onload = function () { resolve(); };
-      s.onerror = function () { reject(new Error("Google Sign-In Did Not Load.")); };
-      document.head.appendChild(s);
-    });
+  function captureLink() {
+    var hash = "";
+    try { hash = location.hash || ""; } catch (e) {}
+    var match = String(hash).match(/su=([A-Za-z0-9_-]{20,})/);
+    if (!match) return;
+    setToken(match[1]);
+    try { history.replaceState(null, "", location.pathname + location.search + "#signups"); } catch (e2) {}
   }
-  function renderButton() {
-    var el = document.getElementById("su-google-signin");
-    if (!el || !clientId || !window.google || !window.google.accounts) return;
-    window.google.accounts.id.initialize({
-      client_id: clientId,
-      callback: function (resp) {
-        if (resp && resp.credential) {
-          setToken(resp.credential);
-          var wrap = document.getElementById("main-panel");
-          if (wrap) paint(wrap, paint.opts || {});
-        }
-      }
-    });
-    window.google.accounts.id.renderButton(el, { theme: "outline", size: "large", text: "signin_with", shape: "rectangular", width: 280 });
-  }
+  captureLink();
   function request(op, extra) {
-    var payload = { op: op, idToken: token() };
+    var payload = { op: op, linkToken: token() };
     if (extra) Object.keys(extra).forEach(function (key) { payload[key] = extra[key]; });
     return fetch(scriptUrl(), {
       method: "POST",
@@ -75,38 +58,36 @@
       body: JSON.stringify(payload)
     }).then(function (res) { return res.json(); });
   }
-  function expectedClientId() { return cfg().googleClientId || ""; }
-  function loadClientId() {
-    if (clientId) return Promise.resolve(clientId);
+  function loadReady() {
     return fetch(scriptUrl(), { method: "GET", redirect: "follow" }).then(function (res) { return res.json(); }).then(function (body) {
-      var got = (body && body.clientId) || "";
-      var want = expectedClientId();
-      if (!got || (want && got !== want) || body.service !== "yw-signups" || !body.ok) {
-        var err = new Error("client");
-        err.code = "client";
+      if (!body || !body.ok || body.service !== "yw-signups" || body.auth !== "link") {
+        var err = new Error("version");
+        err.code = "version";
         throw err;
       }
-      clientId = got;
-      return clientId;
     });
   }
   function adminHtml() {
     if (!members) return "";
-    var html = "<section class=\"signup-week\"><h3>Ward List</h3><p class=\"signup-note\">Google Account Emails Stay With The Presidency. They Are Not Shown To The Young Women.</p><ul class=\"people\">";
+    var html = "<section class=\"signup-week\"><h3>Ward List</h3><p class=\"signup-note\">Names And Roles Only. Private Links Are Not Listed Here.</p><ul class=\"people\">";
     members.forEach(function (m) {
       var held = m.status === "pending";
       html += "<li><div class=\"who\"><b>" + escapeHtml(m.name) + "</b><span>" + escapeHtml(m.role) +
         (m.classId ? " · " + escapeHtml(m.classId) : "") + " · " + escapeHtml(m.status || "active") +
-        " · " + escapeHtml(m.email) + "</span></div>";
+        "</span></div>";
       if (m.role === "youth") {
         html += "<button type=\"button\" class=\"btn mini" + (held ? "" : " alt") + "\" data-su-member=\"" + escapeHtml(m.id) +
           "\" data-su-status=\"" + (held ? "active" : "pending") + "\">" + (held ? "Allow Sign-Ups" : "Hold Sign-Ups") + "</button>";
       }
-      html += "</li>";
+      html += "<button type=\"button\" class=\"btn mini alt\" data-su-action=\"create-link\" data-member=\"" + escapeHtml(m.id) + "\">Make Private Link</button></li>";
     });
-    html += "</ul><p class=\"signup-note\">Add the Google account they will use. Pending can sign in but cannot claim a spot until you allow it. The public class list is not access.</p>" +
+    html += "</ul>";
+    (linkRows || []).forEach(function (link) {
+      if (link.status !== "active") return;
+      html += "<p><button type=\"button\" class=\"btn mini alt\" data-su-action=\"revoke-link\" data-link=\"" + escapeHtml(link.id) + "\">Turn Off Link</button></p>";
+    });
+    html += "<p class=\"signup-note\">Add a person by the name to show. A private link is the only access. Pending cannot claim a spot until you allow it. No account is created.</p>" +
       "<label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\"></label>" +
-      "<label class=\"field\">Google Account Email <input id=\"su-member-email\" type=\"email\" autocomplete=\"off\"></label>" +
       "<label class=\"field\">Role <select id=\"su-member-role\"><option value=\"youth\">Young Woman</option><option value=\"adviser\">Adviser</option><option value=\"moderator\">Moderator</option><option value=\"parent\">Parent / Guardian</option></select></label>" +
       "<label class=\"field\">Class <select id=\"su-member-class\"><option value=\"\">None</option>" +
       "<option value=\"gatherers\">Gatherers of Light</option><option value=\"messengers\">Messengers of Hope</option><option value=\"builders\">Builders of Faith</option></select></label>" +
@@ -122,45 +103,45 @@
   function paint(wrap, opts) {
     paint.opts = opts || {};
     if (!configured()) { wrap.innerHTML = notConnectedHtml(); return Promise.resolve(); }
-    return loadClientId().then(function () {
-      if (!clientId) {
-        wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>The Google Script Is Deployed, And It Still Needs Its Web Client ID.</p></div>";
-        return;
-      }
+    return loadReady().then(function () {
       if (!token()) {
-        wrap.innerHTML = signInHtml();
-        return loadGis().then(renderButton);
+        wrap.innerHTML = askHtml();
+        return;
       }
       return request("view", { classFilter: opts.classFilter || "", reviewClassId: opts.reviewClassId || "" }).then(function (body) {
         if (!body || !body.ok) {
           if (body && body.error === "unauthorized") setToken("");
           var extra = body && body.error === "not-member"
-            ? "<p class=\"signup-note\">The public class list does not grant Sign-Ups. A leader adds this Google account in Ward List.</p>" : "";
+            ? "<p class=\"signup-note\">The public class list does not grant Sign-Ups. A leader must give you a private link.</p>" : "";
           wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>" + escapeHtml(body && body.message ? body.message : "Sign-Ups Could Not Be Loaded.") + "</p>" + extra + "</div>" +
-            "<button type=\"button\" class=\"btn mini\" id=\"su-sign-out\">Sign In Again</button>";
+            "<button type=\"button\" class=\"btn mini\" id=\"su-sign-out\">Use A Different Private Link</button>";
           return;
         }
         viewState = body.view;
         members = body.members || null;
+        linkRows = body.links || null;
+        if (body.privateLink) shownLink = body.privateLink;
         if (window.YWChatChrome) window.YWChatChrome.refresh();
-        wrap.innerHTML = identityHtml() + window.YWSignups.renderHtml(body.view) + adminHtml() +
+        var once = shownLink ? "<div class=\"callout\"><b>Copy This Private Link Now</b><p>It will not be shown again. Anyone who has it can use that access. It does not prove who they are.</p><input class=\"field\" readonly value=\"" + escapeHtml(shownLink) + "\"></div>" : "";
+        wrap.innerHTML = once + identityHtml() + window.YWSignups.renderHtml(body.view) + adminHtml() +
           "<p><button type=\"button\" class=\"btn mini alt\" id=\"su-sign-out\">Sign Out</button></p>";
       });
     }).catch(function (err) {
-      var mismatch = err && err.code === "client";
+      var oldScript = err && err.code === "version";
       wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>" +
-        (mismatch ? "Sign-Ups Stopped Because The Script Identity Did Not Match This Page." : "Sign-Ups Could Not Reach The Ward Script.") +
+        (oldScript ? "Sign-Ups Need The Private-Link Script Update Before This Page Can Open Them." : "Sign-Ups Could Not Reach The Ward Script.") +
         "</p></div>";
     });
   }
   function submit(action, opts) {
     opts = opts || {};
-    if (action && (action.op === "add-member" || action.op === "update-member")) {
+    if (action && action.op === "local-link") return Promise.resolve({ ok: true, message: "Private Link Saved On This Phone For This Visit." });
+    if (action && (action.op === "add-member" || action.op === "update-member" || action.op === "create-link" || action.op === "revoke-link")) {
       var fields = {
         classFilter: opts.classFilter || "",
         reviewClassId: opts.reviewClassId || ""
       };
-      ["name", "email", "role", "classId", "status", "memberId"].forEach(function (key) {
+      ["name", "role", "classId", "status", "memberId", "linkId"].forEach(function (key) {
         if (action[key]) fields[key] = action[key];
       });
       return request(action.op, fields);
@@ -181,6 +162,14 @@
       classId: (document.getElementById("su-member-class") || {}).value || "",
       status: (document.getElementById("su-member-status") || {}).value || "pending"
     };
+  }
+  function readUseLink() {
+    var raw = (document.getElementById("su-paste-link") || {}).value || "";
+    var match = String(raw).match(/su=([A-Za-z0-9_-]{20,})/);
+    var token = match ? match[1] : String(raw).replace(/\s/g, "");
+    if (token.length < 20) return { invalid: true, message: "That Private Link Does Not Look Complete." };
+    setToken(token);
+    return { op: "local-link" };
   }
   function readMemberStatus(el) {
     return {
@@ -217,6 +206,7 @@
     paint: paint,
     submit: submit,
     readAddMember: readAddMember,
+    readUseLink: readUseLink,
     readMemberStatus: readMemberStatus,
     signedInActor: signedInActor,
     token: token
