@@ -884,7 +884,7 @@
       if (!was) row.classList.add("show-acts");
       return;
     }
-    var t = e.target.closest("[data-channel],[data-panel],[data-report],[data-remove],[data-status],[data-approve-child],[data-invite],[data-resolve],[data-presence],[data-su-action],[data-su-filter],#btn-opt-in,#btn-reset-demo,#msg-send,#btn-notif-settings,#btn-try-alert,#btn-photo,#lightbox-close,#lightbox");
+    var t = e.target.closest("[data-channel],[data-panel],[data-report],[data-remove],[data-status],[data-approve-child],[data-invite],[data-resolve],[data-presence],[data-su-action],[data-su-filter],[data-su-member],#btn-opt-in,#btn-reset-demo,#msg-send,#btn-notif-settings,#btn-try-alert,#btn-photo,#lightbox-close,#lightbox");
     if (!t) return;
     if (t.id === "lightbox" || t.id === "lightbox-close") { closeLightbox(); return; }
     if (t.id === "btn-notif-settings") { setPanel(state.panel === "notif" ? "chat" : "notif"); return; }
@@ -920,6 +920,9 @@
     }
     if (t.hasAttribute("data-presence")) { toggleAdultPresence(t.getAttribute("data-presence")); return; }
     if (t.hasAttribute("data-su-filter")) { state.signupFilter = t.getAttribute("data-su-filter") || ""; render(); return; }
+    if (t.hasAttribute("data-su-member") && window.YWSignupClient) {
+      commitSignup(window.YWSignupClient.readMemberStatus(t)); return;
+    }
     if (t.hasAttribute("data-su-action") && window.YWSignups) {
       var action = window.YWSignups.actionFromControl(t, document);
       if (action && action.type === "add-member" && window.YWSignupClient) action = window.YWSignupClient.readAddMember();

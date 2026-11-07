@@ -32,9 +32,9 @@
       "<p>Nothing is saved on this phone. Chat messages are separate and are not used as the sign-up list.</p></div>";
   }
   function signInHtml() {
-    return "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Sign In With The Google Account A Leader Added To The Ward List.</p></div>" +
+    return "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Sign In With The Google Account A Leader Added.</p></div>" +
       "<div id=\"su-google-signin\"></div>" +
-      "<p class=\"signup-note\">Names stay in the private ward list. This phone does not keep the sign-up board.</p>";
+      "<p class=\"signup-note\">The public class list does not grant Sign-Ups. A leader adds your Google account first. This phone does not keep the sign-up board.</p>";
   }
   function loadGis() {
     return new Promise(function (resolve, reject) {
@@ -75,10 +75,18 @@
       body: JSON.stringify(payload)
     }).then(function (res) { return res.json(); });
   }
+  function expectedClientId() { return cfg().googleClientId || ""; }
   function loadClientId() {
     if (clientId) return Promise.resolve(clientId);
     return fetch(scriptUrl(), { method: "GET", redirect: "follow" }).then(function (res) { return res.json(); }).then(function (body) {
-      clientId = (body && body.clientId) || "";
+      var got = (body && body.clientId) || "";
+      var want = expectedClientId();
+      if (!got || (want && got !== want) || body.service !== "yw-signups" || !body.ok) {
+        var err = new Error("client");
+        err.code = "client";
+        throw err;
+      }
+      clientId = got;
       return clientId;
     });
   }
@@ -86,13 +94,23 @@
     if (!members) return "";
     var html = "<section class=\"signup-week\"><h3>Ward List</h3><p class=\"signup-note\">Google Account Emails Stay With The Presidency. They Are Not Shown To The Young Women.</p><ul class=\"people\">";
     members.forEach(function (m) {
-      html += "<li><div class=\"who\"><b>" + escapeHtml(m.name) + "</b><span>" + escapeHtml(m.role) + (m.classId ? " · " + escapeHtml(m.classId) : "") + " · " + escapeHtml(m.email) + "</span></div></li>";
+      var held = m.status === "pending";
+      html += "<li><div class=\"who\"><b>" + escapeHtml(m.name) + "</b><span>" + escapeHtml(m.role) +
+        (m.classId ? " · " + escapeHtml(m.classId) : "") + " · " + escapeHtml(m.status || "active") +
+        " · " + escapeHtml(m.email) + "</span></div>";
+      if (m.role === "youth") {
+        html += "<button type=\"button\" class=\"btn mini" + (held ? "" : " alt") + "\" data-su-member=\"" + escapeHtml(m.id) +
+          "\" data-su-status=\"" + (held ? "active" : "pending") + "\">" + (held ? "Allow Sign-Ups" : "Hold Sign-Ups") + "</button>";
+      }
+      html += "</li>";
     });
-    html += "</ul><label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\"></label>" +
+    html += "</ul><p class=\"signup-note\">Add the Google account they will use. Pending can sign in but cannot claim a spot until you allow it. The public class list is not access.</p>" +
+      "<label class=\"field\">Name To Show <input id=\"su-member-name\" maxlength=\"80\"></label>" +
       "<label class=\"field\">Google Account Email <input id=\"su-member-email\" type=\"email\" autocomplete=\"off\"></label>" +
       "<label class=\"field\">Role <select id=\"su-member-role\"><option value=\"youth\">Young Woman</option><option value=\"adviser\">Adviser</option><option value=\"moderator\">Moderator</option><option value=\"parent\">Parent / Guardian</option></select></label>" +
       "<label class=\"field\">Class <select id=\"su-member-class\"><option value=\"\">None</option>" +
       "<option value=\"gatherers\">Gatherers of Light</option><option value=\"messengers\">Messengers of Hope</option><option value=\"builders\">Builders of Faith</option></select></label>" +
+      "<label class=\"field\">Sign-Up Access <select id=\"su-member-status\"><option value=\"pending\">Pending Until A Leader Allows</option><option value=\"active\">Active</option></select></label>" +
       "<button type=\"button\" class=\"btn mini\" data-su-action=\"add-member\">Add To Ward List</button></section>";
     return html;
   }
@@ -116,8 +134,10 @@
       return request("view", { classFilter: opts.classFilter || "", reviewClassId: opts.reviewClassId || "" }).then(function (body) {
         if (!body || !body.ok) {
           if (body && body.error === "unauthorized") setToken("");
-          wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>" + escapeHtml(body && body.message ? body.message : "Sign-Ups Could Not Be Loaded.") + "</p></div>" +
-            (body && body.error === "unauthorized" ? "<button type=\"button\" class=\"btn mini\" id=\"su-sign-out\">Sign In Again</button>" : "");
+          var extra = body && body.error === "not-member"
+            ? "<p class=\"signup-note\">The public class list does not grant Sign-Ups. A leader adds this Google account in Ward List.</p>" : "";
+          wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>" + escapeHtml(body && body.message ? body.message : "Sign-Ups Could Not Be Loaded.") + "</p>" + extra + "</div>" +
+            "<button type=\"button\" class=\"btn mini\" id=\"su-sign-out\">Sign In Again</button>";
           return;
         }
         viewState = body.view;
@@ -125,17 +145,24 @@
         wrap.innerHTML = window.YWSignups.renderHtml(body.view) + adminHtml() +
           "<p><button type=\"button\" class=\"btn mini alt\" id=\"su-sign-out\">Sign Out</button></p>";
       });
-    }).catch(function () {
-      wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>Sign-Ups Could Not Reach The Ward Script.</p></div>";
+    }).catch(function (err) {
+      var mismatch = err && err.code === "client";
+      wrap.innerHTML = "<div class=\"panel-head\"><h2>Sign-Ups</h2><p>" +
+        (mismatch ? "Sign-Ups Stopped Because The Script Identity Did Not Match This Page." : "Sign-Ups Could Not Reach The Ward Script.") +
+        "</p></div>";
     });
   }
   function submit(action, opts) {
     opts = opts || {};
-    if (action && action.op === "add-member") {
-      return request("add-member", {
-        name: action.name, email: action.email, role: action.role, classId: action.classId,
-        classFilter: opts.classFilter || "", reviewClassId: opts.reviewClassId || ""
+    if (action && (action.op === "add-member" || action.op === "update-member")) {
+      var fields = {
+        classFilter: opts.classFilter || "",
+        reviewClassId: opts.reviewClassId || ""
+      };
+      ["name", "email", "role", "classId", "status", "memberId"].forEach(function (key) {
+        if (action[key]) fields[key] = action[key];
       });
+      return request(action.op, fields);
     }
     return request("mutate", {
       action: action,
@@ -150,7 +177,15 @@
       name: (document.getElementById("su-member-name") || {}).value || "",
       email: (document.getElementById("su-member-email") || {}).value || "",
       role: (document.getElementById("su-member-role") || {}).value || "",
-      classId: (document.getElementById("su-member-class") || {}).value || ""
+      classId: (document.getElementById("su-member-class") || {}).value || "",
+      status: (document.getElementById("su-member-status") || {}).value || "pending"
+    };
+  }
+  function readMemberStatus(el) {
+    return {
+      op: "update-member",
+      memberId: el.getAttribute("data-su-member"),
+      status: el.getAttribute("data-su-status")
     };
   }
   document.addEventListener("click", function (e) {
@@ -169,6 +204,7 @@
     paint: paint,
     submit: submit,
     readAddMember: readAddMember,
+    readMemberStatus: readMemberStatus,
     token: token
   };
 })();

@@ -1,7 +1,7 @@
 /* Young Women Chat · backend config (NO SECRETS)
    Keep this file free of API keys, service-account JSON, and passwords.
    Chat messages stay in Demo Mode until a chat backend exists.
-   Sign-ups do not. They use signups.scriptUrl (a private Google Apps Script).
+   Sign-ups use the deployed Google web app in signups.scriptUrl.
    An empty scriptUrl means Not Connected. Do not point sign-ups at localStorage.
 */
 window.YW_CHAT_CONFIG = {
@@ -76,12 +76,12 @@ window.YW_CHAT_CONFIG = {
 
   demoStorageKey: "bay6-yw-chat-v4",
 
-  /* Sign-ups. Provider is the Hub's existing Google Apps Script pattern.
-     scriptUrl stays empty until the private web app is deployed.
-     The Google client id is read from that script. It is not a secret.
-     Never put a sheet id, token, or private key here. */
+  /* Sign-ups. Public web app URL and public OAuth client id only.
+     The spreadsheet id, tokens, and ward emails stay out of this file.
+     The public class list does not authorize anyone. */
   signups: {
     provider: "google-apps-script",
-    scriptUrl: ""
+    scriptUrl: "https://script.google.com/macros/s/AKfycbx9tx5QhPB5vXaAXvwTNNalymcP9YCJaxDQbQEsnbCQts-dSQho0jETdl_AuK_w_K93/exec",
+    googleClientId: "646086561329-5mbcrfrdmhmmgdjd2t2jdd3lieo6h3r1.apps.googleusercontent.com"
   }
 };

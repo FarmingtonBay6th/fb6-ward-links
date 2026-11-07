@@ -127,7 +127,7 @@ The Hub's only live write backend is Google Apps Script plus a private Google Sh
 | Atomic claims | `LockService` around read/modify/write, plus slot version. |
 | Production sheet | Not created. This agent cannot sign in to the ward Google account. |
 | SQL file | `migrations/001_yw_signups.sql` is **NOT APPLIED** and is not the deployment path. |
-| `signups.scriptUrl` | Empty on purpose. |
+| `signups.scriptUrl` | Set to the deployed `/exec` URL. Spreadsheet id is not in the repo. |
 
 Rules tests (`signups.test.js`) exercise the shared rules with no network. Handler tests (`signup-api.test.js`) exercise the script's request function with a fake token check and an in-memory sheet. Neither is a live Google test.
 
@@ -143,9 +143,9 @@ The Mac has git only. Use the browser, signed in as the account that already own
 4. Open the script's Project Settings → Google Cloud Platform project. In that Cloud project, APIs & Services → Credentials → Create OAuth client ID → Web application. Authorized JavaScript origins: `https://farmingtonbay6th.github.io`. No client secret belongs in this repo.
 5. Apps Script → Project Settings → Script properties → `GOOGLE_CLIENT_ID` = that client id.
 6. Deploy → New deployment → Web app → Execute as Me → Who has access: Anyone → Deploy. Copy the `/exec` URL.
-7. Put that URL in `config.js` as `signups.scriptUrl` and merge. The page reads the client id from the script. It is public; the sheet and tokens are not.
+7. The `/exec` URL and public client id are now in `config.js`. The sheet id is not.
 
-Until step 7, the Sign-Ups tab says **Sign-Ups Are Not Connected**. After it, the deploying Google account is the only moderator (`Ward Leader`). Add each person by the Google account they will use. Do not import the handwritten sheet. The paper review stays **Not Applied** until a signed-in leader confirms the class and each name. GitHub Pages updates only from `main`, so the config change is not live until that commit is merged.
+The Sign-Ups tab asks for Google sign-in. Consent is External/Testing, so only listed test users can sign in. After it, the deploying Google account is the only moderator (`Ward Leader`). Add each person by the Google account they will use. Do not import the handwritten sheet. The paper review stays **Not Applied** until a signed-in leader confirms the class and each name. GitHub Pages updates only from `main`, so the config change is not live until that commit is merged.
 
 Run the checks locally:
 
