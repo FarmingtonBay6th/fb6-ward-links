@@ -34,7 +34,14 @@
   .acts { display:flex; flex-wrap:wrap; gap:6px; } .acts .btn { margin:0; padding:7px 11px; font-size:13.5px; border-radius:10px; } .btn.alt { background:#e3eef4; color:var(--navy); }
   .empty, .more { color:var(--soft); font-size:14px; margin:8px 0 0; } .empty a, .more a { color:var(--accent); }
   footer { text-align:center; color:var(--soft); font-size:11.5px; padding:8px 20px 36px; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } }
+  .draft-entry { padding:0; overflow:hidden; border:2px solid var(--navy); border-top:6px solid var(--gold); }
+  .draft-hit { display:block; padding:16px; text-decoration:none; color:inherit; }
+  .draft-hit:focus-visible { outline:3px solid var(--navy); outline-offset:3px; }
+  .draft-hit:active { background:#f3f8fb; }
+  .draft-flag { display:block; margin:0 0 10px; padding:10px 12px; border-radius:12px; background:#005175; color:#fff; font:700 15px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align:center; }
+  .draft-entry h2 { display:block; }
+  .draft-entry .btn { display:block; text-align:center; margin:12px 0 0; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } .draft-flag { background:#003a55; color:#fff; border:1px solid #c9a24a; } .draft-hit:active { background:#322922; } }
   .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
   .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}
@@ -51,6 +58,14 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
   <p>“He shall turn the heart of the fathers to the children.”<cite>Malachi 4:6</cite></p>
 </header>
 <main>
+  <section class="draft-entry" id="draft-2027-plan">
+    <a class="draft-hit" href="2027-plan/">
+      <p class="draft-flag">DRAFT — For Ward Council Review</p>
+      <h2>Proposed 2027 Temple and Family History Plan</h2>
+      <p class="note"><b>Turning Hearts to Our Fathers.</b> Twelve monthly actions from Michael Burton’s proposal, edited as a draft for discussion. Not an approved ward plan. Goals and dates await the Bishop and Ward Council.</p>
+      <span class="btn">Review the Draft Plan</span>
+    </a>
+  </section>
   <section class="pc"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Leader contact card"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="24" y="36" width="72" height="50" rx="8" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><circle cx="46" cy="56" r="8" fill="#005175"/><path d="M34 76c2-8 7-11 12-11s10 3 12 11" fill="#005175"/><path d="M64 52h22M64 62h18M64 72h14" stroke="#005175" stroke-width="3" stroke-linecap="round"/></svg>Leaders &amp; Contact</h2>
     <p class="note">Tap <b>Text</b> to send a message.</p>
     <ul>
