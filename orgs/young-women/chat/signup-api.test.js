@@ -243,7 +243,8 @@ test("a moderator link can add another moderator and a separate link", function 
 test("the leader form is on the sign-up page and the public sheet stays first for everyone else", function () {
   var html = fs.readFileSync(path.join(__dirname, "signup-client.js"), "utf8");
   assert.ok(html.indexOf("Make Private Link") >= 0);
-  assert.ok(html.indexOf("Traci Harward") >= 0);
+  assert.ok(html.indexOf("if (body && body.privateLink) shownLink = body.privateLink") >= 0);
+  assert.ok(html.indexOf("su-new-link") >= 0);
   assert.ok(html.indexOf("afterbegin") >= 0);
   assert.ok(html.indexOf("public-view") >= 0);
   assert.ok(html.indexOf("afterbegin") < html.lastIndexOf("public-view") || html.indexOf("adminHtml()") > 0);
