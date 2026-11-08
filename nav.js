@@ -36,13 +36,16 @@
 
   var viewer = null;
   function closeViewer() { if (!viewer) return; viewer.remove(); viewer = null; document.documentElement.classList.remove('fbopen'); }
-  function openViewer(href, label) {
+  function openViewer(href, label, fullHref) {
     closeViewer();
     var pdf = /\.pdf(\?|#|$)/i.test(href);
     viewer = document.createElement('div'); viewer.className = 'fbview'; viewer.setAttribute('role', 'dialog'); viewer.setAttribute('aria-modal', 'true');
     viewer.innerHTML = '<div class="fbnav"><button type="button" class="fbback">' + ARROW + 'Back to ' + esc(pageName()) + '</button>' +
       '<a class="fbfull" target="_blank" rel="noopener">Full Size ↗</a></div><div class="fbstage">' + (pdf ? '<iframe title="Document"></iframe>' : '<img alt="">') + '</div>';
-    viewer.querySelector('.fbfull').href = href;
+    var full = viewer.querySelector('.fbfull');
+    full.href = fullHref || href;
+    // A same-window app page keeps the Back control inside an installed app, where the browser toolbar is hidden.
+    if (fullHref) full.removeAttribute('target');
     var m = viewer.querySelector(pdf ? 'iframe' : 'img'); m.src = href; if (!pdf) m.alt = label || 'Flyer';
     viewer.querySelector('.fbback').addEventListener('click', function () { history.back(); });
     viewer.querySelector('.fbstage').addEventListener('click', function (e) { if (e.target === this) history.back(); });
@@ -61,7 +64,10 @@
     if (!/^https?:$/.test(u.protocol)) return;                 // tel:, mailto:, sms: stay as they are
     if (sameSite(u) && /\.(jpe?g|png|gif|webp|pdf)$/i.test(u.pathname)) {
       e.preventDefault(); var img = a.querySelector('img');
-      openViewer(u.href, (img && img.alt) || a.textContent.trim()); return;
+      var fullHref = '';
+      var fullAttr = a.getAttribute('data-full');
+      if (fullAttr) { try { var fu = new URL(fullAttr, u.href); if (sameSite(fu)) fullHref = fu.href; } catch (err) {} }
+      openViewer(u.href, (img && img.alt) || a.textContent.trim(), fullHref); return;
     }
     if (!sameSite(u)) { a.target = '_blank'; a.rel = 'noopener'; }
   }, true);
