@@ -1,17 +1,8 @@
 {
- "generated": "2026-11-07T12:55:20-07:00",
+ "generated": "2026-11-07T21:47:42-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
-  {
-   "id": "0000000000000000000000177544702calendarC",
-   "title": "Teachers: Campout YMCA",
-   "calendar": "Young Men",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-06T15:30:00-07:00",
-   "end": "2026-11-07T17:00:00-07:00"
-  },
   {
    "id": "0000000000000000000000148313302calendarC",
    "title": "Rebroadcast: Worldwide Devotional for Young Adults",
