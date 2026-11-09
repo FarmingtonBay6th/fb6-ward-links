@@ -73,4 +73,20 @@
   }, true);
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addBar); else addBar();
+
+  // Unread dots: section-seen.js is the pure compare, updates.js paints and marks seen.
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var el = document.createElement('script');
+      el.src = src;
+      el.onload = function () { resolve(); };
+      el.onerror = function () { reject(new Error(src)); };
+      document.head.appendChild(el);
+    });
+  }
+  if (!window.Fb6Seen) {
+    loadScript(new URL('section-seen.js', base).href).then(function () {
+      if (!window.__fb6UpdatesRan) return loadScript(new URL('updates.js', base).href);
+    }).catch(function () {});
+  }
 })();
