@@ -8,8 +8,15 @@ E=json.load(open(f'{R}/events/events.json'))['events']
 E=[e for e in E if datetime.fromisoformat(e['end'])>datetime.now(timezone.utc)]  # drop ended events at build time
 def art(e,pre):
     f=pre+e['flyer']
-    b=' '.join(f'<a class="btn" href="{pre+x["href"] if not re.match(r"[a-z]+:",x["href"]) else x["href"]}">{x["label"]}</a>' if x['primary'] else
-      f'<a class="btn alt" href="{pre+x["href"] if not re.match(r"[a-z]+:",x["href"]) else x["href"]}" rel="noopener">{x["label"]}</a>' for x in e['buttons'])
+    def button(x):
+        href=x['href'] if re.match(r'[a-z]+:', x['href']) else pre+x['href']
+        extra='' if x['primary'] else ' rel="noopener"'
+        dl=x.get('download')
+        if dl:
+            extra += ' download' if dl is True else f' download="{dl}"'
+        cls='btn' if x['primary'] else 'btn alt'
+        return f'<a class="{cls}" href="{href}"{extra}>{x["label"]}</a>'
+    b=' '.join(button(x) for x in e['buttons'])
     return (f'  <article class="ev" data-end="{e["end"]}">\n    <a class="thumb" href="{f}"><img src="{f}" alt="Flyer: {e["alt"]}" loading="lazy"></a>\n'
       f'    <div class="evtx"><b>{e["title"]}</b><small>{e["subtitle"]}</small>\n      <p class="when">{e["when"]}</p><p class="where">{e["where"]}</p>\n'
       f'      <div class="acts">{b}</div></div>\n  </article>\n')
