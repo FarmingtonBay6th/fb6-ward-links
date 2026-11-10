@@ -1,0 +1,31 @@
+# Runs the sister-lesson sign-up checks. No spreadsheet, no webhook, no deploy.
+name: Sister Lesson Sign-Up
+on:
+  pull_request:
+    paths:
+      - "orgs/ward-missionaries/**"
+      - "index.html"
+      - ".github/workflows/sister-lesson.yml"
+  push:
+    paths:
+      - "orgs/ward-missionaries/**"
+      - "index.html"
+      - ".github/workflows/sister-lesson.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check syntax
+        run: |
+          node --check orgs/ward-missionaries/apps-script/SisterLesson.js
+          node --check orgs/ward-missionaries/apps-script/Code.js
+          node --check orgs/ward-missionaries/sister-lesson.js
+          node --check orgs/ward-missionaries/sister-lesson-config.js
+      - name: Sign-up rules
+        run: node --test orgs/ward-missionaries/sister-lesson.test.js
