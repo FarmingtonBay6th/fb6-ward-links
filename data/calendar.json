@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08T21:55:55-07:00",
+ "generated": "2026-11-09T23:12:32-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -56,7 +56,7 @@
    "location": "",
    "allDay": false,
    "start": "2026-11-14T13:00:00-07:00",
-   "end": "2026-11-14T15:30:00-07:00"
+   "end": "2026-11-14T16:00:00-07:00"
   },
   {
    "id": "0000000000000000000000166567701calendarC",
@@ -94,6 +94,15 @@
    "start": "2026-11-18T19:00:00-07:00",
    "end": "2026-11-18T20:00:00-07:00",
    "ywClass": "all"
+  },
+  {
+   "id": "0000000000000000000000178496877calendarC",
+   "title": "Interfaith Holy Week Choir committee meeting",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-18T20:00:00-07:00",
+   "end": "2026-11-18T21:00:00-07:00"
   },
   {
    "id": "0000000000000000000000175810852calendarC",
@@ -193,7 +202,7 @@
    "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
-   "start": "2026-12-04T18:00:00-07:00",
+   "start": "2026-12-04T07:00:00-07:00",
    "end": "2026-12-04T22:00:00-07:00"
   },
   {
@@ -203,7 +212,7 @@
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
    "start": "2026-12-05T07:00:00-07:00",
-   "end": "2026-12-05T11:00:00-07:00"
+   "end": "2026-12-05T12:00:00-07:00"
   },
   {
    "id": "0000000000000000000000148313477calendarC",
@@ -303,6 +312,15 @@
    "allDay": false,
    "start": "2026-12-17T19:00:00-07:00",
    "end": "2026-12-17T21:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000178516977calendarC",
+   "title": "Baptism of child from out of town",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-19T10:30:00-07:00",
+   "end": "2026-12-19T12:00:00-07:00"
   },
   {
    "id": "0000000000000000000000148313627calendarC",
