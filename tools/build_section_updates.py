@@ -47,7 +47,7 @@ SECTIONS = [
     {"id": "relief-society", "title": "Relief Society", "path": "orgs/relief-society/", "roots": ["orgs/relief-society"], "calendars": ["Relief Society"]},
     {"id": "elders-quorum", "title": "Elders Quorum", "path": "orgs/elders-quorum/", "roots": ["orgs/elders-quorum"], "calendars": ["Elders Quorum"]},
     {"id": "young-women", "title": "Young Women", "path": "orgs/young-women/", "roots": ["orgs/young-women"], "files": ["data/yw-birthdays.json", "data/yw-classes.json"], "calendars": ["Young Women"]},
-    {"id": "young-men", "title": "Young Men", "path": "orgs/young-men/", "roots": ["orgs/young-men"], "files": ["data/ym-quorums.json"], "calendars": ["Young Men"]},
+    {"id": "young-men", "title": "Young Men", "path": "orgs/young-men/", "roots": ["orgs/young-men"], "files": ["data/ym-quorums.json", "data/ym-activities.json"], "calendars": ["Young Men"]},
     {"id": "sunday-school", "title": "Sunday School", "path": "orgs/sunday-school/", "roots": ["orgs/sunday-school"]},
     {"id": "primary", "title": "Primary", "path": "orgs/primary/", "roots": ["orgs/primary"], "files": ["data/primary-birthdays.json", "data/primary-classes.json"], "calendars": ["Primary"]},
     {"id": "temple-and-family-history", "title": "Temple And Family History", "path": "orgs/temple-and-family-history/", "roots": ["orgs/temple-and-family-history"]},

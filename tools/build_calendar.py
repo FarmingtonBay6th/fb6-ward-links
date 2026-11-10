@@ -156,6 +156,28 @@ def yw_class(title, desc, cal):
     if cal == "Young Women" and re.search(r"combined|class activit", title, re.I): return "all"
     return None
 
+def merge_ym_sheet(events, today):
+    """Fold data/ym-activities.json into the Young Men calendar.
+
+    The leaders' sheet is the same kind of input as a Young Women class tag:
+    it belongs to the Young Men section, and the Bay 6 Calendar week list
+    should show it. TBD placeholders stay off the ward-wide calendar.
+    Church events that already say the same thing are kept.
+    """
+    path = ROOT / "data" / "ym-activities.json"
+    if not path.is_file():
+        return events, 0
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from ym_activities import merge_calendar
+    sheet = json.loads(path.read_text(encoding="utf-8")).get("events") or []
+    if today:
+        sheet = [event for event in sheet if (event.get("endDate") or event.get("date") or "") >= today]
+    before = len(events)
+    merged = merge_calendar(events, sheet)
+    return merged, len(merged) - before
+
+
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     text = read(sys.argv[1]); lines = unfold(text)
@@ -195,6 +217,7 @@ def main():
     else: past = []
     out, merged = dedupe(out)
     out.sort(key=lambda x: x["start"])
+    out, sheet_added = merge_ym_sheet(out, datetime.now(MT).date().isoformat())
     (ROOT / "data").mkdir(exist_ok=True); (ROOT / "calendar").mkdir(exist_ok=True)
     json.dump({"generated": datetime.now(MT).isoformat(timespec="seconds"), "timezone": "America/Denver",
                "preview": preview, "events": out}, open(ROOT / "data/calendar.json", "w"), indent=1)
@@ -206,10 +229,33 @@ def main():
         path = ROOT / "calendar" / ("ward.ics" if slug == "all" else f"feeds/{slug}.ics")
         path.write_text(write_ics(sel, name))
         if slug == "all": (ROOT / "calendar/feeds/all.ics").write_text(write_ics(sel, name))
-    print(f"kept {len(out)} upcoming, dropped {len(dropped)} by filters, skipped {len(past)} past")
+    print(f"kept {len(out)} upcoming, dropped {len(dropped)} by filters, skipped {len(past)} past, added {sheet_added} Young Men sheet events")
     print("feeds:", ", ".join(f"{k}={v}" for k, v in counts.items()))
     for d in dropped: print("  dropped:", d)
     for d in merged: print("  merged:", d)
 
+def merge_saved():
+    """Refresh data/calendar.json and the public feeds from the YM sheet, without the Church ICS."""
+    path = ROOT / "data" / "calendar.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    events, added = merge_ym_sheet(data.get("events") or [], datetime.now(MT).date().isoformat())
+    data["events"] = events
+    path.write_text(json.dumps(data, indent=1) + "\n", encoding="utf-8")
+    (ROOT / "calendar" / "feeds").mkdir(exist_ok=True)
+    for slug in ("all", "young-men"):
+        name, cals = FEEDS[slug]
+        sel = [event for event in events if cals is None or event.get("calendar") in cals]
+        if slug == "all":
+            text = write_ics(sel, name)
+            (ROOT / "calendar" / "ward.ics").write_text(text)
+            (ROOT / "calendar" / "feeds" / "all.ics").write_text(text)
+        else:
+            (ROOT / "calendar" / "feeds" / f"{slug}.ics").write_text(write_ics(sel, name))
+    print(f"added {added} Young Men sheet events to the Bay 6 Calendar")
+
+
 if __name__ == "__main__":
-    main()
+    if "--merge-ym" in sys.argv:
+        merge_saved()
+    else:
+        main()

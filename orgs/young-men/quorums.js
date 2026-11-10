@@ -38,7 +38,7 @@
     var pres = (c.presidency || []).length ? '<ul>' + c.presidency.map(function (m) { return '<li><b>' + (m.name ? esc(m.name) : SOON) + '</b> <span>' + esc(m.role) + '</span></li>'; }).join('') + '</ul>' : SOON;
     var adv = (c.advisers || []).length ? c.advisers.map(function (n) { return n ? esc(n) : SOON; }).join(', ') : SOON;
     p.innerHTML = '<section class="ywhero"><h2>' + esc(c.name) + '</h2></section>' +
-      '<section><h2>Quorum Activities</h2>' + (acts.length ? acts.map(act).join('') : '<p class="empty">No quorum activities posted yet. ' + SOON + '. See the <a href="#all" data-tab="all">All Young Men</a> tab for ward-wide activities.</p>') + '</section>' +
+      '<section><h2>Quorum Activities</h2><div data-ymcal="' + c.id + '"></div>' + (acts.length ? acts.map(act).join('') : '') + '</section>' +
       '<section class="ywinfo"><h2>Quorum Info</h2><dl><dt>' + esc(c.presidencyLabel || 'Quorum Presidency') + '</dt><dd>' + pres + '</dd>' + (c.duties ? '<dt>Duties</dt><dd>' + esc(c.duties) + '</dd>' : '') + '<dt>' + ((c.advisers || []).length > 1 ? 'Advisers' : 'Adviser') + '</dt><dd>' + adv + '</dd></dl></section>';
     main.appendChild(p);
   }
@@ -83,5 +83,10 @@
     drawTabs();
     var want = location.hash.slice(1); var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
     show(want || saved || 'all', !!want);
+    if (window.Fb6YmCal) {
+      [].forEach.call(main.querySelectorAll("[data-ymcal]"), function (el) {
+        window.Fb6YmCal.renderInto(el, el.getAttribute("data-ymcal"));
+      });
+    }
   }).catch(function () {});
 })();
