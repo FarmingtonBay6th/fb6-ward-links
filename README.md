@@ -28,3 +28,20 @@ To refresh from the leaders' sheet (tab **YM Activities Calendar 2026**):
 4. Commit `data/ym-activities.json` and `orgs/young-men/activities.ics`.
 
 Hand edits: change the JSON, then run `python3 tools/ym_activities.py --ics` so the downloadable calendar matches. The next Church calendar sync keeps the sheet events because `build_calendar.py` merges this file.
+
+## Upcoming Events
+
+Flyers on [Upcoming Events](events/) come from two places:
+
+- Hardcoded cards in [`events/events.json`](events/events.json), rendered into `events/index.html` and the matching organization pages by `python3 tools/build_events.py`.
+- Approved items in [`data/approved-announcements.json`](data/approved-announcements.json), which the events page loads in the browser.
+
+An event's last day is its `endDate` when that field is a `YYYY-MM-DD` date, otherwise its `date`. For a hardcoded card, the last day is the calendar date of `end` in America/Denver. The event stays through that day and is deleted starting the next calendar day. Organization pages that repeat the card lose it too. Images and PDFs under `events/flyers/` are deleted once no HTML or JSON file still names them.
+
+The same rule applies to the class and quorum activity lists in `data/yw-classes.json`, `data/ym-quorums.json`, and `data/primary-classes.json`. Those pages already hide past rows in the browser; deleting the row is what lets the flyer file leave the repo. Calendars, This Sunday, and Young Women chat are left alone.
+
+`python3 tools/prune_events.py` does the deletion. It writes nothing when every event is still current, so a daily run does not create an empty commit. `--today YYYY-MM-DD` checks a specific Denver date. `--dry-run` prints the list without writing.
+
+GitHub Actions runs the script at 07:15 UTC (12:15 AM MST, 1:15 AM MDT), which is after midnight in America/Denver. The date comparison uses America/Denver even though the runner clock is UTC. The workflow needs permission to push, the same way the calendar sync does. If that permission is read-only, the push fails and the committed files stay as they were. The script itself is safe to run from any other scheduler that can commit.
+
+The daily job edits the HTML in place. It does not rerun `build_events.py`. A hand-added activity inside an organization's `<!--EV-->` block stays until that card's own end date. Running `build_events.py` still replaces the whole block from `events/events.json`.

@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 """Render events/events.json into events/index.html and each orgs/<slug>/index.html.
-Edit events.json (add an entry with an "orgs" list), then run: python3 tools/build_events.py"""
-import json,re,os
-from datetime import datetime,timezone
+Edit events.json (add an entry with an "orgs" list), then run: python3 tools/build_events.py
+
+Cards stay through the America/Denver calendar day of "end" and are left out of
+the render starting the next day. tools/prune_events.py is what deletes the
+record and the flyer file; this script only skips expired rows. It still
+replaces each organization's <!--EV--> block, so hand-added cards in that block
+are not preserved here. The daily prune edits those pages in place instead.
+"""
+import json,re,os,sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from prune_events import denver_today, still_current_instant
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 E=json.load(open(f'{R}/events/events.json'))['events']
-E=[e for e in E if datetime.fromisoformat(e['end'])>datetime.now(timezone.utc)]  # drop ended events at build time
+TODAY=denver_today()
+E=[e for e in E if still_current_instant(e.get('end'), TODAY)]
 def art(e,pre):
     f=pre+e['flyer']
     def button(x):

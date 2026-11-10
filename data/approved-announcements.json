@@ -1,5 +1,5 @@
 {
-  "_readme": "Approved announcements shown on events/. Append one object per item AFTER approval. Fields: id (unique slug), title, date (YYYY-MM-DD, Mountain Time), time (optional, free text e.g. '6:30 PM'), endDate (optional YYYY-MM-DD for multi-day items; hides after this day instead of date), place, details (one short line), flyer (optional, path relative to events/, e.g. 'flyers/2026-11-20-slug.jpg', max 1200px wide), link (optional URL), linkLabel (optional, default 'More info'). Items hide automatically once their date (or endDate) is before today in America/Denver. SAMPLE entries below are preview-only: remove before going live.",
+  "_readme": "Approved announcements shown on events/. Append one object per item AFTER approval. Fields: id (unique slug), title, date (YYYY-MM-DD, Mountain Time), time (optional, free text e.g. '6:30 PM'), endDate (optional YYYY-MM-DD for multi-day items; hides after this day instead of date), place, details (one short line), flyer (optional, path relative to events/, e.g. 'flyers/2026-11-20-slug.jpg', max 1200px wide), link (optional URL), linkLabel (optional, default 'More info'). The events page hides an item once its endDate (or date, when endDate is empty) is before today in America/Denver. tools/prune_events.py deletes that item the same morning and removes flyer files that no HTML or JSON file still names. SAMPLE entries below are preview-only: remove before going live.",
   "announcements": [
     {
       "id": "2026-11-01-ward-choir-practice",
@@ -23,15 +23,6 @@
       "linkLabel": "helpgatherisrael.org"
     },
     {
-      "id": "2026-11-04-yw-news-anchor-night",
-      "title": "Young Women: News Anchor Night",
-      "date": "2026-11-04",
-      "time": "4:45 PM",
-      "place": "Meet at the church to leave together",
-      "details": "Combined Young Women activity: meet a real-life news anchor and get an inside look at broadcasting.",
-      "flyer": "flyers/2026-11-04-yw-news-anchor-night.jpg"
-    },
-    {
       "id": "2027-01-07-stake-ym-basketball",
       "title": "Stake Young Men Basketball Season",
       "date": "2027-01-07",
@@ -40,18 +31,6 @@
       "place": "Deacons: Green's Building \u00b7 Priests: Stake Center",
       "details": "Stake YM basketball every Thursday, Jan 7 to Feb 18, 2027. Teacher-age young men may play with either team.",
       "flyer": "flyers/2027-01-07-stake-ym-basketball.jpg"
-    },
-    {
-      "id": "2026-11-07-ucap-st-george",
-      "title": "Utah Coalition Against Pornography: 2026 St. George Conference",
-      "date": "2026-11-07",
-      "endDate": "2026-11-07",
-      "time": "9:00 AM to 1:30 PM",
-      "place": "Hilton Garden Inn, 1731 South Convention Center Drive, St. George",
-      "details": "Tickets $15 in person, $10 online \u00b7 registration required \u00b7 keynotes Curtis Morley and Jenet Erickson, PhD",
-      "flyer": "flyers/2026-11-07-ucap-st-george.jpg",
-      "link": "https://utahcoalition.org",
-      "linkLabel": "Register at utahcoalition.org"
     }
   ]
 }

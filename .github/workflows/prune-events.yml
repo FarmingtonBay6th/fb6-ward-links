@@ -1,0 +1,36 @@
+# Deletes event flyers the calendar day after they end.
+# 07:15 UTC is 12:15 AM MST and 1:15 AM MDT, so this is always after midnight in America/Denver.
+# The comparison itself uses America/Denver, not the runner clock.
+# Push needs the same contents: write permission the calendar sync already uses.
+# If that permission is read-only, the push step fails and nothing is committed;
+# python3 tools/prune_events.py is safe to run from any other scheduler that can commit.
+name: Prune past events
+on:
+  schedule:
+    - cron: "15 7 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: prune-events
+  cancel-in-progress: false
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test the prune
+        run: python3 tools/test_prune_events.py
+      - name: Remove events whose last day was before today
+        run: python3 tools/prune_events.py | tee "$RUNNER_TEMP/prune.txt"
+      - name: Commit if something expired
+        run: |
+          git config user.name "bay6-events-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- events/index.html events/events.json events/flyers data/approved-announcements.json data/yw-classes.json data/ym-quorums.json data/primary-classes.json orgs
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Remove events that ended before today in America/Denver" -m "$(cat "$RUNNER_TEMP/prune.txt")"
+          git push

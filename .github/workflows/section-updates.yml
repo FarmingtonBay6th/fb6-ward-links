@@ -32,6 +32,8 @@ jobs:
           node --test tools/ym-cal.test.js
       - name: Young Men roster privacy
         run: python3 tools/test_ym_roster.py
+      - name: Past event prune
+        run: python3 tools/test_prune_events.py
 
   manifest:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
