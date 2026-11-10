@@ -1,5 +1,5 @@
 {
-  "_readme": "Young Men quorum tabs (orgs/young-men/). Mirrors data/yw-classes.json and is rendered by orgs/young-men/quorums.js. classes: id (URL hash), name, presidencyLabel, presidency [{role,name}] (name null shows 'Coming soon'), duties, advisers [names; null shows 'Coming soon'], info. NO phone numbers or other personal info for youth. YOUTH: FIRST NAMES ONLY. Adults: full names. Quorum advisers appear only on their quorum tab. activities: same format as yw-classes.json (class = a quorum id or 'all'). all: specialists shown on the All Young Men tab, plus handbook notes.",
+  "_readme": "Young Men quorum tabs (orgs/young-men/). Mirrors data/yw-classes.json and is rendered in the browser by orgs/young-men/quorums.js, so page rebuilds keep it. classes: id (URL hash), name, presidencyLabel, presidency [{role,name}] (name null shows 'Coming soon'), duties, advisers [names; null shows 'Coming soon'], members [other young men in the quorum, not in the presidency; alphabetical, first name + last initial], info. Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: same format as yw-classes.json. One object per item with class = a quorum id or 'all' (shows in every quorum tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver). all: specialists shown on the All Young Men tab (adults: full names) plus handbook notes. Quorum advisers appear only on their quorum tab. YOUTH: FIRST NAMES ONLY; you may store a last initial (e.g. 'Henry J.'). The page shows the initial only when two young men's first names are alike (e.g. 'Lincoln B.' and 'Lincoln J.'); otherwise it shows the first name alone. Adults: full names.",
   "classes": [
     {
       "id": "deacons-quorum",
@@ -8,19 +8,19 @@
       "presidency": [
         {
           "role": "President",
-          "name": null
+          "name": "Henry J."
         },
         {
           "role": "1st Counselor",
-          "name": null
+          "name": "Mark G."
         },
         {
           "role": "2nd Counselor",
-          "name": null
+          "name": "Grant F."
         },
         {
           "role": "Secretary",
-          "name": null
+          "name": "William T."
         }
       ],
       "duties": "Pass the sacrament and assist the bishop in “administering all temporal things” (D&C 107:68). See D&C 20:57–59; 84:111. (GH 10.1.3.1)",
@@ -30,7 +30,20 @@
         "Jim Daly",
         "Matt Johns"
       ],
-      "info": null
+      "info": null,
+      "members": [
+        "Adam D.",
+        "Calvin R.",
+        "Costin B.",
+        "Ethan C.",
+        "Everett P.",
+        "Grayson H.",
+        "Grayson Z.",
+        "Hatch K.",
+        "Jonas M.",
+        "Mason S.",
+        "Reid M."
+      ]
     },
     {
       "id": "teachers-quorum",
@@ -39,19 +52,19 @@
       "presidency": [
         {
           "role": "President",
-          "name": null
+          "name": "Ezra B."
         },
         {
           "role": "1st Counselor",
-          "name": null
+          "name": "Jed B."
         },
         {
           "role": "2nd Counselor",
-          "name": null
+          "name": "Graham J."
         },
         {
           "role": "Secretary",
-          "name": null
+          "name": "Xander D."
         }
       ],
       "duties": "Same duties as deacons. Teachers also prepare the sacrament and serve as ministering brothers. See D&C 20:53–59; 84:111. (GH 10.1.3.2)",
@@ -60,7 +73,25 @@
         "Devin Barlow",
         "Trenton Brown"
       ],
-      "info": null
+      "info": null,
+      "members": [
+        "Alexander V.",
+        "Colby H.",
+        "Cole M.",
+        "Conner O.",
+        "Crosby B.",
+        "Jackson W.",
+        "Jax J.",
+        "Kadem P.",
+        "Kamden R.",
+        "Kruise J.",
+        "Lincoln B.",
+        "Tanner T.",
+        "Tate O.",
+        "Tristin S.",
+        "Weston B.",
+        "Wyatt B."
+      ]
     },
     {
       "id": "priests-quorum",
@@ -73,7 +104,7 @@
         },
         {
           "role": "Bishop's Assistant",
-          "name": null
+          "name": "Charlie C."
         },
         {
           "role": "Bishop's Assistant",
@@ -81,7 +112,7 @@
         },
         {
           "role": "Secretary",
-          "name": null
+          "name": "Cole T."
         }
       ],
       "duties": "Same duties as deacons and teachers. See D&C 20:46–52, 73–79. (GH 10.1.3.3)",
@@ -91,7 +122,26 @@
         "Ben Butterfield",
         null
       ],
-      "info": null
+      "info": null,
+      "members": [
+        "Anders B.",
+        "Callum B.",
+        "Cooper Z.",
+        "Dawson S.",
+        "Drake H.",
+        "Elden A.",
+        "Eli F.",
+        "Everett B.",
+        "Hayden S.",
+        "Henry M.",
+        "Isaac B.",
+        "Joshua G.",
+        "Liam J.",
+        "Lincoln J.",
+        "Lincoln O.",
+        "Tyce F.",
+        "Wyatt O."
+      ]
     }
   ],
   "activities": [],
