@@ -2,8 +2,9 @@
    The Young Women sign-up keeps a private Google Sheet behind an Apps Script
    web app and tests the rules in Node. This follows that shape and leaves the
    Young Women script alone. One row per weeknight is enough: there is no
-   sign-in, no class list, and the public response is only date, time, and
-   status. Names and phones stay on the private sheet. Texting is a webhook
+   sign-in and no class list. The public response is date, time, status, and
+   the family's name on a reserved night. Phone numbers, addresses, and the
+   source and docSync columns stay on the private sheet. Texting is a webhook
    the Apps Script calls after a saved claim. */
 (function (root, factory) {
   var api = factory();
@@ -105,11 +106,13 @@
     (nights || []).forEach(function (night) {
       var date = String(night && night.date || "").trim();
       if (!isCatalogDate(date) || date < today) return;
-      out.push({
-        date: date,
-        time: TIME,
-        status: String(night.status || "").toLowerCase() === "reserved" ? "reserved" : "open"
-      });
+      var reserved = String(night.status || "").toLowerCase() === "reserved";
+      var item = { date: date, time: TIME, status: reserved ? "reserved" : "open" };
+      if (reserved) {
+        var name = cleanName(night && night.name);
+        if (name) item.name = name;
+      }
+      out.push(item);
     });
     return out;
   }

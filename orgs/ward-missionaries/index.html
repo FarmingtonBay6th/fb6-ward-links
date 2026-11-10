@@ -52,6 +52,8 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
   #sister-lesson button.btn { font:inherit; font-weight:600; cursor:pointer; border:0; }
   #sister-lesson .night .btn { margin:0; padding:8px 12px; border-radius:10px; font-size:14px; }
   #sister-lesson button.btn.off, #sister-lesson button.btn.off:disabled { background:#e6e1da; color:#8b8178; cursor:default; opacity:1; }
+  #sister-lesson .sl-action { display:flex; flex-direction:column; align-items:center; gap:3px; max-width:48%; flex:0 1 auto; }
+  #sister-lesson .sl-who { display:block; max-width:11em; font-size:12.5px; font-weight:600; line-height:1.25; text-align:center; color:var(--ink); overflow-wrap:anywhere; }
   #sister-lesson .btn.wide { display:block; width:100%; text-align:center; padding:12px 14px; font-size:16px; border-radius:12px; margin:14px 0 0; }
   #sister-lesson .sl-back { display:inline-block; background:none; border:0; padding:0 0 8px; color:var(--accent); font:inherit; font-weight:600; font-size:14px; cursor:pointer; }
   #sister-lesson label { display:block; font-weight:600; font-size:14px; margin:12px 0 6px; }
@@ -103,7 +105,7 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
     <p class="more" id="more">See all <a href="../../events/">Upcoming Events</a> for the Ward and Stake.</p></section>
   <section id="sister-lesson"><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="34" y="30" width="52" height="62" rx="6" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="48" y="24" width="24" height="12" rx="4" fill="#c9a24a"/><path d="M44 52l4 4 7-8M44 68l4 4 7-8" stroke="#005175" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 52h16M62 68h16M44 82h34" stroke="#005175" stroke-width="2.6" stroke-linecap="round"/></svg>Have the Sister Missionaries Over</h2>
     <div id="sister-list">
-      <p class="note">Sister Pettingill and Sister Faku would love to share a gospel lesson in your home, usually on a weeknight at 7:30. Pick an open night, type your name, and you're signed up. They'll confirm the details with you.</p>
+      <p class="note">Sister Pettingill and Sister Faku would love to share a gospel lesson in your home, usually on a weeknight at 7:30. Pick an open night, type your name, and you're signed up. They'll confirm the details with you. The family's name shows on the list once a night is reserved. Phone numbers and addresses are never shown.</p>
       <p class="note" id="sister-list-msg" aria-live="polite" hidden></p>
       <div id="sister-nights" aria-live="polite"></div>
     </div>
@@ -119,7 +121,7 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
       <input id="sister-phone" type="tel" inputmode="tel" maxlength="32" autocomplete="tel" placeholder="801-555-0100" required>
       <p class="sl-error" id="sister-form-error" role="alert" hidden></p>
       <button type="submit" class="btn wide" id="sister-submit">Sign Up For This Night</button>
-      <p class="fine">Your address stays off the public page. The sisters will text you to confirm the time and where to come.</p>
+      <p class="fine">The family's name shows on the list once a night is reserved. Phone numbers and addresses are never shown. The sisters will text you to confirm the time and where to come.</p>
     </form>
     <noscript><p class="note">Turn On JavaScript To See Open Nights And Sign Up.</p></noscript>
   </section>
