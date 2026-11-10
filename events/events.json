@@ -1,44 +1,6 @@
 {
-  "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, ward-missionaries). Run: python3 tools/build_events.py",
+  "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, ward-missionaries). Run: python3 tools/build_events.py. tools/prune_events.py deletes an entry the calendar day after the America/Denver date of end, and deletes the flyer once no HTML or JSON still names it.",
   "events": [
-    {
-      "title": "Primary Program Practice",
-      "alt": "Primary Program Practice",
-      "subtitle": "Ward Primary \u00b7 all Primary children encouraged; doughnuts after",
-      "when": "Thu, Nov 5 \u00b7 4:00 PM",
-      "where": "Chapel \u00b7 Primary Presentation is Sun, Nov 8 at 12:00 PM",
-      "end": "2026-11-05T17:00:00-07:00",
-      "flyer": "flyers/2026-11-05-primary-practice.png",
-      "buttons": [
-        {
-          "label": "View flyer",
-          "href": "flyers/2026-11-05-primary-practice.png",
-          "primary": true
-        }
-      ],
-      "orgs": [
-        "primary"
-      ]
-    },
-    {
-      "title": "Relief Society Training Dinner",
-      "alt": "Relief Society Training Dinner",
-      "subtitle": "Stake \u00b7 for Relief Society presidencies",
-      "when": "Thu, Nov 5 \u00b7 6:00 \u2013 8:00 PM",
-      "where": "Farmington Bay Stake Center",
-      "end": "2026-11-05T20:00:00-07:00",
-      "flyer": "flyers/2026-11-05-rs-training.jpg",
-      "buttons": [
-        {
-          "label": "View flyer",
-          "href": "flyers/2026-11-05-rs-training.jpg",
-          "primary": true
-        }
-      ],
-      "orgs": [
-        "relief-society"
-      ]
-    },
     {
       "title": "Sawubona Friendsgiving",
       "alt": "Sawubona Friendsgiving",
@@ -218,33 +180,6 @@
         "young-women",
         "young-men"
       ]
-    },
-    {
-      "title": "Utah Coalition Against Pornography: 2026 St. George Conference",
-      "alt": "Utah Coalition Against Pornography: 2026 St. George Conference",
-      "subtitle": "Keynotes Curtis Morley and Jenet Erickson, PhD \u00b7 tickets $15 in person, $10 online",
-      "when": "Sat, Nov 7 \u00b7 9:00 AM to 1:30 PM",
-      "where": "Hilton Garden Inn, 1731 South Convention Center Drive, St. George",
-      "end": "2026-11-07T13:30:00-07:00",
-      "flyer": "flyers/2026-11-07-ucap-st-george.jpg",
-      "buttons": [
-        {
-          "label": "View flyer",
-          "href": "flyers/2026-11-07-ucap-st-george.jpg",
-          "primary": true
-        },
-        {
-          "label": "Register",
-          "href": "https://utahcoalition.org",
-          "primary": false
-        },
-        {
-          "label": "Map",
-          "href": "https://maps.google.com/?q=Hilton+Garden+Inn,+1731+South+Convention+Center+Drive,+St.+George+UT",
-          "primary": false
-        }
-      ],
-      "orgs": []
     }
   ]
 }
