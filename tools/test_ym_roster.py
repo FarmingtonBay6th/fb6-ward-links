@@ -6,6 +6,7 @@ only. No birth years, ages, full last names, or contact info.
 """
 import json
 import re
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -156,6 +157,29 @@ class YoungMenRosterTests(unittest.TestCase):
         self.assertIn("orgs/young-men/index.html", names)
         self.assertIn("orgs/young-men/quorums.js", names)
         self.assertIn("data/ym-birthdays.json", paths)
+        # Someone who already opened Young Men still gets a dot when this roster lands.
+        previous = "19293554cc6c17fd08d52bd959ea2fce83851e93f3ec00c327312e7e219006cf"
+        manifest = load("data/section-updates.json")
+        current = manifest["sections"]["young-men"]["hash"]
+        self.assertNotEqual(current, previous)
+        self.assertEqual(current, build.build_manifest(ROOT)["sections"]["young-men"]["hash"])
+        probe = r"""
+const seen = require("./section-seen.js");
+const fs = require("fs");
+const manifest = JSON.parse(fs.readFileSync("data/section-updates.json", "utf8"));
+const previous = process.argv[1];
+const stored = { init: true, seen: { "young-men": previous } };
+const now = Date.parse(manifest.sections["young-men"].updated);
+const result = seen.apply(manifest, stored, now, null, manifest.windowDays);
+if (!result.unread["young-men"]) process.exit(2);
+const opened = seen.apply(manifest, result.stored, now, "young-men", manifest.windowDays);
+if (opened.unread["young-men"]) process.exit(3);
+"""
+        run = subprocess.run(
+            ["node", "-e", probe, previous],
+            cwd=ROOT, check=False, capture_output=True, text=True,
+        )
+        self.assertEqual(run.returncode, 0, run.stderr or run.stdout)
 
 
 if __name__ == "__main__":
