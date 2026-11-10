@@ -24,8 +24,13 @@ jobs:
       - name: Check syntax
         run: |
           node --check orgs/ward-missionaries/apps-script/SisterLesson.js
+          node --check orgs/ward-missionaries/apps-script/SisterDocSync.js
+          node --check orgs/ward-missionaries/apps-script/DocSync.js
           node --check orgs/ward-missionaries/apps-script/Code.js
           node --check orgs/ward-missionaries/sister-lesson.js
           node --check orgs/ward-missionaries/sister-lesson-config.js
       - name: Sign-up rules
-        run: node --test orgs/ward-missionaries/sister-lesson.test.js
+        run: |
+          node --test orgs/ward-missionaries/sister-lesson.test.js
+          node --test orgs/ward-missionaries/apps-script/SisterDocSync.test.js
+          node --test orgs/ward-missionaries/apps-script/apps-script-smoke.test.js

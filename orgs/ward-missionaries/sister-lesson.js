@@ -1,5 +1,6 @@
 /* Public sister-lesson list. Talks only to the ward web app.
-   Renders date, time, and Sign Up or Reserved. Never a name, phone, or address.
+   Renders date, time, and Sign Up or Reserved. A reserved night shows the
+   family's name under Reserved. Never a phone number or an address.
    Does not keep sign-ups on this phone. */
 (function () {
   "use strict";
@@ -72,19 +73,29 @@
       when.appendChild(time);
       var btn = document.createElement("button");
       btn.type = "button";
+      var who = night.status === "reserved" ? window.SisterLesson.cleanName(night.name) : "";
       if (night.status === "reserved") {
         btn.className = "btn off";
         btn.disabled = true;
         btn.textContent = "Reserved";
-        btn.setAttribute("aria-label", "Reserved, " + label);
+        btn.setAttribute("aria-label", who ? "Reserved, " + who + ", " + label : "Reserved, " + label);
       } else {
         btn.className = "btn";
         btn.textContent = "Sign Up";
         btn.setAttribute("data-date", night.date);
         btn.setAttribute("aria-label", "Sign Up For " + label);
       }
+      var action = document.createElement("div");
+      action.className = "sl-action";
+      action.appendChild(btn);
+      if (who) {
+        var whoEl = document.createElement("span");
+        whoEl.className = "sl-who";
+        whoEl.textContent = who;
+        action.appendChild(whoEl);
+      }
       li.appendChild(when);
-      li.appendChild(btn);
+      li.appendChild(action);
       ul.appendChild(li);
     });
     box.appendChild(ul);
