@@ -1,26 +1,31 @@
 /* Bay 6 Hub · Sister missionary lesson sign-up.
-   Private Google Sheet behind a web app. Paste this file and SisterLesson.js
-   into a new Apps Script project. Do not add this to the Young Women project.
+   Private Google Sheet behind a web app. Paste this file, SisterLesson.js,
+   SisterDocSync.js, and DocSync.js into the Apps Script project. Do not add
+   this to the Young Women project.
 
    Deploy
    1. https://script.google.com → New project → name it Bay 6 Sister Lesson Sign-Ups.
       Use the Google account that owns the other Hub scripts.
-   2. Add SisterLesson.js and replace Code.gs with this file. Show the manifest
-      and replace it with appsscript.json from this folder.
+   2. Add SisterLesson.js, SisterDocSync.js, and DocSync.js, and replace Code.gs
+      with this file. Show the manifest and replace it with appsscript.json
+      from this folder. The manifest turns on the Docs API.
    3. Select setupSisterLessons → Run → allow Sheets. It creates one private
       spreadsheet and saves SHEET_ID. Do not run it again. Do not use
       File → Share → Publish to the web.
    4. Project Settings → Script properties:
-      SHEET_ID     set by setup
-      WEBHOOK_URL  https endpoint that texts the sisters and the Ward Mission Leader
-      WEBHOOK_KEY  sent as the X-Webhook-Key header when it is set
+      SHEET_ID       set by setup
+      WEBHOOK_URL    https endpoint that texts the sisters and the Ward Mission Leader
+      WEBHOOK_KEY    sent as the X-Webhook-Key header when it is set
+      LESSON_DOC_ID  the stake lesson schedule doc id
       Leave the webhook properties empty until texting is ready. Claims still save.
-   5. Deploy → New deployment → Web app → Execute as Me → Who has access: Anyone.
+   5. Run installDocSyncTrigger once and approve Docs and triggers access.
+   6. Deploy → New deployment → Web app → Execute as Me → Who has access: Anyone.
       Copy the URL that ends in /exec.
-   6. Put that URL in orgs/ward-missionaries/sister-lesson-config.js (scriptUrl).
+   7. Put that URL in orgs/ward-missionaries/sister-lesson-config.js (scriptUrl).
       A new script version is Deploy → Manage deployments → Edit → New version.
-      The /exec URL stays the same.
-   Do not put the spreadsheet id, WEBHOOK_URL, or WEBHOOK_KEY in the repo. */
+      The /exec URL stays the same. Reserved nights show the family name only
+      after that new version is deployed.
+   Do not put the spreadsheet id, the doc id, WEBHOOK_URL, or WEBHOOK_KEY in the repo. */
 function json_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
@@ -65,6 +70,7 @@ function loadNights_() {
 }
 function saveNights_(nights) {
   var sh = nightsSheet_();
+  /* Columns A:F only. source and docSync live in G:H and must survive a claim. */
   var rows = [["date", "time", "status", "name", "phone", "claimedAt"]];
   (nights || []).forEach(function (night) {
     var taken = night && night.status === "reserved";
