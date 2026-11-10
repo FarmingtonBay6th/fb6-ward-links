@@ -204,7 +204,9 @@ test("the public page and config do not carry the old doc, a webhook, or a sheet
     assert.equal(text.indexOf("innerHTML"), -1, file);
   });
   var config = fs.readFileSync(path.join(dir, "sister-lesson-config.js"), "utf8");
-  assert.ok(config.indexOf("YOUR_SISTER_LESSON_WEB_APP_EXEC_URL") >= 0);
+  var scriptUrl = (config.match(/scriptUrl:\s*"([^"]*)"/) || [])[1];
+  assert.match(scriptUrl, /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/);
+  assert.equal(config.indexOf("YOUR_SISTER_LESSON_WEB_APP_EXEC_URL"), -1);
   var home = fs.readFileSync(path.join(dir, "../../index.html"), "utf8");
   assert.equal(home.indexOf("1ty2rlUhx5cjsyA8UPWuL36PUtyH1O0ZIKVZHEuuYnHQ"), -1);
   assert.equal(home.indexOf("President Larsen"), -1);
