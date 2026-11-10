@@ -1,0 +1,2793 @@
+{
+  "_readme": "Young Men activity calendar, shown on orgs/young-men/. Edit this file, then run: python3 tools/ym_activities.py --ics. To rebuild it from the leaders' sheet (tab YM Activities Calendar 2026), run: python3 tools/ym_activities.py path/to/sheet.txt. Do not add youth names, the Coordinators column, phone numbers, or home addresses. A home is stored as \"Member Home (details from leaders)\". quorums use deacons-quorum, teachers-quorum, priests-quorum. combined is ym, ymyw, stake, or empty. status is activity, tbd, none, or holiday. Mutual with no time is stored as 7:00 PM (Usual Mutual Time). Combined nights are one event, not one copy per quorum.",
+  "timezone": "America/Denver",
+  "defaultTime": "7:00 PM",
+  "corrections": [
+    {
+      "quorum": "teachers-quorum",
+      "from": "1/6/2026",
+      "to": "2027-01-06",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "1/13/2026",
+      "to": "2027-01-13",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "1/20/2026",
+      "to": "2027-01-20",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "1/27/2026",
+      "to": "2027-01-27",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "2/3/2026",
+      "to": "2027-02-03",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "2/10/2026",
+      "to": "2027-02-10",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "2/17/2026",
+      "to": "2027-02-17",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "2/24/2026",
+      "to": "2027-02-24",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "3/3/2026",
+      "to": "2027-03-03",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "3/10/2026",
+      "to": "2027-03-10",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "3/17/2026",
+      "to": "2027-03-17",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "3/24/2026",
+      "to": "2027-03-24",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "3/31/2026",
+      "to": "2027-03-31",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "4/7/2026",
+      "to": "2027-04-07",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "4/14/2026",
+      "to": "2027-04-14",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "4/21/2026",
+      "to": "2027-04-21",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "4/28/2026",
+      "to": "2027-04-28",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "5/5/2026",
+      "to": "2027-05-05",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "5/12/2026",
+      "to": "2027-05-12",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    },
+    {
+      "quorum": "teachers-quorum",
+      "from": "5/19/2026",
+      "to": "2027-05-19",
+      "reason": "Year typed as 2026 on a 2027 row with the same month and day"
+    }
+  ],
+  "uninterpreted": [
+    "Ultimate Frisbee for our next YM (assigned to teachers)"
+  ],
+  "events": [
+    {
+      "date": "2026-01-21",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Winter Lodge",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-01-21-winter-lodge",
+      "start": "2026-01-21T19:00:00-07:00",
+      "end": "2026-01-21T20:00:00-07:00"
+    },
+    {
+      "date": "2026-01-28",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball coaching",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-01-28-basketball-coaching",
+      "start": "2026-01-28T19:00:00-07:00",
+      "end": "2026-01-28T20:00:00-07:00"
+    },
+    {
+      "date": "2026-01-28",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Nerf Gun Black Light",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-01-28-nerf-gun-black-light",
+      "start": "2026-01-28T19:00:00-07:00",
+      "end": "2026-01-28T20:00:00-07:00"
+    },
+    {
+      "date": "2026-01-29",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "6:30 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-01-29-basketball",
+      "start": "2026-01-29T18:30:00-07:00",
+      "end": "2026-01-29T19:30:00-07:00"
+    },
+    {
+      "date": "2026-02-04",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Gameshow",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-04-combined-young-men-gameshow",
+      "start": "2026-02-04T19:00:00-07:00",
+      "end": "2026-02-04T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-05",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "6:30 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-05-basketball",
+      "start": "2026-02-05T18:30:00-07:00",
+      "end": "2026-02-05T19:30:00-07:00"
+    },
+    {
+      "date": "2026-02-07",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Baptisms",
+      "location": "Layton Utah Temple",
+      "map": "Layton Utah Temple",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-07-baptisms",
+      "start": "2026-02-07T19:00:00-07:00",
+      "end": "2026-02-07T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-11",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Lifting Night",
+      "location": "Station Park",
+      "map": "Station Park, Farmington UT",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-11-lifting-night",
+      "start": "2026-02-11T19:00:00-07:00",
+      "end": "2026-02-11T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-11",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Sacrament Training",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-11-sacrament-training",
+      "start": "2026-02-11T19:00:00-07:00",
+      "end": "2026-02-11T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-12",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Utah Jazz vs. Portland Trailblazers",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-12-utah-jazz-vs-portland-trailblazers",
+      "start": "2026-02-12T19:00:00-07:00",
+      "end": "2026-02-12T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-18",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Camp out",
+      "location": "Heber Valley Camp",
+      "map": "Heber Valley Camp, Heber UT",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-18-camp-out",
+      "start": "2026-02-18T19:00:00-07:00",
+      "end": "2026-02-18T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-18",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity — Weekend Camp",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "none",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-02-18-no-activity-weekend-camp",
+      "start": "2026-02-18T19:00:00-07:00",
+      "end": "2026-02-18T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-20",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Youth Camp",
+      "location": "Heber Valley Camp",
+      "map": "Heber Valley Camp, Heber UT",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-20-combined-young-men-and-young-women-youth-camp",
+      "start": "2026-02-20T19:00:00-07:00",
+      "end": "2026-02-20T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-25",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Lunch",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "12:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-25-lunch",
+      "start": "2026-02-25T12:00:00-07:00",
+      "end": "2026-02-25T13:00:00-07:00"
+    },
+    {
+      "date": "2026-02-25",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Game Night",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-25-game-night",
+      "start": "2026-02-25T19:00:00-07:00",
+      "end": "2026-02-25T20:00:00-07:00"
+    },
+    {
+      "date": "2026-02-27",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Baptisms for Dead",
+      "location": "Syracuse Utah Temple",
+      "map": "Syracuse Utah Temple",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-02-27-baptisms-for-dead",
+      "start": "2026-02-27T19:00:00-07:00",
+      "end": "2026-02-27T20:00:00-07:00"
+    },
+    {
+      "date": "2026-03-04",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-04-combined-young-men",
+      "start": "2026-03-04T19:00:00-07:00",
+      "end": "2026-03-04T20:00:00-07:00"
+    },
+    {
+      "date": "2026-03-04",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Hang at the Pavilion",
+      "location": "Ward Meetinghouse Pavilion",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-04-hang-at-the-pavilion",
+      "start": "2026-03-04T19:00:00-07:00",
+      "end": "2026-03-04T20:00:00-07:00"
+    },
+    {
+      "date": "2026-03-07",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Baptisms Bountiful",
+      "location": "Bountiful Utah Temple",
+      "map": "Bountiful Utah Temple",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:45 AM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-07-baptisms-bountiful",
+      "start": "2026-03-07T07:45:00-07:00",
+      "end": "2026-03-07T08:45:00-07:00"
+    },
+    {
+      "date": "2026-03-11",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Lunch",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "1:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-11-lunch",
+      "start": "2026-03-11T13:00:00-06:00",
+      "end": "2026-03-11T14:00:00-06:00"
+    },
+    {
+      "date": "2026-03-11",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Temple",
+      "location": "Layton Utah Temple",
+      "map": "Layton Utah Temple",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-11-temple",
+      "start": "2026-03-11T19:00:00-06:00",
+      "end": "2026-03-11T20:00:00-06:00"
+    },
+    {
+      "date": "2026-03-11",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Tour",
+      "location": "Church History Museum",
+      "map": "Church History Museum, Salt Lake City UT",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-11-tour",
+      "start": "2026-03-11T19:00:00-06:00",
+      "end": "2026-03-11T20:00:00-06:00"
+    },
+    {
+      "date": "2026-03-18",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-18-combined-young-men-and-young-women",
+      "start": "2026-03-18T19:00:00-06:00",
+      "end": "2026-03-18T20:00:00-06:00"
+    },
+    {
+      "date": "2026-03-22",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Feed the homeless",
+      "location": "Ogden Homeless Shelter",
+      "map": "Ogden Homeless Shelter",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "11:30 AM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-22-feed-the-homeless",
+      "start": "2026-03-22T11:30:00-06:00",
+      "end": "2026-03-22T12:30:00-06:00"
+    },
+    {
+      "date": "2026-03-25",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Dodgeball",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-25-dodgeball",
+      "start": "2026-03-25T19:00:00-06:00",
+      "end": "2026-03-25T20:00:00-06:00"
+    },
+    {
+      "date": "2026-03-25",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Pizza and planning",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-25-pizza-and-planning",
+      "start": "2026-03-25T19:00:00-06:00",
+      "end": "2026-03-25T20:00:00-06:00"
+    },
+    {
+      "date": "2026-03-25",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "To Be Determined",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "tbd",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-03-25-to-be-determined",
+      "start": "2026-03-25T19:00:00-06:00",
+      "end": "2026-03-25T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-01",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Cooking Night",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-01-combined-young-men-cooking-night",
+      "start": "2026-04-01T19:00:00-06:00",
+      "end": "2026-04-01T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-08",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Activity",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-04-08-activity",
+      "start": "2026-04-08T19:00:00-06:00",
+      "end": "2026-04-08T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-08",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "First Responder First Aid",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-08-first-responder-first-aid",
+      "start": "2026-04-08T19:00:00-06:00",
+      "end": "2026-04-08T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-08",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Service Project",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-08-service-project",
+      "start": "2026-04-08T19:00:00-06:00",
+      "end": "2026-04-08T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-15",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Chicago Ball",
+      "location": "Woodland Park",
+      "map": "Woodland Park, Farmington UT",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-04-15-combined-young-men-and-young-women-chicago-ball",
+      "start": "2026-04-15T19:00:00-06:00",
+      "end": "2026-04-15T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-22",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Planning Overnight",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-22-planning-overnight",
+      "start": "2026-04-22T19:00:00-06:00",
+      "end": "2026-04-22T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-22",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Spring Cleanup",
+      "location": "Ward Neighborhood",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-22-spring-cleanup",
+      "start": "2026-04-22T19:00:00-06:00",
+      "end": "2026-04-22T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-29",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "CPR Training",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-29-cpr-training",
+      "start": "2026-04-29T19:00:00-06:00",
+      "end": "2026-04-29T20:00:00-06:00"
+    },
+    {
+      "date": "2026-04-29",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "To Be Determined",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "tbd",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-04-29-to-be-determined",
+      "start": "2026-04-29T19:00:00-06:00",
+      "end": "2026-04-29T20:00:00-06:00"
+    },
+    {
+      "date": "2026-05-06",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "stake",
+      "title": "Stake Youth Sports Night",
+      "location": "Ranches Park",
+      "map": "Ranches Park, Farmington UT",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-05-06-stake-youth-sports-night",
+      "start": "2026-05-06T19:00:00-06:00",
+      "end": "2026-05-06T20:00:00-06:00"
+    },
+    {
+      "date": "2026-05-13",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Ultimate Frisbee",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-05-13-ultimate-frisbee",
+      "start": "2026-05-13T19:00:00-06:00",
+      "end": "2026-05-13T20:00:00-06:00"
+    },
+    {
+      "date": "2026-05-20",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-05-20-combined-young-men-and-young-women",
+      "start": "2026-05-20T19:00:00-06:00",
+      "end": "2026-05-20T20:00:00-06:00"
+    },
+    {
+      "date": "2026-05-27",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Backpacking Preparation",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-05-27-backpacking-preparation",
+      "start": "2026-05-27T19:00:00-06:00",
+      "end": "2026-05-27T20:00:00-06:00"
+    },
+    {
+      "date": "2026-05-27",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Scripture Training",
+      "location": "Ward Meetinghouse, 549 S 1525 W, Farmington",
+      "map": "549 S 1525 W, Farmington UT 84025",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-05-27-scripture-training",
+      "start": "2026-05-27T19:00:00-06:00",
+      "end": "2026-05-27T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-03",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity — Backpacking",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "none",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-03-no-activity-backpacking",
+      "start": "2026-06-03T19:00:00-06:00",
+      "end": "2026-06-03T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-03",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Stake Farmington Pool",
+      "location": "Farmington Pool",
+      "map": "Farmington Pool, Farmington UT",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM – 10:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-03-stake-farmington-pool",
+      "start": "2026-06-03T19:00:00-06:00",
+      "end": "2026-06-03T22:00:00-06:00"
+    },
+    {
+      "date": "2026-06-10",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Baptisms for Dead",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-10-baptisms-for-dead",
+      "start": "2026-06-10T19:00:00-06:00",
+      "end": "2026-06-10T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-10",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Hatchet Throwing",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-10-hatchet-throwing",
+      "start": "2026-06-10T19:00:00-06:00",
+      "end": "2026-06-10T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-10",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Shooting",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-10-shooting",
+      "start": "2026-06-10T19:00:00-06:00",
+      "end": "2026-06-10T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-17",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Career Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-17-career-night",
+      "start": "2026-06-17T19:00:00-06:00",
+      "end": "2026-06-17T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-17",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-06-17-combined-young-men-and-young-women",
+      "start": "2026-06-17T19:00:00-06:00",
+      "end": "2026-06-17T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-24",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Boating",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-24-boating",
+      "start": "2026-06-24T19:00:00-06:00",
+      "end": "2026-06-24T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-24",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Boating (Light)",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-24-combined-young-men-and-young-women-boating-light",
+      "start": "2026-06-24T19:00:00-06:00",
+      "end": "2026-06-24T20:00:00-06:00"
+    },
+    {
+      "date": "2026-06-24",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Swim Party",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-06-24-swim-party",
+      "start": "2026-06-24T19:00:00-06:00",
+      "end": "2026-06-24T20:00:00-06:00"
+    },
+    {
+      "date": "2026-07-01",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-01-combined-young-men",
+      "start": "2026-07-01T19:00:00-06:00",
+      "end": "2026-07-01T20:00:00-06:00"
+    },
+    {
+      "date": "2026-07-08",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Shotgun Shooting",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-08-shotgun-shooting",
+      "start": "2026-07-08T19:00:00-06:00",
+      "end": "2026-07-08T20:00:00-06:00"
+    },
+    {
+      "date": "2026-07-15",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-15-combined-young-men-and-young-women",
+      "start": "2026-07-15T19:00:00-06:00",
+      "end": "2026-07-15T20:00:00-06:00"
+    },
+    {
+      "date": "2026-07-22",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Baptisms for the Dead",
+      "location": "Syracuse Utah Temple",
+      "map": "Syracuse Utah Temple",
+      "category": "",
+      "status": "activity",
+      "details": "Meet at 6:45",
+      "allDay": false,
+      "time": "6:45 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-22-baptisms-for-the-dead",
+      "start": "2026-07-22T18:45:00-06:00",
+      "end": "2026-07-22T19:45:00-06:00"
+    },
+    {
+      "date": "2026-07-22",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Pickleball",
+      "location": "Farmington City Park",
+      "map": "Farmington City Park",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-22-pickleball",
+      "start": "2026-07-22T19:00:00-06:00",
+      "end": "2026-07-22T20:00:00-06:00"
+    },
+    {
+      "date": "2026-07-29",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Boat",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "5:45 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-29-boat",
+      "start": "2026-07-29T17:45:00-06:00",
+      "end": "2026-07-29T18:45:00-06:00"
+    },
+    {
+      "date": "2026-07-29",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Skills Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-07-29-skills-night",
+      "start": "2026-07-29T19:00:00-06:00",
+      "end": "2026-07-29T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-05",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Blow Stuff Up",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-08-05-blow-stuff-up",
+      "start": "2026-08-05T19:00:00-06:00",
+      "end": "2026-08-05T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-10",
+      "endDate": "2026-08-13",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "stake",
+      "title": "Stake YM Camp",
+      "location": "Lyman Lake",
+      "map": "Lyman Lake",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": true,
+      "time": "",
+      "timeAssumed": false,
+      "id": "ym-2026-08-10-stake-ym-camp",
+      "start": "2026-08-10T00:00:00-06:00",
+      "end": "2026-08-14T00:00:00-06:00"
+    },
+    {
+      "date": "2026-08-12",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "To Be Determined",
+      "location": "Camp",
+      "map": "",
+      "category": "",
+      "status": "tbd",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-08-12-to-be-determined",
+      "start": "2026-08-12T19:00:00-06:00",
+      "end": "2026-08-12T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-19",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-08-19-combined-young-men-and-young-women",
+      "start": "2026-08-19T19:00:00-06:00",
+      "end": "2026-08-19T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-19",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity — School Starts",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "none",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-08-19-no-activity-school-starts",
+      "start": "2026-08-19T19:00:00-06:00",
+      "end": "2026-08-19T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-26",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Boating",
+      "location": "Willard Bay",
+      "map": "Willard Bay State Park UT",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-08-26-boating",
+      "start": "2026-08-26T19:00:00-06:00",
+      "end": "2026-08-26T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-26",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Ultimate Frisbee",
+      "location": "Canyon Creek",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-08-26-ultimate-frisbee",
+      "start": "2026-08-26T19:00:00-06:00",
+      "end": "2026-08-26T20:00:00-06:00"
+    },
+    {
+      "date": "2026-08-29",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Syracuse Temple",
+      "location": "Syracuse Utah Temple",
+      "map": "Syracuse Utah Temple",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "Leave at 6:45 AM",
+      "allDay": false,
+      "time": "6:45 AM",
+      "timeAssumed": false,
+      "id": "ym-2026-08-29-syracuse-temple",
+      "start": "2026-08-29T06:45:00-06:00",
+      "end": "2026-08-29T07:45:00-06:00"
+    },
+    {
+      "date": "2026-09-02",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Orbi Gun",
+      "location": "Woodland Park",
+      "map": "Woodland Park, Farmington UT",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-02-combined-young-men-orbi-gun",
+      "start": "2026-09-02T19:00:00-06:00",
+      "end": "2026-09-02T20:00:00-06:00"
+    },
+    {
+      "date": "2026-09-02",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Game Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-02-game-night",
+      "start": "2026-09-02T19:00:00-06:00",
+      "end": "2026-09-02T20:00:00-06:00"
+    },
+    {
+      "date": "2026-09-09",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "FSY Activity - One Match Challenge",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-09-fsy-activity-one-match-challenge",
+      "start": "2026-09-09T19:00:00-06:00",
+      "end": "2026-09-09T20:00:00-06:00"
+    },
+    {
+      "date": "2026-09-09",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Shooting",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-09-shooting",
+      "start": "2026-09-09T19:00:00-06:00",
+      "end": "2026-09-09T20:00:00-06:00"
+    },
+    {
+      "date": "2026-09-19",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Walk to the Temple",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "8:00 AM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-19-combined-young-men-and-young-women-walk-to-the-t",
+      "start": "2026-09-19T08:00:00-06:00",
+      "end": "2026-09-19T09:00:00-06:00"
+    },
+    {
+      "date": "2026-09-23",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Pool Party",
+      "location": "Member Home (details from leaders)",
+      "map": "",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-23-pool-party",
+      "start": "2026-09-23T19:00:00-06:00",
+      "end": "2026-09-23T20:00:00-06:00"
+    },
+    {
+      "date": "2026-09-25",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Crystal Hot Springs",
+      "location": "Crystal Hot Springs",
+      "map": "Crystal Hot Springs, Honeyville UT",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "5:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-25-crystal-hot-springs",
+      "start": "2026-09-25T17:00:00-06:00",
+      "end": "2026-09-25T18:00:00-06:00"
+    },
+    {
+      "date": "2026-09-30",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Syracuse Temple",
+      "location": "Syracuse Utah Temple",
+      "map": "Syracuse Utah Temple",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "Leave at 6:45 PM",
+      "allDay": false,
+      "time": "6:45 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-30-syracuse-temple",
+      "start": "2026-09-30T18:45:00-06:00",
+      "end": "2026-09-30T19:45:00-06:00"
+    },
+    {
+      "date": "2026-09-30",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Shotgun Shooting",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-09-30-shotgun-shooting",
+      "start": "2026-09-30T19:00:00-06:00",
+      "end": "2026-09-30T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-07",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-10-07-combined-young-men",
+      "start": "2026-10-07T19:00:00-06:00",
+      "end": "2026-10-07T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-07",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Trade Up Challenge",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-10-07-trade-up-challenge",
+      "start": "2026-10-07T19:00:00-06:00",
+      "end": "2026-10-07T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-14",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Fire & Dutch Pizzas",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-10-14-fire-dutch-pizzas",
+      "start": "2026-10-14T19:00:00-06:00",
+      "end": "2026-10-14T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-14",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity — Fall Break",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "holiday",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-10-14-no-activity-fall-break",
+      "start": "2026-10-14T19:00:00-06:00",
+      "end": "2026-10-14T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-21",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Trunk or Treat",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-10-21-combined-young-men-and-young-women-trunk-or-trea",
+      "start": "2026-10-21T19:00:00-06:00",
+      "end": "2026-10-21T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-21",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Wilderness Survival",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-10-21-wilderness-survival",
+      "start": "2026-10-21T19:00:00-06:00",
+      "end": "2026-10-21T20:00:00-06:00"
+    },
+    {
+      "date": "2026-10-28",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Trunk or Treat",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-10-28-trunk-or-treat",
+      "start": "2026-10-28T19:00:00-06:00",
+      "end": "2026-10-28T20:00:00-06:00"
+    },
+    {
+      "date": "2026-11-04",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Fugitive",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-11-04-combined-young-men-fugitive",
+      "start": "2026-11-04T19:00:00-07:00",
+      "end": "2026-11-04T20:00:00-07:00"
+    },
+    {
+      "date": "2026-11-11",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Engineering Challenge",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-11-11-engineering-challenge",
+      "start": "2026-11-11T19:00:00-07:00",
+      "end": "2026-11-11T20:00:00-07:00"
+    },
+    {
+      "date": "2026-11-11",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Open DDD",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-11-11-open-ddd",
+      "start": "2026-11-11T19:00:00-07:00",
+      "end": "2026-11-11T20:00:00-07:00"
+    },
+    {
+      "date": "2026-11-11",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Volleyball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-11-11-volleyball",
+      "start": "2026-11-11T19:00:00-07:00",
+      "end": "2026-11-11T20:00:00-07:00"
+    },
+    {
+      "date": "2026-11-18",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Turkey Bowl",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-11-18-combined-young-men-and-young-women-turkey-bowl",
+      "start": "2026-11-18T19:00:00-07:00",
+      "end": "2026-11-18T20:00:00-07:00"
+    },
+    {
+      "date": "2026-11-18",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Relay Race",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-11-18-combined-young-men-relay-race",
+      "start": "2026-11-18T19:00:00-07:00",
+      "end": "2026-11-18T20:00:00-07:00"
+    },
+    {
+      "date": "2026-11-25",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity — Thanksgiving",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "holiday",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-11-25-no-activity-thanksgiving",
+      "start": "2026-11-25T19:00:00-07:00",
+      "end": "2026-11-25T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-02",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Scavenger Hunt",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-02-combined-young-men-scavenger-hunt",
+      "start": "2026-12-02T19:00:00-07:00",
+      "end": "2026-12-02T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-02",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Service Scavenger Hunt",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-02-combined-young-men-service-scavenger-hunt",
+      "start": "2026-12-02T19:00:00-07:00",
+      "end": "2026-12-02T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-09",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Flo Rider",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-09-flo-rider",
+      "start": "2026-12-09T19:00:00-07:00",
+      "end": "2026-12-09T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-09",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Service",
+      "location": "Utah Food Bank",
+      "map": "Utah Food Bank",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-09-service",
+      "start": "2026-12-09T19:00:00-07:00",
+      "end": "2026-12-09T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-09",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Temple Square Lights",
+      "location": "Temple Square",
+      "map": "Temple Square, Salt Lake City UT",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2026-12-09-temple-square-lights",
+      "start": "2026-12-09T19:00:00-07:00",
+      "end": "2026-12-09T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-16",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Service Scavenger Hunt",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-16-service-scavenger-hunt",
+      "start": "2026-12-16T19:00:00-07:00",
+      "end": "2026-12-16T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-23",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity — Christmas",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "holiday",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-23-no-activity-christmas",
+      "start": "2026-12-23T19:00:00-07:00",
+      "end": "2026-12-23T20:00:00-07:00"
+    },
+    {
+      "date": "2026-12-30",
+      "endDate": "",
+      "quorums": [
+        "teachers-quorum"
+      ],
+      "combined": "",
+      "title": "Syracuse temple baptisms",
+      "location": "Syracuse Utah Temple",
+      "map": "Syracuse Utah Temple",
+      "category": "",
+      "status": "activity",
+      "details": "Leave at 4:45PM",
+      "allDay": false,
+      "time": "4:45 PM – 5:30 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-30-syracuse-temple-baptisms",
+      "start": "2026-12-30T16:45:00-07:00",
+      "end": "2026-12-30T17:30:00-07:00"
+    },
+    {
+      "date": "2026-12-30",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "No Activity",
+      "location": "",
+      "map": "",
+      "category": "",
+      "status": "none",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2026-12-30-no-activity",
+      "start": "2026-12-30T19:00:00-07:00",
+      "end": "2026-12-30T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-06",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Glow in the Dark Volleyball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-06-combined-young-men-glow-in-the-dark-volleyball",
+      "start": "2027-01-06T19:00:00-07:00",
+      "end": "2027-01-06T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-06",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Winter Camp",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-01-06-winter-camp",
+      "start": "2027-01-06T19:00:00-07:00",
+      "end": "2027-01-06T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-07",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-07-basketball",
+      "start": "2027-01-07T19:00:00-07:00",
+      "end": "2027-01-07T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-13",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Deacon Planning Session",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-01-13-deacon-planning-session",
+      "start": "2027-01-13T19:00:00-07:00",
+      "end": "2027-01-13T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-14",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-14-basketball",
+      "start": "2027-01-14T19:00:00-07:00",
+      "end": "2027-01-14T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-20",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women",
+      "location": "Camp",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-20-combined-young-men-and-young-women",
+      "start": "2027-01-20T19:00:00-07:00",
+      "end": "2027-01-20T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-20",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Glow in the Dark Volleyball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-01-20-glow-in-the-dark-volleyball",
+      "start": "2027-01-20T19:00:00-07:00",
+      "end": "2027-01-20T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-21",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-21-basketball",
+      "start": "2027-01-21T19:00:00-07:00",
+      "end": "2027-01-21T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-24",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Trek Fireside",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-24-trek-fireside",
+      "start": "2027-01-24T19:00:00-07:00",
+      "end": "2027-01-24T20:00:00-07:00"
+    },
+    {
+      "date": "2027-01-28",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Basketball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-01-28-basketball",
+      "start": "2027-01-28T19:00:00-07:00",
+      "end": "2027-01-28T20:00:00-07:00"
+    },
+    {
+      "date": "2027-02-03",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: Pizza Making",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-02-03-combined-young-men-pizza-making",
+      "start": "2027-02-03T19:00:00-07:00",
+      "end": "2027-02-03T20:00:00-07:00"
+    },
+    {
+      "date": "2027-02-03",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "FlowRider",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Physical",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-02-03-flowrider",
+      "start": "2027-02-03T19:00:00-07:00",
+      "end": "2027-02-03T20:00:00-07:00"
+    },
+    {
+      "date": "2027-02-17",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: FlowRider",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-02-17-combined-young-men-and-young-women-flowrider",
+      "start": "2027-02-17T19:00:00-07:00",
+      "end": "2027-02-17T20:00:00-07:00"
+    },
+    {
+      "date": "2027-02-17",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Pizza Making",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-02-17-pizza-making",
+      "start": "2027-02-17T19:00:00-07:00",
+      "end": "2027-02-17T20:00:00-07:00"
+    },
+    {
+      "date": "2027-03-03",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Career Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Intellectual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-03-03-career-night",
+      "start": "2027-03-03T19:00:00-07:00",
+      "end": "2027-03-03T20:00:00-07:00"
+    },
+    {
+      "date": "2027-03-03",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: FSY Magazine",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-03-03-combined-young-men-fsy-magazine",
+      "start": "2027-03-03T19:00:00-07:00",
+      "end": "2027-03-03T20:00:00-07:00"
+    },
+    {
+      "date": "2027-03-05",
+      "endDate": "2027-03-06",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Camp Helaman",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": true,
+      "time": "",
+      "timeAssumed": false,
+      "id": "ym-2027-03-05-camp-helaman",
+      "start": "2027-03-05T00:00:00-07:00",
+      "end": "2027-03-07T00:00:00-07:00"
+    },
+    {
+      "date": "2027-03-17",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Career Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-03-17-combined-young-men-and-young-women-career-night",
+      "start": "2027-03-17T19:00:00-06:00",
+      "end": "2027-03-17T20:00:00-06:00"
+    },
+    {
+      "date": "2027-03-17",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "FSY Magazine Activity",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-03-17-fsy-magazine-activity",
+      "start": "2027-03-17T19:00:00-06:00",
+      "end": "2027-03-17T20:00:00-06:00"
+    },
+    {
+      "date": "2027-03-31",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "Slip n Slide Kickball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Social",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-03-31-slip-n-slide-kickball",
+      "start": "2027-03-31T19:00:00-06:00",
+      "end": "2027-03-31T20:00:00-06:00"
+    },
+    {
+      "date": "2027-04-07",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: FSY Magazine",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-04-07-combined-young-men-fsy-magazine",
+      "start": "2027-04-07T19:00:00-06:00",
+      "end": "2027-04-07T20:00:00-06:00"
+    },
+    {
+      "date": "2027-04-14",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum"
+      ],
+      "combined": "",
+      "title": "FSY Magazine Activity",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "Spiritual",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM",
+      "timeAssumed": false,
+      "id": "ym-2027-04-14-fsy-magazine-activity",
+      "start": "2027-04-14T19:00:00-06:00",
+      "end": "2027-04-14T20:00:00-06:00"
+    },
+    {
+      "date": "2027-04-21",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Missionary Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-04-21-combined-young-men-and-young-women-missionary-ni",
+      "start": "2027-04-21T19:00:00-06:00",
+      "end": "2027-04-21T20:00:00-06:00"
+    },
+    {
+      "date": "2027-04-21",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Trek Hoedown",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-04-21-trek-hoedown",
+      "start": "2027-04-21T19:00:00-06:00",
+      "end": "2027-04-21T20:00:00-06:00"
+    },
+    {
+      "date": "2027-05-05",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ym",
+      "title": "Combined Young Men: FSY Magazine",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-05-05-combined-young-men-fsy-magazine",
+      "start": "2027-05-05T19:00:00-06:00",
+      "end": "2027-05-05T20:00:00-06:00"
+    },
+    {
+      "date": "2027-05-05",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "stake",
+      "title": "Stake Youth Sports Night",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-05-05-stake-youth-sports-night",
+      "start": "2027-05-05T19:00:00-06:00",
+      "end": "2027-05-05T20:00:00-06:00"
+    },
+    {
+      "date": "2027-05-19",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "ymyw",
+      "title": "Combined Young Men and Young Women: Slip 'n Slide Kickball",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-05-19-combined-young-men-and-young-women-slip-n-slide-",
+      "start": "2027-05-19T19:00:00-06:00",
+      "end": "2027-05-19T20:00:00-06:00"
+    },
+    {
+      "date": "2027-06-02",
+      "endDate": "",
+      "quorums": [
+        "deacons-quorum",
+        "teachers-quorum",
+        "priests-quorum"
+      ],
+      "combined": "stake",
+      "title": "Stake Youth Pool Party",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-06-02-stake-youth-pool-party",
+      "start": "2027-06-02T19:00:00-06:00",
+      "end": "2027-06-02T20:00:00-06:00"
+    },
+    {
+      "date": "2027-06-27",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Temple Open House",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-06-27-temple-open-house",
+      "start": "2027-06-27T19:00:00-06:00",
+      "end": "2027-06-27T20:00:00-06:00"
+    },
+    {
+      "date": "2027-07-07",
+      "endDate": "2027-07-10",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Trek",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": true,
+      "time": "",
+      "timeAssumed": false,
+      "id": "ym-2027-07-07-trek",
+      "start": "2027-07-07T00:00:00-06:00",
+      "end": "2027-07-11T00:00:00-06:00"
+    },
+    {
+      "date": "2027-08-22",
+      "endDate": "",
+      "quorums": [
+        "priests-quorum"
+      ],
+      "combined": "",
+      "title": "Post Trek Fireside",
+      "location": "To Be Determined",
+      "map": "",
+      "category": "",
+      "status": "activity",
+      "details": "",
+      "allDay": false,
+      "time": "7:00 PM (Usual Mutual Time)",
+      "timeAssumed": true,
+      "id": "ym-2027-08-22-post-trek-fireside",
+      "start": "2027-08-22T19:00:00-06:00",
+      "end": "2027-08-22T20:00:00-06:00"
+    }
+  ]
+}
