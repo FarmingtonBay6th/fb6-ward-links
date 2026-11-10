@@ -1,5 +1,5 @@
 {
-  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, presidency [{role,name}], advisers [names], members [other girls in the class, not in the presidency; alphabetical, first name + last initial], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver). all: ward-wide leaders shown on the All Young Women tab (adults: full names; presidency names already in the page's contact card are not repeated) plus handbook notes. YOUTH: FIRST NAMES ONLY; you may store a last initial (e.g. 'Emma H.'). The page shows the initial only when two girls' first names are alike (e.g. 'Brynnlee B.' and 'Brinley R.'); otherwise it shows the first name alone.",
+  "_readme": "Young Women class tabs (orgs/young-women/). Rendered in the browser by orgs/young-women/classes.js, so page rebuilds keep it. classes: id (URL hash), name, presidency [{role,name}], advisers [names], members [other girls in the class, not in the presidency; alphabetical, first name + last initial], info (one short line). Leave a field null/empty to show 'Coming soon'. NO phone numbers or other personal info for youth. activities: one object per item with class = a class id or 'all' (shows in every class tab); title, date (YYYY-MM-DD), endDate (optional), time, place, details, flyer (path from site root, e.g. 'events/flyers/x.jpg'), link (optional https URL). Items hide after their date/endDate (America/Denver), and tools/prune_events.py deletes them the next calendar day. all: ward-wide leaders shown on the All Young Women tab (adults: full names; presidency names already in the page's contact card are not repeated) plus handbook notes. YOUTH: FIRST NAMES ONLY; you may store a last initial (e.g. 'Emma H.'). The page shows the initial only when two girls' first names are alike (e.g. 'Brynnlee B.' and 'Brinley R.'); otherwise it shows the first name alone.",
   "classes": [
     {
       "id": "gatherers-of-light",
@@ -108,35 +108,7 @@
       ]
     }
   ],
-  "activities": [
-    {
-      "class": "builders-of-faith",
-      "title": "News Anchor Night (Combined Young Women)",
-      "date": "2026-11-04",
-      "time": "4:45 PM",
-      "place": "Meet at the church to leave together",
-      "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
-      "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
-    },
-    {
-      "class": "messengers-of-hope",
-      "title": "News Anchor Night (Combined Young Women)",
-      "date": "2026-11-04",
-      "time": "4:45 PM",
-      "place": "Meet at the church to leave together",
-      "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
-      "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
-    },
-    {
-      "class": "gatherers-of-light",
-      "title": "News Anchor Night (Combined Young Women)",
-      "date": "2026-11-04",
-      "time": "4:45 PM",
-      "place": "Meet at the church to leave together",
-      "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
-      "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
-    }
-  ],
+  "activities": [],
   "all": {
     "presidency": [
       {
