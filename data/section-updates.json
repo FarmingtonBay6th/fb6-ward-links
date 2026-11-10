@@ -53,26 +53,26 @@
     "young-women": {
       "title": "Young Women",
       "path": "orgs/young-women/",
-      "hash": "84336d51c017a97c1aaf5d593c199d423705c03ef7099a57a00e25741b6e87a4",
-      "updated": "2026-11-07T11:32:09Z"
+      "hash": "e41faa6a457ec97de78197426b16d6a2a6edce607f02805982d4bec973f9da96",
+      "updated": "2026-11-10T10:14:24Z"
     },
     "young-men": {
       "title": "Young Men",
       "path": "orgs/young-men/",
-      "hash": "c86c1c9ac06026796528ebf7d4383763ef85f57f87f937a2da360803d6ae9023",
-      "updated": "2026-11-10T10:06:02Z"
+      "hash": "19293554cc6c17fd08d52bd959ea2fce83851e93f3ec00c327312e7e219006cf",
+      "updated": "2026-11-10T10:14:24Z"
     },
     "sunday-school": {
       "title": "Sunday School",
       "path": "orgs/sunday-school/",
-      "hash": "32a0f43f49ded26ee02fb566e9c8d2bbf53861398191802fd227ea032165bc3f",
-      "updated": "2026-10-30T16:27:10Z"
+      "hash": "a83d20671c4a00876e6877f9a9be1a4652e46a6841d58a2345c8add31a927d0f",
+      "updated": "2026-11-10T10:14:24Z"
     },
     "primary": {
       "title": "Primary",
       "path": "orgs/primary/",
-      "hash": "da561e7e8e337bbfb06b9103b5222bf6f5d374387306a7d53ca69194cfa3755b",
-      "updated": "2026-11-08T20:14:25Z"
+      "hash": "8e7ddfe55261d4c672ebace712fabf4ececbc4cca63c46f6ee3ed0bc54dec1cc",
+      "updated": "2026-11-10T10:14:24Z"
     },
     "temple-and-family-history": {
       "title": "Temple And Family History",
