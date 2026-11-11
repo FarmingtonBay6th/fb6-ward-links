@@ -23,8 +23,8 @@
     "events": {
       "title": "Upcoming Events",
       "path": "events/",
-      "hash": "bbb058e7386a1df50122c6fd677c239cdea8a90395ebbb16779a1ebc1451fc2d",
-      "updated": "2026-11-11T01:41:18Z"
+      "hash": "f12a3450185c1234836ebf8f79b93b4565a6bd8e8b6b13f385f01ffe592d766b",
+      "updated": "2026-11-11T19:22:27Z"
     },
     "announce": {
       "title": "Submit An Announcement",
@@ -77,8 +77,8 @@
     "temple-and-family-history": {
       "title": "Temple And Family History",
       "path": "orgs/temple-and-family-history/",
-      "hash": "2c1044bbe2f61a9ef6174d646dc5ed9600a3bee1564462c4324bc048f78d72ae",
-      "updated": "2026-11-11T16:40:20Z"
+      "hash": "0025901cdc33144a7b999ed2f7e890561bd49ecfc846d5565f1f04402d765ff0",
+      "updated": "2026-11-11T19:22:27Z"
     },
     "ward-missionaries": {
       "title": "Missionaries in Our Area",
