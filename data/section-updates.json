@@ -5,26 +5,26 @@
     "this-sunday": {
       "title": "This Sunday",
       "path": "this-sunday/",
-      "hash": "fff541d8a0d025974e7acee7da872a82461ea2c80670ec0b75f315439afdbdb3",
-      "updated": "2026-11-08T18:12:45Z"
+      "hash": "8aa9ae64c75395b13b070bb38e1854a1612bf7427c20a9fdf6fcf9b3ccad1c91",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "meet": {
       "title": "Meet With The Bishop",
       "path": "meet/",
-      "hash": "04e6d40c3c8a56e59e6852fe960bed64376a6429e074bfea394141ab79c1393b",
-      "updated": "2026-11-01T20:31:29Z"
+      "hash": "376adeec66b8642939e371abe73a14c147c1d4e795e07cb145b66a993f327e42",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "calendar": {
       "title": "Bay 6 Calendar",
       "path": "calendar/",
-      "hash": "11972897fa96140237b0b2214526f00f169e8193b1fc3bc67a4e8d7498ccd6ca",
-      "updated": "2026-11-10T10:06:02Z"
+      "hash": "cf5ec98b3e584dd850f7828e142d5aec1d38043f1b79a02e7b74b321d25dd33c",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "events": {
       "title": "Upcoming Events",
       "path": "events/",
-      "hash": "3eb8eb52801083870ed6224555233ed4e2254fef1a5411de07ca6552b72021d2",
-      "updated": "2026-11-09T01:24:21Z"
+      "hash": "cd24b122a82c3020039a40a08150b94ee1511ee4c15e96f8060e1fc80a105bd6",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "announce": {
       "title": "Submit An Announcement",
@@ -41,44 +41,44 @@
     "relief-society": {
       "title": "Relief Society",
       "path": "orgs/relief-society/",
-      "hash": "6da27f39d4f971c458e1b02175a80f601a1fe0d5af3a35aa6dfec50277f6f5df",
-      "updated": "2026-11-06T03:05:34Z"
+      "hash": "a1994ad60aa6c716798d27d30b7b551227773164e4794bb88f99a21d5d8a7e15",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "elders-quorum": {
       "title": "Elders Quorum",
       "path": "orgs/elders-quorum/",
-      "hash": "e7167943dc187cb32b04a38a6935549685a202337a9e8969ee0584a8e76577ae",
-      "updated": "2026-10-30T16:27:10Z"
+      "hash": "8c6cad131963eca235b07639f4c767ca9223980bf0b2f0f3e8ca44d233445d18",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "young-women": {
       "title": "Young Women",
       "path": "orgs/young-women/",
-      "hash": "e41faa6a457ec97de78197426b16d6a2a6edce607f02805982d4bec973f9da96",
-      "updated": "2026-11-10T10:14:24Z"
+      "hash": "19725215c6513b61a305aeaa75946231de876e21c410908520768eb341880f41",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "young-men": {
       "title": "Young Men",
       "path": "orgs/young-men/",
-      "hash": "157d833d5197e481526b193f5bf04d83b116e9ff32a86a56fe39ff149afd4fd3",
-      "updated": "2026-11-10T10:25:49Z"
+      "hash": "5f8346ee6bfc4925a47221d24a2ac924802db5171c4cf168e16a36ad086bf730",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "sunday-school": {
       "title": "Sunday School",
       "path": "orgs/sunday-school/",
-      "hash": "a83d20671c4a00876e6877f9a9be1a4652e46a6841d58a2345c8add31a927d0f",
-      "updated": "2026-11-10T10:14:24Z"
+      "hash": "294e1fd1dc7dfb2f167a0960c6c905310978153979b2ec1a890e22f252aa87ec",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "primary": {
       "title": "Primary",
       "path": "orgs/primary/",
-      "hash": "8e7ddfe55261d4c672ebace712fabf4ececbc4cca63c46f6ee3ed0bc54dec1cc",
-      "updated": "2026-11-10T10:14:24Z"
+      "hash": "c0e3f46571494fca4b5ffe312f683b66393f6f532a7a15e8ba951b2b979ddc0d",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "temple-and-family-history": {
       "title": "Temple And Family History",
       "path": "orgs/temple-and-family-history/",
-      "hash": "bc7cdf4e9823b531570424806a39ea57d7d9a2afc083f10194f75ceb67cbde8e",
-      "updated": "2026-11-07T19:19:20Z"
+      "hash": "17f86996da23bbb04f5176e9c5a349b66c4ea2b0481cf072c0b260680ef31c7e",
+      "updated": "2026-11-11T00:47:05Z"
     },
     "ward-missionaries": {
       "title": "Ward Missionaries",
