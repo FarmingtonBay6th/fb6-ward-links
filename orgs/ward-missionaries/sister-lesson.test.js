@@ -210,11 +210,15 @@ test("the public page and config do not carry the old doc, a webhook, or a sheet
   var home = fs.readFileSync(path.join(dir, "../../index.html"), "utf8");
   assert.equal(home.indexOf("1ty2rlUhx5cjsyA8UPWuL36PUtyH1O0ZIKVZHEuuYnHQ"), -1);
   assert.equal(home.indexOf("President Larsen"), -1);
-  assert.ok(home.indexOf('href="orgs/ward-missionaries/#sister-lesson"') >= 0);
+  assert.ok(home.indexOf('href="orgs/ward-missionaries/"') >= 0);
+  assert.equal(home.indexOf("Sister Pettingill"), -1);
+  assert.equal(home.indexOf("Sister Faku"), -1);
   var page = fs.readFileSync(path.join(dir, "index.html"), "utf8");
   assert.ok(page.indexOf('id="sister-lesson"') >= 0);
-  assert.ok(page.indexOf("Have the Sister Missionaries Over") >= 0);
-  assert.ok(page.indexOf("Sister Pettingill and Sister Faku") >= 0);
+  assert.ok(page.indexOf("Have the Missionaries Over") >= 0);
+  assert.equal(page.indexOf("Sister Pettingill"), -1);
+  assert.equal(page.indexOf("Sister Faku"), -1);
+  assert.ok(page.indexOf("The missionaries would love to share a gospel lesson in your home") >= 0);
   assert.ok(page.indexOf("Your address stays off the public page.") >= 0);
   assert.ok(page.indexOf("Sign Up For This Night") >= 0);
   assert.equal(page.indexOf('name="address"'), -1);
