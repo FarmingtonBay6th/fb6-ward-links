@@ -1,138 +1,253 @@
 {
-  "_readme": "Monthly Family History Challenge for ages 6 to 17. One object per month. id is YYYY-MM. title is the short goal. steps are exactly three short lines. link is optional and must be an https FamilySearch or Church page that loads. Leave link empty for an at-home challenge. Owned by Sister Shalisa Bingham. Do not add a phone number or email.",
+  "_readme": "Monthly Family History Challenge for the whole family. One object per month. id is YYYY-MM. title is the shared theme. kids, parents, and together each have a title and exactly three steps. link is optional and must be an https FamilySearch or Church page that loads. Owned by Sister Shalisa Bingham. Do not add a phone number or email.",
   "challenges": [
     {
       "id": "2026-12",
-      "title": "All About Me Box",
-      "steps": [
-        "Find a box at home.",
-        "Put in three things that show who you are.",
-        "Tell a parent why you picked them."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/about-me/4",
-      "linkLabel": "Open All About Me"
+      "title": "All About Me",
+      "kids": {
+        "title": "All About Me Box",
+        "steps": ["Find a box at home.", "Put in three things that show who you are.", "Tell a parent why you picked them."],
+        "link": "https://www.familysearch.org/en/discovery/activities/about-me/4",
+        "linkLabel": "Open All About Me"
+      },
+      "parents": {
+        "title": "Add a Memory",
+        "steps": ["Sign in to Family Tree.", "Open your own page or a parent's page.", "Add one short memory in your own words."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Story Night",
+        "steps": ["Sit together for ten minutes.", "Each person shares one thing from the box or one memory.", "Thank the person who shared."]
+      }
     },
     {
       "id": "2027-01",
       "title": "The Year I Was Born",
-      "steps": [
-        "With a parent, open the activity.",
-        "Pick one fact from the year you were born.",
-        "Tell someone at home what you found."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/about-me/14",
-      "linkLabel": "Open The Year I Was Born"
+      "kids": {
+        "title": "One Fact from My Year",
+        "steps": ["With a parent, open the activity.", "Pick one fact from the year you were born.", "Tell someone at home what you found."],
+        "link": "https://www.familysearch.org/en/discovery/activities/about-me/14",
+        "linkLabel": "Open The Year I Was Born"
+      },
+      "parents": {
+        "title": "Add a Birth Date",
+        "steps": ["Pick one person whose birth date or place is missing.", "Add the date or place you know.", "Read it back to be sure it is right."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "A Year at Dinner",
+        "steps": ["Choose a parent or grandparent.", "Find one fact from the year they were born.", "Tell that fact at dinner."]
+      }
     },
     {
       "id": "2027-02",
-      "title": "The Story of My Name",
-      "steps": [
-        "Ask a parent how you got your name.",
-        "Ask if a relative shares that name.",
-        "Tell the story back in your own words."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/about-me/6",
-      "linkLabel": "Open My Name"
+      "title": "Family Names",
+      "kids": {
+        "title": "The Story of My Name",
+        "steps": ["Ask a parent how you got your name.", "Ask if a relative shares that name.", "Tell the story back in your own words."],
+        "link": "https://www.familysearch.org/en/discovery/activities/about-me/6",
+        "linkLabel": "Open My Name"
+      },
+      "parents": {
+        "title": "Index a Batch",
+        "steps": ["Open Indexing and sign in.", "Choose one short batch.", "Finish it so another family can find a name."],
+        "link": "https://www.familysearch.org/en/getinvolved/indexing/",
+        "linkLabel": "Open Indexing"
+      },
+      "together": {
+        "title": "Say the Names",
+        "steps": ["Gather the family.", "Say the names of parents and grandparents out loud.", "Let each child say their own name and who they were named for."]
+      }
     },
     {
       "id": "2027-03",
-      "title": "Where I'm From",
-      "steps": [
-        "Name one place your family has lived.",
-        "Find that place on a map with a parent.",
-        "Say one thing you know about it."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/about-me/13",
-      "linkLabel": "Open Where I'm From"
+      "title": "Where We're From",
+      "kids": {
+        "title": "Where I'm From",
+        "steps": ["Name one place your family has lived.", "Find that place on a map with a parent.", "Say one thing you know about it."],
+        "link": "https://www.familysearch.org/en/discovery/activities/about-me/13",
+        "linkLabel": "Open Where I'm From"
+      },
+      "parents": {
+        "title": "Add a Place",
+        "steps": ["Pick one person on the tree.", "Add a birthplace or a place they lived.", "Check the spelling with someone who knows."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Map Night",
+        "steps": ["Open a map together.", "Point to one place your family is from.", "Tell one story from that place."]
+      }
     },
     {
       "id": "2027-04",
-      "title": "Interview a Grandparent",
-      "steps": [
-        "Ask what they loved to do at your age.",
-        "Ask for one story from when they were young.",
-        "Ask what they hope you remember about your family."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/my-family/23",
-      "linkLabel": "Open Hear What They Heard"
+      "title": "A Grandparent's Story",
+      "kids": {
+        "title": "Interview a Grandparent",
+        "steps": ["Ask what they loved to do at your age.", "Ask for one story from when they were young.", "Ask what they hope you remember."],
+        "link": "https://www.familysearch.org/en/discovery/activities/my-family/23",
+        "linkLabel": "Open Hear What They Heard"
+      },
+      "parents": {
+        "title": "Save the Story",
+        "steps": ["Write down what was said, in their words.", "Add that short story to their page.", "Read it back to the person you asked, if you can."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Ask Together",
+        "steps": ["Sit with a grandparent, or call them.", "Let a child ask the three questions.", "A parent writes while everyone listens."]
+      }
     },
     {
       "id": "2027-05",
-      "title": "Share a Family Photo",
-      "steps": [
-        "Pick one family photo.",
-        "Ask who is in the picture.",
-        "Tell one story the photo reminds you of."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/my-family/16",
-      "linkLabel": "Open Family Photos"
+      "title": "A Family Photo",
+      "kids": {
+        "title": "Share a Family Photo",
+        "steps": ["Pick one family photo.", "Ask who is in the picture.", "Tell one story the photo reminds you of."],
+        "link": "https://www.familysearch.org/en/discovery/activities/my-family/16",
+        "linkLabel": "Open Family Photos"
+      },
+      "parents": {
+        "title": "Keep the Photo with the Person",
+        "steps": ["Choose the person in that photo.", "Add the photo, or a note about it, on their page.", "Write one sentence about what the photo shows."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Pass the Photo",
+        "steps": ["Pass one photo around the room.", "Each person says who they see.", "Leave the photo where the family will see it this week."]
+      }
     },
     {
       "id": "2027-06",
-      "title": "Compare Faces",
-      "steps": [
-        "Find a photo of you and a photo of an older relative.",
-        "Name two things that look the same.",
-        "Show a parent what you noticed."
-      ]
+      "title": "Faces That Match",
+      "kids": {
+        "title": "Compare Faces",
+        "steps": ["Find a photo of you and a photo of an older relative.", "Name two things that look the same.", "Show a parent what you noticed."]
+      },
+      "parents": {
+        "title": "Choose a Clear Portrait",
+        "steps": ["Pick one relative who needs a clearer photo.", "Choose the best portrait you have.", "Add it, or a note about it, on their page."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Side by Side",
+        "steps": ["Set the two photos next to each other.", "Let each child say one thing that matches.", "Tell the name of the older relative."]
+      }
     },
     {
       "id": "2027-07",
       "title": "Picture My Heritage",
-      "steps": [
-        "Pick a place your family is from.",
-        "Draw yourself there.",
-        "Show the picture to your family."
-      ]
+      "kids": {
+        "title": "Draw Where We're From",
+        "steps": ["Pick a place your family is from.", "Draw yourself there.", "Show the picture to your family."]
+      },
+      "parents": {
+        "title": "Write the Place Down",
+        "steps": ["Write the place name from the drawing.", "Add one fact you know about that place.", "Save the place on the family tree if it is missing."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Heritage Night",
+        "steps": ["Look at the drawing together.", "Share one food, song, or story from that place.", "Let a child tell what they drew."]
+      }
     },
     {
       "id": "2027-08",
       "title": "My Family Tree",
-      "steps": [
-        "With a parent, open the family tree activity.",
-        "Find you, a parent, and a grandparent.",
-        "Say one name out loud."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/my-family/18",
-      "linkLabel": "Open My Family Tree"
+      "kids": {
+        "title": "Find Three People",
+        "steps": ["With a parent, open the family tree.", "Find you, a parent, and a grandparent.", "Say one name out loud."],
+        "link": "https://www.familysearch.org/en/discovery/activities/my-family/18",
+        "linkLabel": "Open My Family Tree"
+      },
+      "parents": {
+        "title": "Add One Missing Link",
+        "steps": ["Look for one parent or spouse line that is empty.", "Add the person if you know the name.", "Stop if you are not sure, and ask a relative."]
+      },
+      "together": {
+        "title": "Point to the Tree",
+        "steps": ["Sit so everyone can see the tree.", "Let a child point to each person they found.", "A parent tells one fact about one of them."]
+      }
     },
     {
       "id": "2027-09",
       "title": "Family Tree Poster",
-      "steps": [
-        "Draw you at the bottom of a page.",
-        "Add your parents, then your grandparents.",
-        "Hang the poster where your family can see it."
-      ]
+      "kids": {
+        "title": "Draw the Poster",
+        "steps": ["Draw you at the bottom of a page.", "Add your parents, then your grandparents.", "Color it and write a name if you know it."]
+      },
+      "parents": {
+        "title": "Check the Names",
+        "steps": ["Read each name on the poster.", "Compare it with Family Tree.", "Fix a spelling together if one is off."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Hang It Up",
+        "steps": ["Pick a wall the family walks past.", "Hang the poster together.", "Tell one story about someone on it."]
+      }
     },
     {
       "id": "2027-10",
-      "title": "One Ancestor Fact",
-      "steps": [
-        "Ask a parent for one ancestor's name.",
-        "Learn one fact: a place, a job, or a story.",
-        "Tell that fact to someone in your home."
-      ]
+      "title": "One Ancestor",
+      "kids": {
+        "title": "A Name and a Fact",
+        "steps": ["Ask a parent for one ancestor's name.", "Learn one fact: a place, a job, or a story.", "Tell that fact to someone at home."]
+      },
+      "parents": {
+        "title": "Attach a Source",
+        "steps": ["Open that ancestor on the tree.", "Attach one record or note you already trust.", "Read the fact back and see that it matches."],
+        "link": "https://www.familysearch.org/en/family-tree/",
+        "linkLabel": "Open Family Tree"
+      },
+      "together": {
+        "title": "Family Home Evening",
+        "steps": ["Start with a song or a prayer, if you wish.", "Let a child tell the ancestor's name and fact.", "Close by saying thank you for that person."]
+      }
     },
     {
       "id": "2027-11",
-      "title": "Write Your Own Story",
-      "steps": [
-        "Pick one memory from this year.",
-        "Write three sentences or tell it out loud.",
-        "Save it with a parent."
-      ],
-      "link": "https://www.familysearch.org/en/discovery/activities/about-me/5",
-      "linkLabel": "Open Keep a Journal"
+      "title": "Our Stories",
+      "kids": {
+        "title": "Write Your Own Story",
+        "steps": ["Pick one memory from this year.", "Write three sentences or tell it out loud.", "Save it with a parent."],
+        "link": "https://www.familysearch.org/en/discovery/activities/about-me/5",
+        "linkLabel": "Open Keep a Journal"
+      },
+      "parents": {
+        "title": "Write Your Story Too",
+        "steps": ["Pick one memory of your own.", "Write a short paragraph.", "Read it to your family."]
+      },
+      "together": {
+        "title": "Read Aloud",
+        "steps": ["Sit in a circle.", "Each person reads or tells their story.", "Clap for every story."]
+      }
     },
     {
       "id": "2027-12",
-      "title": "Draw a Temple",
-      "steps": [
-        "Draw a temple on paper.",
-        "Ask a parent one thing your family loves about the temple.",
-        "Put your picture up at home."
-      ]
+      "title": "Turn Hearts to the Temple",
+      "kids": {
+        "title": "Draw a Temple",
+        "steps": ["Draw a temple on paper.", "Ask a parent one thing your family loves about the temple.", "Put your picture up at home."]
+      },
+      "parents": {
+        "title": "Find a Family Name",
+        "steps": ["Open Ordinances Ready and sign in.", "Find one family name you can prepare.", "Save the name for a temple visit."],
+        "link": "https://www.familysearch.org/en/church/ordinances-ready",
+        "linkLabel": "Open Ordinances Ready"
+      },
+      "together": {
+        "title": "Plan the Visit",
+        "steps": ["Look at the child's temple drawing.", "Pick a temple you can visit, even just the grounds.", "Say the family name and why you want to go."],
+        "link": "https://www.churchofjesuschrist.org/temples?lang=eng",
+        "linkLabel": "Find a Temple"
+      }
     }
   ]
 }
