@@ -20,6 +20,8 @@
   main { max-width:560px; margin:0 auto; padding:16px 14px 24px; }
   .featured { background:var(--card); border:1px solid var(--line); border-top:6px solid var(--gold); border-radius:18px; padding:16px; box-shadow:0 1px 2px rgba(59,47,42,.06); }
   .when { margin:0; font:700 12px/1 -apple-system,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#8a6d22; }
+  .date-note { display:inline-block; margin:8px 0 0; padding:6px 10px; border:1px dashed var(--gold); border-radius:999px; color:#8a6d22; font:700 13px/1 -apple-system,sans-serif; }
+  .date-note[hidden] { display:none; }
   .featured h2 { font:400 28px/1.15 Georgia, serif; margin:8px 0; color:var(--navy); }
   .featured .goal { margin:0 0 4px; font-size:17px; }
   .part { margin:14px 0 0; padding-top:12px; border-top:1px solid var(--line); }
@@ -47,7 +49,8 @@
   .later li { padding:12px 14px; border-top:1px solid var(--line); }
   .later li:first-child { border-top:0; }
   .later small { display:block; font:700 12px/1.2 -apple-system,sans-serif; letter-spacing:.04em; text-transform:uppercase; color:#8a6d22; }
-  .later b { font-weight:700; }
+  .later b { display:block; font-weight:700; }
+  .later .soon { display:block; margin-top:2px; color:#8a6d22; font-size:13px; }
   .ask { text-align:center; color:#6d625a; font-size:14.5px; margin:16px 0 0; }
   .empty { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; }
   footer { text-align:center; color:#6d625a; font-size:11.5px; padding:8px 20px 28px; }
@@ -73,6 +76,7 @@
 <main>
   <article class="featured" id="featured">
     <p class="when" id="when">This Month</p>
+    <p class="date-note" id="date-note" hidden>Date Coming Soon</p>
     <h2 id="title">Loading This Month</h2>
     <p class="goal" id="goal"></p>
     <section class="part">
@@ -199,6 +203,9 @@
     when.textContent = (isCurrent ? "This Month · " : "Next Up · ") + Fb6Fh.monthName(item.id);
     title.textContent = item.title;
     goal.textContent = isCurrent ? "One theme for the whole family, all month." : "This challenge starts " + Fb6Fh.monthName(item.id) + ".";
+    var dateNote = document.getElementById("date-note");
+    if (item.dateNote) { dateNote.hidden = false; dateNote.textContent = item.dateNote; }
+    else dateNote.hidden = true;
     var kids = item.kids || { title: item.title, steps: item.steps, link: item.link, linkLabel: item.linkLabel };
     fillPart(kids, "kids");
     fillPart(item.parents || {}, "parents");
@@ -217,6 +224,12 @@
       name.textContent = item.title;
       li.appendChild(small);
       li.appendChild(name);
+      if (item.dateNote) {
+        var soon = document.createElement("span");
+        soon.className = "soon";
+        soon.textContent = item.dateNote;
+        li.appendChild(soon);
+      }
       upcoming.appendChild(li);
     });
   }
