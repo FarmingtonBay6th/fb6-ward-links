@@ -69,6 +69,7 @@
     for (var i = 0; i < links.length; i++) {
       var anchor = links[i];
       if (anchor.hasAttribute("download")) continue;
+      if (anchor.closest(".fbnav, .fbback-foot, .fbview")) continue;
       var url;
       try { url = new URL(anchor.getAttribute("href"), location.href); } catch (e) { continue; }
       var id = api.sectionForLink(sections, api.siteRel(url.href, base.href));

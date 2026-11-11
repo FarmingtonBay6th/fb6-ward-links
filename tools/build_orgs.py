@@ -119,7 +119,7 @@ for k,sl,nm,th,q,ref,hb in O:
 <!--/EV-->
     <p class="empty" id="empty" hidden>No upcoming activities right now. See all <a href="../../events/">Upcoming Events</a>.</p>
     <p class="more" id="more">See all <a href="../../events/">Upcoming Events</a> for the Ward and Stake.</p></section>
-  <section><h2>Sign-ups {PH}</h2>
+  <section><h2>Sign-Ups</h2>
     <p class="note">Service, meals, rides, and assignments sign-up links will go here.</p><span class="btn off">[Sign-up link]</span></section>
   <section><h2>Resources</h2>
     <a class="res" href="{HB}{hb}?lang=eng" rel="noopener">General Handbook: {html.escape(nm) if k not in ('ym','mi','tfh') else {'ym':'Aaronic Priesthood','mi':'Sharing the Gospel','tfh':'Temple and Family History Work'}[k]} ›</a>

@@ -19,19 +19,76 @@
     '.fbstage{flex:1;display:flex;align-items:center;justify-content:center;padding:14px;overflow:auto;padding-bottom:calc(14px + env(safe-area-inset-bottom))}' +
     '.fbstage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.5);background:#fff}' +
     '.fbstage iframe{width:100%;height:100%;border:0;background:#fff;border-radius:6px}' +
-    'html.fbopen{overflow:hidden}';
+    'html.fbopen{overflow:hidden}' +
+    '.fbback-foot{display:flex;justify-content:center;margin:0;padding:8px 16px 28px}';
   document.head.appendChild(css);
 
   var ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function sameSite(u) { return u.origin === base.origin && u.pathname.indexOf(base.pathname) === 0; }
   function cameFromSite() { try { return document.referrer && sameSite(new URL(document.referrer)) && history.length > 1; } catch (e) { return false; } }
 
+  function samePage(a, b) {
+    try {
+      var ua = new URL(a), ub = new URL(b);
+      var pa = ua.pathname.replace(/index\.html$/, ""), pb = ub.pathname.replace(/index\.html$/, "");
+      return ua.origin === ub.origin && pa === pb;
+    } catch (e) { return false; }
+  }
+  function backDest() {
+    var href = base.href, aria = "Back to Hub";
+    var link = document.querySelector("a.back[href]");
+    if (link) {
+      try {
+        var u = new URL(link.getAttribute("href"), location.href);
+        if (sameSite(u)) {
+          href = u.href;
+          var name = (link.textContent || "").replace(/^\s*‹\s*/, "").replace(/\s+/g, " ").trim();
+          if (name && name.toLowerCase() !== "the bay 6 hub") aria = "Back to " + name;
+        }
+      } catch (e) {}
+    }
+    return { href: href, aria: aria };
+  }
+  function makeBack(dest) {
+    var a = document.createElement("a");
+    a.className = "fbback";
+    a.href = dest.href;
+    a.setAttribute("aria-label", dest.aria);
+    a.innerHTML = ARROW + "Back";
+    a.addEventListener("click", function (e) {
+      if (cameFromSite() && samePage(document.referrer, dest.href)) { e.preventDefault(); history.back(); }
+    });
+    return a;
+  }
   function addBar() {
-    if (isHome || document.querySelector('.fbnav')) return;
-    var bar = document.createElement('nav'); bar.className = 'fbnav'; bar.setAttribute('aria-label', 'Site');
-    var a = document.createElement('a'); a.className = 'fbback'; a.href = base.href; a.innerHTML = ARROW + 'Back to Hub';
-    a.addEventListener('click', function (e) { if (cameFromSite() && new URL(document.referrer).href === base.href) { e.preventDefault(); history.back(); } });
-    bar.appendChild(a); document.body.insertBefore(bar, document.body.firstChild);
+    if (isHome || document.querySelector(".fbnav")) return;
+    var dest = backDest();
+    var bar = document.createElement("nav");
+    bar.className = "fbnav";
+    bar.setAttribute("aria-label", "Site");
+    bar.appendChild(makeBack(dest));
+    document.body.insertBefore(bar, document.body.firstChild);
+    if (!document.querySelector(".fbback-foot")) {
+      var wrap = document.createElement("p");
+      wrap.className = "fbback-foot";
+      wrap.appendChild(makeBack(dest));
+      var footer = document.querySelector("footer");
+      if (footer && footer.parentNode) footer.parentNode.insertBefore(wrap, footer);
+      else document.body.appendChild(wrap);
+    }
+  }
+  function armExternal() {
+    var links = document.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      if (a.hasAttribute("download")) continue;
+      var u;
+      try { u = new URL(a.getAttribute("href"), location.href); } catch (e) { continue; }
+      if (!/^https?:$/.test(u.protocol) || sameSite(u)) continue;
+      if (!a.target || a.target === "_self") a.target = "_blank";
+      var rel = a.getAttribute("rel") || "";
+      if (rel.indexOf("noopener") === -1) a.setAttribute("rel", (rel + " noopener").trim());
+    }
   }
 
   var viewer = null;
@@ -72,7 +129,8 @@
     if (!sameSite(u)) { a.target = '_blank'; a.rel = 'noopener'; }
   }, true);
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addBar); else addBar();
+  function boot() { addBar(); armExternal(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 
   // Unread dots: section-seen.js is the pure compare, updates.js paints and marks seen.
   function loadScript(src) {

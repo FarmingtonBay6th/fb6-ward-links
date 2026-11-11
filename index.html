@@ -97,6 +97,37 @@
   .ts b { display:block; font:italic 400 21px/1.25 Georgia, serif; margin:6px 0 3px; } .ts small { display:block; font-size:13.5px; opacity:.9; } .ts-k .ast { margin-left:1px; } .ts-upd { display:block; margin-top:5px; font:italic 11.5px/1.3 Georgia, serif; color:#e2c47a; opacity:.9; }
   .ts-go { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#e2c47a; font-size:30px; }
   .mt .tag { display:block; font-style:italic; font-weight:600; color:#b8892e; font-size:.86rem; margin:1px 0 2px; }
+
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0; }
+  .pair > a.card { flex-direction:column; align-items:flex-start; margin:0; gap:8px; min-height:132px; padding:14px 12px; min-width:0; }
+  .pair > a.card .go { display:none; }
+  .pair > a.card .ic { flex-basis:44px; height:44px; }
+  .pair > a.card .ic .badge { width:44px; height:44px; }
+  .pair > a.card .tx b { font-size:15px; line-height:1.25; }
+  .pair > a.card .tx small { font-size:12.5px; line-height:1.35; }
+  .pair > section.miss { margin:0; padding:0; background:transparent; border:0; box-shadow:none; min-width:0; }
+  .pair .misslink { flex-direction:column; align-items:flex-start; gap:8px; height:100%; box-sizing:border-box; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 12px; min-height:132px; text-decoration:none; color:inherit; box-shadow:0 1px 2px rgba(59,47,42,.06); }
+  .pair .misslink .badge { width:44px; height:44px; flex-basis:44px; }
+  .pair .misslink .mt b { font:700 15px/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  .pair .misslink .mt small { font-size:12.5px; line-height:1.35; }
+  .pair .misslink .mt em { font-size:14px; padding:8px 12px; }
+  #tithing { align-items:flex-start; }
+  #tithing .tx small { color:var(--ink); font-size:14.5px; line-height:1.45; margin-top:6px; }
+  .coming { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 14px 6px; margin:10px 0; box-shadow:0 1px 2px rgba(59,47,42,.06); }
+  .coming h2 { font:italic 400 22px/1.2 Georgia,serif; margin:0 0 2px; }
+  .cu-row { display:block; padding:10px 0; border-top:1px solid var(--line); text-decoration:none; color:inherit; }
+  .cu-date { font-weight:700; color:var(--accent); margin-right:.4em; }
+  .cu-all { display:block; padding:12px 0 8px; font-weight:700; color:var(--accent); text-decoration:none; }
+  .cu-empty { color:var(--soft); font-size:14.5px; margin:8px 0; }
+  #missionaries.compact { margin-top:10px; padding:12px 14px; }
+  #missionaries.compact .lochead .badge { width:44px; height:44px; flex-basis:44px; }
+  #missionaries.compact h2 { font-size:20px; }
+  #missionaries.compact .elders { margin:8px 0 0; }
+  .install { padding:0; margin:12px 0 0; text-align:left; border-top-width:1px; }
+  .install details > summary { list-style:none; cursor:pointer; font-weight:700; font-size:15px; color:var(--accent2); padding:12px 48px 12px 14px; min-height:48px; display:flex; align-items:center; }
+  .install summary::-webkit-details-marker { display:none; }
+  .install .steps { font-size:15px; line-height:1.45; margin:0 14px 12px; }
+  @media (prefers-color-scheme: dark) { .install details > summary { color:var(--accent); } }
 </style>
 <script src="nav.js" defer></script></head>
 <body>
@@ -117,33 +148,39 @@
   <p>“Come unto me, all ye that labour and are heavy laden, and I will give you rest.”<cite>Matthew 11:28</cite></p>
 </header>
 <main>
-  <!--TS--><a class="ts" href="this-sunday/?v=20261108-back"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="The Christus"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M73.97 103.37 L47.82 103.36 L49.09 101.64 L49.61 100.06 L49.83 97.91 L49.54 95.33 L49.83 91.46 L49.65 88.74 L50.35 81.71 L49.85 79.56 L50.72 77.13 L50.49 73.11 L50.04 72.63 L48.32 72.32 L46.76 71.54 L45.55 70.39 L44.30 68.61 L43.07 65.95 L42.34 63.65 L41.82 61.07 L41.52 57.49 L41.15 56.87 L40.44 56.95 L36.85 59.56 L33.84 60.32 L31.40 61.57 L30.83 61.47 L30.49 61.07 L30.40 59.27 L29.25 59.03 L29.25 58.49 L31.99 56.63 L32.55 55.33 L33.27 55.16 L36.85 55.25 L37.48 54.77 L38.66 53.19 L40.00 50.70 L42.45 47.03 L46.74 37.03 L47.75 35.09 L49.71 32.26 L52.86 30.11 L54.40 28.11 L54.88 26.82 L55.15 23.66 L56.01 20.22 L56.92 18.82 L58.56 17.50 L62.09 17.50 L63.56 18.65 L64.23 19.46 L64.99 21.37 L65.87 25.96 L66.38 27.61 L67.95 29.55 L70.55 31.40 L72.50 33.70 L74.69 39.01 L79.97 48.75 L82.05 53.76 L83.00 54.38 L85.01 54.36 L87.02 54.71 L89.45 56.18 L90.60 57.17 L90.60 58.06 L90.17 58.49 L89.88 59.50 L88.74 60.22 L88.17 60.20 L86.73 59.37 L85.59 59.05 L82.72 58.60 L82.29 58.76 L82.10 59.07 L82.64 71.11 L82.49 72.83 L81.91 74.98 L81.80 77.41 L82.37 88.59 L82.22 93.18 L81.72 94.19 L81.14 94.41 L80.57 94.27 L78.90 92.89 L78.24 91.03 L77.87 90.60 L75.41 89.56 L72.69 87.90 L72.25 87.84 L71.83 88.11 L71.58 88.74 L71.47 90.17 L71.82 98.48 L72.38 100.78 L73.89 102.93 L73.97 103.37Z" fill="#f3d98b" fill-rule="evenodd" stroke="#f3d98b" stroke-width="0.6" stroke-linejoin="round"/></svg><span class="ts-k">This Sunday<span class="ast" aria-hidden="true">*</span></span><b>Sun, Nov 8 · Sacrament Meeting</b><small>12:00 PM · Program, Hymns, Announcements and Little Disciples</small><em class="ts-upd"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</em><span class="ts-go">›</span></a><!--/TS-->
-          <div class="install" id="install-tip" role="note" hidden>
-    <figure class="install-icon">
-      <img src="icons/cover-180.png?v=cover1" width="120" height="120" alt="The Bay 6 Hub app icon">
-      <figcaption>This is what you&rsquo;ll see on your phone.</figcaption>
-    </figure>
-    <div class="tip-h">Put this app on your home screen</div>
-    <div class="tip-sub">One-time setup, about 20 seconds. These are steps to follow, not buttons.</div>
-    <div class="steps-wrap" id="tipIos" hidden><ol class="steps">
-      <li>Tap the <strong>Share</strong> button <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg> in Safari&rsquo;s bar at the <strong>bottom</strong> of your screen (on iPad, top right). Don&rsquo;t see it? Tap <strong>&bull;&bull;&bull;</strong> first.</li>
-      <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
-      <li>Tap <strong>Add</strong> in the top right corner.</li>
-      <li>Close Safari. From now on, just tap the app icon shown above.</li></ol></div>
-    <div class="steps-wrap" id="tipIosOther" hidden><ol class="steps">
-      <li>This only works in <strong>Safari</strong>. Open the Messages text and <strong>press and hold</strong> the link.</li>
-      <li>Tap <strong>Open in Safari</strong> (or copy the link and paste it into Safari).</li>
-      <li>In Safari, tap <strong>Share</strong> <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg>, then <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li></ol></div>
-    <div class="steps-wrap" id="tipAndroid" hidden><ol class="steps">
-      <li>In <strong>Chrome</strong>, tap the <strong>&#8942;</strong> menu (three dots) at the <strong>top right</strong> of your screen.</li>
-      <li>Tap <strong>Add to Home screen</strong> (on some phones it says <strong>Install app</strong>).</li>
-      <li>Tap <strong>Install</strong> or <strong>Add</strong> to confirm.</li>
-      <li>From now on, just tap the app icon shown above on your home screen.</li></ol></div>
-    <button type="button" id="install-close" aria-label="Close this tip">&times;</button>
-  </div>
+  <!--TS--><a class="ts" href="this-sunday/?v=20261108-back"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="The Christus"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M73.97 103.37 L47.82 103.36 L49.09 101.64 L49.61 100.06 L49.83 97.91 L49.54 95.33 L49.83 91.46 L49.65 88.74 L50.35 81.71 L49.85 79.56 L50.72 77.13 L50.49 73.11 L50.04 72.63 L48.32 72.32 L46.76 71.54 L45.55 70.39 L44.30 68.61 L43.07 65.95 L42.34 63.65 L41.82 61.07 L41.52 57.49 L41.15 56.87 L40.44 56.95 L36.85 59.56 L33.84 60.32 L31.40 61.57 L30.83 61.47 L30.49 61.07 L30.40 59.27 L29.25 59.03 L29.25 58.49 L31.99 56.63 L32.55 55.33 L33.27 55.16 L36.85 55.25 L37.48 54.77 L38.66 53.19 L40.00 50.70 L42.45 47.03 L46.74 37.03 L47.75 35.09 L49.71 32.26 L52.86 30.11 L54.40 28.11 L54.88 26.82 L55.15 23.66 L56.01 20.22 L56.92 18.82 L58.56 17.50 L62.09 17.50 L63.56 18.65 L64.23 19.46 L64.99 21.37 L65.87 25.96 L66.38 27.61 L67.95 29.55 L70.55 31.40 L72.50 33.70 L74.69 39.01 L79.97 48.75 L82.05 53.76 L83.00 54.38 L85.01 54.36 L87.02 54.71 L89.45 56.18 L90.60 57.17 L90.60 58.06 L90.17 58.49 L89.88 59.50 L88.74 60.22 L88.17 60.20 L86.73 59.37 L85.59 59.05 L82.72 58.60 L82.29 58.76 L82.10 59.07 L82.64 71.11 L82.49 72.83 L81.91 74.98 L81.80 77.41 L82.37 88.59 L82.22 93.18 L81.72 94.19 L81.14 94.41 L80.57 94.27 L78.90 92.89 L78.24 91.03 L77.87 90.60 L75.41 89.56 L72.69 87.90 L72.25 87.84 L71.83 88.11 L71.58 88.74 L71.47 90.17 L71.82 98.48 L72.38 100.78 L73.89 102.93 L73.97 103.37Z" fill="#f3d98b" fill-rule="evenodd" stroke="#f3d98b" stroke-width="0.6" stroke-linejoin="round"/></svg><span class="ts-k"><span class="ts-label">This Sunday</span><span class="ast" aria-hidden="true">*</span></span><b>Sun, Nov 8 · Sacrament Meeting</b><small>12:00 PM · Program, Hymns, Announcements and Little Disciples</small><em class="ts-upd"><span aria-hidden="true">* </span><span class="ts-note">Updates Saturday evening for Sunday’s sacrament meeting.</span></em><span class="ts-go">›</span></a><!--/TS-->
+  <script>
+(function () {
+  var label = document.querySelector(".ts-label");
+  var note = document.querySelector(".ts-note");
+  if (!label || !note) return;
+  var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Denver", weekday: "short", hour: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+  var day = "", hour = 0, period = "";
+  parts.forEach(function (p) {
+    if (p.type === "weekday") day = p.value;
+    if (p.type === "hour") hour = parseInt(p.value, 10) || 0;
+    if (p.type === "dayPeriod") period = p.value;
+  });
+  if (/p/i.test(period) && hour < 12) hour += 12;
+  if (/a/i.test(period) && hour === 12) hour = 0;
+  var thisSunday = day === "Sun" || (day === "Sat" && hour >= 18);
+  if (thisSunday) label.textContent = "This Sunday";
+  else { label.textContent = "Last Sunday"; note.textContent = "The New Program Goes Up Saturday Evening"; }
+})();
+</script>
+  <a class="card" id="tithing" href="https://calendly.com/bishopbam/10mi" rel="noopener">
+      <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Windows of heaven"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="38" y="44" width="44" height="40" rx="3" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 44v40M38 64h44" stroke="#c9a24a" stroke-width="2.4"/><path d="M38 44a22 18 0 0 1 44 0" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 18v10M40 24l5 8M80 24l-5 8M28 36l8 4M92 36l-8 4" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/><path d="M60 90c-6-4-10-7-10-11a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 4-4 7-10 11z" fill="#c9a24a"/></svg></span>
+      <span class="tx"><b>Tithing Declaration</b><small>Online scheduling is open through Saturday, November 15. The Bishop is happy to meet with any family or member through the end of the year, but December fills up fast, so we'd love to see you sooner rather than later. If the 15th sneaks up on you, just reach out and we'll find a time.</small></span><span class="go" aria-hidden="true">›</span>
+    </a>
+  <section class="coming" id="coming-up">
+    <h2>Coming Up</h2>
+    <div id="coming-list"><p class="cu-empty">Loading upcoming events…</p></div>
+    <a class="cu-all" href="events/">See All Upcoming Events ›</a>
+  </section>
+  <div class="pair">
     <a class="card" id="bishop-meet" href="meet/">
       <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Conversation bubbles"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M24 38h46a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H42l-12 10V70h-6a6 6 0 0 1-6-6V44a6 6 0 0 1 6-6z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M82 52h12a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6h-4v8l-10-8H64a6 6 0 0 1-6-6v-2" fill="none" stroke="#f3d98b" stroke-width="3" stroke-linejoin="round"/><g fill="#005175"><circle cx="35" cy="54" r="3.5"/><circle cx="47" cy="54" r="3.5"/><circle cx="59" cy="54" r="3.5"/></g></svg></span>
-      <span class="tx"><b>Meet with the Bishop (or his Counselors)</b><small>Tap to fill out a quick request, and we’ll text you back.</small><i class="v">“comfort those that stand in need of comfort” <span>Mosiah 18:9</span></i></span><span class="go" aria-hidden="true">›</span>
+      <span class="tx"><b>Meet With the Bishop</b><small>Request a time. We'll text you back.</small></span><span class="go" aria-hidden="true">›</span>
     </a>
     <a class="card" href="https://calendly.com/farmingtonbaystake/stake-recommends" rel="noopener">
       <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Temple with Angel Moroni"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><circle cx="60" cy="13" r="2.2" fill="#f3d98b"/><path d="M58.6 15h2.8l1 6h-4.8z" fill="#f3d98b"/><path d="M61 15l6-2" stroke="#f3d98b" stroke-width="1.6" stroke-linecap="round"/>
@@ -151,38 +188,30 @@
 <rect x="32" y="57" width="56" height="31" fill="#f3d98b" stroke="#c9a24a" stroke-width="2"/><path d="M30 57h60" stroke="#c9a24a" stroke-width="3"/>
 <g fill="#005175"><rect x="38" y="63" width="5" height="11" rx="2.5"/><rect x="47" y="63" width="5" height="11" rx="2.5"/><rect x="68" y="63" width="5" height="11" rx="2.5"/><rect x="77" y="63" width="5" height="11" rx="2.5"/><path d="M56 88V75a4 4 0 0 1 8 0v13z"/><rect x="58.5" y="40" width="3" height="5" rx="1.5"/></g>
 <path d="M24 88h72" stroke="#c9a24a" stroke-width="3" stroke-linecap="round"/></svg></span>
-      <span class="tx"><b>Stake Temple Recommend Interviews</b><small>Schedule with the Stake Presidency.</small><i class="v">“Who shall stand in his holy place? He that hath clean hands, and a pure heart” <span>Psalm 24:3–4</span></i></span><span class="go" aria-hidden="true">›</span>
+      <span class="tx"><b>Stake Recommends</b><small>Schedule with the Stake Presidency.</small></span><span class="go" aria-hidden="true">›</span>
     </a>
-    <a class="card" href="https://calendly.com/bishopbam/10mi" rel="noopener">
-      <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Windows of heaven"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="38" y="44" width="44" height="40" rx="3" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 44v40M38 64h44" stroke="#c9a24a" stroke-width="2.4"/><path d="M38 44a22 18 0 0 1 44 0" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 18v10M40 24l5 8M80 24l-5 8M28 36l8 4M92 36l-8 4" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/><path d="M60 90c-6-4-10-7-10-11a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 4-4 7-10 11z" fill="#c9a24a"/></svg></span>
-      <span class="tx"><b>Tithing Declaration</b><small>Tithing Declaration ends Sunday, Nov 15. Please sign up before then.</small><i class="v">“open you the windows of heaven, and pour you out a blessing” <span>Malachi 3:10</span></i></span><span class="go" aria-hidden="true">›</span>
-    </a>
-    <div class="cal2">
-    <a class="card cal" href="https://www.churchofjesuschrist.org/calendar" rel="noopener">
-      <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Calendar"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="34" width="60" height="54" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M30 50h60" stroke="#c9a24a" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="#c9a24a"/><path d="M44 28v12M76 28v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><g fill="#005175"><rect x="38" y="57" width="8" height="7" rx="1.5"/><rect x="52" y="57" width="8" height="7" rx="1.5"/><rect x="66" y="57" width="8" height="7" rx="1.5"/><rect x="38" y="70" width="8" height="7" rx="1.5"/><rect x="52" y="70" width="8" height="7" rx="1.5"/></g><path d="M70 74l3 3 6-7" stroke="#005175" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></span>
-      <span class="tx"><b>Official Ward Calendar</b><small>The Church calendar. The source, with full details. Needs a Church Account sign-in.</small></span>
-    </a>
+  </div>
+  <div class="pair">
     <a class="card cal" href="calendar/">
       <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Bay 6 Calendar"><circle cx="60" cy="60" r="57" fill="#1f6f6a"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="28" y="32" width="58" height="52" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><rect x="28" y="32" width="58" height="15" rx="7" fill="#c9a24a"/><path d="M28 47h58" stroke="#c9a24a" stroke-width="2.4"/><path d="M42 26v12M72 26v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><g fill="#1f6f6a"><rect x="36" y="54" width="8" height="7" rx="1.5"/><rect x="50" y="54" width="8" height="7" rx="1.5"/><rect x="36" y="67" width="8" height="7" rx="1.5"/></g><circle cx="78" cy="78" r="17" fill="#fff" stroke="#c9a24a" stroke-width="2"/><g fill="none" stroke="#1f6f6a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M69 75a10 10 0 0 1 17-4"/><path d="M87 66v6h-6"/><path d="M87 81a10 10 0 0 1-17 4"/><path d="M69 90v-6h6"/></g></svg></span>
-      <span class="tx"><b>Bay 6 Calendar</b><small>No sign-in. Copies the official ward calendar automatically every 8 hours, so it&#x27;s always current, just easier to open.</small></span>
+      <span class="tx"><b>Bay 6 Calendar</b><small>No sign-in. Always current.</small></span>
     </a>
-    </div>
-    <details class="how"><summary>How to join the Ward Calendar</summary><ol><li>Open <a href="https://www.churchofjesuschrist.org/calendar">churchofjesuschrist.org/calendar</a> and sign in with your Church Account.</li><li>Tap the gear (Settings) icon, then <b>Choose Calendars</b>, and check the Farmington Bay 6th Ward and stake calendars.</li><li>To add them to your phone, tap the gear icon, then <b>Sync</b>. Pick Apple, Google or Outlook and follow the steps shown to add your personal sync link. Keep that link to yourself.</li><li>Or just view them: the Member Tools app shows ward and stake events (view only).</li></ol><p>Updates can take a few minutes to a few hours to reach your phone. <a href="https://www.churchofjesuschrist.org/tools/help/using-the-calendar?lang=eng">Church help: Using the Calendar</a></p></details>
+    <a class="card cal" href="https://www.churchofjesuschrist.org/calendar" rel="noopener">
+      <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Calendar"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="30" y="34" width="60" height="54" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M30 50h60" stroke="#c9a24a" stroke-width="2.4"/><rect x="30" y="34" width="60" height="16" rx="7" fill="#c9a24a"/><path d="M44 28v12M76 28v12" stroke="#f3d98b" stroke-width="4" stroke-linecap="round"/><g fill="#005175"><rect x="38" y="57" width="8" height="7" rx="1.5"/><rect x="52" y="57" width="8" height="7" rx="1.5"/><rect x="66" y="57" width="8" height="7" rx="1.5"/><rect x="38" y="70" width="8" height="7" rx="1.5"/><rect x="52" y="70" width="8" height="7" rx="1.5"/></g><path d="M70 74l3 3 6-7" stroke="#005175" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></span>
+      <span class="tx"><b>Official Calendar</b><small>Church calendar. Sign-in required.</small></span>
+    </a>
+  </div>
+  <details class="how"><summary>How to Join the Ward Calendar</summary><ol><li>Open <a href="https://www.churchofjesuschrist.org/calendar">churchofjesuschrist.org/calendar</a> and sign in with your Church Account.</li><li>Tap the gear (Settings) icon, then <b>Choose Calendars</b>, and check the Farmington Bay 6th Ward and stake calendars.</li><li>To add them to your phone, tap the gear icon, then <b>Sync</b>. Pick Apple, Google or Outlook and follow the steps shown to add your personal sync link. Keep that link to yourself.</li><li>Or just view them: the Member Tools app shows ward and stake events (view only).</li></ol><p>Updates can take a few minutes to a few hours to reach your phone. <a href="https://www.churchofjesuschrist.org/tools/help/using-the-calendar?lang=eng">Church help: Using the Calendar</a></p></details>
+  <div class="pair">
     <a class="card" href="events/">
       <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Event flyer"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M34 26h40l12 12v54H34z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M74 26v12h12" fill="none" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 42l4 9 10 1-7.5 6.5 2.5 9.5-9-5-9 5 2.5-9.5L46 52l10-1z" fill="#005175"/><path d="M44 76h32M44 84h22" stroke="#005175" stroke-width="2.6" stroke-linecap="round"/></svg></span>
-      <span class="tx"><b>Upcoming Events</b><small>Flyers for Ward, Stake, and Area Activities, Firesides, and Devotionals.</small><i class="v">“that they may all be one” <span>John 17:21</span></i></span><span class="go" aria-hidden="true">›</span>
+      <span class="tx"><b>Upcoming Events</b><small>Flyers for Ward, Stake, and Area activities.</small></span><span class="go" aria-hidden="true">›</span>
     </a>
     <a class="card" href="announce/">
       <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Announcement megaphone"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M30 52h12l34-18v52L42 68H30z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M42 68l5 18h9l-4-17" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.2" stroke-linejoin="round"/><path d="M84 48c5 3 5 21 0 24M90 42c9 6 9 30 0 36" fill="none" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/></svg></span>
-      <span class="tx"><b>Submit an Announcement</b><small>Submit by Thursday. Approved items appear in the following Sunday&#x27;s program.</small><i class="v">“when ye are in the service of your fellow beings ye are only in the service of your God” <span>Mosiah 2:17</span></i></span><span class="go" aria-hidden="true">›</span>
+      <span class="tx"><b>Submit an Announcement</b><small>Submit by Thursday for Sunday's program.</small></span><span class="go" aria-hidden="true">›</span>
     </a>
-  <section id="color" class="miss misscard">
-    <a class="misslink" href="color/" aria-label="Crayons &amp; Covenants: print this week's coloring page"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Crayon badge"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
-<g transform="rotate(-35 60 60)"><rect x="34" y="50" width="48" height="20" rx="3" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M82 50l16 10-16 10z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M92 56.5l6 3.5-6 3.5z" fill="#005175"/>
-<path d="M44 50v20M72 50v20" stroke="#005175" stroke-width="2.2"/><rect x="26" y="50" width="10" height="20" rx="2" fill="#c9a24a"/></g>
-<path d="M30 92c10-6 20 6 30 0s20 6 30 0" fill="none" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/></svg>
-      <span class="mt"><b>Crayons &amp; Covenants</b><i class="tag">Heavenly Father loves every scribble!</i><small>A new coloring page each week to print at home.</small><em>Print &amp; Color ›</em></span></a>
-  </section>
+  </div>
   <section class="orgs" id="organizations">
     <div class="sechead"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Ward family"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><g fill="#f3d98b" stroke="#c9a24a" stroke-width="2"><circle cx="40" cy="48" r="9"/><circle cx="80" cy="48" r="9"/><circle cx="60" cy="40" r="10"/><path d="M26 86c0-14 6-24 14-24s14 10 14 24z"/><path d="M66 86c0-14 6-24 14-24s14 10 14 24z"/><path d="M44 88c0-18 7-30 16-30s16 12 16 30z"/></g></svg><h2>Our Organizations</h2></div>
     <p class="sub">Presidencies, activities, and resources for each Ward organization.</p>
@@ -201,11 +230,15 @@
       <a class="org" href="orgs/ward-missionaries/"><svg class="logo" width="64" height="64" viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#005175"/><circle cx="50" cy="50" r="43" fill="none" stroke="#c9a24a" stroke-width="2"/><circle cx="50" cy="50" r="40" fill="none" stroke="#c9a24a" stroke-width=".8" opacity=".6"/><circle cx="50" cy="46" r="24" fill="none" stroke="#c9a24a" stroke-width="4.5"/><path d="M26 46h48M50 22c9 7 9 41 0 48M50 22c-9 7-9 41 0 48M30 34h40M30 58h40" fill="none" stroke="#c9a24a" stroke-width="2.5"/><rect x="30" y="72" width="40" height="12" rx="3" fill="#f3d98b"/><path d="M37 78h26" stroke="#005175" stroke-width="2.5" stroke-linecap="round"/></svg><b>Ward Missionaries</b><i>Preach My Gospel</i></a>
     </div>
   </section>
-  <section id="serving" class="miss misscard">
+  <div class="pair">
+    <section id="serving" class="miss misscard">
     <a class="misslink" href="missionaries/" aria-label="Our Ward Missionaries: tap to say hello"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Envelope with a missionary name tag"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="22" y="36" width="76" height="52" rx="7" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.5"/><path d="M24 39l36 26 36-26" fill="none" stroke="#005175" stroke-width="3" stroke-linejoin="round"/><rect x="40" y="70" width="40" height="22" rx="4" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2"/><path d="M47 78h26" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M47 85h17" stroke="#c9c9c9" stroke-width="2" stroke-linecap="round"/></svg>
-      <span class="mt"><b>Our Ward Missionaries</b><small>19 ward members serving the Savior. Tap to say hello by email!</small><em>Say hello ›</em></span></a>
+      <span class="mt"><b>Our Ward Missionaries</b><small>19 ward members. Say hello by email.</small><em>Say Hello ›</em></span></a>
   </section>
-  <section id="missionaries" class="miss">
+    <a class="misslink" href="orgs/ward-missionaries/#sister-lesson" aria-label="Have the Sister Missionaries Over"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Open book"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M60 38c-10-6-22-7-34-5v48c12-2 24-1 34 5 10-6 22-7 34-5V33c-12-2-24-1-34 5z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M60 38v48" stroke="#c9a24a" stroke-width="2.4"/></svg>
+      <span class="mt"><b>Have the Sister Missionaries Over</b><small>Pick an open weeknight at 7:30. Sister Pettingill and Sister Faku will confirm the details with you.</small><em>Sign Up ›</em></span></a>
+  </div>
+  <section id="missionaries" class="miss compact">
     <div class="lochead"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Two missionary name tags with a map pin">
 <circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
 <g transform="rotate(-8 46 66)"><rect x="18" y="52" width="54" height="32" rx="6" fill="#1d1d1f" stroke="#c9a24a" stroke-width="2.2"/><path d="M27 63h34" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M27 72h24" stroke="#c9c9c9" stroke-width="2.2" stroke-linecap="round"/></g>
@@ -215,13 +248,40 @@
       <a class="btn" href="sms:+18019704486">Text the Missionaries</a>
       <a class="btn alt" href="tel:+18019704486">Call the Missionaries</a>
     </div>
-    <a class="misslink" style="margin-top:12px" href="orgs/ward-missionaries/#sister-lesson" aria-label="Have the Sister Missionaries Over"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Open book"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M60 38c-10-6-22-7-34-5v48c12-2 24-1 34 5 10-6 22-7 34-5V33c-12-2-24-1-34 5z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M60 38v48" stroke="#c9a24a" stroke-width="2.4"/></svg>
-      <span class="mt"><b>Have the Sister Missionaries Over</b><small>Pick an open weeknight at 7:30. Sister Pettingill and Sister Faku will confirm the details with you.</small><em>Sign Up ›</em></span></a>
+  </section>
+  <div class="pair">
+    <section id="color" class="miss misscard">
+    <a class="misslink" href="color/" aria-label="Crayons &amp; Covenants: print this week's coloring page"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Crayon badge"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/>
+<g transform="rotate(-35 60 60)"><rect x="34" y="50" width="48" height="20" rx="3" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M82 50l16 10-16 10z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M92 56.5l6 3.5-6 3.5z" fill="#005175"/>
+<path d="M44 50v20M72 50v20" stroke="#005175" stroke-width="2.2"/><rect x="26" y="50" width="10" height="20" rx="2" fill="#c9a24a"/></g>
+<path d="M30 92c10-6 20 6 30 0s20 6 30 0" fill="none" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/></svg>
+      <span class="mt"><b>Crayons &amp; Covenants</b><i class="tag">Heavenly Father Loves Every Scribble!</i><small>A new coloring page each week to print at home.</small><em>Print &amp; Color ›</em></span></a>
   </section>
     <a class="card" id="feedback-sms" href="sms:+18019921414?&amp;body=Bay%206%20Hub%20feedback%3A%20">
       <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Text message bubble"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M30 36h60a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H54l-16 13v-13h-8a6 6 0 0 1-6-6V42a6 6 0 0 1 6-6z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><circle cx="45" cy="57" r="4" fill="#005175"/><circle cx="60" cy="57" r="4" fill="#005175"/><circle cx="75" cy="57" r="4" fill="#005175"/></svg></span>
-      <span class="tx"><b>Share Feedback</b><small>Text Adam Bingham your ideas to make The Bay 6 Hub better.</small><i class="v">“As iron sharpeneth iron” <span>Proverbs 27:17</span></i></span><span class="go" aria-hidden="true">›</span>
+      <span class="tx"><b>Share Feedback</b><small>Text Adam Bingham your ideas to make The Bay 6 Hub better.</small></span><span class="go" aria-hidden="true">›</span>
     </a>
+  </div>
+  <div class="install" id="install-tip" role="note" hidden>
+  <details>
+    <summary>Add This App to Your Home Screen</summary>
+    <div class="steps-wrap" id="tipIos" hidden><ol class="steps">
+      <li>Tap the <strong>Share</strong> button <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg> in Safari&rsquo;s bar at the <strong>bottom</strong> of your screen (on iPad, top right). Don&rsquo;t see it? Tap <strong>&bull;&bull;&bull;</strong> first.</li>
+      <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+      <li>Tap <strong>Add</strong> in the top right corner.</li>
+      <li>Close Safari. From now on, just tap the app icon shown above.</li></ol></div>
+    <div class="steps-wrap" id="tipIosOther" hidden><ol class="steps">
+      <li>This only works in <strong>Safari</strong>. Open the Messages text and <strong>press and hold</strong> the link.</li>
+      <li>Tap <strong>Open in Safari</strong> (or copy the link and paste it into Safari).</li>
+      <li>In Safari, tap <strong>Share</strong> <svg class="share" viewBox="0 0 24 24" aria-label="Share icon" role="img"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke="#1F6FE5" stroke-width="2" stroke-linecap="round"/></svg>, then <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li></ol></div>
+    <div class="steps-wrap" id="tipAndroid" hidden><ol class="steps">
+      <li>In <strong>Chrome</strong>, tap the <strong>&#8942;</strong> menu (three dots) at the <strong>top right</strong> of your screen.</li>
+      <li>Tap <strong>Add to Home screen</strong> (on some phones it says <strong>Install app</strong>).</li>
+      <li>Tap <strong>Install</strong> or <strong>Add</strong> to confirm.</li>
+      <li>From now on, just tap the app icon shown above on your home screen.</li></ol></div>
+  </details>
+  <button type="button" id="install-close" aria-label="Close This Tip">&times;</button>
+</div>
 </main>
 <footer>
   <div class="q">We are glad you are here to worship Jesus Christ with us.</div>
@@ -262,6 +322,71 @@
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
   }
+</script>
+<script>
+(function () {
+  var card = document.getElementById("tithing");
+  if (!card) return;
+  var today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  if (today > "2026-12-31") card.hidden = true;
+})();
+</script>
+<script>
+(function () {
+  var list = document.getElementById("coming-list");
+  if (!list) return;
+  function today() { return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()); }
+  function dayOf(iso) { return String(iso || "").slice(0, 10); }
+  function nice(day) {
+    var p = day.split("-");
+    return new Date(Date.UTC(+p[0], p[1] - 1, +p[2], 18)).toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" });
+  }
+  function timeKey(text) {
+    if (!text) return "12:00";
+    var m = String(text).match(/(\d{1,2})(?::(\d{2}))?(?:\s*[–-]\s*(\d{1,2})(?::(\d{2}))?)?\s*(AM|PM|a\.m\.|p\.m\.)/i);
+    if (!m) return "12:00";
+    var h = parseInt(m[1], 10), min = m[2] || "00", pm = /^p/i.test(m[5]);
+    if (pm && h < 12) h += 12;
+    if (!pm && h === 12) h = 0;
+    return (h < 10 ? "0" : "") + h + ":" + min;
+  }
+  function esc(v) { return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function clockFrom(item) {
+    if (item.time) return item.time;
+    var w = item.when || "";
+    var i = w.indexOf(" · ");
+    return i >= 0 ? w.slice(i + 3) : "";
+  }
+  function addFlyer(items, e) {
+    if (!e || !e.title || !e.end) return;
+    var start = e.start || e.end;
+    items.push({ title: e.title, start: start, endDay: dayOf(e.end), time: clockFrom(e), href: e.flyer ? "events/" + e.flyer : "events/" });
+  }
+  function addNote(items, a) {
+    if (!a || !a.title || !/^\d{4}-\d{2}-\d{2}$/.test(a.date)) return;
+    items.push({ title: a.title, start: a.date + "T" + timeKey(a.time), endDay: a.endDate || a.date, time: a.time || "", href: a.flyer ? "events/" + a.flyer : "events/" });
+  }
+  function show(items) {
+    var t = today();
+    var rows = items.filter(function (it) { return it.endDay >= t && dayOf(it.start) >= t; });
+    rows.sort(function (a, b) { return a.start < b.start ? -1 : a.start > b.start ? 1 : 0; });
+    rows = rows.slice(0, 4);
+    if (!rows.length) { list.innerHTML = '<p class="cu-empty">Nothing coming up right now.</p>'; return; }
+    list.innerHTML = rows.map(function (it) {
+      var name = it.title + (it.time ? " · " + it.time : "");
+      return '<a class="cu-row" href="' + esc(it.href) + '"><span class="cu-date">' + esc(nice(dayOf(it.start))) + '</span> <span class="cu-name">' + esc(name) + '</span></a>';
+    }).join("");
+  }
+  Promise.all([
+    fetch("events/events.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { events: [] }; }),
+    fetch("data/approved-announcements.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { announcements: [] }; })
+  ]).then(function (both) {
+    var items = [];
+    (both[0].events || []).forEach(function (e) { addFlyer(items, e); });
+    (both[1].announcements || []).forEach(function (a) { addNote(items, a); });
+    show(items);
+  }).catch(function () { list.innerHTML = '<p class="cu-empty">Open Upcoming Events for the full list.</p>'; });
+})();
 </script>
 </body>
 </html>
