@@ -4,206 +4,203 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Family History Quest · Farmington Bay 6th Ward</title>
+<title>Monthly Family History Challenge · Farmington Bay 6th Ward</title>
 <meta name="theme-color" content="#005175">
 <link rel="icon" type="image/png" sizes="32x32" href="../../../icons/cover-favicon-32.png?v=cover1">
 <style>
-  :root { --ink:#2b2420; --soft:#6d625a; --bg:#faf6f0; --card:#fff; --line:#e8dfd3; --navy:#005175; --gold:#c9a24a; --goldink:#8a6d22; }
+  :root { --ink:#2b2420; --soft:#6d625a; --bg:#faf6f0; --card:#fff; --line:#e8dfd3; --navy:#005175; --gold:#c9a24a; }
   * { box-sizing:border-box; }
   html, body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-  header { background:linear-gradient(165deg,#0e6e86,#005175 55%,#003a55); color:#fff; text-align:center; padding:22px 18px 28px; border-bottom:4px solid var(--gold); border-bottom-left-radius:22px; border-bottom-right-radius:22px; }
+  header { background:linear-gradient(165deg,#0e6e86,#005175 55%,#003a55); color:#fff; text-align:center; padding:22px 18px 26px; border-bottom:4px solid var(--gold); border-bottom-left-radius:22px; border-bottom-right-radius:22px; }
   header .back { display:block; text-align:left; color:#e2c47a; text-decoration:none; font-size:14px; margin-bottom:8px; }
-  .star { width:72px; height:72px; display:block; margin:0 auto 8px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.28)); }
+  .star { width:68px; height:68px; display:block; margin:0 auto 6px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.28)); }
   header .kicker { font:700 12px/1 -apple-system,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#e2c47a; }
-  header h1 { font:400 32px/1.1 Georgia, serif; margin:8px 0 6px; }
-  header p { margin:0 auto; max-width:28em; font-size:15.5px; opacity:.95; }
-  main { max-width:560px; margin:0 auto; padding:16px 14px 28px; }
-  .progress { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:12px 14px; margin:0 0 12px; box-shadow:0 1px 2px rgba(59,47,42,.06); }
-  .progress b { display:block; font-size:15px; }
-  .bar { height:10px; border-radius:999px; background:#efe6d6; margin-top:8px; overflow:hidden; }
-  .bar i { display:block; height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,#e2c47a,#c9a24a); }
-  .note { color:var(--soft); font-size:14px; margin:8px 0 0; }
-  .q { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:10px 0; box-shadow:0 1px 2px rgba(59,47,42,.06); }
-  .q.on { border-color:#c9a24a; box-shadow:0 0 0 2px rgba(201,162,74,.35); }
-  .q h2 { font:700 18px/1.25 -apple-system,sans-serif; margin:0 0 6px; }
-  .q p { margin:0 0 10px; font-size:15.5px; }
-  .row { display:flex; gap:12px; align-items:flex-start; }
-  .check { flex:0 0 48px; width:48px; height:48px; margin:0; display:grid; place-items:center; }
-  .check input { width:28px; height:28px; accent-color:var(--navy); }
-  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:10px 14px; border-radius:12px; background:var(--navy); color:#fff; text-decoration:none; font-weight:700; font-size:15px; }
-  .btn:focus-visible, .check input:focus-visible { outline:3px solid var(--navy); outline-offset:3px; }
-  ol.ask { margin:0 0 8px; padding-left:1.2em; }
-  ol.ask li { margin:6px 0; }
-  .tree { margin:8px 0 4px; text-align:center; font-size:14px; color:var(--navy); }
-  .tree b { display:inline-block; margin:3px; padding:6px 8px; border:1px dashed var(--gold); border-radius:10px; background:#fffaf0; color:var(--ink); font-weight:700; }
-  .win { position:relative; overflow:hidden; text-align:center; background:linear-gradient(180deg,#fff8e8,#fff); border:2px solid var(--gold); border-radius:18px; padding:18px 14px 16px; margin:0 0 12px; }
+  header h1 { font:400 30px/1.1 Georgia, serif; margin:8px 0 6px; }
+  header p { margin:0 auto; max-width:28em; font-size:15.5px; }
+  main { max-width:560px; margin:0 auto; padding:16px 14px 24px; }
+  .featured { background:var(--card); border:1px solid var(--line); border-top:6px solid var(--gold); border-radius:18px; padding:16px; box-shadow:0 1px 2px rgba(59,47,42,.06); }
+  .when { margin:0; font:700 12px/1 -apple-system,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#8a6d22; }
+  .featured h2 { font:400 28px/1.15 Georgia, serif; margin:8px 0; color:var(--navy); }
+  .featured .goal { margin:0 0 12px; font-size:17px; }
+  h3 { font:700 15px/1.2 -apple-system,sans-serif; margin:0 0 6px; }
+  ol { margin:0 0 14px; padding-left:1.2em; }
+  ol li { margin:6px 0; }
+  .btn { display:flex; align-items:center; justify-content:center; min-height:48px; padding:10px 14px; border-radius:12px; background:var(--navy); color:#fff; text-decoration:none; font-weight:700; font-size:16px; border:0; width:100%; cursor:pointer; font-family:inherit; }
+  .btn.did { margin-top:8px; background:#fff; color:var(--navy); border:2px solid var(--navy); }
+  .btn.did.on { background:#005175; color:#fff; }
+  .btn:focus-visible { outline:3px solid var(--navy); outline-offset:3px; }
+  .win { text-align:center; margin-top:14px; }
   .win[hidden] { display:none; }
-  .badge { width:96px; height:96px; margin:0 auto 8px; }
-  .win h2 { font:400 28px/1.1 Georgia, serif; margin:0 0 6px; color:var(--navy); }
+  .win h3 { font:400 26px/1.1 Georgia, serif; color:var(--navy); margin:0 0 4px; }
+  .badge { width:84px; height:84px; }
   .confetti { position:fixed; inset:0; pointer-events:none; z-index:40; overflow:hidden; }
   .confetti i { position:absolute; top:-12px; width:8px; height:12px; border-radius:2px; animation:fall 1.6s ease-in forwards; }
-  @keyframes fall { to { transform:translateY(110vh) rotate(240deg); opacity:.2; } }
+  @keyframes fall { to { transform:translateY(110vh) rotate(240deg); opacity:.15; } }
   @media (prefers-reduced-motion: reduce) { .confetti { display:none; } }
-  .askline { text-align:center; color:var(--soft); font-size:14.5px; margin:14px 0 0; }
-  footer { text-align:center; color:var(--soft); font-size:11.5px; padding:8px 20px 28px; }
+  .later { margin-top:18px; }
+  .later h2 { font:400 22px/1.2 Georgia, serif; margin:0 0 8px; }
+  .later ul { list-style:none; margin:0; padding:0; background:var(--card); border:1px solid var(--line); border-radius:16px; }
+  .later li { padding:12px 14px; border-top:1px solid var(--line); }
+  .later li:first-child { border-top:0; }
+  .later small { display:block; font:700 12px/1.2 -apple-system,sans-serif; letter-spacing:.04em; text-transform:uppercase; color:#8a6d22; }
+  .later b { font-weight:700; }
+  .ask { text-align:center; color:#6d625a; font-size:14.5px; margin:16px 0 0; }
+  .empty { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; }
+  footer { text-align:center; color:#6d625a; font-size:11.5px; padding:8px 20px 28px; }
   @media (prefers-color-scheme: dark) {
-    :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --goldink:#e2c47a; }
-    .tree b, .win { background:#32281c; }
-    .bar { background:#3a312a; }
+    :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; }
+    .featured h2, .win h3, .btn.did { color:#8cc8e6; }
+    .btn.did { border-color:#8cc8e6; }
+    .btn.did.on { background:#005175; color:#fff; }
+    .when, .later small { color:#e2c47a; }
   }
 </style>
 <script src="../../../nav.js" defer></script>
+<script src="../../../fh-challenges.js"></script>
 </head>
 <body>
 <header>
   <a class="back" href="../">‹ Temple and Family History</a>
-  <svg class="star" viewBox="0 0 72 72" role="img" aria-label="Gold star badge"><circle cx="36" cy="36" r="34" fill="#005175"/><circle cx="36" cy="36" r="30" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M36 14l5.2 12.2 13.2.8-10.2 8.4 3.2 12.8L36 41.2 24.6 48.2l3.2-12.8L17.6 27l13.2-.8z" fill="#f3d98b" stroke="#c9a24a" stroke-width="1.2" stroke-linejoin="round"/></svg>
+  <svg class="star" viewBox="0 0 72 72" role="img" aria-label="Gold star"><circle cx="36" cy="36" r="34" fill="#005175"/><circle cx="36" cy="36" r="30" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M36 14l5.2 12.2 13.2.8-10.2 8.4 3.2 12.8L36 41.2 24.6 48.2l3.2-12.8L17.6 27l13.2-.8z" fill="#f3d98b" stroke="#c9a24a" stroke-width="1.2" stroke-linejoin="round"/></svg>
   <div class="kicker">Ages 6 to 17</div>
-  <h1>Family History Quest</h1>
-  <p>Six short challenges. Do them with a parent. Check each one when you finish. Your check marks stay on this phone.</p>
+  <h1>Monthly Family History Challenge</h1>
+  <p>One goal each month. Do it with a parent. Your check mark stays on this phone.</p>
 </header>
 <main>
-  <div class="progress" aria-live="polite">
-    <b id="count">0 of 6 Done</b>
-    <div class="bar" aria-hidden="true"><i id="meter"></i></div>
-    <p class="note">Nothing you type is saved. Only the check marks stay on this phone.</p>
-  </div>
-  <section class="win" id="win" hidden>
-    <svg class="badge" viewBox="0 0 96 96" role="img" aria-label="Quest complete badge"><circle cx="48" cy="48" r="46" fill="#005175"/><circle cx="48" cy="48" r="40" fill="none" stroke="#c9a24a" stroke-width="3"/><path d="M48 18l7 16.4 17.8 1.2-13.6 11.4 4.2 17.4L48 55.6 32.6 64.4l4.2-17.4L23.2 35.6l17.8-1.2z" fill="#f3d98b"/><text x="48" y="78" text-anchor="middle" fill="#e2c47a" font-family="Georgia, serif" font-size="9">QUEST</text></svg>
-    <h2>Quest Complete</h2>
-    <p>You finished all six. Your family is lucky to have you.</p>
+  <article class="featured" id="featured">
+    <p class="when" id="when">This Month</p>
+    <h2 id="title">Loading This Month</h2>
+    <p class="goal" id="goal"></p>
+    <h3>How To Do It</h3>
+    <ol id="steps"></ol>
+    <a class="btn" id="open" href="" target="_blank" rel="noopener" hidden>Open This Activity</a>
+    <button type="button" class="btn did" id="did" aria-pressed="false">I Did It!</button>
+    <div class="win" id="win" hidden>
+      <svg class="badge" viewBox="0 0 96 96" role="img" aria-label="Challenge complete"><circle cx="48" cy="48" r="46" fill="#005175"/><circle cx="48" cy="48" r="40" fill="none" stroke="#c9a24a" stroke-width="3"/><path d="M48 20l6.4 15 16.2 1-12.4 10.4 3.8 15.8L48 54.4 33.8 62.2l3.8-15.8L25.2 36l16.2-1z" fill="#f3d98b"/></svg>
+      <h3>You Did It!</h3>
+      <p>Nice work. See you next month.</p>
+    </div>
+  </article>
+  <section class="later" id="later" hidden>
+    <h2>Coming Up</h2>
+    <ul id="upcoming"></ul>
   </section>
-  <article class="q" data-id="box">
-    <div class="row">
-      <label class="check"><input type="checkbox" aria-label="Mark All About Me Box done"></label>
-      <div>
-        <h2>All About Me Box</h2>
-        <p>Find a box. Put in a few things that show who you are. A 6-year-old can pick a toy and a drawing. A 17-year-old can pick what matters now.</p>
-        <a class="btn" href="https://www.familysearch.org/en/discovery/activities/about-me/4" target="_blank" rel="noopener">Open This Activity</a>
-      </div>
-    </div>
-  </article>
-  <article class="q" data-id="year">
-    <div class="row">
-      <label class="check"><input type="checkbox" aria-label="Mark The Year I Was Born done"></label>
-      <div>
-        <h2>The Year I Was Born</h2>
-        <p>With a parent, find one fun fact about the year you were born. Music, a price, or a big event all count.</p>
-        <a class="btn" href="https://www.familysearch.org/en/discovery/activities/about-me/14" target="_blank" rel="noopener">Open This Activity</a>
-      </div>
-    </div>
-  </article>
-  <article class="q" data-id="from">
-    <div class="row">
-      <label class="check"><input type="checkbox" aria-label="Mark Where I'm From done"></label>
-      <div>
-        <h2>Where I'm From</h2>
-        <p>Name one place your family has lived. It can be a city, a country, or the house you know.</p>
-        <a class="btn" href="https://www.familysearch.org/en/discovery/activities/about-me/13" target="_blank" rel="noopener">Open This Activity</a>
-      </div>
-    </div>
-  </article>
-  <article class="q" data-id="tree-online">
-    <div class="row">
-      <label class="check"><input type="checkbox" aria-label="Mark My Family Tree done"></label>
-      <div>
-        <h2>My Family Tree</h2>
-        <p>Look at a family tree with a parent. Find you, your parents, and one grandparent.</p>
-        <a class="btn" href="https://www.familysearch.org/en/discovery/activities/my-family/18" target="_blank" rel="noopener">Open This Activity</a>
-      </div>
-    </div>
-  </article>
-  <article class="q" data-id="interview">
-    <div class="row">
-      <label class="check"><input type="checkbox" aria-label="Mark Interview a Grandparent done"></label>
-      <div>
-        <h2>Interview a Grandparent</h2>
-        <p>Ask a grandparent, or another older relative, these three questions. Listen. You do not have to write the answers here.</p>
-        <ol class="ask">
-          <li>What was your favorite thing to do when you were my age?</li>
-          <li>Tell me a story about your family when you were young.</li>
-          <li>What do you hope I will remember about our family?</li>
-        </ol>
-      </div>
-    </div>
-  </article>
-  <article class="q" data-id="draw">
-    <div class="row">
-      <label class="check"><input type="checkbox" aria-label="Mark Draw Your Family Tree done"></label>
-      <div>
-        <h2>Draw Your Family Tree</h2>
-        <p>On paper, draw you at the bottom, your parents above you, and your grandparents above them. Write a name if you know it. Color it.</p>
-        <div class="tree" aria-hidden="true">
-          <div><b>Grandparent</b> <b>Grandparent</b></div>
-          <div><b>Grandparent</b> <b>Grandparent</b></div>
-          <div><b>Parent</b> <b>Parent</b></div>
-          <div><b>You</b></div>
-        </div>
-      </div>
-    </div>
-  </article>
-  <p class="askline">Questions? Reach out to Sister Shalisa Bingham, Temple &amp; Family History</p>
+  <p class="ask">Questions? Reach out to Sister Shalisa Bingham, Temple &amp; Family History</p>
 </main>
 <footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer>
 <script>
 (function () {
-  var KEY = "fb6-fh-quest";
-  var boxes = [].slice.call(document.querySelectorAll(".q"));
-  var count = document.getElementById("count");
-  var meter = document.getElementById("meter");
+  var KEY = "fb6-fh-month";
+  var featured = document.getElementById("featured");
+  var when = document.getElementById("when");
+  var title = document.getElementById("title");
+  var goal = document.getElementById("goal");
+  var steps = document.getElementById("steps");
+  var open = document.getElementById("open");
+  var did = document.getElementById("did");
   var win = document.getElementById("win");
+  var later = document.getElementById("later");
+  var upcoming = document.getElementById("upcoming");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var currentId = "";
 
   function read() {
     try {
-      var raw = JSON.parse(localStorage.getItem(KEY) || "[]");
-      if (!Array.isArray(raw)) return [];
-      return raw.filter(function (id) { return typeof id === "string"; });
-    } catch (e) { return []; }
+      var raw = JSON.parse(localStorage.getItem(KEY) || "{}");
+      return raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {};
+    } catch (e) { return {}; }
   }
-  function write(ids) {
-    try { localStorage.setItem(KEY, JSON.stringify(ids)); } catch (e) {}
+  function write(map) {
+    try { localStorage.setItem(KEY, JSON.stringify(map)); } catch (e) {}
+  }
+  function safeLink(url) {
+    try {
+      var parsed = new URL(url);
+      var host = parsed.hostname;
+      var ok = parsed.protocol === "https:" && (host === "www.familysearch.org" || host === "www.churchofjesuschrist.org" || host === "articles.familysearch.org");
+      return ok ? parsed.href : "";
+    } catch (e) { return ""; }
   }
   function burst() {
     if (reduce) return;
     var layer = document.createElement("div");
     layer.className = "confetti";
     var colors = ["#c9a24a", "#f3d98b", "#005175", "#e7f3f8", "#8a6d22"];
-    for (var i = 0; i < 28; i++) {
+    for (var i = 0; i < 26; i++) {
       var bit = document.createElement("i");
       bit.style.left = (Math.random() * 100) + "%";
       bit.style.background = colors[i % colors.length];
-      bit.style.animationDelay = (Math.random() * 0.35) + "s";
+      bit.style.animationDelay = (Math.random() * 0.3) + "s";
       layer.appendChild(bit);
     }
     document.body.appendChild(layer);
-    setTimeout(function () { layer.remove(); }, 2200);
+    setTimeout(function () { layer.remove(); }, 2100);
   }
-  function paint(celebrate) {
-    var done = [];
-    boxes.forEach(function (card) {
-      var on = card.querySelector("input").checked;
-      card.classList.toggle("on", on);
-      if (on) done.push(card.getAttribute("data-id"));
+  function setDone(on, celebrate) {
+    did.setAttribute("aria-pressed", on ? "true" : "false");
+    did.classList.toggle("on", on);
+    win.hidden = !on;
+    if (on && celebrate) burst();
+  }
+  function show(item, isCurrent) {
+    currentId = item.id;
+    when.textContent = (isCurrent ? "This Month · " : "Next Up · ") + Fb6Fh.monthName(item.id);
+    title.textContent = item.title;
+    goal.textContent = isCurrent ? "This is the goal for the whole month." : "This challenge starts " + Fb6Fh.monthName(item.id) + ".";
+    steps.textContent = "";
+    (item.steps || []).slice(0, 3).forEach(function (line) {
+      var li = document.createElement("li");
+      li.textContent = line;
+      steps.appendChild(li);
     });
-    write(done);
-    count.textContent = done.length + " of " + boxes.length + " Done";
-    meter.style.width = Math.round(done.length / boxes.length * 100) + "%";
-    var all = done.length === boxes.length;
-    var was = !win.hidden;
-    win.hidden = !all;
-    if (all && celebrate && !was) {
-      burst();
-      win.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-    }
+    var href = safeLink(item.link || "");
+    if (href) {
+      open.hidden = false;
+      open.href = href;
+      open.textContent = item.linkLabel || "Open This Activity";
+    } else open.hidden = true;
+    var saved = read();
+    setDone(!!saved[item.id], false);
   }
-  var saved = read();
-  boxes.forEach(function (card) {
-    var input = card.querySelector("input");
-    input.checked = saved.indexOf(card.getAttribute("data-id")) !== -1;
-    input.addEventListener("change", function () { paint(true); });
+  function showList(items) {
+    upcoming.textContent = "";
+    if (!items.length) { later.hidden = true; return; }
+    later.hidden = false;
+    items.forEach(function (item) {
+      var li = document.createElement("li");
+      var small = document.createElement("small");
+      small.textContent = Fb6Fh.monthName(item.id);
+      var name = document.createElement("b");
+      name.textContent = item.title;
+      li.appendChild(small);
+      li.appendChild(name);
+      upcoming.appendChild(li);
+    });
+  }
+  did.addEventListener("click", function () {
+    if (!currentId) return;
+    var saved = read();
+    var on = !saved[currentId];
+    if (on) saved[currentId] = true;
+    else delete saved[currentId];
+    write(saved);
+    setDone(on, true);
   });
-  paint(false);
+  fetch("../../../data/fh-challenges.json", { cache: "no-cache" }).then(function (res) {
+    if (!res.ok) throw new Error("missing");
+    return res.json();
+  }).then(function (data) {
+    var picked = Fb6Fh.pick(data.challenges, Fb6Fh.denverToday());
+    if (!picked.featured) {
+      featured.innerHTML = '<h2>See You Next Time</h2><p>The challenges through December 2027 are finished.</p>';
+      return;
+    }
+    show(picked.featured, !!picked.current);
+    showList(picked.upcoming);
+  }).catch(function () {
+    title.textContent = "The Challenge List Did Not Load";
+    goal.textContent = "Check the connection and try this page again.";
+  });
 })();
 </script>
 </body>

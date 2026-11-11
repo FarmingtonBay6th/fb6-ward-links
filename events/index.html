@@ -134,6 +134,7 @@
   <p class="empty" id="empty" hidden>No upcoming events right now. Check the <a href="https://www.churchofjesuschrist.org/calendar">Ward Calendar</a>.</p>
 </main>
 <footer><p class="q">“And now, my beloved brethren, I would that ye should come unto Christ” <br><span>Omni 1:26</span></p></footer>
+<script src="../fh-challenges.js"></script>
 <script>
 (function(){
   var main=document.querySelector('main'), empty=document.getElementById('empty');
@@ -146,7 +147,7 @@
     var thumb=a.flyer ? '<a class="thumb" href="'+esc(a.flyer)+'"><img src="'+esc(a.flyer)+'" alt="Flyer: '+esc(a.title)+'" loading="lazy"></a>'
       : '<span class="thumb none" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h3l9-5v14l-9-5H3z"/><path d="M6 14l1.5 5h2.5l-1-4.5"/><path d="M18 9c1.5 1 1.5 5 0 6"/></svg></span>';
     var acts=[]; if(a.flyer) acts.push('<a class="btn" href="'+esc(a.flyer)+'">View flyer</a>');
-    if(a.link && /^https:\/\//.test(a.link)) acts.push('<a class="btn alt" href="'+esc(a.link)+'" rel="noopener">'+esc(a.linkLabel||'More info')+'</a>');
+    if(a.link && (/^https:\/\//.test(a.link) || /^\.\.?\//.test(a.link))) acts.push('<a class="btn alt" href="'+esc(a.link)+'"'+( /^https:\/\//.test(a.link)?' rel="noopener"':'')+'>'+esc(a.linkLabel||'More info')+'</a>');
     el.innerHTML=thumb+'<div class="evtx"><b>'+esc(a.title)+'</b><small>'+esc(a.details)+'</small><p class="when">'+esc(nice(a.date))+(a.endDate?' – '+esc(nice(a.endDate)):'')+(a.time?' · '+esc(a.time):'')+'</p><p class="where">'+esc(a.place)+'</p>'+(acts.length?'<div class="acts">'+acts.join(' ')+'</div>':'')+'</div>';
     return el;
   }
@@ -185,9 +186,26 @@
     (list||[]).forEach(function(a){ if(a && a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date)) main.insertBefore(card(a), empty); });
     apply();
   }
+  function addChallenge(data){
+    if(!window.Fb6Fh||!data) return;
+    var item=Fb6Fh.pick(data.challenges, today()).current;
+    if(!item) return;
+    main.insertBefore(card({
+      title:'Family History Challenge: '+item.title,
+      date:item.id+'-01',
+      endDate:Fb6Fh.monthEnd(item.id),
+      time:'All Month',
+      place:'At home with a parent',
+      details:'Ages 6 to 17. One goal for the whole month.',
+      link:'../orgs/temple-and-family-history/quest/',
+      linkLabel:'Open the Challenge'
+    }), empty);
+  }
   apply();
-  fetch('../data/approved-announcements.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():{}; })
-    .then(function(j){ render(j.announcements); }).catch(function(){ render([]); });
+  Promise.all([
+    fetch('../data/approved-announcements.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():{}; }),
+    fetch('../data/fh-challenges.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():{}; })
+  ]).then(function(both){ render((both[0]||{}).announcements); addChallenge(both[1]); apply(); }).catch(function(){ render([]); });
 })();
 </script>
 </body>

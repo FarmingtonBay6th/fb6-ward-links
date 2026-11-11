@@ -331,6 +331,7 @@
   if (today > "2026-12-31") card.hidden = true;
 })();
 </script>
+<script src="fh-challenges.js"></script>
 <script>
 (function () {
   var list = document.getElementById("coming-list");
@@ -368,7 +369,7 @@
   }
   function show(items) {
     var t = today();
-    var rows = items.filter(function (it) { return it.endDay >= t && dayOf(it.start) >= t; });
+    var rows = items.filter(function (it) { return it.endDay >= t && (dayOf(it.start) >= t || it.keep); });
     rows.sort(function (a, b) { return a.start < b.start ? -1 : a.start > b.start ? 1 : 0; });
     rows = rows.slice(0, 4);
     if (!rows.length) { list.innerHTML = '<p class="cu-empty">Nothing coming up right now.</p>'; return; }
@@ -377,13 +378,29 @@
       return '<a class="cu-row" href="' + esc(it.href) + '"><span class="cu-date">' + esc(nice(dayOf(it.start))) + '</span> <span class="cu-name">' + esc(name) + '</span></a>';
     }).join("");
   }
+  function addChallenge(items, data) {
+    if (!window.Fb6Fh || !data) return;
+    var picked = Fb6Fh.pick(data.challenges, today());
+    var item = picked.current;
+    if (!item) return;
+    items.push({
+      title: "Family History Challenge: " + item.title,
+      start: item.id + "-01T00:00",
+      endDay: Fb6Fh.monthEnd(item.id),
+      time: "All Month",
+      href: "orgs/temple-and-family-history/quest/",
+      keep: true
+    });
+  }
   Promise.all([
     fetch("events/events.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { events: [] }; }),
-    fetch("data/approved-announcements.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { announcements: [] }; })
+    fetch("data/approved-announcements.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { announcements: [] }; }),
+    fetch("data/fh-challenges.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { challenges: [] }; })
   ]).then(function (both) {
     var items = [];
     (both[0].events || []).forEach(function (e) { addFlyer(items, e); });
     (both[1].announcements || []).forEach(function (a) { addNote(items, a); });
+    addChallenge(items, both[2]);
     show(items);
   }).catch(function () { list.innerHTML = '<p class="cu-empty">Open Upcoming Events for the full list.</p>'; });
 })();
