@@ -83,14 +83,14 @@
     "ward-missionaries": {
       "title": "Ward Missionaries",
       "path": "orgs/ward-missionaries/",
-      "hash": "f51c11000029ff97f48efc80209cc51a45a43cc0fd0498da25e03960dee1c36e",
-      "updated": "2026-11-10T11:11:32Z"
+      "hash": "11500e1f8961ff6865c3b0edbc9ed6d85298f76ec700abacc9b1b32af6038ce1",
+      "updated": "2026-11-11T01:29:56Z"
     },
     "missionaries": {
       "title": "Our Ward Missionaries",
       "path": "missionaries/",
-      "hash": "a8b0d0aec19bd67efe96fea97739ef51037d6a6395f0853e044d8d98f0d1bdd3",
-      "updated": "2026-10-30T11:59:12Z"
+      "hash": "d7ccefffff7fc805e534c6ac5814934665c03e7ee5d9f6bba7bc7f501126399a",
+      "updated": "2026-11-11T01:29:56Z"
     }
   }
 }
