@@ -28,8 +28,7 @@ O=[('rs','relief-society','Relief Society','Charity Never Faileth','“Willing t
 ('ym','young-men','Young Men','Sons of God','“Be thou an example of the believers.”','1 Timothy 4:12','10-aaronic-priesthood'),
 ('ss','sunday-school','Sunday School','Come, Follow Me','“Search the scriptures; … they are they which testify of me.”','John 5:39','13-sunday-school'),
 ('pr','primary','Primary','I Am a Child of God','“Suffer the little children to come unto me.”','Mark 10:14','12-primary'),
-('tfh','temple-and-family-history','Temple and Family History','Holiness to the Lord','“He shall turn the heart of the fathers to the children.”','Malachi 4:6','25-temple-and-family-history-work-in-the-ward-and-stake'),
-('mi','ward-missionaries','Ward Missionaries','Preach My Gospel','“Go ye into all the world, and preach the gospel.”','Mark 16:15','23-sharing-the-gospel-and-strengthening-new-members')]
+('tfh','temple-and-family-history','Temple and Family History','Holiness to the Lord','“He shall turn the heart of the fathers to the children.”','Malachi 4:6','25-temple-and-family-history-work-in-the-ward-and-stake')]
 # home section
 css='''
   .orgs { margin-top:22px; } .orgs h2 { font:italic 400 21px/1.2 Georgia, serif; margin:0 0 4px; }
