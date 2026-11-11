@@ -23,8 +23,8 @@
     "events": {
       "title": "Upcoming Events",
       "path": "events/",
-      "hash": "d9b9547915293143cbaa8890e5d03c84c35067ebe7481655160cad780bb39f96",
-      "updated": "2026-11-11T01:08:50Z"
+      "hash": "bbb058e7386a1df50122c6fd677c239cdea8a90395ebbb16779a1ebc1451fc2d",
+      "updated": "2026-11-11T01:41:18Z"
     },
     "announce": {
       "title": "Submit An Announcement",
@@ -81,16 +81,16 @@
       "updated": "2026-11-11T01:12:14Z"
     },
     "ward-missionaries": {
-      "title": "Ward Missionaries",
-      "path": "orgs/ward-missionaries/",
-      "hash": "11500e1f8961ff6865c3b0edbc9ed6d85298f76ec700abacc9b1b32af6038ce1",
-      "updated": "2026-11-11T01:29:56Z"
+      "title": "Missionaries in Our Area",
+      "path": "orgs/missionaries-in-our-area/",
+      "hash": "8785418d94b8047c869447a071d92828ac99d05fc0f3362a1b5b4db6658d84d2",
+      "updated": "2026-11-11T01:41:18Z"
     },
     "missionaries": {
-      "title": "Our Ward Missionaries",
+      "title": "Our Missionaries Serving Worldwide",
       "path": "missionaries/",
-      "hash": "d7ccefffff7fc805e534c6ac5814934665c03e7ee5d9f6bba7bc7f501126399a",
-      "updated": "2026-11-11T01:29:56Z"
+      "hash": "a10614a47ff81a7c8a348294ff4e9e8450a9d021653b3a43afeb8004f6f183e2",
+      "updated": "2026-11-11T01:41:18Z"
     }
   }
 }
