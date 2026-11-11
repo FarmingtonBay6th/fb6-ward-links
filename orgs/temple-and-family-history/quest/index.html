@@ -32,6 +32,11 @@
   ol li { margin:6px 0; }
   .btn { display:flex; align-items:center; justify-content:center; min-height:48px; padding:10px 14px; border-radius:12px; background:var(--navy); color:#fff; text-decoration:none; font-weight:700; font-size:16px; border:0; width:100%; cursor:pointer; font-family:inherit; }
   .btn[hidden] { display:none; }
+  .btn.sheet { margin-top:8px; background:#fff; color:var(--navy); border:2px solid var(--gold); }
+  .months { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 12px; }
+  .months button { min-height:48px; padding:8px 12px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--ink); font:700 14px/1.15 inherit; cursor:pointer; }
+  .months button[aria-current="true"] { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .months button:focus-visible { outline:3px solid var(--navy); outline-offset:2px; }
   .btn.did { background:#fff; color:var(--navy); border:2px solid var(--navy); }
   .btn.did.on { background:#005175; color:#fff; }
   .btn:focus-visible { outline:3px solid var(--navy); outline-offset:3px; }
@@ -57,7 +62,8 @@
   @media (prefers-color-scheme: dark) {
     :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; }
     .featured h2, .win h3, .btn.did { color:#8cc8e6; }
-    .btn.did { border-color:#8cc8e6; }
+    .btn.did, .btn.sheet { border-color:#8cc8e6; }
+    .btn.sheet { color:#8cc8e6; background:#27211d; }
     .btn.did.on { background:#005175; color:#fff; }
     .when, .later small { color:#e2c47a; }
   }
@@ -74,6 +80,7 @@
   <p>One theme each month. Kids have a goal. Parents have a goal. Then you do one thing together.</p>
 </header>
 <main>
+  <div class="months" id="months" role="tablist" aria-label="Months"></div>
   <article class="featured" id="featured">
     <p class="when" id="when">This Month</p>
     <p class="date-note" id="date-note" hidden>Date Coming Soon</p>
@@ -83,6 +90,7 @@
       <h3>Kids Goal</h3>
       <p class="who" id="kids-title"></p>
       <ol id="kids-steps"></ol>
+      <a class="btn sheet" id="print-sheet" href="" hidden>Print This Month's Sheet</a>
       <a class="btn" id="kids-open" href="" target="_blank" rel="noopener" hidden>Open This Activity</a>
     </section>
     <section class="part">
@@ -128,6 +136,10 @@
   var upcoming = document.getElementById("upcoming");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var currentId = "";
+  var months = [];
+  var featuredId = "";
+  var printSheet = document.getElementById("print-sheet");
+  var monthBar = document.getElementById("months");
 
   function read() {
     try {
@@ -189,7 +201,7 @@
       li.textContent = line;
       list.appendChild(li);
     });
-    var href = safeLink(part && part.link || "");
+    var href = key === "kids" ? "" : safeLink(part && part.link || "");
     if (href) {
       link.hidden = false;
       link.href = href;
@@ -198,11 +210,27 @@
       link.textContent = (part && part.linkLabel) || "Open This Activity";
     } else link.hidden = true;
   }
+  function sheetHref(url) {
+    return /^sheets\/\d{4}-\d{2}\.html$/.test(url || "") ? url : "";
+  }
+  function markMonths() {
+    var buttons = monthBar.querySelectorAll("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute("aria-current", buttons[i].getAttribute("data-id") === currentId ? "true" : "false");
+    }
+  }
   function show(item, isCurrent) {
     currentId = item.id;
-    when.textContent = (isCurrent ? "This Month · " : "Next Up · ") + Fb6Fh.monthName(item.id);
+    var label = Fb6Fh.monthName(item.id);
+    if (isCurrent) when.textContent = "This Month · " + label;
+    else if (item.id === featuredId) when.textContent = "Next Up · " + label;
+    else when.textContent = label;
     title.textContent = item.title;
-    goal.textContent = isCurrent ? "One theme for the whole family, all month." : "This challenge starts " + Fb6Fh.monthName(item.id) + ".";
+    goal.textContent = isCurrent ? "One theme for the whole family, all month." : "This challenge starts " + label + ".";
+    var sheet = sheetHref(item.print);
+    if (sheet) { printSheet.hidden = false; printSheet.href = sheet; }
+    else printSheet.hidden = true;
+    markMonths();
     var dateNote = document.getElementById("date-note");
     if (item.dateNote) { dateNote.hidden = false; dateNote.textContent = item.dateNote; }
     else dateNote.hidden = true;
@@ -254,7 +282,29 @@
       featured.innerHTML = '<h2>See You Next Time</h2><p>The challenges through December 2027 are finished.</p>';
       return;
     }
-    show(picked.featured, !!picked.current);
+    featuredId = picked.featured.id;
+    months = [picked.featured].concat(picked.upcoming);
+    monthBar.textContent = "";
+    months.forEach(function (item) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("role", "tab");
+      button.setAttribute("data-id", item.id);
+      button.textContent = Fb6Fh.monthName(item.id);
+      button.addEventListener("click", function () {
+        if (location.hash === "#" + item.id) select(item.id);
+        else location.hash = item.id;
+      });
+      monthBar.appendChild(button);
+    });
+    function select(id) {
+      var item = months.filter(function (row) { return row.id === id; })[0] || picked.featured;
+      show(item, !!(picked.current && item.id === picked.current.id));
+    }
+    window.addEventListener("hashchange", function () {
+      select((location.hash || "").replace(/^#/, ""));
+    });
+    select((location.hash || "").replace(/^#/, ""));
     showList(picked.upcoming);
   }).catch(function () {
     title.textContent = "The Challenge List Did Not Load";

@@ -6,234 +6,403 @@
       "title": "Record a Family Tradition",
       "dateNote": "Warm-Up Month",
       "kids": {
-        "title": "Tell One Tradition",
-        "steps": ["Pick one thing your family does again and again.", "Draw it or tell it in a few sentences.", "Share it with a parent."]
+        "title": "Make a Tradition Card",
+        "steps": [
+          "Print the Tradition Card.",
+          "Draw your family doing one tradition.",
+          "Act it out for someone at home."
+        ]
       },
       "parents": {
         "title": "Record a Family Tradition",
-        "steps": ["Choose one family tradition.", "Record it in writing, photos, or audio.", "Add it as a memory in FamilySearch."],
+        "steps": [
+          "Choose one family tradition.",
+          "Record it in writing, photos, or audio.",
+          "Add it as a memory in FamilySearch."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Tradition Night",
-        "steps": ["Do the tradition or tell how it goes.", "Let a child tell their part.", "Save it together so it is not forgotten."]
-      }
+        "steps": [
+          "Do the tradition, or act out the card.",
+          "Let a child show the drawing.",
+          "A parent saves it so it is not forgotten."
+        ]
+      },
+      "print": "sheets/2026-12.html"
     },
     {
       "id": "2027-01",
       "title": "5th Sunday Lesson",
       "dateNote": "Date Coming Soon",
       "kids": {
-        "title": "Share One Family Story",
-        "steps": ["Think of one blessing from your family or the temple.", "Tell that story in your own words.", "Practice it with a parent."]
+        "title": "Interview a Storyteller",
+        "steps": [
+          "Print the Interview Card.",
+          "Ask a parent or grandparent the questions.",
+          "Draw the story they tell you."
+        ]
       },
       "parents": {
         "title": "5th Sunday Lesson",
-        "steps": ["Choose one story or testimony of family history and temple work.", "Practice telling it in a few minutes.", "Share it when the January lesson date is set."]
+        "steps": [
+          "Choose one story or testimony of family history and temple work.",
+          "Practice telling it in a few minutes.",
+          "Share it when the January lesson date is set."
+        ]
       },
       "together": {
         "title": "Practice at Home",
-        "steps": ["Sit together and tell one story from each side of the family you know.", "Let a child tell theirs first.", "A parent adds what the temple means to your family."]
-      }
+        "steps": [
+          "Sit together for the interview.",
+          "Let the child ask the questions first.",
+          "A parent adds what the temple means to your family."
+        ]
+      },
+      "print": "sheets/2027-01.html"
     },
     {
       "id": "2027-02",
       "title": "Login & Recommend Check",
       "kids": {
-        "title": "Draw the Temple",
-        "steps": ["Draw a temple.", "Tell a parent one reason families go there.", "Put your picture where you will see it."]
+        "title": "Temple Treasure Hunt",
+        "steps": [
+          "Print the Hunt Card.",
+          "Find each thing in your home.",
+          "Tell a parent why families go to the temple."
+        ]
       },
       "parents": {
         "title": "Login & Recommend Check",
-        "steps": ["Log in to FamilySearch.", "See that you can open your family tree.", "Schedule a temple recommend interview if yours needs renewing."],
+        "steps": [
+          "Log in to FamilySearch.",
+          "See that you can open your family tree.",
+          "Schedule a temple recommend interview if yours needs renewing."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Log In Side by Side",
-        "steps": ["A child sits with a parent while they log in.", "Point to one name you both know.", "Look at the temple drawing and say why that house matters."]
-      }
+        "steps": [
+          "Hunt side by side.",
+          "Point to one family name you both know.",
+          "Say why the temple matters."
+        ]
+      },
+      "print": "sheets/2027-02.html"
     },
     {
       "id": "2027-03",
       "title": "Upload a Photo",
       "kids": {
-        "title": "Pick a Favorite Photo",
-        "steps": ["Choose one favorite family photo with a parent.", "Say who is in the picture.", "Watch while it is uploaded."]
+        "title": "Make a Family Frame",
+        "steps": [
+          "Print the Picture Frame.",
+          "Color it and tape in a photo, or draw the people.",
+          "Say every name while a parent uploads the photo."
+        ]
       },
       "parents": {
         "title": "Upload a Photo",
-        "steps": ["Choose that one photo.", "Upload 1 photo to FamilySearch.", "Add the names of the people in it."],
+        "steps": [
+          "Choose that one photo.",
+          "Upload 1 photo to FamilySearch.",
+          "Add the names of the people in it."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Upload It Together",
-        "steps": ["Look at the photo together.", "Let the child say the names.", "A parent uploads it while the child watches."]
-      }
+        "steps": [
+          "Look at the framed photo together.",
+          "Let the child say the names.",
+          "A parent uploads it while the child watches."
+        ]
+      },
+      "print": "sheets/2027-03.html"
     },
     {
       "id": "2027-04",
       "title": "Find 1 Name",
       "kids": {
-        "title": "Help Find 1 Name",
-        "steps": ["Sit with a parent at the family tree.", "Help look for one person who is missing.", "Say that person's name out loud."]
+        "title": "Name Detective",
+        "steps": [
+          "Print the Detective Card.",
+          "Follow the clues to one missing person.",
+          "Write that name on your badge."
+        ]
       },
       "parents": {
         "title": "Find 1 Name",
-        "steps": ["Open your family tree.", "Add at least 1 new person.", "Check the name with someone who knows the family."],
+        "steps": [
+          "Open your family tree.",
+          "Add at least 1 new person.",
+          "Check the name with someone who knows the family."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Add the Name Together",
-        "steps": ["Search side by side.", "Let the child help choose the person.", "Add that one name before you stop."]
-      }
+        "steps": [
+          "Search side by side.",
+          "Let the child help choose the person.",
+          "Add that one name before you stop."
+        ]
+      },
+      "print": "sheets/2027-04.html"
     },
     {
       "id": "2027-05",
       "title": "Submit Names to the Temple",
       "kids": {
-        "title": "Thank-You Card and Name Holder",
-        "steps": ["Make a thank-you card to an ancestor.", "Decorate a holder for a family name card.", "Carry the card to the temple grounds with a parent if you can."]
+        "title": "Make a Name Pocket",
+        "steps": [
+          "Print the Name Pocket.",
+          "Color it and write one ancestor's first name.",
+          "Fold it so it can hold a family name card."
+        ]
       },
       "parents": {
         "title": "Submit Names to the Temple",
-        "steps": ["Prepare at least 1 family name or ordinance card.", "Bring it to the temple.", "Tell your child the first name on the card."],
+        "steps": [
+          "Prepare at least 1 family name or ordinance card.",
+          "Bring it to the temple.",
+          "Tell your child the first name on the card."
+        ],
         "link": "https://www.familysearch.org/en/church/ordinances-ready",
         "linkLabel": "Open Ordinances Ready"
       },
       "together": {
         "title": "Carry the Card",
-        "steps": ["Read the ancestor's name together.", "Put the card in the holder the child made.", "If you can, walk the temple grounds with that name."]
-      }
+        "steps": [
+          "Read the name together.",
+          "Slip a card into the pocket the child made.",
+          "Walk the temple grounds with that name if you can."
+        ]
+      },
+      "print": "sheets/2027-05.html"
     },
     {
       "id": "2027-06",
       "title": "4 Generations Check",
       "kids": {
-        "title": "Draw Your 4-Generation Tree",
-        "steps": ["Draw you at the bottom.", "Add your parents, then your grandparents.", "Write a name on each person you know."]
+        "title": "Color a Family Fan",
+        "steps": [
+          "Print the Family Fan.",
+          "Color you, your parents, and your grandparents.",
+          "Write a name on each person you know."
+        ]
       },
       "parents": {
         "title": "4 Generations Check",
-        "steps": ["Open your first 4 generations in FamilySearch.", "Verify the names, dates, and places.", "Correct them if something is wrong."],
+        "steps": [
+          "Open your first 4 generations in FamilySearch.",
+          "Verify the names, dates, and places.",
+          "Correct them if something is wrong."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Check While You Draw",
-        "steps": ["A child draws the four generations.", "A parent checks those same people on the screen.", "Fix one name together if it does not match."]
-      }
+        "steps": [
+          "Color the fan while a parent checks the screen.",
+          "Compare the names you both know.",
+          "Fix one name together if it does not match."
+        ]
+      },
+      "print": "sheets/2027-06.html"
     },
     {
       "id": "2027-07",
       "title": "Salt Lake Temple Open House",
       "dateNote": "Date Coming Soon",
       "kids": {
-        "title": "Draw the Salt Lake Temple",
-        "steps": ["Look at a picture of the Salt Lake Temple with a parent.", "Draw it.", "Plan to go when the open house date is shared."]
+        "title": "Build a Paper Temple",
+        "steps": [
+          "Print the Temple to Color.",
+          "Color it, cut it, and fold it so it stands.",
+          "Tell what you hope to see at the open house."
+        ]
       },
       "parents": {
         "title": "Salt Lake Temple Open House",
-        "steps": ["Watch for the official open house dates.", "Choose one time your family can go.", "Attend one open house event when it is announced."],
+        "steps": [
+          "Watch for the official open house dates.",
+          "Choose one time your family can go.",
+          "Attend one open house event when it is announced."
+        ],
         "link": "https://www.churchofjesuschrist.org/temples/details/salt-lake-temple?lang=eng",
         "linkLabel": "Open the Salt Lake Temple Page"
       },
       "together": {
         "title": "Plan the Open House",
-        "steps": ["Look at the child's drawing and the temple page.", "Talk about what you hope to see.", "Go together when the date is shared."]
-      }
+        "steps": [
+          "Stand the paper temple next to the temple page.",
+          "Talk about what you hope to see.",
+          "Go together when the date is shared."
+        ]
+      },
+      "print": "sheets/2027-07.html"
     },
     {
       "id": "2027-08",
       "title": "Upload a Story or Document",
       "kids": {
-        "title": "Tell One Story to Save",
-        "steps": ["Pick one family story you love.", "Tell it in a few sentences.", "Give it to a parent to save."]
+        "title": "Draw a Story Comic",
+        "steps": [
+          "Print the Story Comic.",
+          "Draw one family story in the four boxes.",
+          "Tell the story while a parent saves it."
+        ]
       },
       "parents": {
         "title": "Upload a Story or Document",
-        "steps": ["Choose 1 story or document.", "Upload it to FamilySearch.", "Attach it to the person it is about."],
+        "steps": [
+          "Choose 1 story or document.",
+          "Upload it to FamilySearch.",
+          "Attach it to the person it is about."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Save the Story Together",
-        "steps": ["The child tells the story.", "A parent types or scans it.", "Upload it while you are still sitting together."]
-      }
+        "steps": [
+          "The child tells the comic out loud.",
+          "A parent types or scans it.",
+          "Upload it while you are still sitting together."
+        ]
+      },
+      "print": "sheets/2027-08.html"
     },
     {
       "id": "2027-09",
       "title": "Ward Temple Day",
       "dateNote": "Date Coming Soon",
       "kids": {
-        "title": "Thank-You Card to an Ancestor",
-        "steps": ["Make a thank-you card to one ancestor.", "Write or draw why you are glad they are in your family.", "Give the card to a parent to take along when the date is set."]
+        "title": "Make a Thank-You Certificate",
+        "steps": [
+          "Print the Thank-You Certificate.",
+          "Draw why you are glad that ancestor is in your family.",
+          "Sign it and give it to a parent."
+        ]
       },
       "parents": {
         "title": "Ward Temple Day",
-        "steps": ["Watch for the ward temple day date.", "Plan to join the ward temple session.", "If you cannot attend, prepare a name for someone who can."]
+        "steps": [
+          "Watch for the ward temple day date.",
+          "Plan to join the ward temple session.",
+          "If you cannot attend, prepare a name for someone who can."
+        ]
       },
       "together": {
         "title": "Get Ready for Temple Day",
-        "steps": ["Read the child's card together.", "Say the ancestor's name.", "Put the date on the calendar when it is announced."]
-      }
+        "steps": [
+          "Read the certificate together.",
+          "Say the ancestor's name.",
+          "Add the ward temple day when the date is announced."
+        ]
+      },
+      "print": "sheets/2027-09.html"
     },
     {
       "id": "2027-10",
       "title": "Temple Preparation Focus",
       "kids": {
-        "title": "A Card for Someone Getting Ready",
-        "steps": ["Make a card for someone in your family who is preparing for the temple.", "Draw the temple on it.", "Give it to them."]
+        "title": "Play Help Bingo",
+        "steps": [
+          "Print the Help Bingo card.",
+          "Do four squares for someone getting ready.",
+          "Tell a parent who you helped."
+        ]
       },
       "parents": {
         "title": "Temple Preparation Focus",
-        "steps": ["Finish any ordinance cards you are still holding.", "Or help a family member get ready for the temple.", "Tell your child one way you helped."],
+        "steps": [
+          "Finish any ordinance cards you are still holding.",
+          "Or help a family member get ready for the temple.",
+          "Tell your child one way you helped."
+        ],
         "link": "https://www.familysearch.org/en/church/ordinances-ready",
         "linkLabel": "Open Ordinances Ready"
       },
       "together": {
         "title": "Prepare Side by Side",
-        "steps": ["A child makes the card.", "A parent finishes a card or helps someone prepare.", "Give the card to that person together."]
-      }
+        "steps": [
+          "The child marks four squares.",
+          "A parent finishes a card or helps someone prepare.",
+          "Give a handmade note to that person together."
+        ]
+      },
+      "print": "sheets/2027-10.html"
     },
     {
       "id": "2027-11",
       "title": "Submit 5 Names",
       "kids": {
-        "title": "Five Names Holder",
-        "steps": ["Decorate a holder for five name cards.", "Learn five ancestor names with a parent.", "Count them on your fingers."]
+        "title": "Make a Five-Name Crown",
+        "steps": [
+          "Print the Five Stars.",
+          "Write one ancestor name on each star.",
+          "Cut them out and tape a crown or a chain."
+        ]
       },
       "parents": {
         "title": "Submit 5 Names",
-        "steps": ["Find family names that are ready.", "Print at least 5 ordinance cards.", "Submit them to the temple."],
+        "steps": [
+          "Find family names that are ready.",
+          "Print at least 5 ordinance cards.",
+          "Submit them to the temple."
+        ],
         "link": "https://www.familysearch.org/en/church/ordinances-ready",
         "linkLabel": "Open Ordinances Ready"
       },
       "together": {
         "title": "Count the Five",
-        "steps": ["Lay the five cards in the holder.", "Read each name out loud.", "A child keeps the holder while a parent submits the cards."]
-      }
+        "steps": [
+          "Count the five names out loud.",
+          "The child holds the stars.",
+          "A parent submits the cards."
+        ]
+      },
+      "print": "sheets/2027-11.html"
     },
     {
       "id": "2027-12",
       "title": "Record a Family Tradition",
       "kids": {
-        "title": "Draw the Tradition",
-        "steps": ["Pick one family tradition.", "Draw it or tell how it goes.", "Help a parent save it."]
+        "title": "Make a Tradition Recipe Page",
+        "steps": [
+          "Print the Recipe Page.",
+          "Draw the tradition and the steps.",
+          "Do it or tell it, then help save the page."
+        ]
       },
       "parents": {
         "title": "Record a Family Tradition",
-        "steps": ["Record one tradition in writing, photos, or audio.", "Add it as a memory in FamilySearch.", "Attach it to the family it belongs to."],
+        "steps": [
+          "Record one tradition in writing, photos, or audio.",
+          "Add it as a memory in FamilySearch.",
+          "Attach it to the family it belongs to."
+        ],
         "link": "https://www.familysearch.org/en/family-tree/",
         "linkLabel": "Open Family Tree"
       },
       "together": {
         "title": "Do It and Save It",
-        "steps": ["Do the tradition or tell it together.", "Let each child add one detail.", "Save the memory before the night ends."]
-      }
+        "steps": [
+          "Do the tradition together.",
+          "Let each child add one detail on the page.",
+          "Save the memory before the night ends."
+        ]
+      },
+      "print": "sheets/2027-12.html"
     }
   ]
 }
