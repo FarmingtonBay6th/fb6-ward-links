@@ -45,6 +45,12 @@
   .quest-entry h2 { display:block; }
   .quest-kicker { margin:0 0 6px; font:700 12px/1 -apple-system,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#8a6d22; }
   .quest-entry .btn { display:block; text-align:center; margin:12px 0 0; }
+  .month-list { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .month-list a { display:flex; flex-direction:column; justify-content:center; min-height:48px; padding:10px 14px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--ink); text-decoration:none; font-weight:700; font-size:15.5px; line-height:1.25; }
+  .month-list a:focus-visible { outline:3px solid var(--navy); outline-offset:2px; }
+  .month-list a.now { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .month-list a .tag { display:block; margin-bottom:3px; font:700 11px/1 -apple-system, sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#e2c47a; }
+  .month-list a.past { color:var(--soft); }
   .ask { margin:12px 0 0; }
   @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } .draft-flag { background:#003a55; color:#fff; border:1px solid #c9a24a; } .draft-hit:active { background:#322922; } .quest-entry { background:var(--card); } .quest-kicker { color:#e2c47a; } }
   .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
@@ -67,7 +73,7 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
     <p class="quest-kicker">The Whole Family</p>
     <h2>Monthly Family History Challenge</h2>
     <p class="note" id="fh-blurb">One theme each month for kids and parents. Check off your part on this phone.</p>
-    <a class="btn" href="quest/">Open This Month</a>
+    <div class="month-list" id="fh-months"></div>
     <p class="note ask">Questions? Reach out to Sister Shalisa Bingham, Temple &amp; Family History</p>
   </section>
   <section class="draft-entry" id="draft-2027-plan">
@@ -102,13 +108,37 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
 if(!k){document.getElementById('empty').hidden=false;document.getElementById('more').hidden=true;}})();
 (function(){
   var blurb=document.getElementById("fh-blurb");
-  if(!blurb||!window.Fb6Fh) return;
+  var list=document.getElementById("fh-months");
+  if(!blurb||!list||!window.Fb6Fh) return;
+  function label(item){
+    var parts=Fb6Fh.monthName(item.id).split(" ");
+    return parts[0]+" "+parts[1]+": "+item.title;
+  }
   fetch("../../data/fh-challenges.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(data){
     if(!data) return;
-    var picked=Fb6Fh.pick(data.challenges, Fb6Fh.denverToday());
-    var item=picked.current||picked.featured;
-    if(!item) return;
-    blurb.textContent=(picked.current?"This month: ":"Next up: ")+item.title+".";
+    var today=Fb6Fh.denverToday();
+    var month=today.slice(0,7);
+    var items=(data.challenges||[]).filter(function(item){return item&&/^\d{4}-\d{2}$/.test(item.id);});
+    items.sort(function(a,b){return a.id<b.id?-1:a.id>b.id?1:0;});
+    var current=items.filter(function(item){return item.id===month;});
+    var future=items.filter(function(item){return item.id>month;});
+    var past=items.filter(function(item){return item.id<month;});
+    var ordered=current.concat(future).concat(past);
+    var lead=current[0]||future[0];
+    if(lead) blurb.textContent=(current[0]?"This month: ":"Next up: ")+lead.title+".";
+    ordered.forEach(function(item){
+      var link=document.createElement("a");
+      link.href="quest/#"+item.id;
+      link.textContent=label(item);
+      if(item.id===month){
+        link.className="now";
+        var tag=document.createElement("span");
+        tag.className="tag";
+        tag.textContent="This Month";
+        link.insertBefore(tag, link.firstChild);
+      } else if(item.id<month) link.className="past";
+      list.appendChild(link);
+    });
   }).catch(function(){});
 })();</script>
 </body></html>
