@@ -70,7 +70,7 @@
   <p>“the church did meet together oft” <cite>Moroni 6:5</cite></p>
 </header>
 <main>
-  <p class="note">Ward, Stake, and Area flyers, for your information. Times are Mountain Time. Past events hide automatically. Tap a flyer to see it full size.</p>
+  <p class="note">Ward, Stake, and Area flyers, for your information. Past events hide automatically. Tap a flyer to see it full size.</p>
   <article class="ev" data-end="2026-11-07T13:30:00-07:00">
     <a class="thumb" href="flyers/2026-11-07-ucap-st-george.jpg"><img src="flyers/2026-11-07-ucap-st-george.jpg" alt="Flyer: Utah Coalition Against Pornography: 2026 St. George Conference" loading="lazy"></a>
     <div class="evtx"><b>Utah Coalition Against Pornography: 2026 St. George Conference</b><small>Keynotes Curtis Morley and Jenet Erickson, PhD · tickets $15 in person, $10 online</small>
@@ -113,7 +113,7 @@
       <p class="when">Fri, Nov 20 · 6:00 – 8:00 PM</p><p class="where">Cul de sac at Atrium Court</p>
       <div class="acts"><a class="btn" href="flyers/2026-11-20-neighborhood-giving.png">View flyer</a> <a class="btn alt" href="flyers/2026-11-20-neighborhood-giving.png" rel="noopener" download="Neighborhood-Giving.png">Download flyer</a> <a class="btn alt" href="https://foothold.fluid.app/home/pages/holiday-fundraiser" rel="noopener">Make a donation</a></div></div>
   </article>
-  <article class="ev" data-end="2026-11-22T19:30:00-07:00">
+  <article class="ev" data-start="2026-11-21T09:00:00-07:00" data-end="2026-11-22T19:30:00-07:00">
     <a class="thumb" href="flyers/2026-11-21-food-drive.jpg"><img src="flyers/2026-11-21-food-drive.jpg" alt="Flyer: Stake Food Drive" loading="lazy"></a>
     <div class="evtx"><b>Stake Food Drive</b><small>Farmington Bay Stake</small>
       <p class="when">Sat, Nov 21 curbside pickup from 9:00 AM · Sun, Nov 22 drop-off 6:30 PM</p><p class="where">Curbside (Sat) · Stake Center (Sun)</p>
@@ -142,7 +142,7 @@
   function denverDay(ms){ return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(ms)); }
   function nice(d){ var p=d.split('-'); return new Date(Date.UTC(+p[0],p[1]-1,+p[2],12)).toLocaleDateString('en-US',{timeZone:'UTC',weekday:'short',month:'short',day:'numeric'}); }
   function card(a){
-    var el=document.createElement('article'); el.className='ev'; el.dataset.day=a.endDate||a.date; el.dataset.sort=a.date+'T'+(a.endDate?'23:59':'12:00');
+    var el=document.createElement('article'); el.className='ev'; el.dataset.day=a.endDate||a.date; el.dataset.start=a.date+'T'+timeKey(a.time);
     var thumb=a.flyer ? '<a class="thumb" href="'+esc(a.flyer)+'"><img src="'+esc(a.flyer)+'" alt="Flyer: '+esc(a.title)+'" loading="lazy"></a>'
       : '<span class="thumb none" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h3l9-5v14l-9-5H3z"/><path d="M6 14l1.5 5h2.5l-1-4.5"/><path d="M18 9c1.5 1 1.5 5 0 6"/></svg></span>';
     var acts=[]; if(a.flyer) acts.push('<a class="btn" href="'+esc(a.flyer)+'">View flyer</a>');
@@ -150,17 +150,42 @@
     el.innerHTML=thumb+'<div class="evtx"><b>'+esc(a.title)+'</b><small>'+esc(a.details)+'</small><p class="when">'+esc(nice(a.date))+(a.endDate?' – '+esc(nice(a.endDate)):'')+(a.time?' · '+esc(a.time):'')+'</p><p class="where">'+esc(a.place)+'</p>'+(acts.length?'<div class="acts">'+acts.join(' ')+'</div>':'')+'</div>';
     return el;
   }
-  function render(list){
-    var t=today(), now=Date.now();
-    (list||[]).forEach(function(a){ if(a && a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date)) main.insertBefore(card(a), empty); });
-    var evs=[].slice.call(main.querySelectorAll('.ev'));
-    evs.forEach(function(el){ if(!el.dataset.sort){ var e=Date.parse(el.dataset.end); el.dataset.sort=e?denverDay(e)+'T'+new Intl.DateTimeFormat('en-GB',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(e)):'9999'; } });
-    evs.sort(function(x,y){ return x.dataset.sort<y.dataset.sort?-1:x.dataset.sort>y.dataset.sort?1:0; }).forEach(function(el){ main.insertBefore(el, empty); });
-    var shown=0;
-    evs.forEach(function(el){ var past = el.dataset.day ? el.dataset.day < t : (Date.parse(el.dataset.end) < now); el.hidden=past; if(!past) shown++; });
-    empty.hidden=!!shown;
+  function timeKey(text){
+    if(!text) return '12:00';
+    var m=String(text).match(/(\d{1,2})(?::(\d{2}))?(?:\s*[–-]\s*(\d{1,2})(?::(\d{2}))?)?\s*(AM|PM|a\.m\.|p\.m\.)/i);
+    if(!m) return '12:00';
+    var h=parseInt(m[1],10), min=m[2]||'00', pm=/^p/i.test(m[5]);
+    if(pm&&h<12) h+=12; if(!pm&&h===12) h=0;
+    return (h<10?'0':'')+h+':'+min;
   }
-  [].forEach.call(main.querySelectorAll('.ev[data-end]'),function(el){ if(Date.parse(el.dataset.end)<Date.now()) el.hidden=true; });
+  function clock(ms){
+    var p=new Intl.DateTimeFormat('en-GB',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(ms));
+    var h='00', mi='00';
+    p.forEach(function(x){ if(x.type==='hour') h=x.value; if(x.type==='minute') mi=x.value; });
+    return h+':'+mi;
+  }
+  function startKey(el){
+    if(el.dataset.start) return el.dataset.start;
+    var e=Date.parse(el.dataset.end||'');
+    return e ? denverDay(e)+'T'+clock(e) : '9999';
+  }
+  function apply(){
+    var t=today(), now=Date.now();
+    var evs=[].slice.call(main.querySelectorAll('.ev'));
+    evs.sort(function(x,y){ var a=startKey(x), b=startKey(y); return a<b?-1:a>b?1:0; });
+    evs.forEach(function(el){ main.insertBefore(el, empty); });
+    var shown=0;
+    evs.forEach(function(el){
+      var past = el.dataset.day ? el.dataset.day < t : (Date.parse(el.dataset.end||'') < now);
+      el.hidden = !!past; if(!past) shown++;
+    });
+    empty.hidden = !!shown;
+  }
+  function render(list){
+    (list||[]).forEach(function(a){ if(a && a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date)) main.insertBefore(card(a), empty); });
+    apply();
+  }
+  apply();
   fetch('../data/approved-announcements.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():{}; })
     .then(function(j){ render(j.announcements); }).catch(function(){ render([]); });
 })();

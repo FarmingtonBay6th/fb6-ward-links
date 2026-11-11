@@ -57,7 +57,7 @@
 <script src="../nav.js" defer></script></head>
 <body>
 <div class="preview" id="pv" hidden>Preview With Example Events</div>
-<header><div class="ward">Farmington Bay 6th Ward</div><h1>Ward Calendar</h1><p>Upcoming ward, stake, and Churchwide events. All times Mountain Time.</p></header>
+<header><div class="ward">Farmington Bay 6th Ward</div><h1>Ward Calendar</h1><p>Upcoming ward, stake, and Churchwide events.</p></header>
 <main>
   <section class="addcal" id="add">
     <button type="button" class="sub addtgl" id="addtgl" aria-expanded="false" aria-controls="addpanel"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Add To My Calendar<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -73,7 +73,7 @@
   </details>
   <div class="toggle"><button id="bl" aria-pressed="true">List</button><button id="bg" aria-pressed="false">Month</button></div>
   <div id="out"></div>
-  <p class="note" id="synced">Copied from the official ward calendar. Times shown in Mountain Time.</p>
+  <p class="note" id="synced">Copied from the official ward calendar.</p>
 </main>
 <script>
 const TZ='America/Denver', f=(o,d)=>new Intl.DateTimeFormat('en-US',{timeZone:TZ,...o}).format(d);
@@ -97,7 +97,7 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 function weekStart(d){const x=new Date(d);x.setDate(x.getDate()-x.getDay());return x;}
 function list(){let h='',m='',w='';for(const [i,e] of EV.entries()){const d=new Date(e.start),mm=f({month:'long',year:'numeric'},d);
  if(mm!==m){h+=`<h2>${mm}</h2>`;m=mm;w='';}const ws='Week Of '+f({month:'short',day:'numeric'},weekStart(d));if(ws!==w){h+=`<h3>${ws}</h3>`;w=ws;}
- const t=e.allDay?'All Day':f({hour:'numeric',minute:'2-digit'},d)+' – '+f({hour:'numeric',minute:'2-digit'},new Date(e.end))+' MT';
+ const t=e.allDay?'All Day':f({hour:'numeric',minute:'2-digit'},d)+' – '+f({hour:'numeric',minute:'2-digit'},new Date(e.end));
  h+=`<div class="ev"><div class="date"><small>${f({weekday:'short'},d)}</small><b>${f({day:'numeric'},d)}</b></div><div class="evtx"><b>${esc(e.title)}</b><p class="when">${f({weekday:'long',month:'short',day:'numeric'},d)} · ${t}</p>${e.location?`<p class="where">${esc(e.location)}</p>`:''}<span class="cal">${esc(e.calendar.replace(/^Farmington 6th Ward$/,'Ward'))}</span><button class="addev" data-add="${i}">Add</button></div></div>`;}
  return h||'<p class="note">No upcoming events.</p>';}
 function grid(){const months=[...new Set(EV.map(e=>e.start.slice(0,7)))];let h='';for(const ym of months){const [y,mo]=ym.split('-').map(Number),first=new Date(y,mo-1,1),n=new Date(y,mo,0).getDate();
@@ -105,6 +105,6 @@ function grid(){const months=[...new Set(EV.map(e=>e.start.slice(0,7)))];let h='
  for(let i=1;i<=n;i++){const key=`${ym}-${String(i).padStart(2,'0')}`,es=EV.filter(e=>e.start.slice(0,10)===key);h+=`<div class="d${es.length?' has':''}">${i}${es.map(e=>`<i>${esc(e.title.replace(/^Example: /,''))}</i>`).join('')}</div>`;}h+='</div>';}return h;}
 function draw(){document.getElementById('out').innerHTML=mode==='list'?list():grid();bl.setAttribute('aria-pressed',mode==='list');bg.setAttribute('aria-pressed',mode==='grid');}
 bl.onclick=()=>{mode='list';draw()};bg.onclick=()=>{mode='grid';draw()};
-fetch('../data/calendar.json').then(r=>r.json()).then(j=>{pv.hidden=!j.preview;synced.textContent='Last copied from the official ward calendar '+f({month:'short',day:'numeric',hour:'numeric',minute:'2-digit'},new Date(j.generated))+' MT.';const now=j.preview?0:Date.now();EV=j.events.filter(e=>new Date(e.end)>=now);draw();});
+fetch('../data/calendar.json').then(r=>r.json()).then(j=>{pv.hidden=!j.preview;synced.textContent='Last copied from the official ward calendar '+f({month:'short',day:'numeric',hour:'numeric',minute:'2-digit'},new Date(j.generated))+'.';const now=j.preview?0:Date.now();EV=j.events.filter(e=>new Date(e.end)>=now);draw();});
 </script>
 </body></html>

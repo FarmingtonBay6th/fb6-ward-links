@@ -148,6 +148,7 @@
       "subtitle": "Farmington Bay Stake",
       "when": "Sat, Nov 21 curbside pickup from 9:00 AM \u00b7 Sun, Nov 22 drop-off 6:30 PM",
       "where": "Curbside (Sat) \u00b7 Stake Center (Sun)",
+      "start": "2026-11-21T09:00:00-07:00",
       "end": "2026-11-22T19:30:00-07:00",
       "flyer": "flyers/2026-11-21-food-drive.jpg",
       "buttons": [

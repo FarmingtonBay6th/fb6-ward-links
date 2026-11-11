@@ -6,6 +6,7 @@ from datetime import datetime,timezone
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 E=json.load(open(f'{R}/events/events.json'))['events']
 E=[e for e in E if datetime.fromisoformat(e['end'])>datetime.now(timezone.utc)]  # drop ended events at build time
+E.sort(key=lambda e: e.get('start') or e['end'])
 def art(e,pre):
     f=pre+e['flyer']
     def button(x):
@@ -17,7 +18,8 @@ def art(e,pre):
         cls='btn' if x['primary'] else 'btn alt'
         return f'<a class="{cls}" href="{href}"{extra}>{x["label"]}</a>'
     b=' '.join(button(x) for x in e['buttons'])
-    return (f'  <article class="ev" data-end="{e["end"]}">\n    <a class="thumb" href="{f}"><img src="{f}" alt="Flyer: {e["alt"]}" loading="lazy"></a>\n'
+    start=e.get('start') or e['end']
+    return (f'  <article class="ev" data-start="{start}" data-end="{e["end"]}">\n    <a class="thumb" href="{f}"><img src="{f}" alt="Flyer: {e["alt"]}" loading="lazy"></a>\n'
       f'    <div class="evtx"><b>{e["title"]}</b><small>{e["subtitle"]}</small>\n      <p class="when">{e["when"]}</p><p class="where">{e["where"]}</p>\n'
       f'      <div class="acts">{b}</div></div>\n  </article>\n')
 p=f'{R}/events/index.html'; s=open(p).read()
