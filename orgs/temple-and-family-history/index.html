@@ -52,7 +52,26 @@
   .month-list a .tag { display:block; margin-bottom:3px; font:700 11px/1 -apple-system, sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#e2c47a; }
   .month-list a.past { color:var(--soft); }
   .ask { margin:12px 0 0; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } .draft-flag { background:#003a55; color:#fff; border:1px solid #c9a24a; } .draft-hit:active { background:#322922; } .quest-entry { background:var(--card); } .quest-kicker { color:#e2c47a; } }
+  .hgi { display:flex; gap:14px; align-items:center; margin:4px 0 12px; padding:14px; border:2px solid var(--navy); border-top:6px solid var(--gold); border-radius:16px; background:#f7fafc; }
+  .hgi .qr { flex:0 0 112px; width:112px; height:112px; padding:6px; background:#fff; border-radius:10px; border:1px solid var(--line); }
+  .hgi .qr img { width:100%; height:100%; display:block; }
+  .hgi b { display:block; font-size:18px; color:var(--navy); line-height:1.2; }
+  .hgi .tagline { display:block; margin:3px 0 6px; font:italic 14.5px/1.3 Georgia, serif; color:#8a6d22; }
+  .hgi p { margin:0; font-size:13.5px; color:var(--soft); line-height:1.4; }
+  .hgi .btn { margin:10px 0 0; }
+  .kids h3 { font:700 15px/1.2 -apple-system, sans-serif; margin:14px 0 6px; }
+  .kid-card { display:block; text-decoration:none; color:inherit; border:1px solid var(--line); border-radius:14px; padding:12px 14px; margin:8px 0 0; background:#fffaf0; }
+  .kid-card b { display:block; color:var(--navy); font-size:16px; margin-bottom:3px; }
+  .kid-card span { display:block; color:var(--soft); font-size:13.5px; line-height:1.4; }
+  .challenge-box { margin:12px 0 4px; padding:12px 14px; border:1px dashed var(--gold); border-radius:14px; background:#fffaf0; }
+  .challenge-box p { margin:0 0 8px; font-size:14.5px; }
+  .credit { margin:12px 0 0; font-size:12px; color:var(--soft); line-height:1.4; }
+  @media (max-width: 420px) {
+    .hgi { flex-direction:column; text-align:center; }
+    .hgi .qr { flex-basis:132px; width:132px; height:132px; }
+    .hgi .btn { display:block; text-align:center; margin-right:0; }
+  }
+  @media (prefers-color-scheme: dark) { :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; } .ph { background:#3a301c; color:#e2c47a; } .draft-flag { background:#003a55; color:#fff; border:1px solid #c9a24a; } .draft-hit:active { background:#322922; } .quest-entry { background:var(--card); } .quest-kicker { color:#e2c47a; }  .hgi { background:#221e1a; } .hgi b, .kid-card b { color:#8cc8e6; } .hgi .tagline { color:#e2c47a; } .kid-card, .challenge-box { background:#322922; } }
   .pc li { display:flex; align-items:center; gap:10px; } .pc .who { flex:1; min-width:0; } .pc .who b { display:block; font-size:15.5px; } .pc .who span { font-size:13px; }
   .pc .txt { margin:0; padding:8px 14px; font-size:14px; border-radius:10px; } .pc .gap { color:#8a6d22; font-style:italic; }
 h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width:40px;height:40px}
@@ -72,9 +91,51 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
   <section class="quest-entry" id="family-history-quest">
     <p class="quest-kicker">The Whole Family</p>
     <h2>Monthly Family History Challenge</h2>
-    <p class="note" id="fh-blurb">One theme each month for kids, adults, and youth. Check off your part on this phone.</p>
+    <p class="note" id="fh-blurb">One theme each month for kids, adults, and youth. Kids’ projects include games and printables from Help Gather Israel. Check off your part on this phone.</p>
     <div class="month-list" id="fh-months"></div>
     <p class="note ask">Questions? Reach out to Sister Shalisa Bingham, Temple &amp; Family History</p>
+  </section>
+
+  <section class="kids" id="family-history-for-kids">
+    <h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Family history for kids"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><circle cx="50" cy="50" r="18" fill="none" stroke="#f3d98b" stroke-width="5"/><path d="M64 64l18 18" stroke="#f3d98b" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="50" r="8" fill="#c9a24a"/></svg>Family History For Kids</h2>
+    <p class="note">Kids can help gather Israel too. These games, printables, and monthly invitations come from <a href="https://www.helpgatherisrael.org/" rel="noopener">Help Gather Israel</a>, a free family history resource. Use them anytime — and with this month’s kids goal in the challenge above.</p>
+    <div class="hgi">
+      <a class="qr" href="https://www.helpgatherisrael.org/" rel="noopener"><img src="help-gather-israel-qr.png" width="112" height="112" alt="QR Code For Help Gather Israel"></a>
+      <div>
+        <b>Help Gather Israel</b>
+        <span class="tagline">One Small Discovery. One Eternal Connection.</span>
+        <p>Monthly invitations, kids’ activities, and free printables to help your family discover ancestors and stories.</p>
+        <a class="btn" href="https://www.helpgatherisrael.org/" rel="noopener">Visit Help Gather Israel</a>
+      </div>
+    </div>
+    <div class="challenge-box">
+      <h3>This Month’s Invitation · November 2026</h3>
+      <p><b>Welcome Back to FamilySearch.</b> With a parent, sign in, look around, and find one photo, story, or name you’ve never noticed. One small discovery is enough.</p>
+      <a class="btn" href="https://www.helpgatherisrael.org/november-2026-welcome-back-to-familysearch" rel="noopener">See This Month’s Invitation</a>
+      <a class="btn alt" href="https://www.helpgatherisrael.org/monthly-invitations" rel="noopener">All Monthly Invitations</a>
+      <a class="btn alt" href="https://www.helpgatherisrael.org/get-your-child-started-with-familysearch" rel="noopener">Start a Child’s Account</a>
+    </div>
+    <h3>Try These</h3>
+    <a class="kid-card" href="https://www.helpgatherisrael.org/family-history-detectives" rel="noopener">
+      <b>Become a Family History Detective</b>
+      <span>Three simple missions: Ask a family member about their childhood, Discover something new in FamilySearch, and Connect with an ancestor. Free mission cards and a 15-minute activity guide — great for family night or Primary.</span>
+    </a>
+    <a class="kid-card" href="https://www.helpgatherisrael.org/family-history-bingo" rel="noopener">
+      <b>Play Family History Bingo</b>
+      <span>Picture bingo for younger children and word bingo for older children and adults. 24 boards each, plus calling cards. Just print and shout “FAMILY!”</span>
+    </a>
+    <a class="kid-card" href="https://www.helpgatherisrael.org/family-history-for-children" rel="noopener">
+      <b>Printable Adventures</b>
+      <span>Interview a Loved One, write A Letter to My Future Family, fill in My Family Tree Adventure, or try five word searches. All free from their kids page.</span>
+    </a>
+    <a class="kid-card" href="https://www.familysearch.org/en/discovery" rel="noopener">
+      <b>Explore FamilySearch Activities</b>
+      <span>See where ancestors came from, learn fun facts about yourself, discover famous relatives, and compare family faces. Also try Together and Family History Fun on FamilySearch.</span>
+    </a>
+    <a class="btn alt" href="https://articles.familysearch.org/hc/en-us/articles/41663106355099-Together-by-FamilySearch" rel="noopener">Explore Together</a>
+    <a class="btn alt" href="https://www.familysearch.org/en/gettingstarted/family-history-fun" rel="noopener">Family History Fun</a>
+    <a class="btn" href="quest/">See This Month’s Kids Goal</a>
+    <p class="credit">Activities and printables are from Help Gather Israel, a free independently created resource (© 2026 Haller Companies LLC). It is not an official website of The Church of Jesus Christ of Latter-day Saints or FamilySearch. Print and share their free handouts for family and ward use from their site.</p>
   </section>
   <section class="draft-entry" id="draft-2027-plan">
     <a class="draft-hit" href="2027-plan/">
@@ -98,6 +159,7 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
     <p class="note">Service, meals, rides, and assignments sign-up links will go here.</p><span class="btn off">[Sign-up link]</span></section>
   <section><h2 class="ih"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Open book"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><path d="M60 38c-10-6-22-7-34-5v48c12-2 24-1 34 5 10-6 22-7 34-5V33c-12-2-24-1-34 5z" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4" stroke-linejoin="round"/><path d="M60 38v48" stroke="#c9a24a" stroke-width="2.4"/><path d="M34 46c6-1 12 0 18 2M34 56c6-1 12 0 18 2M68 48c6-2 12-3 18-2M68 58c6-2 12-3 18-2" stroke="#005175" stroke-width="2.2" stroke-linecap="round"/></svg>Resources</h2>
     <a class="res" href="https://6thward-fh-pdfs.s3.amazonaws.com/df4deee1-73f5-4aeb-bb1e-30189ead3aea-Jim_Daly.pdf" rel="noopener">Family History Stories: Gathering our families to Christ ›</a>
+    <a class="res" href="https://www.helpgatherisrael.org/" rel="noopener">Help Gather Israel ›</a>
     <a class="res" href="https://www.churchofjesuschrist.org/study/manual/general-handbook/25-temple-and-family-history-work-in-the-ward-and-stake?lang=eng" rel="noopener">General Handbook: Temple and Family History Work ›</a>
     <a class="res" href="https://www.churchofjesuschrist.org/calendar" rel="noopener">Ward Calendar ›</a>
     <p class="note" style="margin-top:8px"><span class="ph">Placeholder</span> More resources to be added.</p></section>
