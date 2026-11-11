@@ -50,7 +50,7 @@ SECTIONS = [
     {"id": "young-men", "title": "Young Men", "path": "orgs/young-men/", "roots": ["orgs/young-men"], "files": ["data/ym-birthdays.json", "data/ym-quorums.json", "data/ym-activities.json"], "calendars": ["Young Men"]},
     {"id": "sunday-school", "title": "Sunday School", "path": "orgs/sunday-school/", "roots": ["orgs/sunday-school"]},
     {"id": "primary", "title": "Primary", "path": "orgs/primary/", "roots": ["orgs/primary"], "files": ["data/primary-birthdays.json", "data/primary-classes.json"], "calendars": ["Primary"]},
-    {"id": "temple-and-family-history", "title": "Temple And Family History", "path": "orgs/temple-and-family-history/", "roots": ["orgs/temple-and-family-history"], "files": ["data/fh-challenges.json"]},
+    {"id": "temple-and-family-history", "title": "Temple And Family History", "path": "orgs/temple-and-family-history/", "roots": ["orgs/temple-and-family-history"], "files": ["data/fh-challenges.json", "data/ward-counts.json"]},
     {"id": "ward-missionaries", "title": "Missionaries in Our Area", "path": "orgs/missionaries-in-our-area/", "roots": ["orgs/missionaries-in-our-area"]},
     {"id": "missionaries", "title": "Our Missionaries Serving Worldwide", "path": "missionaries/", "roots": ["missionaries"]},
 ]
