@@ -1,5 +1,5 @@
 {
-  "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, ward-missionaries). Run: python3 tools/build_events.py",
+  "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, missionaries-in-our-area). Run: python3 tools/build_events.py",
   "events": [
     {
       "title": "Primary Program Practice",
@@ -84,7 +84,7 @@
         }
       ],
       "orgs": [
-        "ward-missionaries"
+        "missionaries-in-our-area"
       ]
     },
     {
@@ -184,7 +184,7 @@
         }
       ],
       "orgs": [
-        "ward-missionaries",
+        "missionaries-in-our-area",
         "young-men",
         "young-women"
       ]

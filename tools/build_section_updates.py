@@ -51,8 +51,8 @@ SECTIONS = [
     {"id": "sunday-school", "title": "Sunday School", "path": "orgs/sunday-school/", "roots": ["orgs/sunday-school"]},
     {"id": "primary", "title": "Primary", "path": "orgs/primary/", "roots": ["orgs/primary"], "files": ["data/primary-birthdays.json", "data/primary-classes.json"], "calendars": ["Primary"]},
     {"id": "temple-and-family-history", "title": "Temple And Family History", "path": "orgs/temple-and-family-history/", "roots": ["orgs/temple-and-family-history"], "files": ["data/fh-challenges.json"]},
-    {"id": "ward-missionaries", "title": "Ward Missionaries", "path": "orgs/ward-missionaries/", "roots": ["orgs/ward-missionaries"]},
-    {"id": "missionaries", "title": "Our Ward Missionaries", "path": "missionaries/", "roots": ["missionaries"]},
+    {"id": "ward-missionaries", "title": "Missionaries in Our Area", "path": "orgs/missionaries-in-our-area/", "roots": ["orgs/missionaries-in-our-area"]},
+    {"id": "missionaries", "title": "Our Missionaries Serving Worldwide", "path": "missionaries/", "roots": ["missionaries"]},
 ]
 
 

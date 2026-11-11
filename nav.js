@@ -109,7 +109,7 @@
     document.body.appendChild(viewer); document.documentElement.classList.add('fbopen');
     history.pushState({ fbviewer: 1 }, ''); viewer.querySelector('.fbback').focus();
   }
-  function pageName() { if (isHome) return 'Hub'; var t = (document.title.split(/\s[·|–—-]\s/)[0] || '').trim(); return t && t.length <= 22 ? t : 'Page'; }
+  function pageName() { if (isHome) return 'Hub'; var t = (document.title.split(/\s[·|–—-]\s/)[0] || '').trim(); return t && t.length <= 40 ? t : 'Page'; }
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   addEventListener('popstate', closeViewer);
   addEventListener('keydown', function (e) { if (e.key === 'Escape' && viewer) history.back(); });
