@@ -1,17 +1,19 @@
 {
-  "_readme": "Monthly Family History Challenge. Adult goals for 2027 follow the ward Temple and Family History plan. id is YYYY-MM. dateNote is shown when a gathering date is not set. Do not invent those dates. link must be an https FamilySearch or Church page that loads. Owned by Sister Shalisa Bingham. Do not add a phone number, email, or other member names.",
+  "_readme": "Monthly Family History Challenge. Adult goals for 2027 follow the ward Temple and Family History plan. id is YYYY-MM. dateNote is shown when a gathering date is not set. Do not invent those dates. link must be an https FamilySearch, Church, or Help Gather Israel (helpgatherisrael.org) page that loads. Owned by Sister Shalisa Bingham. Do not add a phone number, email, or other member names.",
   "challenges": [
     {
       "id": "2026-12",
       "title": "Record a Family Tradition",
       "dateNote": "Warm-Up Month",
       "kids": {
-        "title": "Make a Tradition Card",
+        "title": "Share a Family Tradition",
         "steps": [
-          "Print the Tradition Card.",
-          "Draw your family doing one tradition.",
-          "Act it out for someone at home."
-        ]
+          "Print “A Letter to My Future Family” or the interview booklet from Help Gather Israel, or use this month’s card.",
+          "Write or draw one tradition your family loves.",
+          "Act it out, then help an adult save it as a memory."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-for-children",
+        "linkLabel": "Open Kids Printables"
       },
       "parents": {
         "title": "Record a Family Tradition",
@@ -38,12 +40,14 @@
       "title": "5th Sunday Lesson",
       "dateNote": "Date Coming Soon",
       "kids": {
-        "title": "Interview a Storyteller",
+        "title": "Interview a Loved One",
         "steps": [
-          "Print the Interview Card.",
-          "Ask a parent or grandparent the questions.",
-          "Draw the story they tell you."
-        ]
+          "Print the Interview a Loved One booklet from Help Gather Israel, or use this month’s card.",
+          "Ask someone you love about their childhood.",
+          "Draw or write the story they tell you."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-for-children",
+        "linkLabel": "Get the Interview Booklet"
       },
       "parents": {
         "title": "5th Sunday Lesson",
@@ -67,12 +71,14 @@
       "id": "2027-02",
       "title": "Login & Recommend Check",
       "kids": {
-        "title": "Temple Treasure Hunt",
+        "title": "Get Started on FamilySearch",
         "steps": [
-          "Print the Hunt Card.",
-          "Find each thing in your home.",
-          "Tell a parent why families go to the temple."
-        ]
+          "With a parent, create or sign in to a FamilySearch account. Ages 8–12 need a parent or guardian’s permission.",
+          "Open your family tree and find one name you know.",
+          "Talk about why families go to the temple, or finish this month’s treasure hunt."
+        ],
+        "link": "https://www.helpgatherisrael.org/get-your-child-started-with-familysearch",
+        "linkLabel": "Get a Child Started"
       },
       "parents": {
         "title": "Login & Recommend Check",
@@ -98,12 +104,14 @@
       "id": "2027-03",
       "title": "Upload a Photo",
       "kids": {
-        "title": "Make a Family Frame",
+        "title": "Be a Photo Detective",
         "steps": [
-          "Print the Picture Frame.",
-          "Color it and tape in a photo, or draw the people.",
-          "Say every name while an adult or youth uploads the photo."
-        ]
+          "Look at a family photo, or try the Detective Evidence Challenge from Help Gather Israel.",
+          "Ask who is in the picture and what was happening.",
+          "Say every name while an adult uploads the photo."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-detectives",
+        "linkLabel": "Open Detective Activities"
       },
       "parents": {
         "title": "Upload a Photo",
@@ -129,12 +137,14 @@
       "id": "2027-04",
       "title": "Find 1 Name",
       "kids": {
-        "title": "Name Detective",
+        "title": "Become a Family History Detective",
         "steps": [
-          "Print the Detective Card.",
-          "Follow the clues to one missing person.",
-          "Write that name on your badge."
-        ]
+          "Print the detective mission cards from Help Gather Israel.",
+          "Complete one mission: Ask, Discover, or Connect.",
+          "Write the name you found on your badge."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-detectives",
+        "linkLabel": "Open Detective Missions"
       },
       "parents": {
         "title": "Find 1 Name",
@@ -162,10 +172,12 @@
       "kids": {
         "title": "Make a Name Pocket",
         "steps": [
-          "Print the Name Pocket.",
-          "Color it and write one ancestor's first name.",
+          "With a parent, look at Help Gather Israel’s guide for preparing a family name.",
+          "Print the Name Pocket, color it, and write that ancestor’s first name.",
           "Fold it so it can hold a family name card."
-        ]
+        ],
+        "link": "https://www.helpgatherisrael.org/prepare-a-name-for-the-temple",
+        "linkLabel": "Prepare a Name"
       },
       "parents": {
         "title": "Submit Names to the Temple",
@@ -191,12 +203,14 @@
       "id": "2027-06",
       "title": "4 Generations Check",
       "kids": {
-        "title": "Color a Family Fan",
+        "title": "My Family Tree Adventure",
         "steps": [
-          "Print the Family Fan.",
-          "Color you, your parents, and your grandparents.",
-          "Write a name on each person you know."
-        ]
+          "Print the Family Tree Adventure from Help Gather Israel, or color this month’s Family Fan.",
+          "Fill in you, your parents, and your grandparents.",
+          "Compare the names with the first four generations in FamilySearch."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-for-children",
+        "linkLabel": "Get the Family Tree Printable"
       },
       "parents": {
         "title": "4 Generations Check",
@@ -254,12 +268,14 @@
       "id": "2027-08",
       "title": "Upload a Story or Document",
       "kids": {
-        "title": "Draw a Story Comic",
+        "title": "Write or Draw a Family Story",
         "steps": [
-          "Print the Story Comic.",
-          "Draw one family story in the four boxes.",
-          "Tell the story while an adult or youth saves it."
-        ]
+          "Print “A Letter to My Future Family,” or use this month’s story comic.",
+          "Draw or write one family story.",
+          "Tell the story while an adult saves it on FamilySearch."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-for-children",
+        "linkLabel": "Get the Letter Printable"
       },
       "parents": {
         "title": "Upload a Story or Document",
@@ -315,12 +331,14 @@
       "id": "2027-10",
       "title": "Temple Preparation Focus",
       "kids": {
-        "title": "Play Help Bingo",
+        "title": "Play Family History Bingo",
         "steps": [
-          "Print the Help Bingo card.",
-          "Do four squares for someone getting ready.",
-          "Tell an adult or youth who you helped."
-        ]
+          "Print picture bingo for younger children or word bingo for older children from Help Gather Israel.",
+          "Play together and shout “FAMILY!”",
+          "Tell an adult or youth one way you helped someone get ready."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-bingo",
+        "linkLabel": "Get the Bingo Games"
       },
       "parents": {
         "title": "Temple Preparation Focus",
@@ -348,10 +366,12 @@
       "kids": {
         "title": "Make a Five-Name Crown",
         "steps": [
-          "Print the Five Stars.",
-          "Write one ancestor name on each star.",
+          "With a parent, find five family names using Help Gather Israel’s five-names invitation.",
+          "Print the Five Stars and write one name on each star.",
           "Cut them out and tape a crown or a chain."
-        ]
+        ],
+        "link": "https://www.helpgatherisrael.org/share-five-names-with-the-temple",
+        "linkLabel": "Share Five Names"
       },
       "parents": {
         "title": "Submit 5 Names",
@@ -379,10 +399,12 @@
       "kids": {
         "title": "Make a Tradition Recipe Page",
         "steps": [
-          "Print the Recipe Page.",
+          "Print “A Letter to My Future Family” or this month’s recipe page.",
           "Draw the tradition and the steps.",
-          "Do it or tell it, then help save the page."
-        ]
+          "Do it or tell it, then help save the page as a memory."
+        ],
+        "link": "https://www.helpgatherisrael.org/family-history-for-children",
+        "linkLabel": "Open Kids Printables"
       },
       "parents": {
         "title": "Record a Family Tradition",
