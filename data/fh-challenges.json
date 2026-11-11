@@ -1,0 +1,138 @@
+{
+  "_readme": "Monthly Family History Challenge for ages 6 to 17. One object per month. id is YYYY-MM. title is the short goal. steps are exactly three short lines. link is optional and must be an https FamilySearch or Church page that loads. Leave link empty for an at-home challenge. Owned by Sister Shalisa Bingham. Do not add a phone number or email.",
+  "challenges": [
+    {
+      "id": "2026-12",
+      "title": "All About Me Box",
+      "steps": [
+        "Find a box at home.",
+        "Put in three things that show who you are.",
+        "Tell a parent why you picked them."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/about-me/4",
+      "linkLabel": "Open All About Me"
+    },
+    {
+      "id": "2027-01",
+      "title": "The Year I Was Born",
+      "steps": [
+        "With a parent, open the activity.",
+        "Pick one fact from the year you were born.",
+        "Tell someone at home what you found."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/about-me/14",
+      "linkLabel": "Open The Year I Was Born"
+    },
+    {
+      "id": "2027-02",
+      "title": "The Story of My Name",
+      "steps": [
+        "Ask a parent how you got your name.",
+        "Ask if a relative shares that name.",
+        "Tell the story back in your own words."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/about-me/6",
+      "linkLabel": "Open My Name"
+    },
+    {
+      "id": "2027-03",
+      "title": "Where I'm From",
+      "steps": [
+        "Name one place your family has lived.",
+        "Find that place on a map with a parent.",
+        "Say one thing you know about it."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/about-me/13",
+      "linkLabel": "Open Where I'm From"
+    },
+    {
+      "id": "2027-04",
+      "title": "Interview a Grandparent",
+      "steps": [
+        "Ask what they loved to do at your age.",
+        "Ask for one story from when they were young.",
+        "Ask what they hope you remember about your family."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/my-family/23",
+      "linkLabel": "Open Hear What They Heard"
+    },
+    {
+      "id": "2027-05",
+      "title": "Share a Family Photo",
+      "steps": [
+        "Pick one family photo.",
+        "Ask who is in the picture.",
+        "Tell one story the photo reminds you of."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/my-family/16",
+      "linkLabel": "Open Family Photos"
+    },
+    {
+      "id": "2027-06",
+      "title": "Compare Faces",
+      "steps": [
+        "Find a photo of you and a photo of an older relative.",
+        "Name two things that look the same.",
+        "Show a parent what you noticed."
+      ]
+    },
+    {
+      "id": "2027-07",
+      "title": "Picture My Heritage",
+      "steps": [
+        "Pick a place your family is from.",
+        "Draw yourself there.",
+        "Show the picture to your family."
+      ]
+    },
+    {
+      "id": "2027-08",
+      "title": "My Family Tree",
+      "steps": [
+        "With a parent, open the family tree activity.",
+        "Find you, a parent, and a grandparent.",
+        "Say one name out loud."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/my-family/18",
+      "linkLabel": "Open My Family Tree"
+    },
+    {
+      "id": "2027-09",
+      "title": "Family Tree Poster",
+      "steps": [
+        "Draw you at the bottom of a page.",
+        "Add your parents, then your grandparents.",
+        "Hang the poster where your family can see it."
+      ]
+    },
+    {
+      "id": "2027-10",
+      "title": "One Ancestor Fact",
+      "steps": [
+        "Ask a parent for one ancestor's name.",
+        "Learn one fact: a place, a job, or a story.",
+        "Tell that fact to someone in your home."
+      ]
+    },
+    {
+      "id": "2027-11",
+      "title": "Write Your Own Story",
+      "steps": [
+        "Pick one memory from this year.",
+        "Write three sentences or tell it out loud.",
+        "Save it with a parent."
+      ],
+      "link": "https://www.familysearch.org/en/discovery/activities/about-me/5",
+      "linkLabel": "Open Keep a Journal"
+    },
+    {
+      "id": "2027-12",
+      "title": "Draw a Temple",
+      "steps": [
+        "Draw a temple on paper.",
+        "Ask a parent one thing your family loves about the temple.",
+        "Put your picture up at home."
+      ]
+    }
+  ]
+}

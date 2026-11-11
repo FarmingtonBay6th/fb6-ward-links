@@ -65,9 +65,9 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
 <main>
   <section class="quest-entry" id="family-history-quest">
     <p class="quest-kicker">Ages 6 to 17</p>
-    <h2>Family History Quest</h2>
-    <p class="note">Six short challenges. Easy enough for a 6-year-old with a parent, and still fun at 17. Check them off on this phone. Nothing is sent to anyone.</p>
-    <a class="btn" href="quest/">Start the Quest</a>
+    <h2>Monthly Family History Challenge</h2>
+    <p class="note" id="fh-blurb">One goal each month. Do it with a parent. Check it off on this phone.</p>
+    <a class="btn" href="quest/">Open This Month</a>
     <p class="note ask">Questions? Reach out to Sister Shalisa Bingham, Temple &amp; Family History</p>
   </section>
   <section class="draft-entry" id="draft-2027-plan">
@@ -97,6 +97,18 @@ h2.ih{display:flex;align-items:center;gap:10px} h2.ih .badge{flex:0 0 40px;width
     <p class="note" style="margin-top:8px"><span class="ph">Placeholder</span> More resources to be added.</p></section>
 </main>
 <footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer>
+<script src="../../fh-challenges.js"></script>
 <script>(function(){var n=Date.now(),k=0;document.querySelectorAll('.ev').forEach(function(e){var d=Date.parse(e.dataset.end);if(d&&d<n)e.hidden=true;else k++;});
-if(!k){document.getElementById('empty').hidden=false;document.getElementById('more').hidden=true;}})();</script>
+if(!k){document.getElementById('empty').hidden=false;document.getElementById('more').hidden=true;}})();
+(function(){
+  var blurb=document.getElementById("fh-blurb");
+  if(!blurb||!window.Fb6Fh) return;
+  fetch("../../data/fh-challenges.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(data){
+    if(!data) return;
+    var picked=Fb6Fh.pick(data.challenges, Fb6Fh.denverToday());
+    var item=picked.current||picked.featured;
+    if(!item) return;
+    blurb.textContent=(picked.current?"This month: ":"Next up: ")+item.title+".";
+  }).catch(function(){});
+})();</script>
 </body></html>
