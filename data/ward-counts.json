@@ -1,0 +1,12 @@
+{
+  "asOf": "2026-11-11",
+  "source": "LCR Member Directory",
+  "adults": 284,
+  "youth": 81,
+  "kids": 67,
+  "labels": {
+    "adults": "Adults (18+)",
+    "youth": "Youth (12-17)",
+    "kids": "Kids (6-11)"
+  }
+}
