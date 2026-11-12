@@ -178,7 +178,8 @@ function summary_() {
     allTime: { views: 0, clicks: 0 }, clicks30ByLink: {}, views30ByPath: {},
     byHour30: [], byWeekday30: [0, 0, 0, 0, 0, 0, 0], byWeekdayHour30: {},
     firstEventDay: "", testRowsExcluded: 0,
-    store: sheet_() ? "sheet" : "buffer"
+    store: sheet_() ? "sheet" : "buffer",
+    sheetConfigured: !!props_().getProperty("SHEET_ID")
   };
   for (var h = 0; h < 24; h++) out.byHour30.push(0);
   var rows = rows_();
