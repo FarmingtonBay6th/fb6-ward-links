@@ -98,7 +98,7 @@ ul.list{{list-style:none;margin:0;padding:0}} .list li{{padding:10px 0;border-to
 .xw{{position:relative;display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:16px;padding:12px 40px 12px 16px;margin:12px 0;box-shadow:0 1px 2px rgba(59,47,42,.06)}} .xw-k{{display:block;font:600 11.5px/1 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--goldt)}} .xw b{{display:block;font:italic 400 19px/1.25 Georgia,serif;margin:5px 0 2px;color:var(--blue)}} .xw small{{display:block;font-size:13.5px;color:var(--soft)}} .xw-go{{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:28px}}
 footer{{text-align:center;color:var(--soft);font-size:11.5px;padding:8px 20px 36px}}
 @media(min-width:760px){{main{{max-width:720px}} h1{{font-size:40px}}}}
-</style><script src="../nav.js" defer></script></head><body>
+</style><script src="../nav.js" defer></script><script src="../usage.js" defer></script></head><body>
 <header><a class="back" href="../">‹ The Bay 6 Hub</a><div class="kicker">Farmington Bay 6th Ward · This Sunday</div>
 <h1>{E(f"{dt:%A}, {dt:%B} {dt.day}")}<sup class="ast" aria-hidden="true">*</sup></h1><div class="mt">{mtitle}</div><p class="upd"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p>
 <div class="meta">12:00 PM · Stake Center chapel (Eagle Shore building)</div>{S}</header>

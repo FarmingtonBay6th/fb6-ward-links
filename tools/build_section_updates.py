@@ -71,8 +71,14 @@ def parse_iso(value):
         return None
 
 
+USAGE_TAG_RE = re.compile(rb'<script src="(?:\.\./)*usage\.js" defer></script>')
+
+
 def file_bytes(path):
     data = path.read_bytes()
+    if path.suffix.lower() == ".html":
+        # The private usage counter tag is not visitor-facing content; adding it must not light unread dots.
+        data = USAGE_TAG_RE.sub(b"", data)
     if path.suffix.lower() == ".ics":
         text = data.decode("utf-8", "surrogateescape")
         text = re.sub(r"(?m)^DTSTAMP:[^\n]*\n?", "", text)
