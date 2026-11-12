@@ -2,6 +2,15 @@
 
 Private ward link hub (GitHub Pages). This is not an official website of The Church of Jesus Christ of Latter-day Saints.
 
+## Hub Usage Counter
+
+`usage.js` is on every Hub page (except the unlisted private page). It sends one anonymous event per page view and per link tap to a private Google Sheet: the event type (view or click), a link id, the page path, and a timestamp. It never sends names, phone numbers, cookies, IP addresses, or device details. Query strings and `#` fragments are dropped, `tel:`/`sms:`/`mailto:` links are counted by type and page only, and long document ids in outside links become `~`. It only runs on farmingtonbay6th.github.io, so local previews are not counted.
+
+- **Backend:** `tools/apps-script/hub-usage/` (Apps Script web app, Execute as Me, Anyone). The counts-only summary needs a private key that is not in this repo.
+- **Known links:** `data/usage-links.json` lists every link written into the pages, keyed by the same id usage.js sends. The Section Updates workflow rebuilds it on every push (`python3 tools/build_usage_links.py`).
+- **Tests:** `node --test tools/usage.test.js`
+- New HTML pages: add `<script src="…/usage.js" defer></script>` right after the `nav.js` tag. The tag is ignored by the unread-dot hash.
+
 ## Young Women Chat
 
 Kid-safe chat that replaces the YW GroupMe. Channels: **Main**, **Gatherers**, **Messengers**, and **Builders**.
