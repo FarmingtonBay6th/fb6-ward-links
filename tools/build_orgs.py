@@ -41,7 +41,8 @@ css='''
   .org b { font-size:15.5px; line-height:1.2; } .org i { font:italic 14px/1.3 Georgia, serif; color:#8a6d22; }
   @media (prefers-color-scheme: dark) { .org i { color:#e2c47a; } }
 '''
-cards=''.join(f'\n      <a class="org" href="orgs/{sl}/">{logo(k)}<b>{nm}</b><i>{th}</i></a>' for k,sl,nm,th,*_ in O)
+# Primary is shown beside Crayons & Covenants at the bottom of the home page, not in this grid.
+cards=''.join(f'\n      <a class="org" href="orgs/{sl}/">{logo(k)}<b>{nm}</b><i>{th}</i></a>' for k,sl,nm,th,*_ in O if sl != 'primary')
 sec=f'''  <section class="orgs" id="organizations">
     <h2>Our Organizations</h2>
     <p class="sub">Presidencies, activities, and resources for each Ward organization.</p>
