@@ -340,13 +340,6 @@
    ]
   },
   {
-   "id": "calendly.com/bishopbam/10mi",
-   "label": "Tithing Declaration",
-   "pages": [
-    "/"
-   ]
-  },
-  {
    "id": "calendly.com/farmingtonbaystake/stake-recommends",
    "label": "Stake Recommends",
    "pages": [
@@ -386,6 +379,13 @@
     "/orgs/relief-society/",
     "/orgs/young-men/",
     "/orgs/young-women/"
+   ]
+  },
+  {
+   "id": "meet:tithing",
+   "label": "Still Need a Tithing Declaration?",
+   "pages": [
+    "/"
    ]
   },
   {
