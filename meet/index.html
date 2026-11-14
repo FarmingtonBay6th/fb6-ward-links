@@ -17,11 +17,17 @@ button{width:100%;font-size:18px;font-weight:700;padding:14px;border:0;border-ra
 .err{color:#b00020;font-size:14px;margin-top:8px;min-height:1em}
 .ban{background:#8b0000;color:#fff;border-radius:12px;padding:14px;font-size:16px;line-height:1.4;margin-bottom:14px}.bh{font-size:21px;font-weight:800;margin-bottom:6px}
 .rem{background:#8b0000;color:#fff;font-weight:700;border-radius:10px;padding:10px;margin-bottom:8px;font-size:15px}.ok{background:#fff;border:2px solid #8b0000}
+.td{background:#fff;border:2px solid #1f5fa8;border-radius:12px;padding:14px;margin:0 0 14px;scroll-margin-top:80px}
+.td h2{font-size:18px;margin:0 0 6px}.td p{margin:0 0 12px;font-size:15px;line-height:1.45}
 </style><script src="../nav.js" defer></script><script src="../usage.js" defer></script></head><body><a class="back" href="../">‹ The Bay 6 Hub</a><main>
 <div class="ban" role="alert"><div class="bh">&#128274; PLEASE DO NOT SHARE ANYTHING CONFIDENTIAL</div>This text goes to Adam Bingham (Ward Executive Secretary) and Spencer Sorenson, who only schedule appointments. We do NOT want to know why you're meeting. Just pick a category below. Anything personal is between you and the Bishop.</div>
 <h1>Request a Meeting with the Bishopric</h1>
 <p class="sub">Fill this out, tap the button, then press <b>Send</b> in your text app. Adam Bingham (Executive Secretary) and Spencer Sorenson will text you back with a time.</p>
-
+<section class="td" id="tithing">
+<h2>Tithing Declaration (10 Min)</h2>
+<p>Online tithing declaration scheduling has closed, but the Bishop is still happy to meet through the end of the year. Tap below and we'll find you a 10-minute time.</p>
+<button type="button" id="tithing-sms">Request a 10-Minute Time</button>
+</section>
 <form id="f" novalidate>
 <fieldset><legend>1. What's this for?</legend><div id="why"></div></fieldset>
 <fieldset id="lenSet" style="display:none"><legend>How much time do you think you'll need?</legend>
@@ -45,6 +51,8 @@ button{width:100%;font-size:18px;font-weight:700;padding:14px;border:0;border-ra
 </form></main>
 <script>
 const NUMS=["+18019921414","+18012052600"];
+function smsHref(text){const b=encodeURIComponent(text),ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&"ontouchend" in document);
+ return ios?`sms:/open?addresses=${NUMS.join(",")}&body=${b}`:`sms:${NUMS.join(",")}?body=${b}`;}
 const WHY=[["Temple recommend renewal or youth interview","15 min with a member of the Bishopric","a temple recommend interview with a member of the Bishopric","15 minutes",1],
 ["First temple recommend, new to the ward (under a year), or graduating senior","15 min with the Bishop","a temple recommend interview with the Bishop","15 minutes"],
 ["Ecclesiastical endorsement or opening mission papers/portal","15 min with the Bishop","an endorsement or mission papers interview with the Bishop","15 minutes"],
@@ -63,9 +71,10 @@ function body(){const w=WHY[v("why")],n=$("#name").value.trim(),f=$("#for").valu
 $("#f").addEventListener("submit",e=>{e.preventDefault();const miss=[],w=WHY[v("why")];
  if(!w)miss.push("what it's for");else if(!w[3]&&!v("len"))miss.push("how much time");if(!v("when"))miss.push("when");if($("#name").value.trim().length<2)miss.push("your name");if(!$("#ok").checked)miss.push("the \"I understand\" box");
  if(miss.length){$("#err").textContent="Please choose: "+miss.join(", ")+".";return;}$("#err").textContent="";
- const b=encodeURIComponent(body()),ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&"ontouchend" in document);
- location.href=ios?`sms:/open?addresses=${NUMS.join(",")}&body=${b}`:`sms:${NUMS.join(",")}?body=${b}`;});
-window._body=body;
+ location.href=smsHref(body());});
+document.getElementById("tithing-sms").addEventListener("click",function(){
+ location.href=smsHref("Hi, I'd still like a tithing declaration appointment with the Bishop (10 min). Name: ");});
+window._body=body;window._smsHref=smsHref;
 </script>
 <script src="../section-seen.js" defer></script>
 <script src="../updates.js" defer></script>
