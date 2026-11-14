@@ -1,17 +1,8 @@
 {
- "generated": "2026-11-12T22:25:00-07:00",
+ "generated": "2026-11-13T22:14:07-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
-  {
-   "id": "0000000000000000000000178772277calendarC",
-   "title": "Missionary Zone activity",
-   "calendar": "Stake Activities",
-   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
-   "allDay": false,
-   "start": "2026-11-13T19:00:00-07:00",
-   "end": "2026-11-13T21:00:00-07:00"
-  },
   {
    "id": "0000000000000000000000148591485calendarC",
    "title": "Farmington Bay Stake Baptism Day",
