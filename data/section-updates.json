@@ -17,14 +17,14 @@
     "calendar": {
       "title": "Bay 6 Calendar",
       "path": "calendar/",
-      "hash": "78e44bf0b79626ad6ad87d6f569870217ed80bedba55a73d6a5589a2b37514c4",
-      "updated": "2026-11-12T18:10:53Z"
+      "hash": "5895a4d8e4da7313114b3dc134d162bdaf644eb3bae6b0e92ccaa655f7bdfd5d",
+      "updated": "2026-11-13T05:25:00Z"
     },
     "events": {
       "title": "Upcoming Events",
       "path": "events/",
-      "hash": "f12a3450185c1234836ebf8f79b93b4565a6bd8e8b6b13f385f01ffe592d766b",
-      "updated": "2026-11-11T19:22:27Z"
+      "hash": "3e924037507be0fc4adca60e8a88abb10e649636f3dc183b9298eb432c691ea2",
+      "updated": "2026-11-14T00:26:05Z"
     },
     "announce": {
       "title": "Submit An Announcement",
@@ -41,8 +41,8 @@
     "relief-society": {
       "title": "Relief Society",
       "path": "orgs/relief-society/",
-      "hash": "a1994ad60aa6c716798d27d30b7b551227773164e4794bb88f99a21d5d8a7e15",
-      "updated": "2026-11-11T00:47:05Z"
+      "hash": "4a86298cac981f2f0380c51dd521ecd5e1e8cf0853065f838c157db7efd63f6a",
+      "updated": "2026-11-13T05:25:00Z"
     },
     "elders-quorum": {
       "title": "Elders Quorum",
