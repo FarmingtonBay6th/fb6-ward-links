@@ -1,0 +1,189 @@
+{
+ "date": "2026-11-15",
+ "title": "There Is No Other God That Can Deliver",
+ "subtitle": "Daniel 1–7 · Church History · Hymns",
+ "rows": 15,
+ "cols": 15,
+ "grid": [
+  "SECRETS########",
+  "T#H###H#P#ADAM#",
+  "O#O#D#A#U##E##M",
+  "N#O#A#D#L##L##E",
+  "E#S#N#R#S#LIONS",
+  "##E#IMAGE##V##H",
+  "####E#C####EMMA",
+  "##BELSHAZZAR##C",
+  "K####O#N##B#T#H",
+  "I#FURNACE#E#E##",
+  "N#O##O#I##D#K##",
+  "G#U##F#E#ANGEL#",
+  "DURA#M#N##E#L##",
+  "O#T#WANTING####",
+  "M#H##N####O####"
+ ],
+ "across": [
+  {
+   "n": 1,
+   "row": 0,
+   "col": 0,
+   "answer": "SECRETS",
+   "clue": "“There is a God in heaven that revealeth ___” (Dan. 2:28)"
+  },
+  {
+   "n": 5,
+   "row": 1,
+   "col": 10,
+   "answer": "ADAM",
+   "clue": "Michael, “the father of all, the prince of all,” per latter-day revelation (D&C 27:11)"
+  },
+  {
+   "n": 9,
+   "row": 4,
+   "col": 10,
+   "answer": "LIONS",
+   "clue": "Den into which Daniel was cast (Dan. 6:16)"
+  },
+  {
+   "n": 10,
+   "row": 5,
+   "col": 4,
+   "answer": "IMAGE",
+   "clue": "Great one in the dream, its head of fine gold (Dan. 2:31–32)"
+  },
+  {
+   "n": 11,
+   "row": 6,
+   "col": 11,
+   "answer": "EMMA",
+   "clue": "Elect lady told to make a selection of sacred hymns (D&C 25:11)"
+  },
+  {
+   "n": 12,
+   "row": 7,
+   "col": 2,
+   "answer": "BELSHAZZAR",
+   "clue": "King who made a great feast to a thousand of his lords (Dan. 5:1)"
+  },
+  {
+   "n": 18,
+   "row": 9,
+   "col": 2,
+   "answer": "FURNACE",
+   "clue": "“Burning fiery ___” (Dan. 3:6)"
+  },
+  {
+   "n": 19,
+   "row": 11,
+   "col": 9,
+   "answer": "ANGEL",
+   "clue": "God sent one to shut the lions’ mouths (Dan. 6:22)"
+  },
+  {
+   "n": 20,
+   "row": 12,
+   "col": 0,
+   "answer": "DURA",
+   "clue": "Plain where the golden image was set up (Dan. 3:1)"
+  },
+  {
+   "n": 21,
+   "row": 13,
+   "col": 4,
+   "answer": "WANTING",
+   "clue": "How the weighed king was found (Dan. 5:27)"
+  }
+ ],
+ "down": [
+  {
+   "n": 1,
+   "row": 0,
+   "col": 0,
+   "answer": "STONE",
+   "clue": "“Cut out without hands,” it became a great mountain (Dan. 2:34–35)"
+  },
+  {
+   "n": 2,
+   "row": 0,
+   "col": 2,
+   "answer": "CHOOSE",
+   "clue": "“___ the Right” (Hymns, no. 239)"
+  },
+  {
+   "n": 3,
+   "row": 0,
+   "col": 6,
+   "answer": "SHADRACH",
+   "clue": "Hananiah’s Babylonian name (Dan. 1:7)"
+  },
+  {
+   "n": 4,
+   "row": 1,
+   "col": 8,
+   "answer": "PULSE",
+   "clue": "What Daniel asked to eat in place of the king’s meat (Dan. 1:12)"
+  },
+  {
+   "n": 6,
+   "row": 1,
+   "col": 11,
+   "answer": "DELIVER",
+   "clue": "“Our God whom we serve is able to ___ us” (Dan. 3:17)"
+  },
+  {
+   "n": 7,
+   "row": 2,
+   "col": 4,
+   "answer": "DANIEL",
+   "clue": "Captive who “purposed in his heart that he would not defile himself” (Dan. 1:8)"
+  },
+  {
+   "n": 8,
+   "row": 2,
+   "col": 14,
+   "answer": "MESHACH",
+   "clue": "Mishael’s Babylonian name (Dan. 1:7)"
+  },
+  {
+   "n": 13,
+   "row": 7,
+   "col": 5,
+   "answer": "SONOFMAN",
+   "clue": "One like this came with the clouds of heaven (Dan. 7:13)"
+  },
+  {
+   "n": 14,
+   "row": 7,
+   "col": 7,
+   "answer": "ANCIENT",
+   "clue": "The ___ of Days did sit, his garment white as snow (Dan. 7:9)"
+  },
+  {
+   "n": 15,
+   "row": 7,
+   "col": 10,
+   "answer": "ABEDNEGO",
+   "clue": "Azariah’s Babylonian name (Dan. 1:7)"
+  },
+  {
+   "n": 16,
+   "row": 8,
+   "col": 0,
+   "answer": "KINGDOM",
+   "clue": "What the God of heaven sets up, which “shall never be destroyed” (Dan. 2:44)"
+  },
+  {
+   "n": 17,
+   "row": 8,
+   "col": 12,
+   "answer": "TEKEL",
+   "clue": "“Thou art weighed in the balances” (Dan. 5:25, 27)"
+  },
+  {
+   "n": 18,
+   "row": 9,
+   "col": 2,
+   "answer": "FOURTH",
+   "clue": "“The form of the ___ is like the Son of God” (Dan. 3:25)"
+  }
+ ]
+}
