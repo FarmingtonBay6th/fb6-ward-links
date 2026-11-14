@@ -118,8 +118,8 @@
   .pair .misslink .mt b { font:700 15px/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
   .pair .misslink .mt small { font-size:12.5px; line-height:1.35; }
   .pair .misslink .mt em { font-size:14px; padding:8px 12px; }
-  #tithing { align-items:flex-start; }
-  #tithing .tx small { color:var(--ink); font-size:14.5px; line-height:1.45; margin-top:6px; }
+  .tithing-note[hidden] { display:none !important; }
+  .coming > a.tithing-note { font-weight:700; color:var(--accent); }
   .coming { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 14px 6px; margin:10px 0; box-shadow:0 1px 2px rgba(59,47,42,.06); }
   .coming h2 { font:italic 400 22px/1.2 Georgia,serif; margin:0 0 2px; }
   .cu-row { display:block; padding:10px 0; border-top:1px solid var(--line); text-decoration:none; color:inherit; }
@@ -175,12 +175,12 @@
   else { label.textContent = "Last Sunday"; note.textContent = "The New Program Goes Up Saturday Evening"; }
 })();
 </script>
-  <a class="card" id="tithing" href="https://calendly.com/bishopbam/10mi" rel="noopener">
-      <span class="ic"><svg class="badge" viewBox="0 0 120 120" role="img" aria-label="Windows of heaven"><circle cx="60" cy="60" r="57" fill="#005175"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c9a24a" stroke-width="2"/><rect x="38" y="44" width="44" height="40" rx="3" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 44v40M38 64h44" stroke="#c9a24a" stroke-width="2.4"/><path d="M38 44a22 18 0 0 1 44 0" fill="#f3d98b" stroke="#c9a24a" stroke-width="2.4"/><path d="M60 18v10M40 24l5 8M80 24l-5 8M28 36l8 4M92 36l-8 4" stroke="#f3d98b" stroke-width="3" stroke-linecap="round"/><path d="M60 90c-6-4-10-7-10-11a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 4-4 7-10 11z" fill="#c9a24a"/></svg></span>
-      <span class="tx"><b>Tithing Declaration</b><small>Online scheduling is open through Saturday, November 15. The Bishop is happy to meet with any family or member through the end of the year, but December fills up fast, so we'd love to see you sooner rather than later. If the 15th sneaks up on you, just reach out and we'll find a time.</small></span><span class="go" aria-hidden="true">›</span>
+  <a class="card tithing-note" id="tithing" href="meet/#tithing" data-usage-id="meet:tithing">
+      <span class="tx"><b>Still Need a Tithing Declaration?</b><small>You Can Still Schedule Through Meet with the Bishop</small></span><span class="go" aria-hidden="true">›</span>
     </a>
   <section class="coming" id="coming-up">
     <h2>Coming Up</h2>
+    <a class="cu-row tithing-note" href="meet/#tithing" data-usage-id="meet:tithing">Still Need a Tithing Declaration? You Can Still Schedule Through Meet with the Bishop</a>
     <div id="coming-list"><p class="cu-empty">Loading upcoming events…</p></div>
     <a class="cu-all" href="events/">See All Upcoming Events ›</a>
   </section>
@@ -320,10 +320,9 @@
 </script>
 <script>
 (function () {
-  var card = document.getElementById("tithing");
-  if (!card) return;
   var today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  if (today > "2026-12-31") card.hidden = true;
+  if (today <= "2026-12-31") return;
+  document.querySelectorAll(".tithing-note").forEach(function (el) { el.hidden = true; });
 })();
 </script>
 <script src="fh-challenges.js"></script>
