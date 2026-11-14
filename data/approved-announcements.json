@@ -52,6 +52,16 @@
       "flyer": "flyers/2026-11-07-ucap-st-george.jpg",
       "link": "https://utahcoalition.org",
       "linkLabel": "Register at utahcoalition.org"
+    },
+    {
+      "id": "2026-12-05-journey-through-bethlehem",
+      "title": "Journey Through Bethlehem",
+      "date": "2026-12-05",
+      "endDate": "2026-12-06",
+      "time": "10:00 AM to 11:30 AM",
+      "place": "Stake Center, 549 S 1525 W, Farmington",
+      "details": "Neighborhood Christmas celebration. Join us for an unforgettable Journey Through Bethlehem.",
+      "flyer": "flyers/2026-12-05-journey-through-bethlehem.jpg"
     }
   ]
 }
