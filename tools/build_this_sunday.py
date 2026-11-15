@@ -36,12 +36,15 @@ row('Ward and Stake Business','')
 h,u=hymn(C.get('sacrament_hymn')); row('Sacrament Hymn',h,u,'hy')
 for it in d.get('program',[]):
     if it[0]=='divider': rows.append(f'<li class="div"><span>{E(it[1])}</span></li>')
+    elif it[0]=='special' and C.get('special'):
+        row('Musical Number',E(C['special']))
     elif it[0]=='row':
         lab=it[1]; val=it[2] if len(it)>2 else ''
         if 'hymn' in lab.lower(): h,u=hymn(val); row(lab,h,u,'hy')
         else: row(lab,E(val))
 if fast and not d.get('program'): rows.append('<li class="div"><span>Bearing of Testimonies</span></li>')
-if C.get('special'): row('Musical Number',E(C['special']))
+if C.get('special') and not any(it[0]=='special' for it in d.get('program',[])):
+    row('Musical Number',E(C['special']))
 h,u=hymn(C.get('closing_hymn')); row('Closing Hymn',h,u,'hy')
 row('Benediction',E(A.get('benediction','')))
 rows=[r for r in rows if '<span class="val"></span>' not in r or 'Business' in r]
