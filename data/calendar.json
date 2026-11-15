@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T22:07:34-07:00",
+ "generated": "2026-11-15T13:50:51-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
@@ -25,7 +25,7 @@
    "id": "0000000000000000000000177406277calendarC",
    "title": "Combined YM: Relay Races",
    "calendar": "Young Men",
-   "location": "",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
    "start": "2026-11-18T19:00:00-07:00",
    "end": "2026-11-18T20:00:00-07:00",
@@ -95,6 +95,15 @@
    "allDay": false,
    "start": "2026-11-22T18:30:00-07:00",
    "end": "2026-11-22T20:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000179081377calendarC",
+   "title": "6th Ward Valiant Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-24T18:00:00-07:00",
+   "end": "2026-11-24T19:00:00-07:00"
   },
   {
    "id": "0000000000000000000000177429752calendarC",
@@ -216,6 +225,15 @@
    "allDay": false,
    "start": "2026-12-06T16:00:00-07:00",
    "end": "2026-12-06T17:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000179079752calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-12-08T18:00:00-07:00",
+   "end": "2026-12-08T19:00:00-07:00"
   },
   {
    "id": "0000000000000000000000177543202calendarC",
@@ -398,6 +416,15 @@
    "end": "2027-01-03T16:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000179079753calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-05T18:00:00-07:00",
+   "end": "2027-01-05T19:00:00-07:00"
+  },
+  {
    "id": "ym20270106combinedyoungmenglowinthedarkv",
    "title": "Combined Young Men: Glow in the Dark Volleyball",
    "calendar": "Young Men",
@@ -538,6 +565,15 @@
    "end": "2027-01-17T16:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000179079754calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-01-19T18:00:00-07:00",
+   "end": "2027-01-19T19:00:00-07:00"
+  },
+  {
    "id": "ym20270120combinedyoungmenandyoungwomen",
    "title": "Combined Young Men and Young Women",
    "calendar": "Young Men",
@@ -668,6 +704,15 @@
    "end": "2027-01-31T16:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000179079755calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-02T18:00:00-07:00",
+   "end": "2027-02-02T19:00:00-07:00"
+  },
+  {
    "id": "ym20270203combinedyoungmenpizzamaking",
    "title": "Combined Young Men: Pizza Making",
    "calendar": "Young Men",
@@ -742,6 +787,15 @@
    "end": "2027-02-13T14:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000179079756calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-16T18:00:00-07:00",
+   "end": "2027-02-16T19:00:00-07:00"
+  },
+  {
    "id": "ym20270217combinedyoungmenandyoungwomenf",
    "title": "Combined Young Men and Young Women: FlowRider",
    "calendar": "Young Men",
@@ -796,6 +850,15 @@
    "allDay": false,
    "start": "2027-02-25T17:30:00-07:00",
    "end": "2027-02-25T21:30:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000179079757calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-02T18:00:00-07:00",
+   "end": "2027-03-02T19:00:00-07:00"
   },
   {
    "id": "ym20270303careernight",
@@ -917,6 +980,15 @@
    "end": "2027-03-14T20:30:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079758calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-16T18:00:00-06:00",
+   "end": "2027-03-16T19:00:00-06:00"
+  },
+  {
    "id": "ym20270317combinedyoungmenandyoungwomenc",
    "title": "Combined Young Men and Young Women: Career Night",
    "calendar": "Young Men",
@@ -962,6 +1034,15 @@
    "allDay": false,
    "start": "2027-03-25T17:30:00-06:00",
    "end": "2027-03-25T21:30:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079759calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-03-30T18:00:00-06:00",
+   "end": "2027-03-30T19:00:00-06:00"
   },
   {
    "id": "ym20270331slipnslidekickball",
@@ -1029,6 +1110,15 @@
    "end": "2027-04-10T14:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079760calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-04-13T18:00:00-06:00",
+   "end": "2027-04-13T19:00:00-06:00"
+  },
+  {
    "id": "ym20270414fsymagazineactivity",
    "title": "Deacons: FSY Magazine Activity",
    "calendar": "Young Men",
@@ -1056,6 +1146,15 @@
    "start": "2027-04-21T19:00:00-06:00",
    "end": "2027-04-21T20:00:00-06:00",
    "ymQuorum": "all"
+  },
+  {
+   "id": "0000000000000000000000179079761calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-04-27T18:00:00-06:00",
+   "end": "2027-04-27T19:00:00-06:00"
   },
   {
    "id": "0000000000000000000000176510902calendarC",
@@ -1096,6 +1195,15 @@
    "end": "2027-05-08T14:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079762calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-05-11T18:00:00-06:00",
+   "end": "2027-05-11T19:00:00-06:00"
+  },
+  {
    "id": "ym20270519combinedyoungmenandyoungwomens",
    "title": "Combined Young Men and Young Women: Slip 'n Slide Kickball",
    "calendar": "Young Men",
@@ -1115,6 +1223,15 @@
    "end": "2027-05-23T00:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079763calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-05-25T18:00:00-06:00",
+   "end": "2027-05-25T19:00:00-06:00"
+  },
+  {
    "id": "ym20270602stakeyouthpoolparty",
    "title": "Stake Youth Pool Party",
    "calendar": "Young Men",
@@ -1123,6 +1240,15 @@
    "start": "2027-06-02T19:00:00-06:00",
    "end": "2027-06-02T20:00:00-06:00",
    "ymQuorum": "all"
+  },
+  {
+   "id": "0000000000000000000000179079764calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-06-08T18:00:00-06:00",
+   "end": "2027-06-08T19:00:00-06:00"
   },
   {
    "id": "0000000000000000000000176511477calendarC",
@@ -1141,6 +1267,15 @@
    "allDay": false,
    "start": "2027-06-12T06:00:00-06:00",
    "end": "2027-06-12T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079765calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-06-22T18:00:00-06:00",
+   "end": "2027-06-22T19:00:00-06:00"
   },
   {
    "id": "0000000000000000000000174099477calendarC",
@@ -1171,6 +1306,24 @@
    "end": "2027-07-10T14:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079766calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-07-20T18:00:00-06:00",
+   "end": "2027-07-20T19:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079767calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-08-03T18:00:00-06:00",
+   "end": "2027-08-03T19:00:00-06:00"
+  },
+  {
    "id": "0000000000000000000000176732857calendarC",
    "title": "Farmington Bay Stake Baptism Day",
    "calendar": "Stake Activities",
@@ -1180,6 +1333,15 @@
    "end": "2027-08-14T14:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079768calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-08-17T18:00:00-06:00",
+   "end": "2027-08-17T19:00:00-06:00"
+  },
+  {
    "id": "0000000000000000000000174417277calendarC",
    "title": "Post-Trek Fireside",
    "calendar": "Stake Activities",
@@ -1187,6 +1349,15 @@
    "allDay": false,
    "start": "2027-08-22T17:00:00-06:00",
    "end": "2027-08-22T22:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079769calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-08-31T18:00:00-06:00",
+   "end": "2027-08-31T19:00:00-06:00"
   },
   {
    "id": "0000000000000000000000176511777calendarC",
@@ -1205,6 +1376,24 @@
    "allDay": false,
    "start": "2027-09-11T06:00:00-06:00",
    "end": "2027-09-11T14:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079770calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-09-14T18:00:00-06:00",
+   "end": "2027-09-14T19:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079771calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-09-28T18:00:00-06:00",
+   "end": "2027-09-28T19:00:00-06:00"
   },
   {
    "id": "0000000000000000000000176514627calendarC",
@@ -1243,6 +1432,24 @@
    "end": "2027-10-09T14:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179079772calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-10-12T18:00:00-06:00",
+   "end": "2027-10-12T19:00:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179079773calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-10-26T18:00:00-06:00",
+   "end": "2027-10-26T19:00:00-06:00"
+  },
+  {
    "id": "0000000000000000000000176516352calendarC",
    "title": "Worldwide Devotional for Young Adults",
    "calendar": "Churchwide",
@@ -1252,6 +1459,15 @@
    "end": "2027-11-07T19:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000179079774calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-11-09T18:00:00-07:00",
+   "end": "2027-11-09T19:00:00-07:00"
+  },
+  {
    "id": "0000000000000000000000176732860calendarC",
    "title": "Farmington Bay Stake Baptism Day",
    "calendar": "Stake Activities",
@@ -1259,6 +1475,15 @@
    "allDay": false,
    "start": "2027-11-13T06:00:00-07:00",
    "end": "2027-11-13T14:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000179079775calendarC",
+   "title": "6th Ward Boys Valiant 9-10 Activity Days",
+   "calendar": "Primary",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-11-23T18:00:00-07:00",
+   "end": "2027-11-23T19:00:00-07:00"
   },
   {
    "id": "0000000000000000000000176516977calendarC",
