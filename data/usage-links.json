@@ -43,14 +43,14 @@
    ]
   },
   {
-   "id": "/color/coloring-2026-11-08.pdf",
+   "id": "/color/coloring-2026-11-15.pdf",
    "label": "⬇ Download & Print (PDF)",
    "pages": [
     "/color/"
    ]
   },
   {
-   "id": "/color/coloring-2026-11-08.png",
+   "id": "/color/coloring-2026-11-15.png",
    "label": "Download picture (PNG)",
    "pages": [
     "/color/"
@@ -318,8 +318,8 @@
    ]
   },
   {
-   "id": "/this-sunday/primary-presentation-2026-11-08.pdf",
-   "label": "Open today’s program (PDF)",
+   "id": "/this-sunday/little-disciples-2026-11-15.png",
+   "label": "Download the kids page",
    "pages": [
     "/this-sunday/"
    ]
@@ -360,13 +360,6 @@
    "label": "Make a donation",
    "pages": [
     "/events/"
-   ]
-  },
-  {
-   "id": "forms.gle/~",
-   "label": "Share Love With the Primary Kids",
-   "pages": [
-    "/this-sunday/"
    ]
   },
   {
@@ -483,24 +476,17 @@
    ]
   },
   {
-   "id": "www.churchofjesuschrist.org/media/music/songs/gethsemane",
-   "label": "Gethsemane",
-   "pages": [
-    "/this-sunday/"
-   ]
-  },
-  {
-   "id": "www.churchofjesuschrist.org/media/music/songs/love-one-another",
-   "label": "Love One Another",
-   "pages": [
-    "/this-sunday/"
-   ]
-  },
-  {
    "id": "www.churchofjesuschrist.org/media/video/~",
    "label": "How to Add Photos to Your Family Tree",
    "pages": [
     "/orgs/temple-and-family-history/2027-plan/"
+   ]
+  },
+  {
+   "id": "www.churchofjesuschrist.org/study/come-follow-me",
+   "label": "Open this week’s lesson",
+   "pages": [
+    "/this-sunday/"
    ]
   },
   {
@@ -579,13 +565,6 @@
     "/orgs/primary/",
     "/orgs/young-men/",
     "/orgs/young-women/"
-   ]
-  },
-  {
-   "id": "www.churchofjesuschrist.org/study/manual/~/45",
-   "label": "Open this week’s lesson",
-   "pages": [
-    "/this-sunday/"
    ]
   },
   {
