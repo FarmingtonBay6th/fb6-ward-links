@@ -5,7 +5,7 @@
     "this-sunday": {
       "title": "This Sunday",
       "path": "this-sunday/",
-      "hash": "858cfe6723a551673bde9dc3f57749615c820896384c445f39e12f41965916f9",
+      "hash": "ade15c1b32d008dc5fd99031e8b65d8be1c886ae48aa9aa06336f6344be76df8",
       "updated": "2026-11-15T00:22:13Z"
     },
     "meet": {
@@ -30,7 +30,7 @@
       "title": "Submit An Announcement",
       "path": "announce/",
       "hash": "03ce9f181417c6a3f13e90bcb1fc617bddc541ce0445acf69f76283a38dc952a",
-      "updated": "2026-10-31T02:45:06Z"
+      "updated": "2026-11-12T18:10:53Z"
     },
     "color": {
       "title": "Crayons & Covenants",
@@ -48,7 +48,7 @@
       "title": "Elders Quorum",
       "path": "orgs/elders-quorum/",
       "hash": "8c6cad131963eca235b07639f4c767ca9223980bf0b2f0f3e8ca44d233445d18",
-      "updated": "2026-11-11T00:47:05Z"
+      "updated": "2026-11-12T18:10:53Z"
     },
     "young-women": {
       "title": "Young Women",
@@ -66,31 +66,31 @@
       "title": "Sunday School",
       "path": "orgs/sunday-school/",
       "hash": "f6826f3d586fabf7800834300657dffa8e70dd6ab4de55408ae504db5ca30026",
-      "updated": "2026-11-11T23:26:10Z"
+      "updated": "2026-11-12T18:10:53Z"
     },
     "primary": {
       "title": "Primary",
       "path": "orgs/primary/",
       "hash": "c0e3f46571494fca4b5ffe312f683b66393f6f532a7a15e8ba951b2b979ddc0d",
-      "updated": "2026-11-11T00:47:05Z"
+      "updated": "2026-11-12T18:10:53Z"
     },
     "temple-and-family-history": {
       "title": "Temple And Family History",
       "path": "orgs/temple-and-family-history/",
       "hash": "d0b0f4279acefb0304e603f56f13e538e126104d2ae275f66d280871d96a1f4b",
-      "updated": "2026-11-11T23:16:42Z"
+      "updated": "2026-11-12T18:10:53Z"
     },
     "ward-missionaries": {
       "title": "Missionaries in Our Area",
       "path": "orgs/missionaries-in-our-area/",
       "hash": "8785418d94b8047c869447a071d92828ac99d05fc0f3362a1b5b4db6658d84d2",
-      "updated": "2026-11-11T01:41:18Z"
+      "updated": "2026-11-12T18:10:53Z"
     },
     "missionaries": {
       "title": "Our Missionaries Serving Worldwide",
       "path": "missionaries/",
       "hash": "a10614a47ff81a7c8a348294ff4e9e8450a9d021653b3a43afeb8004f6f183e2",
-      "updated": "2026-11-11T01:41:18Z"
+      "updated": "2026-11-12T18:10:53Z"
     }
   }
 }
