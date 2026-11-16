@@ -17,14 +17,14 @@
     "calendar": {
       "title": "Bay 6 Calendar",
       "path": "calendar/",
-      "hash": "a97cdc9fd03bf778861760b653faceada88b9cf035cee5d11297b3a90c1ad233",
-      "updated": "2026-11-14T05:14:07Z"
+      "hash": "27b9cbdde6ba5add388f5e8434d9ca9c85bba29bf3242bee4b6dfed4513c0ca6",
+      "updated": "2026-11-16T05:04:17Z"
     },
     "events": {
       "title": "Upcoming Events",
       "path": "events/",
-      "hash": "71233a9087b27ffc2c005d34de94f705ed7ae1a65835856fb6816b214ee05afa",
-      "updated": "2026-11-14T01:48:26Z"
+      "hash": "bbe9452559f19375476c580d42664268cad0fa57d8e516e5a6f2e0baf26b2679",
+      "updated": "2026-11-16T17:10:43Z"
     },
     "announce": {
       "title": "Submit An Announcement",
@@ -59,8 +59,8 @@
     "young-men": {
       "title": "Young Men",
       "path": "orgs/young-men/",
-      "hash": "c00910ecb5208897fe4206132efcd28cf723cfb766a21913d290cdd75fd48bf1",
-      "updated": "2026-11-12T18:10:53Z"
+      "hash": "1e8a5e85979085a3bfc79808f06276c0406e90fc2e35bb464bb1fa59d8566e70",
+      "updated": "2026-11-15T20:50:51Z"
     },
     "sunday-school": {
       "title": "Sunday School",
@@ -71,8 +71,8 @@
     "primary": {
       "title": "Primary",
       "path": "orgs/primary/",
-      "hash": "c0e3f46571494fca4b5ffe312f683b66393f6f532a7a15e8ba951b2b979ddc0d",
-      "updated": "2026-11-12T18:10:53Z"
+      "hash": "4cfbfdd18fe1c93a33900b7aa49999fb586c96041d8470203b8ec4d172547bc0",
+      "updated": "2026-11-15T20:50:51Z"
     },
     "temple-and-family-history": {
       "title": "Temple And Family History",
