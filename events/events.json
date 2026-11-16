@@ -2,6 +2,29 @@
   "_readme": "One entry per event. orgs: slugs of org pages (relief-society, elders-quorum, young-women, young-men, sunday-school, primary, temple-and-family-history, missionaries-in-our-area). Run: python3 tools/build_events.py",
   "events": [
     {
+      "title": "Stake Palm Sunday Concert: Choir & Orchestra Musicians Needed",
+      "alt": "Share Your Musical Talents, Farmington Bay Stake",
+      "subtitle": "The stake needs 80+ choir and 50+ orchestra members, ages 12 and up.",
+      "when": "Ages 12 and up",
+      "where": "Farmington Bay Stake",
+      "start": "2026-11-15T12:00:00-07:00",
+      "end": "2027-03-21T23:59:59-06:00",
+      "flyer": "flyers/stake-palm-sunday-concert.png",
+      "buttons": [
+        {
+          "label": "View flyer",
+          "href": "flyers/stake-palm-sunday-concert.png",
+          "primary": true
+        },
+        {
+          "label": "Share your talents",
+          "href": "https://docs.google.com/forms/d/e/1FAIpQLSeVppI56IxyMwSQyYW7LKmx_AgHVcJ08829cQ8F3zjiC6rHxQ/viewform?usp=header",
+          "primary": false
+        }
+      ],
+      "orgs": []
+    },
+    {
       "title": "Primary Program Practice",
       "alt": "Primary Program Practice",
       "subtitle": "Ward Primary \u00b7 all Primary children encouraged; doughnuts after",
