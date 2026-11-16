@@ -172,6 +172,14 @@
    ]
   },
   {
+   "id": "/events/flyers/stake-palm-sunday-concert.png",
+   "label": "View flyer",
+   "pages": [
+    "/events/",
+    "/"
+   ]
+  },
+  {
    "id": "/meet/",
    "label": "Meet With the Bishop",
    "pages": [
@@ -349,9 +357,10 @@
   },
   {
    "id": "docs.google.com/forms/d/e/~/viewform",
-   "label": "RSVP",
+   "label": "Share your talents",
    "pages": [
     "/events/",
+    "/",
     "/orgs/relief-society/"
    ]
   },

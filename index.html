@@ -135,6 +135,17 @@
   .install summary::-webkit-details-marker { display:none; }
   .install .steps { font-size:15px; line-height:1.45; margin:0 14px 12px; }
   @media (prefers-color-scheme: dark) { .install details > summary { color:var(--accent); } }
+  .feature { background:var(--card); border:1px solid var(--line); border-top:5px solid #c9a24a; border-radius:16px;
+    padding:14px; margin:0 0 12px; box-shadow:0 1px 2px rgba(59,47,42,.06); }
+  .feature[hidden] { display:none !important; }
+  .feature-k { display:block; font:600 11.5px/1 Georgia, serif; letter-spacing:.14em; text-transform:uppercase; color:#8a6d22; margin:0 0 6px; }
+  .feature h2 { font:italic 400 22px/1.25 Georgia, serif; margin:0 0 6px; }
+  .feature p { margin:0; font-size:15px; line-height:1.4; }
+  .feature-thumb { display:block; margin:0 0 12px; }
+  .feature-thumb img { display:block; width:100%; height:200px; object-fit:cover; object-position:top center; border-radius:12px; border:1px solid var(--line); background:#f4efe6; }
+  .feature .acts { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .feature .acts .btn { flex:1 1 calc(50% - 8px); min-height:44px; padding:10px 8px; white-space:nowrap; display:inline-flex; align-items:center; justify-content:center; text-align:center; }
+  @media (prefers-color-scheme: dark) { .feature-k { color:#e2c47a; } }
 </style>
 <script src="nav.js" defer></script><script src="usage.js" defer></script></head>
 <body>
@@ -175,6 +186,13 @@
   else { label.textContent = "Last Sunday"; note.textContent = "The New Program Goes Up Saturday Evening"; }
 })();
 </script>
+  <section class="feature" id="palm-sunday-concert" data-until="2027-03-21">
+    <p class="feature-k">Farmington Bay Stake</p>
+    <a class="feature-thumb" href="events/flyers/stake-palm-sunday-concert.png"><img src="events/flyers/stake-palm-sunday-concert.png" width="1102" height="1426" alt="Flyer: Share Your Musical Talents. Farmington Bay Stake."></a>
+    <h2>Stake Palm Sunday Concert: Choir &amp; Orchestra Musicians Needed</h2>
+    <p>The stake needs 80+ choir and 50+ orchestra members, ages 12 and up.</p>
+    <div class="acts"><a class="btn" href="events/flyers/stake-palm-sunday-concert.png">View flyer</a> <a class="btn alt" href="https://docs.google.com/forms/d/e/1FAIpQLSeVppI56IxyMwSQyYW7LKmx_AgHVcJ08829cQ8F3zjiC6rHxQ/viewform?usp=header" rel="noopener">Share your talents</a></div>
+  </section>
   <a class="card tithing-note" id="tithing" href="meet/#tithing" data-usage-id="meet:tithing">
       <span class="tx"><b>Still Need a Tithing Declaration?</b><small>You Can Still Schedule Through Meet with the Bishop</small></span><span class="go" aria-hidden="true">›</span>
     </a>
@@ -323,6 +341,14 @@
   var today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
   if (today <= "2026-12-31") return;
   document.querySelectorAll(".tithing-note").forEach(function (el) { el.hidden = true; });
+})();
+</script>
+<script>
+(function () {
+  var el = document.getElementById("palm-sunday-concert");
+  if (!el) return;
+  var today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  if (today > (el.getAttribute("data-until") || "2027-03-21")) el.hidden = true;
 })();
 </script>
 <script src="fh-challenges.js"></script>
