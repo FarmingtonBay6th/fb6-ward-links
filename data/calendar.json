@@ -1,8 +1,18 @@
 {
- "generated": "2026-11-15T22:04:17-07:00",
+ "generated": "2026-11-16T23:51:40-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
+  {
+   "id": "0000000000000000000000179300427calendarC",
+   "title": "YW [Messengers of Hope] Mamma Mia play",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-18T18:20:00-07:00",
+   "end": "2026-11-18T21:00:00-07:00",
+   "ywClass": "messengers-of-hope"
+  },
   {
    "id": "0000000000000000000000177406277calendarC",
    "title": "Combined YM: Relay Races",
@@ -15,13 +25,13 @@
   },
   {
    "id": "0000000000000000000000177429727calendarC",
-   "title": "YW- Class Activities",
+   "title": "YW [Builders of Faith] BeYOUtiful",
    "calendar": "Young Women",
    "location": "",
    "allDay": false,
    "start": "2026-11-18T19:00:00-07:00",
    "end": "2026-11-18T20:00:00-07:00",
-   "ywClass": "all"
+   "ywClass": "builders-of-faith"
   },
   {
    "id": "ym20261118combinedyoungmenandyoungwoment",
@@ -50,6 +60,16 @@
    "allDay": false,
    "start": "2026-11-19T19:00:00-07:00",
    "end": "2026-11-19T21:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000179303377calendarC",
+   "title": "YW [Gatherers of Light] Saturday Brunch!",
+   "calendar": "Young Women",
+   "location": "",
+   "allDay": false,
+   "start": "2026-11-21T10:00:00-07:00",
+   "end": "2026-11-21T11:00:00-07:00",
+   "ywClass": "gatherers-of-light"
   },
   {
    "id": "0000000000000000000000177883527calendarC",
