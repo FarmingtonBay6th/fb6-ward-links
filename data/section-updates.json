@@ -17,14 +17,14 @@
     "calendar": {
       "title": "Bay 6 Calendar",
       "path": "calendar/",
-      "hash": "27b9cbdde6ba5add388f5e8434d9ca9c85bba29bf3242bee4b6dfed4513c0ca6",
-      "updated": "2026-11-16T05:04:17Z"
+      "hash": "c660bb88d3988074bb92f41b0a8bdd112b5b8dca849c43fad16bf9be8b52579c",
+      "updated": "2026-11-17T06:51:40Z"
     },
     "events": {
       "title": "Upcoming Events",
       "path": "events/",
-      "hash": "bbe9452559f19375476c580d42664268cad0fa57d8e516e5a6f2e0baf26b2679",
-      "updated": "2026-11-16T17:10:43Z"
+      "hash": "33b1025e6e8a756c434008b696847966831512cc7f44c16a3914b23e1bb1777f",
+      "updated": "2026-11-18T01:11:14Z"
     },
     "announce": {
       "title": "Submit An Announcement",
@@ -53,8 +53,8 @@
     "young-women": {
       "title": "Young Women",
       "path": "orgs/young-women/",
-      "hash": "964d3b720af747b12bb5c8c0ac64189bc8c2a4547cdad8b2b040b469aa3275ac",
-      "updated": "2026-11-12T18:10:53Z"
+      "hash": "c3a426d712654cfd02ffa8419f0f68d86b36fcc67b325c8ab981949b02144164",
+      "updated": "2026-11-18T01:11:14Z"
     },
     "young-men": {
       "title": "Young Men",
