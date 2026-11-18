@@ -71,6 +71,24 @@
       "place": "1282 West 1875 North, Farmington",
       "details": "Annual Christmas program for children, youth, and young adults with special needs. Families, friends, and ward members are invited.",
       "flyer": "flyers/2026-12-07-jr-snap-christmas-program.jpg"
+    },
+    {
+      "id": "2026-11-21-yw-saturday-brunch",
+      "title": "Young Women Saturday Brunch (Gatherers of Light)",
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "place": "Traci's House",
+      "details": "Join us Saturday morning for a yummy cr\u00eape brunch! Come comfy, casual, and ready for a fun morning together.",
+      "flyer": "flyers/2026-11-21-yw-saturday-brunch.jpg"
+    },
+    {
+      "id": "2026-11-18-yw-builders-be-you-tiful",
+      "title": "Builders of Faith Activity: Be YOU Tiful!",
+      "date": "2026-11-18",
+      "time": "7:00 PM",
+      "place": "Lori's House",
+      "details": "Young Women Builders of Faith activity: Be YOU Tiful!",
+      "flyer": "flyers/2026-11-18-yw-builders-be-you-tiful.jpg"
     }
   ]
 }
