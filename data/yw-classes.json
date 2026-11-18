@@ -135,6 +135,24 @@
       "place": "Meet at the church to leave together",
       "details": "Meet a real-life news anchor and get an inside look at the world of broadcasting.",
       "flyer": "events/flyers/2026-11-04-yw-news-anchor-night.jpg"
+    },
+    {
+      "class": "gatherers-of-light",
+      "title": "Saturday Brunch: Crêpes and Cozy Mornings",
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "place": "Traci's House",
+      "details": "Join us Saturday morning for a yummy crêpe brunch! Come comfy, casual, and ready for a fun morning together.",
+      "flyer": "events/flyers/2026-11-21-yw-saturday-brunch.jpg"
+    },
+    {
+      "class": "builders-of-faith",
+      "title": "Builders of Faith Activity: Be YOU Tiful!",
+      "date": "2026-11-18",
+      "time": "7:00 PM",
+      "place": "Lori's House",
+      "details": "Builders of Faith activity: Be YOU Tiful!",
+      "flyer": "events/flyers/2026-11-18-yw-builders-be-you-tiful.jpg"
     }
   ],
   "all": {
