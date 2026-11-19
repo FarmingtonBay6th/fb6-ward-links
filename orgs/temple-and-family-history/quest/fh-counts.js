@@ -1,13 +1,61 @@
 /* Shared anonymous totals for one month. This browser remembers only its own
-   numbers so a second tap replaces them instead of counting the household twice. */
+   numbers so a second tap replaces them instead of counting the household twice.
+   Storage: the Bay 6 Hub's private Google Sheet (scriptUrl) once it reports live.
+   Until then, the older crudcrud address (base) keeps working. Once this browser
+   has seen the Sheet live it never writes to crudcrud again. */
 (function (global) {
   var GROUPS = ["adults", "youth", "kids"];
   var KEY = "fb6-fh-tally";
+  var STORE_KEY = "fb6-fh-store";
+  var chosen = null;
 
   function base() {
     var cfg = global.FH_COUNTS_CONFIG || {};
     var url = String(cfg.base || "");
     return /^https:\/\/crudcrud\.com\/api\/[a-f0-9]{32}\/counts$/.test(url) ? url : "";
+  }
+  function scriptUrl() {
+    var cfg = global.FH_COUNTS_CONFIG || {};
+    var url = String(cfg.scriptUrl || "");
+    return /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(url) ? url : "";
+  }
+  function sawSheet() {
+    try { return localStorage.getItem(STORE_KEY) === "sheet"; } catch (e) { return false; }
+  }
+  function markSheet() {
+    try { localStorage.setItem(STORE_KEY, "sheet"); } catch (e) {}
+  }
+  function sheetTotals() {
+    return fetch(scriptUrl() + "?fh=totals", { cache: "no-store" }).then(function (res) {
+      if (!res.ok) throw new Error("load");
+      return res.json();
+    }).then(function (data) {
+      if (!data || data.ok !== true || !data.totals || typeof data.totals !== "object") throw new Error("load");
+      return data;
+    });
+  }
+  /* Resolves "sheet" or "crud". */
+  function store() {
+    if (chosen) return Promise.resolve(chosen);
+    if (!scriptUrl()) {
+      if (!base()) return Promise.reject(new Error("missing"));
+      return Promise.resolve(chosen = "crud");
+    }
+    if (sawSheet() || !base()) return Promise.resolve(chosen = "sheet");
+    return sheetTotals().then(function (data) {
+      if (data.live === true) { markSheet(); return (chosen = "sheet"); }
+      return (chosen = "crud");
+    }, function () { return (chosen = "crud"); });
+  }
+  function sheetPost(body) {
+    return fetch(scriptUrl(), {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(body)
+    }).then(function (res) {
+      if (!res.ok) throw new Error("save");
+      return res.json();
+    });
   }
   function read() {
     try {
@@ -65,19 +113,55 @@
     return out;
   }
   function list() {
-    var url = base();
-    if (!url) return Promise.reject(new Error("missing"));
-    return fetch(url, { cache: "no-store" }).then(function (res) {
-      if (!res.ok) throw new Error("load");
-      return res.json();
+    return store().then(function (kind) {
+      if (kind === "sheet") {
+        return sheetTotals().then(function (data) {
+          if (data.live === true) markSheet();
+          var rows = [];
+          Object.keys(data.totals).forEach(function (month) {
+            var t = data.totals[month] || {};
+            GROUPS.forEach(function (group) { rows.push({ month: month, group: group, n: t[group] }); });
+          });
+          return rows;
+        });
+      }
+      return fetch(base(), { cache: "no-store" }).then(function (res) {
+        if (!res.ok) throw new Error("load");
+        return res.json();
+      });
     });
   }
   function save(month, group, n) {
-    var url = base();
     n = Math.floor(Number(n));
-    if (!url || !/^\d{4}-\d{2}$/.test(month) || GROUPS.indexOf(group) < 0 || n < 1 || n > 20) {
+    if (!/^\d{4}-\d{2}$/.test(month) || GROUPS.indexOf(group) < 0 || n < 1 || n > 20) {
       return Promise.reject(new Error("validation"));
     }
+    return store().then(function (kind) {
+      return kind === "sheet" ? saveSheet(month, group, n) : saveCrud(month, group, n);
+    });
+  }
+  function saveSheet(month, group, n) {
+    var existing = local(month)[group];
+    function add() {
+      return sheetPost({ fh: "add", month: month, group: group, n: n }).then(function (r) {
+        if (!r || r.ok !== true || typeof r.id !== "string") throw new Error("save");
+        remember(month, group, r.id, n);
+        return { id: r.id, n: n };
+      });
+    }
+    if (!existing) return add();
+    return sheetPost({ fh: "set", id: existing.id, n: n }).then(function (r) {
+      if (r && r.ok === true) {
+        remember(month, group, existing.id, n);
+        return { id: existing.id, n: n };
+      }
+      if (r && (r.error === "missing" || r.error === "validation")) return add();
+      throw new Error("save");
+    });
+  }
+  function saveCrud(month, group, n) {
+    var url = base();
+    if (!url) return Promise.reject(new Error("validation"));
     var existing = local(month)[group];
     var body = JSON.stringify({ month: month, group: group, n: n });
     var req = existing
@@ -97,12 +181,19 @@
     });
   }
   function remove(month, group) {
-    var url = base();
     var existing = local(month)[group];
     if (!existing) return Promise.resolve();
-    return fetch(url + "/" + existing.id, { method: "DELETE" }).then(function (res) {
-      if (!res.ok && res.status !== 404) throw new Error("undo");
-      remember(month, group, "", 0);
+    return store().then(function (kind) {
+      if (kind === "sheet") {
+        return sheetPost({ fh: "del", id: existing.id }).then(function (r) {
+          if (!r || r.ok !== true) throw new Error("undo");
+          remember(month, group, "", 0);
+        });
+      }
+      return fetch(base() + "/" + existing.id, { method: "DELETE" }).then(function (res) {
+        if (!res.ok && res.status !== 404) throw new Error("undo");
+        remember(month, group, "", 0);
+      });
     });
   }
   function saveHousehold(month, counts) {
@@ -129,6 +220,7 @@
   }
 
   global.FhCounts = {
+    store: store,
     local: local,
     totals: totals,
     householdPlan: householdPlan,
