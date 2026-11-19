@@ -70,6 +70,7 @@ if kids:
 hs=d.get('hymn_spotlight')
 S='<div class="sample">SAMPLE · built from the Oct 25 program for preview</div>' if sample else ''
 CROSSWORD='<a class="xw" href="../crossword/"><span class="xw-k">Sunday Crossword</span><b>A Gospel Puzzle for Adults</b><small>This week’s Come, Follow Me, Church history and hymns. For after the meeting or at home.</small><span class="xw-go">›</span></a>'
+MEET='<a class="xw" id="bishop-meet" href="../meet/"><span class="xw-k">Bishopric</span><b>Meet with the Bishop</b><small>Request a time. The executive secretaries will text you back.</small><span class="xw-go">›</span></a>'
 page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex, nofollow">
 <title>This Sunday · Farmington Bay 6th Ward</title><meta name="theme-color" content="#005175">
@@ -108,6 +109,7 @@ footer{{text-align:center;color:var(--soft);font-size:11.5px;padding:8px 20px 36
 <main>
 <div class="lead"><div><span>Presiding</span><b>{E(A.get("presiding",""))}</b></div><div><span>Conducting</span><b>{E(A.get("conducting",""))}</b></div>
 <div><span>Chorister</span><b>{E(C.get("chorister",""))}</b></div><div><span>Organist</span><b>{E(C.get("organist",""))}</b></div></div>
+{MEET}
 <details open><summary><span>Program<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><ol class="order">{"".join(rows)}</ol><p class="note">Tap a hymn to open it in the Church’s music library.</p></div></details>
 <details open><summary><span>Announcements<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><ul class="list">{"".join(up)}</ul><a class="btn" href="../events/">See all Upcoming Events</a></div></details>
 <details open><summary><span>Little Disciples<sup class="ast" aria-hidden="true">*</sup></span></summary><div class="in"><p class="upd sec"><span aria-hidden="true">* </span>Updates Saturday evening for Sunday’s sacrament meeting.</p><p class="note">A page for children. Think about Jesus as you solve each puzzle.</p>
