@@ -88,7 +88,7 @@
   <span id="tithing"></span>
   <p class="kicker">Farmington Bay 6th Ward</p>
   <h1>Meet with the Bishop</h1>
-  <p class="sub">Choose the appointment, then tell us your name and when you are free. Someone will text you to set a time.</p>
+  <p class="sub">Choose the appointment, then tell us your name and when you are free. The Ward Executive Secretary, Adam Bingham, will coordinate a time with you.</p>
   <p class="privacy" role="note"><b>Please don't share personal details here.</b> This only helps us set up a time, and anything personal stays between you and the Bishop. What you enter goes only to the ward executive secretaries.</p>
   <ol class="pips" aria-label="Steps">
     <li id="pip1" class="on">1 · Appointment</li>
@@ -102,7 +102,7 @@
       <div class="dock"><button type="button" class="primary" id="next">Continue</button></div>
     </section>
     <section id="step2" hidden aria-labelledby="h-step2">
-      <h2 id="h-step2" tabindex="-1">When can we reach you?</h2>
+      <h2 id="h-step2" tabindex="-1">When are you free?</h2>
       <p class="picked" id="picked"></p>
       <button type="button" class="texty" id="change">Choose a different appointment</button>
       <label class="fld" for="name">Your name</label>
@@ -115,14 +115,14 @@
       <label class="fld" for="note">Note <span id="note-tag">optional</span></label>
       <textarea id="note" maxlength="160" rows="3" aria-describedby="note-help" placeholder="Sunday after the second hour"></textarea>
       <p class="hint" id="note-help">Optional, for scheduling only. Please don't include personal details; those stay between you and the Bishop.</p>
-      <p class="hint youth">This text is sent from your phone, so they can reply. Youth ages 15 and up can send it from their own phone. Younger youth, please have a parent send it.</p>
+      <p class="hint youth">This text is sent from your phone, so the Ward Executive Secretary, Adam Bingham, can coordinate with you. Youth ages 15 and up can send it from their own phone. Younger youth, please have a parent send it.</p>
       <p class="err" id="err2" role="alert"></p>
       <div class="dock"><button type="submit" class="primary" id="send">Create my text</button></div>
     </section>
   </form>
   <section id="done" class="done" hidden aria-live="polite">
     <div class="mark" aria-hidden="true">✓</div>
-    <h2 id="done-h">We'll text you to set a time</h2>
+    <h2 id="done-h">The Ward Executive Secretary, Adam Bingham, will coordinate a time</h2>
     <p id="done-p"></p>
     <p class="preview" id="preview" hidden></p>
     <a class="primary" href="../">Back to the Hub</a>
@@ -270,7 +270,7 @@
     }
     showError("err2", "");
     var who = firstName(input.name);
-    document.getElementById("done-p").textContent = "Thank you, " + who + ". If your text app opened, press Send. Adam or Spencer will text you to set a time.";
+    document.getElementById("done-p").textContent = "Thank you, " + who + ". If your text app opened, press Send. After you send this, the Ward Executive Secretary, Adam Bingham, will coordinate a time with you.";
     var preview = document.getElementById("preview");
     if (dry) {
       preview.hidden = false;
