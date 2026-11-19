@@ -5,20 +5,20 @@
     "this-sunday": {
       "title": "This Sunday",
       "path": "this-sunday/",
-      "hash": "0c1ef920f4758a72f8e67a039fe1012336fa14240dd370547929d6d9d66b0031",
-      "updated": "2026-11-15T02:07:05Z"
+      "hash": "bc1976a6bb3f9b99a7fecfda82d3653f5e06232ec9929e80c49a37b37f25d8f5",
+      "updated": "2026-11-19T16:48:59Z"
     },
     "meet": {
       "title": "Meet With The Bishop",
       "path": "meet/",
-      "hash": "fda76affc7a8fd442a93401639e45c55a574d50248a5faff11d40fceb9bd7895",
-      "updated": "2026-11-14T19:39:30Z"
+      "hash": "42a89245da63dc3b5df44b2a7b1fcc5b5b3e019c1b3c641953404e1a35d590ee",
+      "updated": "2026-11-19T16:48:59Z"
     },
     "calendar": {
       "title": "Bay 6 Calendar",
       "path": "calendar/",
-      "hash": "c660bb88d3988074bb92f41b0a8bdd112b5b8dca849c43fad16bf9be8b52579c",
-      "updated": "2026-11-17T06:51:40Z"
+      "hash": "4e76880704ede357e8271c510b06301efe6c086af418a02f56e21c68efee83af",
+      "updated": "2026-11-19T06:12:54Z"
     },
     "events": {
       "title": "Upcoming Events",
@@ -53,14 +53,14 @@
     "young-women": {
       "title": "Young Women",
       "path": "orgs/young-women/",
-      "hash": "c3a426d712654cfd02ffa8419f0f68d86b36fcc67b325c8ab981949b02144164",
-      "updated": "2026-11-18T01:11:14Z"
+      "hash": "2fdc8e6ef00d4f1cc8fa1c597c3f5b3a957239a07348e2cbb85e527cf888cf99",
+      "updated": "2026-11-19T06:12:54Z"
     },
     "young-men": {
       "title": "Young Men",
       "path": "orgs/young-men/",
-      "hash": "1e8a5e85979085a3bfc79808f06276c0406e90fc2e35bb464bb1fa59d8566e70",
-      "updated": "2026-11-15T20:50:51Z"
+      "hash": "bc10b46eded697a746ac83334ae4630370cd7f0723e2bb888a46b472e70fa811",
+      "updated": "2026-11-19T06:12:54Z"
     },
     "sunday-school": {
       "title": "Sunday School",
