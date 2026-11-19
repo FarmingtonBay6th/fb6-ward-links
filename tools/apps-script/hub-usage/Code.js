@@ -11,6 +11,7 @@
      POST {t:"view"|"click", id, p, ts}           → append one event, returns {ok:true}
      POST {action:"summary", key}                 → counts only, never raw rows
      POST {action:"tagTest", key, idPrefix}       → tag matching rows as "test"
+   Family History Challenge counts share this web app. See FhCounts.js.
    First run: open the project in the Apps Script editor, select setupHubUsage, Run,
    and allow Google Sheets. That creates the private spreadsheet. Then deploy a new version.
    The summary key is checked against SUMMARY_KEY_SHA256 in Secret.js, which is kept
@@ -239,6 +240,7 @@ function doPost(e) {
   var b = {};
   try { b = JSON.parse((e && e.postData && e.postData.contents) || "{}") || {}; } catch (err) { return json_({ ok: false, error: "json" }); }
   try {
+    if (typeof b.fh === "string") return json_(fhPost_(b));
     if (b.action === "summary") return json_(keyOk_(b.key) ? summary_() : { ok: false, error: "key" });
     if (b.action === "tagTest") return json_(keyOk_(b.key) ? tagTest_(b.idPrefix) : { ok: false, error: "key" });
     return json_(record_(b));
@@ -246,4 +248,10 @@ function doPost(e) {
     return json_({ ok: false, error: "server" });
   }
 }
-function doGet() { return json_({ ok: true, service: "Bay 6 Hub Usage" }); }
+function doGet(e) {
+  var q = (e && e.parameter) || {};
+  if (q.fh === "totals") {
+    try { return json_(fhTotals_()); } catch (err) { return json_({ ok: false, error: "server" }); }
+  }
+  return json_({ ok: true, service: "Bay 6 Hub Usage" });
+}
