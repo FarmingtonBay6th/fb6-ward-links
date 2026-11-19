@@ -52,6 +52,18 @@
       return row && row.month === month;
     }));
   }
+  function householdPlan(counts) {
+    var out = {};
+    if (!counts || typeof counts !== "object") throw new Error("validation");
+    GROUPS.forEach(function (group) {
+      var raw = counts[group];
+      if (raw === "" || raw === null || typeof raw === "undefined") raw = 0;
+      var n = Number(raw);
+      if (!isFinite(n) || Math.floor(n) !== n || n < 0 || n > 20) throw new Error("validation");
+      out[group] = n;
+    });
+    return out;
+  }
   function list() {
     var url = base();
     if (!url) return Promise.reject(new Error("missing"));
@@ -93,6 +105,37 @@
       remember(month, group, "", 0);
     });
   }
+  function saveHousehold(month, counts) {
+    var plan;
+    try { plan = householdPlan(counts); }
+    catch (err) { return Promise.reject(err); }
+    if (!/^\d{4}-\d{2}$/.test(month)) return Promise.reject(new Error("validation"));
+    if (!GROUPS.some(function (group) { return plan[group] > 0; })) return Promise.reject(new Error("empty"));
+    var chain = Promise.resolve();
+    GROUPS.forEach(function (group) {
+      chain = chain.then(function () {
+        if (plan[group] > 0) return save(month, group, plan[group]);
+        if (local(month)[group]) return remove(month, group);
+      });
+    });
+    return chain.then(function () { return plan; });
+  }
+  function removeHousehold(month) {
+    var chain = Promise.resolve();
+    GROUPS.forEach(function (group) {
+      chain = chain.then(function () { return remove(month, group); });
+    });
+    return chain;
+  }
 
-  global.FhCounts = { local: local, totals: totals, list: list, save: save, remove: remove };
-})(window);
+  global.FhCounts = {
+    local: local,
+    totals: totals,
+    householdPlan: householdPlan,
+    list: list,
+    save: save,
+    remove: remove,
+    saveHousehold: saveHousehold,
+    removeHousehold: removeHousehold
+  };
+})(typeof window !== "undefined" ? window : globalThis);

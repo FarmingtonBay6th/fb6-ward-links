@@ -13,6 +13,7 @@ h1 { margin: 6px 0 4px; font-weight: 400; font-size: 34px; line-height: 1.05; co
 .grid { display: grid; gap: 10px; }
 .g2 { grid-template-columns: 1fr 1fr; }
 .g3 { grid-template-columns: 1fr 1fr 1fr; }
+.g5 { grid-template-columns: repeat(5, 1fr); }
 .cell { border: 2.5px solid #005175; border-radius: 14px; min-height: 120px; padding: 8px 10px; }
 .cell b { display: block; font: 700 15px/1.2 -apple-system, sans-serif; color: #005175; }
 .cell small { display: block; color: #6d625a; font-size: 14px; margin-top: 2px; }
@@ -26,9 +27,20 @@ h1 { margin: 6px 0 4px; font-weight: 400; font-size: 34px; line-height: 1.05; co
 .panel { border: 3px double #005175; border-radius: 18px; padding: 16px; }
 .fold { border: 3px dashed #c9a24a; border-radius: 16px; padding: 12px; text-align: center; color: #8a6d22; font: 700 13px/1.2 -apple-system, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
 svg.art { width: 100%; height: auto; display: block; }
+@media screen and (max-width: 420px) {
+  .g2, .g3, .g5 { grid-template-columns: 1fr; }
+  h1 { font-size: 28px; }
+  .sheet { padding: 12px; }
+  .star { height: 92px; }
+}
 @media print {
   .no-print, .fbnav, .fbback-foot { display: none !important; }
   body { background: #fff; }
   .sheet { max-width: none; padding: 0; }
   .draw, .cell, .panel { break-inside: avoid; }
+  h1 { font-size: 28px; }
+  .lead { font-size: 16px; margin-bottom: 8px; }
+  .line { min-height: 28px; margin: 6px 0; }
+  .cell { min-height: 0; }
+  .badge-round { width: 120px; height: 120px; }
 }
