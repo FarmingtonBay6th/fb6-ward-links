@@ -37,5 +37,26 @@
     if (featured && !current) upcoming = upcoming.slice(1);
     return { today: today, month: month, current: current, featured: featured, upcoming: upcoming };
   }
-  global.Fb6Fh = { denverToday: denverToday, monthEnd: monthEnd, monthName: monthName, pick: pick };
+  function buttonOrder(list, today) {
+    var month = String(today || "").slice(0, 7);
+    var items = (list || []).filter(function (item) { return item && /^\d{4}-\d{2}$/.test(item.id); });
+    items.sort(function (a, b) { return a.id < b.id ? -1 : a.id > b.id ? 1 : 0; });
+    var current = null;
+    var future = [];
+    var past = [];
+    items.forEach(function (item) {
+      if (item.id === month) current = item;
+      else if (item.id > month) future.push(item);
+      else past.push(item);
+    });
+    var active = current || future[0] || past[past.length - 1] || null;
+    var months = [];
+    if (active) {
+      months.push(active);
+      items.forEach(function (item) { if (item.id > active.id) months.push(item); });
+      items.forEach(function (item) { if (item.id < active.id) months.push(item); });
+    }
+    return { today: today, month: month, current: current, active: active, months: months };
+  }
+  global.Fb6Fh = { denverToday: denverToday, monthEnd: monthEnd, monthName: monthName, pick: pick, buttonOrder: buttonOrder };
 })(typeof window !== "undefined" ? window : globalThis);

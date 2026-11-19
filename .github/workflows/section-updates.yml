@@ -36,6 +36,8 @@ jobs:
         run: node --test tools/usage.test.js
       - name: Meet with the Bishop request
         run: node --test tools/meet-request.test.js
+      - name: Family history challenge
+        run: node --test tools/fh-challenge.test.js
 
   manifest:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
