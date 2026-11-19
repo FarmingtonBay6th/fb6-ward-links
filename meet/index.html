@@ -1,81 +1,304 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Request a Meeting · Farmington Bay 6th Ward</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#005175">
+<title>Meet with the Bishop · Farmington Bay 6th Ward</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/cover-favicon-32.png?v=cover1">
 <style>
-body{margin:0;font-family:-apple-system,system-ui,Segoe UI,Roboto,sans-serif;background:#f3f6fa;color:#1c2733}
-main{max-width:520px;margin:0 auto;padding:16px}
-h1{font-size:22px;margin:4px 0}.sub{color:#556;margin:0 0 12px;font-size:15px}
-.warn{background:#fff4e5;border:2px solid #e08a00;border-radius:12px;padding:12px;font-size:15px;margin-bottom:14px}
-.warn b{display:block;font-size:16px;margin-bottom:4px}
-fieldset{border:0;background:#fff;border-radius:12px;padding:12px;margin:0 0 12px;box-shadow:0 1px 3px #0001}
-legend{font-weight:700;font-size:16px;padding:0;margin-bottom:6px;float:left;width:100%}
-.opt{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid #d5dde6;border-radius:10px;margin:6px 0;font-size:15px}
-.opt input{margin-top:3px;transform:scale(1.3)}.opt small{display:block;color:#667}
-.opt.off{opacity:.4}
-input[type=text]{width:100%;box-sizing:border-box;font-size:16px;padding:10px;border:1px solid #c5cfda;border-radius:8px;margin-top:4px}
-label.t{font-size:14px;color:#445;display:block;margin-top:8px}
-button{width:100%;font-size:18px;font-weight:700;padding:14px;border:0;border-radius:12px;background:#1f5fa8;color:#fff}
-.err{color:#b00020;font-size:14px;margin-top:8px;min-height:1em}
-.ban{background:#8b0000;color:#fff;border-radius:12px;padding:14px;font-size:16px;line-height:1.4;margin-bottom:14px}.bh{font-size:21px;font-weight:800;margin-bottom:6px}
-.rem{background:#8b0000;color:#fff;font-weight:700;border-radius:10px;padding:10px;margin-bottom:8px;font-size:15px}.ok{background:#fff;border:2px solid #8b0000}
-.td{background:#fff;border:2px solid #1f5fa8;border-radius:12px;padding:14px;margin:0 0 14px;scroll-margin-top:80px}
-.td h2{font-size:18px;margin:0 0 6px}.td p{margin:0 0 12px;font-size:15px;line-height:1.45}
-</style><script src="../nav.js" defer></script><script src="../usage.js" defer></script></head><body><a class="back" href="../">‹ The Bay 6 Hub</a><main>
-<div class="ban" role="alert"><div class="bh">&#128274; PLEASE DO NOT SHARE ANYTHING CONFIDENTIAL</div>This text goes to Adam Bingham (Ward Executive Secretary) and Spencer Sorenson, who only schedule appointments. We do NOT want to know why you're meeting. Just pick a category below. Anything personal is between you and the Bishop.</div>
-<h1>Request a Meeting with the Bishopric</h1>
-<p class="sub">Fill this out, tap the button, then press <b>Send</b> in your text app. Adam Bingham (Executive Secretary) and Spencer Sorenson will text you back with a time.</p>
-<section class="td" id="tithing">
-<h2>Tithing Declaration (10 Min)</h2>
-<p>Online tithing declaration scheduling has closed, but the Bishop is still happy to meet through the end of the year. Tap below and we'll find you a 10-minute time.</p>
-<button type="button" id="tithing-sms">Request a 10-Minute Time</button>
-</section>
-<form id="f" novalidate>
-<fieldset><legend>1. What's this for?</legend><div id="why"></div></fieldset>
-<fieldset id="lenSet" style="display:none"><legend>How much time do you think you'll need?</legend>
-<label class="opt"><input type="radio" name="len" value="15 minutes"><span>15 minutes</span></label>
-<label class="opt"><input type="radio" name="len" value="30 minutes"><span>30 minutes</span></label>
-<label class="opt"><input type="radio" name="len" value="Not sure"><span>Not sure</span></label></fieldset>
-<fieldset><legend>2. When works best?</legend>
-<label class="opt"><input type="radio" name="when" value="Sunday before church"><span>Sunday before church</span></label>
-<label class="opt"><input type="radio" name="when" value="Sunday after church"><span>Sunday after church</span></label>
-<label class="opt" id="tue"><input type="radio" name="when" value="Tuesday evening"><span>Tuesday evening<small id="tuenote">Bishop only. Counselors don't meet on Tuesdays.</small></span></label>
-<label class="opt"><input type="radio" name="when" value="any of these times"><span>Any of these</span></label>
-</fieldset>
-<fieldset><legend>3. Your name</legend>
-<input type="text" id="name" autocomplete="name" placeholder="First and last name">
-<label class="t">Meeting is for someone else (e.g. your youth)? Their name (optional)</label>
-<input type="text" id="for" placeholder="Optional">
-</fieldset>
-<div class="rem">Reminder: don't add any personal details to the text.</div>
-<label class="opt ok"><input type="checkbox" id="ok"><span><b>I understand: no confidential or personal details.</b></span></label>
-<button type="submit">Create my text</button><div class="err" id="err"></div>
-</form></main>
+  :root { --ink:#2b2420; --soft:#6d625a; --bg:#faf6f0; --card:#fff; --line:#e8dfd3; --navy:#005175; --gold:#c9a24a; --goldt:#8a6d22; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); overflow-x: hidden;
+    font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 560px; margin: 0 auto; padding: 16px 14px 28px; }
+  .kicker { margin: 0; font: 600 12px/1 Georgia, "Times New Roman", serif; letter-spacing: .14em; text-transform: uppercase; color: var(--goldt); }
+  h1 { font: italic 400 30px/1.15 Georgia, "Times New Roman", serif; margin: 6px 0 8px; }
+  h2 { font: italic 400 22px/1.2 Georgia, "Times New Roman", serif; margin: 0 0 10px; scroll-margin-top: 76px; }
+  h2:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .sub { margin: 0 0 14px; color: var(--soft); font-size: 15.5px; }
+  .privacy { background: #fbf6ea; border: 1px solid #e4d3a8; border-left: 5px solid var(--gold); border-radius: 14px;
+    padding: 12px 14px; margin: 0 0 14px; font-size: 15.5px; line-height: 1.45; }
+  .privacy b { color: var(--navy); }
+  .pips { display: flex; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
+  .pips li { flex: 1; text-align: center; font-size: 13px; font-weight: 700; color: var(--soft); background: var(--card);
+    border: 1px solid var(--line); border-radius: 999px; padding: 8px 6px; }
+  .pips li.on { color: #fff; background: var(--navy); border-color: var(--navy); }
+  .pips li.done { color: var(--navy); border-color: var(--gold); background: #fff8e8; }
+  .opt { display: flex; align-items: flex-start; gap: 10px; width: 100%; text-align: left; cursor: pointer; background: var(--card);
+    border: 1.5px solid var(--line); border-radius: 14px; padding: 12px; margin: 8px 0; color: inherit;
+    box-shadow: 0 1px 2px rgba(59,47,42,.05); }
+  .opt input { width: 22px; height: 22px; margin: 1px 0 0; flex: 0 0 auto; accent-color: var(--navy); }
+  .opt .lab { flex: 1; min-width: 0; }
+  .opt .lab b { display: block; font-size: 16.5px; line-height: 1.25; font-weight: 700; }
+  .opt .lab small, .opt small { display: block; color: var(--soft); font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .mins { flex: 0 0 auto; margin-top: 1px; font-weight: 700; font-size: 13px; color: var(--navy); background: #e3eef4;
+    border-radius: 999px; padding: 4px 8px; white-space: nowrap; }
+  .opt.on { border-color: var(--gold); background: #fff8e8; box-shadow: 0 0 0 3px rgba(201,162,74,.28); }
+  .opt.off { opacity: .55; }
+  .picked { margin: 0 0 8px; font-weight: 700; color: var(--navy); }
+  label.fld { display: block; font-weight: 700; color: var(--navy); margin: 14px 0 4px; }
+  label.fld span { font-weight: 600; color: var(--soft); }
+  input[type=text], textarea { width: 100%; font: 16px/1.4 inherit; padding: 12px; border: 1.5px solid var(--line);
+    border-radius: 12px; background: #fffdf9; color: var(--ink); }
+  textarea { min-height: 88px; resize: vertical; }
+  input[type=text]:focus, textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+  fieldset { border: 0; margin: 14px 0 0; padding: 0; }
+  legend { font-weight: 700; color: var(--navy); padding: 0; }
+  .hint { margin: 6px 0 0; color: var(--soft); font-size: 14px; line-height: 1.4; }
+  .youth { margin: 14px 0 0; font-size: 14.5px; }
+  .err { color: #8b3a2f; font-size: 14.5px; font-weight: 700; margin: 8px 0 0; min-height: 0; }
+  .err:empty { display: none; }
+  button.primary, a.primary { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 52px;
+    margin-top: 14px; padding: 14px 12px; border-radius: 14px; border: 2px solid var(--gold); background: var(--navy);
+    color: #fff; font: 700 18px/1.2 inherit; text-decoration: none; text-align: center; }
+  button.primary:active, a.primary:active { transform: scale(.99); }
+  button.texty { display: block; margin: 0 0 8px; padding: 10px 0; min-height: 44px; border: 0; background: transparent; color: var(--navy);
+    font: 700 15px/1.2 inherit; text-align: left; }
+  .dock { padding: 4px 0 calc(8px + env(safe-area-inset-bottom)); }
+  .done { text-align: center; padding: 12px 0 8px; }
+  .mark { width: 64px; height: 64px; margin: 8px auto 12px; border-radius: 50%; display: grid; place-items: center;
+    background: #fff8e8; border: 2px solid var(--gold); color: var(--navy); font: 700 32px/1 Georgia, serif; }
+  .done h2 { font-size: 28px; }
+  .done p { font: italic 18px/1.45 Georgia, "Times New Roman", serif; margin: 0 auto 8px; max-width: 28em; }
+  .preview { margin: 14px 0; text-align: left; white-space: pre-wrap; font: 14px/1.45 -apple-system, sans-serif;
+    background: var(--card); border: 1px dashed var(--gold); border-radius: 12px; padding: 12px; }
+  .again { display: block; width: 100%; margin-top: 8px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--line);
+    background: var(--card); color: var(--navy); font: 700 16px/1 inherit; }
+  footer { text-align: center; color: var(--soft); font-size: 12px; padding: 4px 20px 28px; }
+  [hidden] { display: none !important; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --navy:#8cc8e6; --goldt:#e2c47a; }
+    .privacy { background: #33291f; border-color: #6d5a32; }
+    .privacy b, .picked, label.fld, legend, button.texty, .mins, .again { color: var(--navy); }
+    .mins { background: #1a3344; }
+    .opt.on, .pips li.done, .mark { background: #33291f; }
+    input[type=text], textarea, .opt, .again, .preview { background: #221c18; color: var(--ink); }
+    button.primary, a.primary { background: #005175; color: #fff; }
+    .pips li.on { background: #005175; border-color: #005175; color: #fff; }
+  }
+</style>
+<script src="../nav.js" defer></script>
+<script src="../usage.js" defer></script>
+</head>
+<body>
+<a class="back" href="../">‹ The Bay 6 Hub</a>
+<main>
+  <span id="tithing"></span>
+  <p class="kicker">Farmington Bay 6th Ward</p>
+  <h1>Meet with the Bishop</h1>
+  <p class="sub">Choose the appointment, then tell us your name and when you are free. Someone will text you to set a time.</p>
+  <p class="privacy" role="note"><b>Please don't share personal details here.</b> This only helps us set up a time, and anything personal stays between you and the Bishop. What you enter goes only to the ward executive secretaries.</p>
+  <ol class="pips" aria-label="Steps">
+    <li id="pip1" class="on">1 · Appointment</li>
+    <li id="pip2">2 · Your time</li>
+  </ol>
+  <form id="f" novalidate action="#">
+    <section id="step1" aria-labelledby="h-step1">
+      <h2 id="h-step1" tabindex="-1">What kind of appointment?</h2>
+      <div id="reasons" role="radiogroup" aria-label="Appointment"></div>
+      <p class="err" id="err1" role="alert"></p>
+      <div class="dock"><button type="button" class="primary" id="next">Continue</button></div>
+    </section>
+    <section id="step2" hidden aria-labelledby="h-step2">
+      <h2 id="h-step2" tabindex="-1">When can we reach you?</h2>
+      <p class="picked" id="picked"></p>
+      <button type="button" class="texty" id="change">Choose a different appointment</button>
+      <label class="fld" for="name">Your name</label>
+      <input id="name" type="text" autocomplete="name" autocapitalize="words" placeholder="First and last name" maxlength="80">
+      <fieldset>
+        <legend>When works best?</legend>
+        <p class="hint">Choose every time that works. You can pick more than one.</p>
+        <div id="times" tabindex="-1"></div>
+      </fieldset>
+      <label class="fld" for="note">Note <span id="note-tag">optional</span></label>
+      <textarea id="note" maxlength="160" rows="3" aria-describedby="note-help" placeholder="Sunday after the second hour"></textarea>
+      <p class="hint" id="note-help">Optional, for scheduling only. Please don't include personal details; those stay between you and the Bishop.</p>
+      <p class="hint youth">This text is sent from your phone, so they can reply. Youth ages 15 and up can send it from their own phone. Younger youth, please have a parent send it.</p>
+      <p class="err" id="err2" role="alert"></p>
+      <div class="dock"><button type="submit" class="primary" id="send">Create my text</button></div>
+    </section>
+  </form>
+  <section id="done" class="done" hidden aria-live="polite">
+    <div class="mark" aria-hidden="true">✓</div>
+    <h2 id="done-h">We'll text you to set a time</h2>
+    <p id="done-p"></p>
+    <p class="preview" id="preview" hidden></p>
+    <a class="primary" href="../">Back to the Hub</a>
+    <button type="button" class="again" id="again">Start another request</button>
+  </section>
+</main>
+<footer>This is not an official website of The Church of Jesus Christ of Latter-day Saints.</footer>
+<script src="request.js"></script>
 <script>
-const NUMS=["+18019921414","+18012052600"];
-function smsHref(text){const b=encodeURIComponent(text),ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&"ontouchend" in document);
- return ios?`sms:/open?addresses=${NUMS.join(",")}&body=${b}`:`sms:${NUMS.join(",")}?body=${b}`;}
-const WHY=[["Temple recommend renewal or youth interview","15 min with a member of the Bishopric","a temple recommend interview with a member of the Bishopric","15 minutes",1],
-["First temple recommend, new to the ward (under a year), or graduating senior","15 min with the Bishop","a temple recommend interview with the Bishop","15 minutes"],
-["Ecclesiastical endorsement or opening mission papers/portal","15 min with the Bishop","an endorsement or mission papers interview with the Bishop","15 minutes"],
-["Patriarchal blessing recommend","30 min with the Bishop","a patriarchal blessing recommend interview with the Bishop","30 minutes"],
-["Melchizedek Priesthood ordination (brethren 18+)","30 min with the Bishop","a Melchizedek Priesthood interview with the Bishop","30 minutes"],
-["Mission, temple endowment, or sealing","45 min with the Bishop. For a sealing interview, bring your fiancé(e).","a mission, endowment, or sealing interview with the Bishop","45 minutes"],
-["Something else (DO NOT TELL US WHAT)","","a meeting with the Bishop",null]];
-const $=s=>document.querySelector(s),v=n=>(document.querySelector(`input[name=${n}]:checked`)||{}).value;
-$("#why").innerHTML=WHY.map((w,i)=>`<label class="opt"><input type="radio" name="why" value="${i}"><span><b>${w[0]}</b><small>${w[1]}</small></span></label>`).join("");
-function render(){const i=v("why"),w=WHY[i];
- $("#lenSet").style.display=w&&!w[3]?"":"none";
- const t=$("#tue input"),off=!!(w&&w[4]);t.disabled=off;$("#tue").classList.toggle("off",off);if(off&&t.checked)t.checked=false;}
-document.querySelectorAll("input[name=why]").forEach(r=>r.addEventListener("change",render));render();
-function body(){const w=WHY[v("why")],n=$("#name").value.trim(),f=$("#for").value.trim();
- return `Hi Adam and Spencer, this is ${n}. I'd like to schedule ${w[2]}${f?` for ${f}`:""}.\nTime needed: ${w[3]||v("len")}\nPreferred time: ${v("when")}`;}
-$("#f").addEventListener("submit",e=>{e.preventDefault();const miss=[],w=WHY[v("why")];
- if(!w)miss.push("what it's for");else if(!w[3]&&!v("len"))miss.push("how much time");if(!v("when"))miss.push("when");if($("#name").value.trim().length<2)miss.push("your name");if(!$("#ok").checked)miss.push("the \"I understand\" box");
- if(miss.length){$("#err").textContent="Please choose: "+miss.join(", ")+".";return;}$("#err").textContent="";
- location.href=smsHref(body());});
-document.getElementById("tithing-sms").addEventListener("click",function(){
- location.href=smsHref("Hi, I'd still like a tithing declaration appointment with the Bishop (10 min). Name: ");});
-window._body=body;window._smsHref=smsHref;
+(function () {
+  var M = window.Fb6Meet;
+  var form = document.getElementById("f");
+  var reasons = document.getElementById("reasons");
+  var times = document.getElementById("times");
+  var dry = /(?:^|[?&])dry=1(?:&|$)/.test(location.search) || window.__MEET_DRY_RUN === true;
+  var kept = [];
+
+  function reasonId() {
+    var el = document.querySelector("input[name=why]:checked");
+    return el ? el.value : "";
+  }
+  function selectedTimes() {
+    return Array.prototype.map.call(document.querySelectorAll("input[name=when]:checked"), function (el) { return el.value; });
+  }
+  function paint() {
+    Array.prototype.forEach.call(reasons.querySelectorAll(".opt"), function (el) {
+      el.classList.toggle("on", !!el.querySelector("input").checked);
+    });
+    Array.prototype.forEach.call(times.querySelectorAll(".opt"), function (el) {
+      var input = el.querySelector("input");
+      el.classList.toggle("on", !!(input && input.checked));
+    });
+  }
+  function fillTimes(reason) {
+    times.textContent = "";
+    M.timeChoices(reason).forEach(function (t) {
+      var label = document.createElement("label");
+      label.className = "opt" + (t.disabled ? " off" : "");
+      var input = document.createElement("input");
+      input.type = "checkbox";
+      input.name = "when";
+      input.value = t.id;
+      input.disabled = t.disabled;
+      if (!t.disabled && kept.indexOf(t.id) !== -1) input.checked = true;
+          input.addEventListener("change", function () { paint(); syncNote(); showError("err2", ""); });
+      var span = document.createElement("span");
+      span.className = "lab";
+      var b = document.createElement("b");
+      b.textContent = t.label;
+      span.appendChild(b);
+      if (t.note) {
+        var small = document.createElement("small");
+        small.textContent = t.note;
+        span.appendChild(small);
+      }
+      label.appendChild(input);
+      label.appendChild(span);
+      times.appendChild(label);
+    });
+    paint();
+    syncNote();
+  }
+  function syncNote() {
+    var other = selectedTimes().indexOf("other") !== -1;
+    document.getElementById("note-tag").textContent = other ? "needed for Other" : "optional";
+  }
+  function go(step) {
+    document.getElementById("step1").hidden = step !== 1;
+    document.getElementById("step2").hidden = step !== 2;
+    document.getElementById("done").hidden = true;
+    document.getElementById("pip1").classList.toggle("on", step === 1);
+    document.getElementById("pip1").classList.toggle("done", step > 1);
+    document.getElementById("pip2").classList.toggle("on", step === 2);
+    document.querySelector(".pips").hidden = false;
+    document.querySelector(".sub").hidden = false;
+    var head = document.getElementById(step === 1 ? "h-step1" : "h-step2");
+    if (head) head.focus();
+    window.scrollTo(0, 0);
+  }
+  function showError(id, text) {
+    var el = document.getElementById(id);
+    el.textContent = text || "";
+  }
+  function firstName(name) {
+    var parts = String(name || "").trim().split(/\s+/);
+    return parts[0] || "";
+  }
+
+  M.REASONS.forEach(function (r) {
+    var label = document.createElement("label");
+    label.className = "opt";
+    var input = document.createElement("input");
+    input.type = "radio";
+    input.name = "why";
+    input.value = r.id;
+    input.addEventListener("change", paint);
+    var span = document.createElement("span");
+    span.className = "lab";
+    var b = document.createElement("b");
+    b.textContent = r.label;
+    span.appendChild(b);
+    var mins = document.createElement("span");
+    mins.className = "mins";
+    mins.textContent = r.minutes + " min";
+    label.appendChild(input);
+    label.appendChild(span);
+    label.appendChild(mins);
+    reasons.appendChild(label);
+  });
+
+  document.getElementById("next").addEventListener("click", function () {
+    var id = reasonId();
+    if (!M.reasonById(id)) { showError("err1", "Please choose an appointment."); return; }
+    showError("err1", "");
+    var reason = M.reasonById(id);
+    document.getElementById("picked").textContent = reason.label + " · " + reason.minutes + " min";
+    fillTimes(reason);
+    go(2);
+  });
+  document.getElementById("change").addEventListener("click", function () {
+    kept = selectedTimes();
+    if (location.hash === "#tithing") history.replaceState(null, "", location.pathname + location.search);
+    go(1);
+  });
+  document.getElementById("again").addEventListener("click", function () { location.href = location.pathname; });
+  document.getElementById("name").addEventListener("input", function () { showError("err2", ""); });
+  document.getElementById("note").addEventListener("input", function () { showError("err2", ""); });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (document.getElementById("step2").hidden) { document.getElementById("next").click(); return; }
+    var input = {
+      reasonId: reasonId(),
+      name: document.getElementById("name").value,
+      times: selectedTimes(),
+      note: document.getElementById("note").value
+    };
+    var prepared = M.prepare(input, { dry: dry });
+    if (!prepared.ok) {
+      showError("err2", prepared.errors[0].message);
+      var field = prepared.errors[0].field === "note" ? "note" : prepared.errors[0].field === "name" ? "name" : "times";
+      var focus = document.getElementById(field);
+      if (focus && focus.focus) focus.focus();
+      return;
+    }
+    showError("err2", "");
+    var who = firstName(input.name);
+    document.getElementById("done-p").textContent = "Thank you, " + who + ". If your text app opened, press Send. Adam or Spencer will text you to set a time.";
+    var preview = document.getElementById("preview");
+    if (dry) {
+      preview.hidden = false;
+      preview.textContent = "Preview only. Nothing was sent.\n\n" + prepared.text;
+      preview.setAttribute("data-sms", prepared.href);
+    } else {
+      preview.hidden = true;
+    }
+    document.getElementById("step2").hidden = true;
+    document.querySelector(".pips").hidden = true;
+    document.querySelector(".sub").hidden = true;
+    document.getElementById("pip2").classList.add("done");
+    document.getElementById("done").hidden = false;
+    window._lastSms = { href: prepared.href, text: prepared.text, dry: dry };
+    window.scrollTo(0, 0);
+    if (!dry && prepared.href.indexOf("sms:") === 0) {
+      setTimeout(function () { location.href = prepared.href; }, 0);
+    }
+  });
+
+  if (location.hash === "#tithing") {
+    var tithing = document.querySelector('input[name=why][value="tithing"]');
+    if (tithing) { tithing.checked = true; paint(); document.getElementById("next").click(); }
+  }
+  window._smsHref = M.smsHref;
+})();
 </script>
 <script src="../section-seen.js" defer></script>
 <script src="../updates.js" defer></script>
-</body></html>
+</body>
+</html>
