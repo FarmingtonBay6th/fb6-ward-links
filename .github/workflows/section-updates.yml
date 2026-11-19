@@ -38,6 +38,8 @@ jobs:
         run: node --test tools/meet-request.test.js
       - name: Family history challenge
         run: node --test tools/fh-challenge.test.js tools/fh-counts-sheet.test.js
+      - name: Calendar sync push
+        run: bash tools/test_commit_calendar.sh
 
   manifest:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
