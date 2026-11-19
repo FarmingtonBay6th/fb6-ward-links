@@ -122,6 +122,22 @@ test("the page submits through the sms link and can dry-run without opening it",
   assert.match(page, /hash === "#tithing"/);
 });
 
+test("follow-up copy names the Ward Executive Secretary, Adam Bingham", () => {
+  const named = /The Ward Executive Secretary, Adam Bingham, will coordinate with you/;
+  const namedTime = /The Ward Executive Secretary, Adam Bingham, will coordinate a time with you/;
+  assert.match(page, /The Ward Executive Secretary, Adam Bingham, will coordinate a time with you\./);
+  assert.match(page, /The Ward Executive Secretary, Adam Bingham, will coordinate a time</);
+  assert.match(page, /After you send this, the Ward Executive Secretary, Adam Bingham, will coordinate a time with you\./);
+  assert.match(page, /so the Ward Executive Secretary, Adam Bingham, can coordinate with you/);
+  assert.match(home, named);
+  assert.match(sunday, named);
+  assert.match(sundayBuilder, named);
+  const surfaces = page + "\n" + home + "\n" + sunday + "\n" + sundayBuilder;
+  assert.equal(/someone will text you|we'll text you|you'll get a text|adam or spencer will text|executive secretaries will text you/i.test(surfaces), false);
+  assert.equal(/when can we reach you/i.test(page), false);
+  assert.match(page, namedTime);
+});
+
 test("home, This Sunday, and the old plan link still reach the form", () => {
   assert.match(home, /href="meet\/"/);
   assert.match(home, /href="meet\/#tithing"/);
