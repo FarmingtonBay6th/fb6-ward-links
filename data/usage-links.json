@@ -463,13 +463,6 @@
    ]
   },
   {
-   "id": "suno.com/song/~",
-   "label": "Listen on Suno",
-   "pages": [
-    "/ward-song/"
-   ]
-  },
-  {
    "id": "tel:/orgs/missionaries-in-our-area/",
    "label": "Call the Missionaries",
    "pages": [
