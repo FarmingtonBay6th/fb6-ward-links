@@ -38,6 +38,7 @@
   details.about summary { font-weight:600; color:var(--accent); cursor:pointer; min-height:28px; } details.about p { margin:8px 0 0; } details.about a { color:var(--accent); }
   .cal { display:inline-block; margin-top:6px; font-size:12px; font-weight:600; color:var(--accent); background:var(--chip); border-radius:999px; padding:2px 9px; }
   .note { color:var(--soft); font-size:13px; text-align:center; margin:18px 0 0; }
+  .calnote { color:var(--soft); font-size:14px; line-height:1.45; text-align:center; margin:14px 2px 0; }
   .addtgl { width:100%; border:0; cursor:pointer; font-family:inherit; }
   .addtgl .chev { margin-left:auto; margin-right:-4px; transition:transform .2s; } .addtgl[aria-expanded=true] .chev { transform:rotate(180deg); }
   .addtgl { padding:0 16px; justify-content:flex-start; }
@@ -73,6 +74,7 @@
   </details>
   <div class="toggle"><button id="bl" aria-pressed="true">List</button><button id="bg" aria-pressed="false">Month</button></div>
   <div id="out"></div>
+  <p class="calnote">Each auxiliary can add and delete its own events on the official ward calendar. The Bay 6 Calendar mirrors it with no login needed, so please keep the official calendar accurate. Need help? Adam Bingham is happy to train you.</p>
   <p class="note" id="synced">Copied from the official ward calendar.</p>
 </main>
 <script>
