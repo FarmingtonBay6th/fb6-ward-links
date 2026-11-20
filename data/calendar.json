@@ -1,36 +1,16 @@
 {
- "generated": "2026-11-18T23:12:54-07:00",
+ "generated": "2026-11-19T22:58:00-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
   {
-   "id": "ym20261118combinedyoungmenandyoungwoment",
-   "title": "Combined Young Men and Young Women: Turkey Bowl",
-   "calendar": "Young Men",
+   "id": "0000000000000000000000179549316calendarC",
+   "title": "Boys Primary Activity",
+   "calendar": "Stake Activities",
    "location": "",
    "allDay": false,
-   "start": "2026-11-18T19:00:00-07:00",
-   "end": "2026-11-18T20:00:00-07:00",
-   "ymQuorum": "all"
-  },
-  {
-   "id": "ym20261118combinedyoungmenrelayrace",
-   "title": "Combined Young Men: Relay Race",
-   "calendar": "Young Men",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-18T19:00:00-07:00",
-   "end": "2026-11-18T20:00:00-07:00",
-   "ymQuorum": "all"
-  },
-  {
-   "id": "0000000000000000000000175810852calendarC",
-   "title": "Ward Temple Night",
-   "calendar": "Farmington 6th Ward",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-19T19:00:00-07:00",
-   "end": "2026-11-19T21:00:00-07:00"
+   "start": "2026-11-20T13:45:00-07:00",
+   "end": "2026-11-20T17:00:00-07:00"
   },
   {
    "id": "0000000000000000000000179303377calendarC",
@@ -776,6 +756,15 @@
    "end": "2027-02-02T19:00:00-07:00"
   },
   {
+   "id": "0000000000000000000000179566116calendarC",
+   "title": "Carpet & Project Cleaning",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-02-03T00:01:00-07:00",
+   "end": "2027-02-03T23:59:00-07:00"
+  },
+  {
    "id": "0000000000000000000000179458075calendarC",
    "title": "Relief society pickleball",
    "calendar": "Stake Activities",
@@ -814,6 +803,15 @@
    "end": "2027-02-03T21:45:00-07:00"
   },
   {
+   "id": "0000000000000000000000179566266calendarC",
+   "title": "Carpet & Project Cleaning",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-02-04T00:01:00-07:00",
+   "end": "2027-02-04T23:59:00-07:00"
+  },
+  {
    "id": "0000000000000000000000177111231calendarC",
    "title": "Stake YM Basketball",
    "calendar": "Stake Activities",
@@ -830,6 +828,15 @@
    "allDay": false,
    "start": "2027-02-07T18:00:00-07:00",
    "end": "2027-02-07T19:00:00-07:00"
+  },
+  {
+   "id": "0000000000000000000000179566516calendarC",
+   "title": "Carpet & Project Cleaning",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2027-02-09T00:01:00-07:00",
+   "end": "2027-02-09T23:59:00-07:00"
   },
   {
    "id": "0000000000000000000000179458076calendarC",
@@ -1450,6 +1457,24 @@
    "end": "2027-07-10T14:00:00-06:00"
   },
   {
+   "id": "0000000000000000000000179566866calendarC",
+   "title": "Carpet & Project Cleaning",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-07-16T00:01:00-06:00",
+   "end": "2027-07-16T23:59:00-06:00"
+  },
+  {
+   "id": "0000000000000000000000179566991calendarC",
+   "title": "Carpet & Project Cleaning",
+   "calendar": "Stake Activities",
+   "location": "",
+   "allDay": false,
+   "start": "2027-07-19T00:01:00-06:00",
+   "end": "2027-07-19T23:59:00-06:00"
+  },
+  {
    "id": "0000000000000000000000179079766calendarC",
    "title": "6th Ward Boys Valiant 9-10 Activity Days",
    "calendar": "Primary",
@@ -1459,13 +1484,13 @@
    "end": "2027-07-20T19:00:00-06:00"
   },
   {
-   "id": "0000000000000000000000179079767calendarC",
-   "title": "6th Ward Boys Valiant 9-10 Activity Days",
-   "calendar": "Primary",
+   "id": "0000000000000000000000179569541calendarC",
+   "title": "Carpet & Project Cleaning",
+   "calendar": "Stake Activities",
    "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
    "allDay": false,
-   "start": "2027-08-03T18:00:00-06:00",
-   "end": "2027-08-03T19:00:00-06:00"
+   "start": "2027-08-03T00:01:00-06:00",
+   "end": "2027-08-03T23:59:00-06:00"
   },
   {
    "id": "0000000000000000000000176732857calendarC",
