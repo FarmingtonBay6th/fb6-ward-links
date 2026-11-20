@@ -20,10 +20,8 @@
   .cover { display:block; width:100%; max-width:420px; height:auto; margin:0 auto 16px; border-radius:16px; border:1px solid var(--line); box-shadow:0 4px 14px rgba(0,0,0,.08); }
   .song-title { font:italic 400 26px/1.25 Georgia, "Times New Roman", serif; text-align:center; margin:0 0 4px; }
   .by { text-align:center; color:var(--soft); margin:0 0 16px; font-size:15.5px; }
-  .player { display:block; width:100%; margin:0 0 12px; }
-  .listen { display:flex; align-items:center; justify-content:center; min-height:52px; padding:14px 16px; border-radius:16px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:18px; border:2px solid var(--gold); }
-  .listen:active { transform:scale(.99); }
-  .hymn { margin-top:22px; }
+  .player { display:block; width:100%; margin:0 0 4px; }
+  .hymn { margin-top:18px; }
   .stanza { margin:0 0 6px; }
   .stanza h2 { font:600 13px/1 Georgia, "Times New Roman", serif; letter-spacing:.14em; text-transform:uppercase; color:#8a6d22; margin:16px 0 6px; }
   .stanza p { margin:0; font:italic 17.5px/1.6 Georgia, "Times New Roman", serif; }
@@ -33,7 +31,6 @@
   @media (prefers-color-scheme: dark) {
     :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --accent:#8cc8e6; }
     .stanza h2 { color:#e2c47a; }
-    .listen { background:#005175; color:#fff; }
   }
 </style>
 <script src="../nav.js" defer></script><script src="../usage.js" defer></script>
@@ -48,8 +45,7 @@
   <img class="cover" src="../assets/ward-song-cover.jpg" width="800" height="800" alt="Jesus Christ with open arms on the shore of Farmington Bay at sunrise">
   <h2 class="song-title">Farmington Bay Sixth Ward</h2>
   <p class="by">Words and music by Adam Bingham</p>
-  <audio class="player" controls preload="metadata" src="../assets/farmington-bay-sixth-ward.mp3" aria-label="Play Farmington Bay Sixth Ward">Your browser cannot play the song here. Use Listen on Suno.</audio>
-  <a class="listen" href="https://suno.com/song/4c309673-63e8-4a03-8e49-679cf0e0cd1a" target="_blank" rel="noopener">Listen on Suno</a>
+  <audio class="player" controls preload="metadata" src="../assets/farmington-bay-sixth-ward.mp3" aria-label="Play Farmington Bay Sixth Ward">Your browser cannot play the song here.</audio>
   <div class="hymn">
     <section class="stanza">
       <h2>Verse 1</h2>
