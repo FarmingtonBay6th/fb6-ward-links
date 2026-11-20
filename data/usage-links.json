@@ -18,7 +18,8 @@
     "/orgs/temple-and-family-history/",
     "/orgs/young-men/",
     "/orgs/young-women/",
-    "/this-sunday/"
+    "/this-sunday/",
+    "/ward-song/"
    ]
   },
   {
@@ -334,6 +335,13 @@
    ]
   },
   {
+   "id": "/ward-song/",
+   "label": "Our Ward Song",
+   "pages": [
+    "/"
+   ]
+  },
+  {
    "id": "6thward-fh-pdfs.s3.amazonaws.com/df4deee1-73f5-4aeb-bb1e-30189ead3aea-Jim_Daly.pdf",
    "label": "Family History Stories: Gathering our families to Christ ›",
    "pages": [
@@ -452,6 +460,13 @@
    "label": "Text",
    "pages": [
     "/orgs/young-women/"
+   ]
+  },
+  {
+   "id": "suno.com/song/~",
+   "label": "Listen on Suno",
+   "pages": [
+    "/ward-song/"
    ]
   },
   {
