@@ -16,17 +16,17 @@
   // Lengths on the split types match the appointment list. Kept types keep their old length.
   var REASONS = [
     { id: "temple", label: "Temple Recommend", minutes: 15, tuesday: false, phrase: "a temple recommend appointment with a member of the bishopric" },
+    { id: "first-recommend", label: "First Temple Recommend, New to the Ward, or Graduating Senior", minutes: 15, tuesday: true, phrase: "a temple recommend appointment with the Bishop" },
     { id: "tithing", label: "Tithing Declaration", minutes: 10, tuesday: true, tithing: true, phrase: "a tithing declaration appointment with the Bishop" },
     { id: "youth", label: "Youth Interview", minutes: 15, tuesday: false, phrase: "a youth interview with a member of the bishopric" },
+    { id: "endorsement", label: "Ecclesiastical Endorsement", minutes: 15, tuesday: true, phrase: "an ecclesiastical endorsement appointment with the Bishop" },
     { id: "set-apart", label: "Set Apart", minutes: 10, tuesday: true, phrase: "a setting apart with the bishopric" },
+    { id: "melchizedek", label: "Melchizedek Priesthood Ordination", minutes: 30, tuesday: true, phrase: "a Melchizedek Priesthood ordination appointment with the Bishop" },
     { id: "patriarchal", label: "Patriarchal Blessing Recommend", minutes: 30, tuesday: true, phrase: "a patriarchal blessing recommend appointment with the Bishop" },
     { id: "endowment", label: "Endowment Prep", minutes: 45, tuesday: true, phrase: "an endowment preparation appointment with the Bishop" },
+    { id: "sealing", label: "Sealing", minutes: 45, tuesday: true, phrase: "a sealing appointment with the Bishop" },
     { id: "mission", label: "Mission Papers", minutes: 45, tuesday: true, phrase: "a mission papers appointment with the Bishop" },
-    { id: "endorsement", label: "Ecclesiastical Endorsement", minutes: 15, tuesday: true, phrase: "an ecclesiastical endorsement appointment with the Bishop" },
-    { id: "general", label: "General / Other", minutes: 30, tuesday: true, phrase: "a meeting with the Bishop" },
-    { id: "first-recommend", label: "First Temple Recommend, New to the Ward, or Graduating Senior", minutes: 15, tuesday: true, phrase: "a temple recommend appointment with the Bishop" },
-    { id: "melchizedek", label: "Melchizedek Priesthood Ordination", minutes: 30, tuesday: true, phrase: "a Melchizedek Priesthood ordination appointment with the Bishop" },
-    { id: "sealing", label: "Sealing", minutes: 45, tuesday: true, phrase: "a sealing appointment with the Bishop" }
+    { id: "general", label: "General / Other", minutes: 30, tuesday: true, phrase: "a meeting with the Bishop" }
   ];
 
   var TIMES = [

@@ -28,17 +28,17 @@ test("appointment list keeps the requested types, lengths, and older options", (
   const got = Object.fromEntries(M.REASONS.map((r) => [r.id, r.minutes]));
   assert.deepEqual(got, {
     temple: 15,
+    "first-recommend": 15,
     tithing: 10,
     youth: 15,
+    endorsement: 15,
     "set-apart": 10,
+    melchizedek: 30,
     patriarchal: 30,
     endowment: 45,
+    sealing: 45,
     mission: 45,
-    endorsement: 15,
-    general: 30,
-    "first-recommend": 15,
-    melchizedek: 30,
-    sealing: 45
+    general: 30
   });
   assert.equal(M.REASONS.find((r) => r.id === "temple").tuesday, false);
   assert.equal(M.REASONS.find((r) => r.id === "youth").tuesday, false);
