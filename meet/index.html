@@ -67,8 +67,10 @@
   .again { display: block; width: 100%; margin-top: 8px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--line);
     background: var(--card); color: var(--navy); font: 700 16px/1 inherit; }
   footer { text-align: center; color: var(--soft); font-size: 12px; padding: 4px 20px 28px; }
+  .pb-block { margin: 0; scroll-margin-top: 76px; }
+  .pb-block .opt { margin-bottom: 6px; }
   .prep { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--navy);
-    border-radius: 14px; padding: 12px 14px; margin: 0 0 14px; scroll-margin-top: 76px; }
+    border-radius: 14px; padding: 12px 14px; margin: 0 0 8px; scroll-margin-top: 76px; }
   .prep h2 { font: 700 16.5px/1.25 inherit; color: var(--navy); margin: 0 0 6px; }
   .prep p { margin: 0 0 4px; color: var(--soft); font-size: 15px; }
   .prep a.res + p { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
@@ -98,13 +100,6 @@
   <h1>Meet with the Bishop</h1>
   <p class="sub">Choose the appointment, then tell us your name and when you are free. The Ward Executive Secretary, Adam Bingham, will coordinate a time with you.</p>
   <p class="privacy" role="note"><b>Please don't share personal details here.</b> This only helps us set up a time, and anything personal stays between you and the Bishop. What you enter goes only to the ward executive secretaries.</p>
-  <section id="patriarchal" class="prep" aria-labelledby="h-prep">
-    <h2 id="h-prep">Preparing for a Patriarchal Blessing</h2>
-    <p>Please study these two before your appointment with the Bishop:</p>
-    <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Overview ›</a>
-    <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings-study-guide?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Gospel Study Guide ›</a>
-    <p>The Bishop will want to discuss what you learned during your study.</p>
-  </section>
   <ol class="pips" aria-label="Steps">
     <li id="pip1" class="on">1 · Appointment</li>
     <li id="pip2">2 · Your time</li>
@@ -112,14 +107,22 @@
   <form id="f" novalidate action="#">
     <section id="step1" aria-labelledby="h-step1">
       <h2 id="h-step1" tabindex="-1">What kind of appointment?</h2>
-      <div id="reasons" role="radiogroup" aria-label="Appointment"></div>
+      <div id="reasons" role="radiogroup" aria-label="Appointment">
+        <section id="patriarchal" class="prep" aria-labelledby="h-prep">
+          <h2 id="h-prep">Preparing for a Patriarchal Blessing</h2>
+          <p>Please study these two before your appointment with the Bishop:</p>
+          <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Overview ›</a>
+          <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings-study-guide?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Gospel Study Guide ›</a>
+          <p>The Bishop will want to discuss what you learned during your study.</p>
+        </section>
+      </div>
       <p class="err" id="err1" role="alert"></p>
       <div class="dock"><button type="button" class="primary" id="next">Continue</button></div>
     </section>
     <section id="step2" hidden aria-labelledby="h-step2">
       <h2 id="h-step2" tabindex="-1">When are you free?</h2>
       <p class="picked" id="picked"></p>
-      <p class="hint" id="pb-hint" hidden>Please study the two resources under Preparing for a Patriarchal Blessing, above, before your appointment with the Bishop. The Bishop will want to discuss what you learned during your study.</p>
+      <p class="hint" id="pb-hint" hidden>Please study the two resources under Preparing for a Patriarchal Blessing before your appointment with the Bishop. The Bishop will want to discuss what you learned during your study.</p>
       <button type="button" class="texty" id="change">Choose a different appointment</button>
       <label class="fld" for="name">Your name</label>
       <input id="name" type="text" autocomplete="name" autocapitalize="words" placeholder="First and last name" maxlength="80">
@@ -246,8 +249,26 @@
     label.appendChild(input);
     label.appendChild(span);
     label.appendChild(mins);
-    reasons.appendChild(label);
+    if (r.id === "patriarchal") {
+      var wrap = document.createElement("div");
+      wrap.className = "pb-block";
+      wrap.appendChild(label);
+      var card = document.getElementById("patriarchal");
+      if (card) wrap.appendChild(card);
+      reasons.appendChild(wrap);
+    } else {
+      reasons.appendChild(label);
+    }
   });
+  function revealPatriarchal() {
+    if (location.hash !== "#patriarchal") return;
+    var pb = document.querySelector('input[name=why][value="patriarchal"]');
+    if (pb) { pb.checked = true; paint(); }
+    var wrap = document.querySelector(".pb-block");
+    if (wrap && wrap.scrollIntoView) setTimeout(function () { wrap.scrollIntoView({ block: "start" }); }, 0);
+  }
+  revealPatriarchal();
+  window.addEventListener("hashchange", revealPatriarchal);
 
   document.getElementById("next").addEventListener("click", function () {
     var id = reasonId();
