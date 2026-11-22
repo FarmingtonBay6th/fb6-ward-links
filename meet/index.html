@@ -67,11 +67,18 @@
   .again { display: block; width: 100%; margin-top: 8px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--line);
     background: var(--card); color: var(--navy); font: 700 16px/1 inherit; }
   footer { text-align: center; color: var(--soft); font-size: 12px; padding: 4px 20px 28px; }
+  .prep { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--navy);
+    border-radius: 14px; padding: 12px 14px; margin: 0 0 14px; scroll-margin-top: 76px; }
+  .prep h2 { font: 700 16.5px/1.25 inherit; color: var(--navy); margin: 0 0 6px; }
+  .prep p { margin: 0 0 4px; color: var(--soft); font-size: 15px; }
+  a.res { display: block; color: var(--navy); text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 8px 0; border-top: 1px solid var(--line); }
+  a.res:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   [hidden] { display: none !important; }
   @media (prefers-color-scheme: dark) {
     :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --navy:#8cc8e6; --goldt:#e2c47a; }
     .privacy { background: #33291f; border-color: #6d5a32; }
-    .privacy b, .picked, label.fld, legend, button.texty, .mins, .again { color: var(--navy); }
+    .privacy b, .picked, label.fld, legend, button.texty, .mins, .again, .prep h2, a.res { color: var(--navy); }
     .mins { background: #1a3344; }
     .opt.on, .pips li.done, .mark { background: #33291f; }
     input[type=text], textarea, .opt, .again, .preview { background: #221c18; color: var(--ink); }
@@ -90,6 +97,12 @@
   <h1>Meet with the Bishop</h1>
   <p class="sub">Choose the appointment, then tell us your name and when you are free. The Ward Executive Secretary, Adam Bingham, will coordinate a time with you.</p>
   <p class="privacy" role="note"><b>Please don't share personal details here.</b> This only helps us set up a time, and anything personal stays between you and the Bishop. What you enter goes only to the ward executive secretaries.</p>
+  <section id="patriarchal" class="prep" aria-labelledby="h-prep">
+    <h2 id="h-prep">Preparing for a Patriarchal Blessing</h2>
+    <p>Please study these two before your appointment with the Bishop:</p>
+    <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Overview ›</a>
+    <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings-study-guide?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Gospel Study Guide ›</a>
+  </section>
   <ol class="pips" aria-label="Steps">
     <li id="pip1" class="on">1 · Appointment</li>
     <li id="pip2">2 · Your time</li>
@@ -104,6 +117,7 @@
     <section id="step2" hidden aria-labelledby="h-step2">
       <h2 id="h-step2" tabindex="-1">When are you free?</h2>
       <p class="picked" id="picked"></p>
+      <p class="hint" id="pb-hint" hidden>Please study the two resources under Preparing for a Patriarchal Blessing, above, before your appointment with the Bishop.</p>
       <button type="button" class="texty" id="change">Choose a different appointment</button>
       <label class="fld" for="name">Your name</label>
       <input id="name" type="text" autocomplete="name" autocapitalize="words" placeholder="First and last name" maxlength="80">
@@ -239,6 +253,7 @@
     showError("err1", "");
     var reason = M.reasonById(id);
     document.getElementById("picked").textContent = reason.label + " · " + reason.minutes + " min";
+    document.getElementById("pb-hint").hidden = reason.id !== "patriarchal";
     fillTimes(reason);
     go(2);
   });
