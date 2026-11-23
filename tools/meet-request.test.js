@@ -32,7 +32,7 @@ test("appointment list keeps the requested types, lengths, and older options", (
     tithing: 10,
     youth: 15,
     endorsement: 15,
-    "set-apart": 10,
+    "set-apart": 5,
     melchizedek: 30,
     patriarchal: 30,
     endowment: 45,
@@ -73,6 +73,19 @@ test("a phone number passed by mistake never enters the message", () => {
   assert.match(text, /Time needed: 15 minutes/);
   assert.match(text, /Preferred time: Sunday morning/);
   assert.equal(text.includes("Scheduling note"), false);
+});
+
+test("set apart asks for 5 minutes in the text", () => {
+  const text = M.buildMessage(sample({
+    reasonId: "set-apart",
+    times: ["sun-am", "tue"],
+    note: "After church"
+  }));
+  assert.match(text, /I'd like to schedule a setting apart with the bishopric\./);
+  assert.match(text, /Time needed: 5 minutes/);
+  assert.match(text, /Preferred time: Sunday morning, Tuesday evening/);
+  assert.match(text, /Scheduling note: After church/);
+  assert.equal(/\b10\b/.test(text), false);
 });
 
 test("tithing still uses the existing sentence and the same two recipients", () => {
