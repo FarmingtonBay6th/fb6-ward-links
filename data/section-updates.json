@@ -5,20 +5,20 @@
     "this-sunday": {
       "title": "This Sunday",
       "path": "this-sunday/",
-      "hash": "ee0dd97393283d519a9aa8d6e35ff885763a867d52b01e064a8f7296e787cc11",
-      "updated": "2026-11-19T17:46:08Z"
+      "hash": "723fe953b71862e2515660054ec9908e2ae7a6a4b0af18a4d4177709c5ca8d05",
+      "updated": "2026-11-22T00:21:36Z"
     },
     "meet": {
       "title": "Meet With The Bishop",
       "path": "meet/",
-      "hash": "380ed92cf6cb352a9c1efc7a4b19b0bcbc7632fe4fb2d8e64b1d80c331a37d85",
-      "updated": "2026-11-19T17:46:08Z"
+      "hash": "278873c2f7a22d5e17b53bd6ebba2389a661127e894342e5c1b7941cd048c8ec",
+      "updated": "2026-11-23T01:43:16Z"
     },
     "calendar": {
       "title": "Bay 6 Calendar",
       "path": "calendar/",
-      "hash": "53f42779570c330167900f3c272c9c955c388fe0357f00fa760143acfda3d2e4",
-      "updated": "2026-11-20T04:08:07Z"
+      "hash": "0ca63ad0171f28a4dd65a2779be5c734cb751ee440288fd06df47b1056ea3393",
+      "updated": "2026-11-23T06:03:28Z"
     },
     "events": {
       "title": "Upcoming Events",
@@ -35,8 +35,8 @@
     "color": {
       "title": "Crayons & Covenants",
       "path": "color/",
-      "hash": "648a375cb18b62eaf612af51e3734732b61ff1867911cdd41741b6fa128315da",
-      "updated": "2026-11-15T00:22:13Z"
+      "hash": "ebe1fbd537e182b7d8587a2ad4a726f241519c87afcc783b95950fd78cd2f2ac",
+      "updated": "2026-11-22T00:21:36Z"
     },
     "relief-society": {
       "title": "Relief Society",
@@ -53,14 +53,14 @@
     "young-women": {
       "title": "Young Women",
       "path": "orgs/young-women/",
-      "hash": "2fdc8e6ef00d4f1cc8fa1c597c3f5b3a957239a07348e2cbb85e527cf888cf99",
-      "updated": "2026-11-19T06:12:54Z"
+      "hash": "0657af7b8012c5368b3ed62f0e8f8af1e683fd55859e62770cb64c52117f715a",
+      "updated": "2026-11-21T21:29:03Z"
     },
     "young-men": {
       "title": "Young Men",
       "path": "orgs/young-men/",
-      "hash": "bc10b46eded697a746ac83334ae4630370cd7f0723e2bb888a46b472e70fa811",
-      "updated": "2026-11-19T06:12:54Z"
+      "hash": "9eb026e0804f2364f18bafd85bac22729a4416e9148558e16c0d2d9f889ce756",
+      "updated": "2026-11-20T05:58:00Z"
     },
     "sunday-school": {
       "title": "Sunday School",
@@ -71,8 +71,8 @@
     "primary": {
       "title": "Primary",
       "path": "orgs/primary/",
-      "hash": "4cfbfdd18fe1c93a33900b7aa49999fb586c96041d8470203b8ec4d172547bc0",
-      "updated": "2026-11-15T20:50:51Z"
+      "hash": "9e2a6039e6f7ea4b0e6a386228af8a363cf1cd0a24a2df99acc47815d65bda38",
+      "updated": "2026-11-20T05:58:00Z"
     },
     "temple-and-family-history": {
       "title": "Temple And Family History",
