@@ -18,8 +18,7 @@
     "/orgs/temple-and-family-history/",
     "/orgs/young-men/",
     "/orgs/young-women/",
-    "/this-sunday/",
-    "/ward-song/"
+    "/this-sunday/"
    ]
   },
   {
@@ -44,14 +43,14 @@
    ]
   },
   {
-   "id": "/color/coloring-2026-11-15.pdf",
+   "id": "/color/coloring-2026-11-22.pdf",
    "label": "⬇ Download & Print (PDF)",
    "pages": [
     "/color/"
    ]
   },
   {
-   "id": "/color/coloring-2026-11-15.png",
+   "id": "/color/coloring-2026-11-22.png",
    "label": "Download picture (PNG)",
    "pages": [
     "/color/"
@@ -328,17 +327,10 @@
    ]
   },
   {
-   "id": "/this-sunday/little-disciples-2026-11-15.png",
+   "id": "/this-sunday/little-disciples-2026-11-22.png",
    "label": "Download the kids page",
    "pages": [
     "/this-sunday/"
-   ]
-  },
-  {
-   "id": "/ward-song/",
-   "label": "Our Ward Song",
-   "pages": [
-    "/"
    ]
   },
   {
@@ -374,6 +366,13 @@
    ]
   },
   {
+   "id": "endorsements.churchofjesuschrist.org",
+   "label": "endorsements.churchofjesuschrist.org",
+   "pages": [
+    "/meet/"
+   ]
+  },
+  {
    "id": "foothold.fluid.app/home/pages/holiday-fundraiser",
    "label": "Make a donation",
    "pages": [
@@ -397,6 +396,13 @@
    "label": "Still Need a Tithing Declaration?",
    "pages": [
     "/"
+   ]
+  },
+  {
+   "id": "missionaryrecommendation.churchofjesuschrist.org",
+   "label": "missionaryrecommendation.churchofjesuschrist.org",
+   "pages": [
+    "/meet/"
    ]
   },
   {
@@ -494,27 +500,6 @@
    ]
   },
   {
-   "id": "www.churchofjesuschrist.org/media/music/songs/he-died-the-great-redeemer-died",
-   "label": "He Died! The Great Redeemer Died",
-   "pages": [
-    "/this-sunday/"
-   ]
-  },
-  {
-   "id": "www.churchofjesuschrist.org/media/music/songs/home-can-be-a-heaven-on-earth",
-   "label": "Home Can Be a Heaven on Earth",
-   "pages": [
-    "/this-sunday/"
-   ]
-  },
-  {
-   "id": "www.churchofjesuschrist.org/media/music/songs/let-us-oft-speak-kind-words",
-   "label": "Let Us Oft Speak Kind Words",
-   "pages": [
-    "/this-sunday/"
-   ]
-  },
-  {
    "id": "www.churchofjesuschrist.org/media/video/~",
    "label": "How to Add Photos to Your Family Tree",
    "pages": [
@@ -586,6 +571,27 @@
     "/orgs/temple-and-family-history/2027-plan/",
     "/orgs/temple-and-family-history/",
     "/orgs/young-men/"
+   ]
+  },
+  {
+   "id": "www.churchofjesuschrist.org/study/manual/gospel-topics/endowment",
+   "label": "About the Temple Endowment",
+   "pages": [
+    "/meet/"
+   ]
+  },
+  {
+   "id": "www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings",
+   "label": "Patriarchal Blessings — Overview ›",
+   "pages": [
+    "/meet/"
+   ]
+  },
+  {
+   "id": "www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings-study-guide",
+   "label": "Patriarchal Blessings — Gospel Study Guide ›",
+   "pages": [
+    "/meet/"
    ]
   },
   {
