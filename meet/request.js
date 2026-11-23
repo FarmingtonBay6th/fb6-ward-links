@@ -20,7 +20,7 @@
     { id: "tithing", label: "Tithing Declaration", minutes: 10, tuesday: true, tithing: true, phrase: "a tithing declaration appointment with the Bishop" },
     { id: "youth", label: "Youth Interview", minutes: 15, tuesday: false, phrase: "a youth interview with a member of the bishopric" },
     { id: "endorsement", label: "Ecclesiastical Endorsement", minutes: 15, tuesday: true, phrase: "an ecclesiastical endorsement appointment with the Bishop" },
-    { id: "set-apart", label: "Set Apart", minutes: 10, tuesday: true, phrase: "a setting apart with the bishopric" },
+    { id: "set-apart", label: "Set Apart", minutes: 5, tuesday: true, phrase: "a setting apart with the bishopric" },
     { id: "melchizedek", label: "Melchizedek Priesthood Ordination", minutes: 30, tuesday: true, phrase: "a Melchizedek Priesthood ordination appointment with the Bishop" },
     { id: "patriarchal", label: "Patriarchal Blessing Recommend", minutes: 30, tuesday: true, phrase: "a patriarchal blessing recommend appointment with the Bishop" },
     { id: "endowment", label: "Endowment Prep", minutes: 45, tuesday: true, phrase: "an endowment preparation appointment with the Bishop" },
