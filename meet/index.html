@@ -67,12 +67,14 @@
   .again { display: block; width: 100%; margin-top: 8px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--line);
     background: var(--card); color: var(--navy); font: 700 16px/1 inherit; }
   footer { text-align: center; color: var(--soft); font-size: 12px; padding: 4px 20px 28px; }
-  .pb-block { margin: 0; scroll-margin-top: 76px; }
-  .pb-block .opt { margin-bottom: 6px; }
-  .prep { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--navy);
-    border-radius: 14px; padding: 12px 14px; margin: 0 0 8px; scroll-margin-top: 76px; }
-  .prep h2 { font: 700 16.5px/1.25 inherit; color: var(--navy); margin: 0 0 6px; }
-  .prep p { margin: 0 0 4px; color: var(--soft); font-size: 15px; }
+  .pb-block { margin: 8px 0; background: var(--card); border: 1.5px solid var(--line);
+    border-left: 5px solid var(--navy); border-radius: 14px; scroll-margin-top: 76px;
+    box-shadow: 0 1px 2px rgba(59,47,42,.05); }
+  .pb-block .opt, .pb-block .opt.on { margin: 0; border: 0; border-radius: 14px 14px 0 0;
+    background: transparent; box-shadow: none; }
+  .pb-block.on { border-color: var(--gold); border-left-color: var(--navy); background: #fff8e8; box-shadow: 0 0 0 3px rgba(201,162,74,.28); }
+  .prep { padding: 2px 14px 12px; border-top: 1px solid var(--line); }
+  .prep p { margin: 0; color: var(--soft); font-size: 15px; }
   .prep a.res + p { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
   a.res { display: block; color: var(--navy); text-decoration: none; font-weight: 700; font-size: 15px;
     padding: 8px 0; border-top: 1px solid var(--line); }
@@ -81,9 +83,10 @@
   @media (prefers-color-scheme: dark) {
     :root { --ink:#f3ece4; --soft:#bfb2a5; --bg:#1d1916; --card:#27211d; --line:#3a312a; --navy:#8cc8e6; --goldt:#e2c47a; }
     .privacy { background: #33291f; border-color: #6d5a32; }
-    .privacy b, .picked, label.fld, legend, button.texty, .mins, .again, .prep h2, a.res { color: var(--navy); }
+    .privacy b, .picked, label.fld, legend, button.texty, .mins, .again, a.res { color: var(--navy); }
     .mins { background: #1a3344; }
-    .opt.on, .pips li.done, .mark { background: #33291f; }
+    .opt.on, .pips li.done, .mark, .pb-block.on { background: #33291f; }
+    .pb-block .opt.on { background: transparent; }
     input[type=text], textarea, .opt, .again, .preview { background: #221c18; color: var(--ink); }
     button.primary, a.primary { background: #005175; color: #fff; }
     .pips li.on { background: #005175; border-color: #005175; color: #fff; }
@@ -108,13 +111,14 @@
     <section id="step1" aria-labelledby="h-step1">
       <h2 id="h-step1" tabindex="-1">What kind of appointment?</h2>
       <div id="reasons" role="radiogroup" aria-label="Appointment">
-        <section id="patriarchal" class="prep" aria-labelledby="h-prep">
-          <h2 id="h-prep">Preparing for a Patriarchal Blessing</h2>
-          <p>Please study these two before your appointment with the Bishop:</p>
-          <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Overview ›</a>
-          <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings-study-guide?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Gospel Study Guide ›</a>
-          <p>The Bishop will want to discuss what you learned during your study.</p>
-        </section>
+        <div id="patriarchal" class="pb-block">
+          <div class="prep">
+            <p>Please study these two before your appointment with the Bishop:</p>
+            <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Overview ›</a>
+            <a class="res" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/patriarchal-blessings-study-guide?lang=eng" target="_blank" rel="noopener">Patriarchal Blessings — Gospel Study Guide ›</a>
+            <p>The Bishop will want to discuss what you learned during your study.</p>
+          </div>
+        </div>
       </div>
       <p class="err" id="err1" role="alert"></p>
       <div class="dock"><button type="button" class="primary" id="next">Continue</button></div>
@@ -122,7 +126,7 @@
     <section id="step2" hidden aria-labelledby="h-step2">
       <h2 id="h-step2" tabindex="-1">When are you free?</h2>
       <p class="picked" id="picked"></p>
-      <p class="hint" id="pb-hint" hidden>Please study the two resources under Preparing for a Patriarchal Blessing before your appointment with the Bishop. The Bishop will want to discuss what you learned during your study.</p>
+      <p class="hint" id="pb-hint" hidden>Please study the two Patriarchal Blessing resources before your appointment with the Bishop. The Bishop will want to discuss what you learned during your study.</p>
       <button type="button" class="texty" id="change">Choose a different appointment</button>
       <label class="fld" for="name">Your name</label>
       <input id="name" type="text" autocomplete="name" autocapitalize="words" placeholder="First and last name" maxlength="80">
@@ -170,6 +174,11 @@
     Array.prototype.forEach.call(reasons.querySelectorAll(".opt"), function (el) {
       el.classList.toggle("on", !!el.querySelector("input").checked);
     });
+    var wrap = document.getElementById("patriarchal");
+    if (wrap) {
+      var pb = wrap.querySelector('input[name=why]');
+      wrap.classList.toggle("on", !!(pb && pb.checked));
+    }
     Array.prototype.forEach.call(times.querySelectorAll(".opt"), function (el) {
       var input = el.querySelector("input");
       el.classList.toggle("on", !!(input && input.checked));
@@ -250,21 +259,23 @@
     label.appendChild(span);
     label.appendChild(mins);
     if (r.id === "patriarchal") {
-      var wrap = document.createElement("div");
-      wrap.className = "pb-block";
-      wrap.appendChild(label);
-      var card = document.getElementById("patriarchal");
-      if (card) wrap.appendChild(card);
+      var wrap = document.getElementById("patriarchal");
+      wrap.insertBefore(label, wrap.firstChild);
       reasons.appendChild(wrap);
     } else {
       reasons.appendChild(label);
     }
   });
+  Array.prototype.forEach.call(reasons.querySelectorAll("a.res"), function (a) {
+    a.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
   function revealPatriarchal() {
     if (location.hash !== "#patriarchal") return;
     var pb = document.querySelector('input[name=why][value="patriarchal"]');
     if (pb) { pb.checked = true; paint(); }
-    var wrap = document.querySelector(".pb-block");
+    var wrap = document.getElementById("patriarchal");
     if (wrap && wrap.scrollIntoView) setTimeout(function () { wrap.scrollIntoView({ block: "start" }); }, 0);
   }
   revealPatriarchal();
