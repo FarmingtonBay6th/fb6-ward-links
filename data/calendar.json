@@ -1,17 +1,8 @@
 {
- "generated": "2026-11-23T19:40:08-07:00",
+ "generated": "2026-11-24T22:53:46-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
-  {
-   "id": "0000000000000000000000179081377calendarC",
-   "title": "6th Ward Valiant Activity Days",
-   "calendar": "Primary",
-   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
-   "allDay": false,
-   "start": "2026-11-24T18:00:00-07:00",
-   "end": "2026-11-24T19:00:00-07:00"
-  },
   {
    "id": "0000000000000000000000179457741calendarC",
    "title": "Relief society pickleball",
@@ -40,6 +31,15 @@
    "start": "2026-11-25T19:00:00-07:00",
    "end": "2026-11-25T20:00:00-07:00",
    "ymQuorum": "all"
+  },
+  {
+   "id": "0000000000000000000000180192866calendarC",
+   "title": "McRushton Thanksgiving ball",
+   "calendar": "Stake Activities",
+   "location": "Eagle Shore Meetinghouse, 549 S 1525 W, Farmington",
+   "allDay": false,
+   "start": "2026-11-26T06:00:00-07:00",
+   "end": "2026-11-26T09:00:00-07:00"
   },
   {
    "id": "0000000000000000000000174415102calendarC",
