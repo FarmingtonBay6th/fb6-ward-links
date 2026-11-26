@@ -1,30 +1,11 @@
 {
- "generated": "2026-11-24T22:53:46-07:00",
+ "generated": "2026-11-25T22:44:43-07:00",
  "timezone": "America/Denver",
  "preview": false,
  "events": [
   {
-   "id": "0000000000000000000000179457741calendarC",
-   "title": "Relief society pickleball",
-   "calendar": "Stake Activities",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-25T10:00:00-07:00",
-   "end": "2026-11-25T11:30:00-07:00"
-  },
-  {
-   "id": "0000000000000000000000177429752calendarC",
-   "title": "YW- No Activity, Happy Thanksgiving!",
-   "calendar": "Young Women",
-   "location": "",
-   "allDay": false,
-   "start": "2026-11-25T19:00:00-07:00",
-   "end": "2026-11-25T20:00:00-07:00",
-   "ywClass": "all"
-  },
-  {
-   "id": "0000000000000000000000177406327calendarC",
-   "title": "All YM No Activity: Thanksgiving",
+   "id": "ym20261125noactivitythanksgiving",
+   "title": "All Young Men: No Activity \u2014 Thanksgiving",
    "calendar": "Young Men",
    "location": "",
    "allDay": false,
