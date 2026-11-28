@@ -1,0 +1,196 @@
+{
+ "date": "2026-11-29",
+ "title": "Seek the Lord, and Ye Shall Live",
+ "subtitle": "Amos; Obadiah; Jonah · Church History · Hymns",
+ "rows": 15,
+ "cols": 15,
+ "grid": [
+  "#######P####O#P",
+  "##SACKCLOTH#R#R",
+  "#A#####U###KINE",
+  "#M#S#FAMINE#O#P",
+  "JONAS##B####N#A",
+  "#S#L#S#LOTS###R",
+  "###V#I#I###HOPE",
+  "##TABERNACLE###",
+  "E##T#V#E###B#B#",
+  "A#LIVE###A#R#E#",
+  "G##O##JUDGMENT#",
+  "LION##O##R#W#H#",
+  "E###NINEVEH##E#",
+  "######A##E###L#",
+  "OBADIAH#EDOM###"
+ ],
+ "across": [
+  {
+   "n": 4,
+   "row": 1,
+   "col": 2,
+   "answer": "SACKCLOTH",
+   "clue": "What Nineveh put on, “from the greatest… to the least” (Jonah 3:5)"
+  },
+  {
+   "n": 6,
+   "row": 2,
+   "col": 11,
+   "answer": "KINE",
+   "clue": "“Hear this word, ye ___ of Bashan” (Amos 4:1)"
+  },
+  {
+   "n": 8,
+   "row": 3,
+   "col": 5,
+   "answer": "FAMINE",
+   "clue": "Not of bread, but “of hearing the words of the Lord” (Amos 8:11)"
+  },
+  {
+   "n": 9,
+   "row": 4,
+   "col": 0,
+   "answer": "JONAS",
+   "clue": "Name Jesus used for the prophet whose sign He gave (Matt. 12:39–40)"
+  },
+  {
+   "n": 11,
+   "row": 5,
+   "col": 7,
+   "answer": "LOTS",
+   "clue": "The mariners cast these, and one fell upon Jonah (Jonah 1:7)"
+  },
+  {
+   "n": 12,
+   "row": 6,
+   "col": 11,
+   "answer": "HOPE",
+   "clue": "“___ of Israel” (Hymns, no. 259)"
+  },
+  {
+   "n": 13,
+   "row": 7,
+   "col": 2,
+   "answer": "TABERNACLE",
+   "clue": "“I will raise up the ___ of David that is fallen” (Amos 9:11)"
+  },
+  {
+   "n": 16,
+   "row": 9,
+   "col": 2,
+   "answer": "LIVE",
+   "clue": "“Seek ye me, and ye shall ___” (Amos 5:4)"
+  },
+  {
+   "n": 18,
+   "row": 10,
+   "col": 6,
+   "answer": "JUDGMENT",
+   "clue": "“Let ___ run down as waters” (Amos 5:24)"
+  },
+  {
+   "n": 19,
+   "row": 11,
+   "col": 0,
+   "answer": "LION",
+   "clue": "“The ___ hath roared, who will not fear?” (Amos 3:8)"
+  },
+  {
+   "n": 20,
+   "row": 12,
+   "col": 4,
+   "answer": "NINEVEH",
+   "clue": "“That great city” Jonah was sent to cry against (Jonah 1:2)"
+  },
+  {
+   "n": 21,
+   "row": 14,
+   "col": 0,
+   "answer": "OBADIAH",
+   "clue": "Prophet whose vision is the Old Testament’s shortest book"
+  },
+  {
+   "n": 22,
+   "row": 14,
+   "col": 8,
+   "answer": "EDOM",
+   "clue": "Nation descended from Esau, condemned by Obadiah (Obad. 1:1)"
+  }
+ ],
+ "down": [
+  {
+   "n": 1,
+   "row": 0,
+   "col": 7,
+   "answer": "PLUMBLINE",
+   "clue": "What the Lord held as He stood upon a wall (Amos 7:7–8)"
+  },
+  {
+   "n": 2,
+   "row": 0,
+   "col": 12,
+   "answer": "ORION",
+   "clue": "He “maketh the seven stars and ___” (Amos 5:8)"
+  },
+  {
+   "n": 3,
+   "row": 0,
+   "col": 14,
+   "answer": "PREPARE",
+   "clue": "“___ to meet thy God, O Israel” (Amos 4:12)"
+  },
+  {
+   "n": 5,
+   "row": 2,
+   "col": 1,
+   "answer": "AMOS",
+   "clue": "Herdman and gatherer of sycomore fruit called to prophesy unto Israel (Amos 7:14–15)"
+  },
+  {
+   "n": 7,
+   "row": 3,
+   "col": 3,
+   "answer": "SALVATION",
+   "clue": "“___ is of the Lord” (Jonah 2:9)"
+  },
+  {
+   "n": 10,
+   "row": 5,
+   "col": 5,
+   "answer": "SIEVE",
+   "clue": "Israel sifted “like as corn is sifted in a ___” (Amos 9:9)"
+  },
+  {
+   "n": 12,
+   "row": 6,
+   "col": 11,
+   "answer": "HEBREW",
+   "clue": "“I am an ___; and I fear the Lord” (Jonah 1:9)"
+  },
+  {
+   "n": 14,
+   "row": 8,
+   "col": 0,
+   "answer": "EAGLE",
+   "clue": "“Though thou exalt thyself as the ___” (Obad. 1:4)"
+  },
+  {
+   "n": 15,
+   "row": 8,
+   "col": 13,
+   "answer": "BETHEL",
+   "clue": "Amaziah was its priest (Amos 7:10)"
+  },
+  {
+   "n": 17,
+   "row": 9,
+   "col": 9,
+   "answer": "AGREED",
+   "clue": "“Can two walk together, except they be ___?” (Amos 3:3)"
+  },
+  {
+   "n": 18,
+   "row": 10,
+   "col": 6,
+   "answer": "JONAH",
+   "clue": "Prophet who rose up “to flee unto Tarshish” (Jonah 1:3)"
+  }
+ ]
+}
